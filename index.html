@@ -1,0 +1,1664 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2026 云南四城单页行程手册</title>
+    <style>
+:root {
+  --bg: #f4efe5;
+  --paper: rgba(255, 251, 245, 0.9);
+  --paper-strong: #fffaf2;
+  --ink: #18231f;
+  --muted: #53645f;
+  --accent: #c65a3f;
+  --accent-deep: #97432e;
+  --teal: #3d7c76;
+  --line: rgba(24, 35, 31, 0.1);
+  --shadow: 0 18px 50px rgba(25, 42, 39, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(198, 90, 63, 0.15), transparent 28%),
+    radial-gradient(circle at top right, rgba(61, 124, 118, 0.18), transparent 32%),
+    linear-gradient(180deg, #f7f1e6 0%, #f3ecdf 40%, #efe7da 100%);
+  font-family: "Iowan Old Style", "Palatino Linotype", "Noto Serif SC", "Songti SC", serif;
+  line-height: 1.65;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+.page-shell {
+  width: min(1200px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: 28px 0 64px;
+}
+
+.handbook-banner {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr;
+  gap: 18px;
+  margin-bottom: 18px;
+  padding: 24px 26px;
+  border-radius: 28px;
+  background:
+    linear-gradient(135deg, rgba(24, 35, 31, 0.92), rgba(61, 124, 118, 0.86)),
+    var(--paper);
+  color: #fff7ef;
+  box-shadow: var(--shadow);
+}
+
+.handbook-title {
+  margin: 0;
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.05;
+}
+
+.handbook-text {
+  margin: 14px 0 0;
+  max-width: 58ch;
+  color: rgba(255, 247, 239, 0.82);
+}
+
+.handbook-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 10px;
+}
+
+.handbook-meta span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.quick-nav {
+  position: sticky;
+  top: 12px;
+  z-index: 20;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  margin: 0 0 10px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 999px;
+  background: rgba(255, 250, 242, 0.74);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 12px 36px rgba(24, 35, 31, 0.08);
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.quick-nav a {
+  text-decoration: none;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid var(--line);
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 24px;
+  align-items: stretch;
+  padding: 20px 0 16px;
+}
+
+.hero-copy,
+.hero-panel,
+.section,
+.day-card,
+.check-card,
+.reason-card {
+  backdrop-filter: blur(12px);
+}
+
+.hero-copy,
+.hero-panel {
+  background: var(--paper);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 28px;
+  padding: 34px;
+  box-shadow: var(--shadow);
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+}
+
+.hero h1,
+.section h2 {
+  margin: 0;
+  line-height: 1.1;
+}
+
+.hero h1 {
+  font-size: clamp(2.3rem, 4vw, 4.5rem);
+  max-width: 10ch;
+}
+
+.hero-summary,
+.section-note,
+.gallery-copy p,
+.reason-card p,
+.check-card p,
+.day-card p {
+  color: var(--muted);
+}
+
+.hero-summary {
+  font-size: 1.04rem;
+  max-width: 58ch;
+  margin: 18px 0 0;
+}
+
+.hero-badges,
+.hero-actions,
+.source-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hero-badges {
+  margin-top: 22px;
+}
+
+.hero-badges span,
+.source-links span {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 0.92rem;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.hero-actions {
+  margin-top: 26px;
+}
+
+.hero-actions a,
+.source-links a {
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 10px 14px;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.hero-actions a:first-child,
+.source-links a {
+  background: var(--ink);
+  color: #fff;
+}
+
+.hero-actions a:last-child {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.hero-actions a:hover,
+.source-links a:hover {
+  transform: translateY(-2px);
+}
+
+.route-card {
+  padding: 20px;
+  border-radius: 20px;
+  background:
+    linear-gradient(145deg, rgba(198, 90, 63, 0.14), rgba(61, 124, 118, 0.12)),
+    var(--paper-strong);
+  border: 1px solid rgba(198, 90, 63, 0.18);
+}
+
+.route-label {
+  margin: 0 0 10px;
+  color: var(--accent-deep);
+  font-weight: 700;
+}
+
+.route-line {
+  margin: 0;
+  font-size: 1.08rem;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.stat-grid article {
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--line);
+}
+
+.stat-grid strong {
+  display: block;
+  font-size: 1.6rem;
+}
+
+.stat-grid span {
+  color: var(--muted);
+}
+
+.section {
+  margin-top: 24px;
+  padding: 30px;
+  border-radius: 28px;
+  background: rgba(255, 250, 242, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: var(--shadow);
+}
+
+.section-head {
+  margin-bottom: 22px;
+}
+
+.manual-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.manual-card {
+  padding: 20px;
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(250, 244, 235, 0.78));
+  border: 1px solid var(--line);
+}
+
+.manual-tag {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(61, 124, 118, 0.12);
+  color: var(--teal);
+  font-size: 0.84rem;
+}
+
+.manual-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.12rem;
+}
+
+.manual-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.overview-band {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.overview-card {
+  padding: 20px;
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(247, 241, 230, 0.82));
+  border: 1px solid var(--line);
+}
+
+.overview-kicker {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(198, 90, 63, 0.12);
+  color: var(--accent-deep);
+  font-size: 0.85rem;
+}
+
+.overview-card strong {
+  display: block;
+  font-size: 1.1rem;
+  line-height: 1.45;
+}
+
+.overview-card p {
+  margin: 10px 0 0;
+  color: var(--muted);
+}
+
+.route-strip {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.route-strip span {
+  position: relative;
+  padding: 14px 12px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--line);
+  text-align: center;
+  font-size: 0.93rem;
+}
+
+.section h2 {
+  font-size: clamp(1.7rem, 2.5vw, 2.7rem);
+}
+
+.reason-grid,
+.check-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.reason-card,
+.check-card {
+  padding: 22px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid var(--line);
+}
+
+.reason-card h3,
+.check-card h3,
+.gallery-copy h3 {
+  margin: 0 0 10px;
+  font-size: 1.15rem;
+}
+
+.reason-card p,
+.check-card p,
+.gallery-copy p {
+  margin: 0;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.gallery-card {
+  overflow: hidden;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--line);
+}
+
+.gallery-card.wide {
+  grid-column: 1 / -1;
+}
+
+.gallery-card img {
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.gallery-card.wide img {
+  aspect-ratio: 18 / 8;
+}
+
+.gallery-copy {
+  padding: 20px;
+}
+
+.source-links {
+  margin-top: 16px;
+}
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.matrix-card {
+  padding: 22px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid var(--line);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.matrix-head {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 14px;
+}
+
+.matrix-head span {
+  color: var(--accent-deep);
+  font-size: 0.92rem;
+}
+
+.matrix-head strong {
+  font-size: 1.2rem;
+}
+
+.matrix-card p {
+  margin: 0 0 10px;
+  color: var(--muted);
+}
+
+.matrix-card p:last-child {
+  margin-bottom: 0;
+}
+
+.day-card {
+  padding: 20px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--line);
+  min-height: 210px;
+}
+
+.day-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.day-meta span {
+  color: var(--accent-deep);
+  font-size: 0.92rem;
+}
+
+.day-meta strong {
+  font-size: 1.18rem;
+}
+
+.day-card p {
+  margin: 0;
+}
+
+.day-card .minor {
+  margin-top: 12px;
+  font-size: 0.95rem;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.74);
+}
+
+.mobile-transport-list {
+  display: none;
+}
+
+.mobile-transport-card {
+  padding: 18px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid var(--line);
+}
+
+.mobile-transport-card span {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: var(--accent-deep);
+  font-size: 0.9rem;
+}
+
+.mobile-transport-card strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.08rem;
+}
+
+.mobile-transport-card p {
+  margin: 0 0 6px;
+  color: var(--muted);
+}
+
+.mobile-transport-card p:last-child {
+  margin-bottom: 0;
+}
+
+.compact-sheet {
+  background:
+    linear-gradient(180deg, rgba(255, 248, 239, 0.92), rgba(255, 252, 246, 0.92));
+}
+
+.summary-sheet {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.summary-sheet article {
+  padding: 18px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid var(--line);
+}
+
+.summary-sheet strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.06rem;
+}
+
+.summary-sheet p {
+  margin: 0 0 8px;
+  color: var(--muted);
+}
+
+.summary-sheet p:last-child {
+  margin-bottom: 0;
+}
+
+.source-board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.source-item {
+  padding: 20px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid var(--line);
+}
+
+.source-item strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.08rem;
+}
+
+.source-item p {
+  margin: 0 0 14px;
+  color: var(--muted);
+}
+
+.source-item a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff;
+  text-decoration: none;
+}
+
+.page-footer {
+  margin-top: 22px;
+  padding: 18px 22px;
+  border-radius: 22px;
+  background: rgba(255, 250, 242, 0.74);
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.page-footer p {
+  margin: 0 0 6px;
+}
+
+.page-footer p:last-child {
+  margin-bottom: 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 920px;
+}
+
+th,
+td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid rgba(24, 35, 31, 0.08);
+  vertical-align: top;
+}
+
+thead th {
+  background: rgba(61, 124, 118, 0.1);
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+
+tbody td {
+  color: var(--muted);
+}
+
+@media (max-width: 980px) {
+  .hero,
+  .handbook-banner,
+  .reason-grid,
+  .check-grid,
+  .gallery-grid,
+  .timeline,
+  .matrix-grid,
+  .overview-band,
+  .source-board,
+  .manual-grid,
+  .summary-sheet {
+    grid-template-columns: 1fr;
+  }
+
+  .route-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .gallery-card.wide {
+    grid-column: auto;
+  }
+
+  .hero h1 {
+    max-width: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-shell {
+    width: min(100vw - 20px, 1200px);
+    padding-top: 12px;
+    padding-bottom: 32px;
+  }
+
+  body {
+    line-height: 1.55;
+  }
+
+  .hero-copy,
+  .hero-panel,
+  .section,
+  .handbook-banner {
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .quick-nav {
+    position: static;
+    padding: 10px;
+    border-radius: 18px;
+    margin-bottom: 14px;
+  }
+
+  .quick-nav a {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+
+  .handbook-title {
+    font-size: 1.7rem;
+  }
+
+  .hero {
+    gap: 14px;
+    padding: 8px 0 12px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+    line-height: 1.02;
+  }
+
+  .hero-summary {
+    margin-top: 14px;
+    font-size: 0.96rem;
+  }
+
+  .section {
+    margin-top: 16px;
+  }
+
+  .section-head {
+    margin-bottom: 16px;
+  }
+
+  .section h2 {
+    font-size: 1.5rem;
+  }
+
+  .route-strip {
+    grid-template-columns: 1fr;
+    margin-bottom: 18px;
+  }
+
+  .reason-card,
+  .check-card,
+  .overview-card,
+  .manual-card,
+  .matrix-card,
+  .day-card,
+  .source-item,
+  .summary-sheet article {
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .gallery-card,
+  .gallery-card.wide {
+    border-radius: 20px;
+  }
+
+  .gallery-card img,
+  .gallery-card.wide img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .gallery-copy {
+    padding: 16px;
+  }
+
+  .gallery-copy h3,
+  .matrix-head strong,
+  .day-meta strong {
+    font-size: 1.05rem;
+  }
+
+  .source-links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .source-links span {
+    grid-column: 1 / -1;
+  }
+
+  .table-wrap {
+    display: none;
+  }
+
+  .mobile-transport-list {
+    display: grid;
+    gap: 12px;
+  }
+
+  .hero-actions a,
+  .hero-badges span,
+  .source-item a {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .source-links a {
+    width: auto;
+    min-height: 40px;
+    padding: 10px 12px;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+@page {
+  size: A4 portrait;
+  margin: 10mm;
+}
+
+@media print {
+  body {
+    background: #fff;
+    color: #111;
+    font-size: 11pt;
+    line-height: 1.45;
+  }
+
+  .page-shell {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .quick-nav {
+    display: none;
+  }
+
+  .handbook-banner,
+  .hero-copy,
+  .hero-panel,
+  .section,
+  .day-card,
+  .matrix-card,
+  .manual-card,
+  .overview-card,
+  .source-item,
+  .summary-sheet article,
+  .page-footer,
+  .check-card,
+  .reason-card {
+    background: #fff !important;
+    color: #111 !important;
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+    backdrop-filter: none !important;
+  }
+
+  .handbook-text,
+  .hero-summary,
+  .section-note,
+  .gallery-copy p,
+  .reason-card p,
+  .check-card p,
+  .day-card p,
+  .matrix-card p,
+  .overview-card p,
+  .source-item p,
+  .summary-sheet p,
+  .page-footer {
+    color: #333 !important;
+  }
+
+  .hero,
+  .overview-band,
+  .reason-grid,
+  .gallery-grid,
+  .matrix-grid,
+  .timeline,
+  .check-grid,
+  .source-board,
+  .summary-sheet,
+  .manual-grid {
+    gap: 10px;
+  }
+
+  .hero,
+  .gallery-grid,
+  .matrix-grid,
+  .timeline,
+  .source-board,
+  .summary-sheet,
+  .manual-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .gallery-card.wide {
+    grid-column: auto;
+  }
+
+  .section,
+  .handbook-banner,
+  .hero-copy,
+  .hero-panel {
+    margin-top: 10px;
+    padding: 14px;
+    border-radius: 14px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .gallery-card,
+  .day-card,
+  .matrix-card,
+  .source-item,
+  .summary-sheet article,
+  .manual-card,
+  .overview-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .gallery-card img,
+  .gallery-card.wide img {
+    aspect-ratio: 16 / 10;
+    max-height: 58mm;
+  }
+
+  table {
+    min-width: 0;
+    font-size: 10pt;
+  }
+
+  th,
+  td {
+    padding: 8px 10px;
+  }
+
+  a {
+    color: #111 !important;
+    text-decoration: none;
+  }
+}
+    </style>
+  </head>
+  <body>
+    <div class="page-shell">
+      <section class="handbook-banner">
+        <div>
+          <p class="eyebrow">单页手册版</p>
+          <h1 class="handbook-title">2026 云南四城联游手册</h1>
+        </div>
+      </section>
+
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">2026-04-17 至 2026-04-26</p>
+          <h1>武汉 / 西安出发的云南四城联游</h1>
+          <p class="hero-summary">
+            调整后，这条线收成了更顺的四城版：昆明、大理、腾冲、芒市。进出云南用飞机，省内尽量用动车，
+            腾冲和芒市只在无法通高铁的路段改用包车，整段行程会比原方案更从容。
+          </p>
+          <div class="hero-badges">
+            <span>4 人同行</span>
+            <span>10 天 8 晚</span>
+            <span>铁路优先</span>
+            <span>武汉 04-25 晚返</span>
+          </div>
+          <div class="hero-actions">
+            <a href="./trip-plan.md">查看 Markdown 行程</a>
+            <a href="#transport">查看交通参考</a>
+          </div>
+        </div>
+        <div class="hero-panel">
+          <div class="route-card">
+            <p class="route-label">推荐路线</p>
+            <p class="route-line">
+              武汉 / 西安 → 昆明 → 大理 → 保山 → 腾冲 → 芒市 → 武汉 / 西安
+            </p>
+          </div>
+          <div class="stat-grid">
+            <article>
+              <strong>2 段</strong>
+              <span>跨省飞机</span>
+            </article>
+            <article>
+              <strong>2 段</strong>
+              <span>已明确动车</span>
+            </article>
+            <article>
+              <strong>3 段</strong>
+              <span>重点慢玩城市 / 区段</span>
+            </article>
+            <article>
+              <strong>2 晚</strong>
+              <span>芒市收尾缓冲</span>
+            </article>
+          </div>
+        </div>
+      </header>
+
+      <nav class="quick-nav">
+        <a href="#overview">总览</a>
+        <a href="#gallery">重点景点</a>
+        <a href="#daily-matrix">每日矩阵</a>
+        <a href="#transport">交通参考</a>
+      </nav>
+
+      <main>
+        <section class="section" id="overview">
+          <div class="section-head">
+            <p class="eyebrow">路线原则</p>
+            <h2>这一版为什么这样排</h2>
+          </div>
+          <div class="manual-grid">
+            <article class="manual-card">
+              <span class="manual-tag">一眼看懂</span>
+              <h3>总路线</h3>
+              <p>武汉 / 西安飞昆明集合，昆明进、大理慢玩、腾冲泡温泉，最后在芒市用两晚把节奏放慢后分头返程。</p>
+            </article>
+            <article class="manual-card">
+              <span class="manual-tag">订票顺序</span>
+              <h3>先锁三段</h3>
+              <p>先锁去昆明航班，再锁昆明到大理和大理到保山动车，最后优先锁芒市返汉与西安组返程方案。</p>
+            </article>
+            <article class="manual-card">
+              <span class="manual-tag">住宿建议</span>
+              <h3>全程落点</h3>
+              <p>昆明站 / 塘子巷，大理古城南门，腾冲和顺古镇，芒市大金塔附近。四段落点都偏实用，不走花哨酒店线。</p>
+            </article>
+            <article class="manual-card">
+              <span class="manual-tag">风险提醒</span>
+              <h3>关键节点</h3>
+              <p>最大变数已经不是省内转场，而是返程分组。武汉组最好 04-25 晚返，西安组则在 04-25 晚返和 04-26 早返之间二选一。</p>
+            </article>
+          </div>
+          <div class="overview-band">
+            <article class="overview-card">
+              <span class="overview-kicker">停留结构</span>
+              <strong>昆明 2 晚 + 大理 2 晚 + 腾冲 2 晚 + 芒市 2 晚</strong>
+              <p>昆明承担落地缓冲，腾冲和芒市都能完整留出一天，不需要再压缩成赶路模式。</p>
+            </article>
+            <article class="overview-card">
+              <span class="overview-kicker">交通逻辑</span>
+              <strong>飞机进出，昆大保用铁路，腾冲芒市用包车兜底</strong>
+              <p>去掉南线后，省内不再需要额外补飞或赌冷门直达，整体更稳。</p>
+            </article>
+            <article class="overview-card">
+              <span class="overview-kicker">执行重点</span>
+              <strong>先锁返程，再决定西安组是 25 晚返还是 26 早返</strong>
+              <p>武汉组以 04-25 晚直飞为主，西安组则优先判断是否接受次晨直飞。</p>
+            </article>
+          </div>
+          <div class="route-strip">
+            <span>武汉 / 西安起飞</span>
+            <span>昆明轻落地</span>
+            <span>大理环洱海</span>
+            <span>保山换乘</span>
+            <span>腾冲温泉</span>
+            <span>芒市双塔</span>
+            <span>芒市慢收尾</span>
+            <span>分组返程</span>
+          </div>
+          <div class="reason-grid">
+            <article class="reason-card">
+              <h3>先松后紧</h3>
+              <p>
+                昆明只做落地缓冲，不把石林、九乡这种远线硬塞进来，把体力留给大理和滇西。
+              </p>
+            </article>
+            <article class="reason-card">
+              <h3>把高铁优势吃满</h3>
+              <p>
+                昆明到大理、大理到保山两段用动车，能显著压缩省内长距离移动的疲惫感。
+              </p>
+            </article>
+            <article class="reason-card">
+              <h3>滇西只抓核心体验</h3>
+              <p>
+                腾冲抓和顺、热海、温泉，芒市抓双塔和傣味，不做大量“到此一游”式分散打卡。
+              </p>
+            </article>
+            <article class="reason-card">
+              <h3>芒市改成慢收尾</h3>
+              <p>
+                调整后，芒市不再只是匆匆住一晚，而是能留出一个完整白天给城市氛围、傣味和轻松收尾。
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="gallery">
+          <div class="section-head">
+            <p class="eyebrow">主视觉景点</p>
+            <h2>四个城市的重点游玩面</h2>
+            <p class="section-note">
+              小红书网页版搜索结果需要登录后才能完整查看，因此页面保留了对应的
+              <strong>小红书搜索入口</strong>。每张卡片下方都拆成了多个关键词入口，方便你们继续补机位、餐厅和最新玩法。
+            </p>
+          </div>
+
+          <div class="gallery-grid">
+            <article class="gallery-card">
+              <img
+                src="https://img1.qunarzz.com/travel/d2/1605/10/0c8224e482e3b2f7.jpg_r_720x480x95_37fa6074.jpg"
+                alt="昆明斗南花市"
+                loading="lazy"
+              />
+              <div class="gallery-copy">
+                <h3>昆明 | 斗南花市与滇池落日</h3>
+                <p>
+                  斗南负责把云南的色彩拉满，海埂大坝负责把第一天的节奏放慢，适合作为落地日的城市切入口。
+                </p>
+                <div class="source-links">
+                  <a
+                    href="https://www.xiaohongshu.com/search_result?keyword=%E6%96%97%E5%8D%97%E8%8A%B1%E5%B8%82"
+                    target="_blank"
+                    rel="noreferrer"
+                    >斗南花市</a
+                  >
+                  <a
+                    href="https://www.xiaohongshu.com/search_result?keyword=%E6%B5%B7%E5%9F%82%E5%A4%A7%E5%9D%9D"
+                    target="_blank"
+                    rel="noreferrer"
+                    >海埂大坝</a
+                  >
+                  <a
+                    href="https://www.xiaohongshu.com/search_result?keyword=%E6%98%86%E6%98%8E%E8%80%81%E8%A1%97"
+                    target="_blank"
+                    rel="noreferrer"
+                    >昆明老街</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="gallery-card">
+              <img
+                src="https://dimg09.c-ctrip.com/images/100e0s000000i0zc5A4D8_C_671_10000_Q90.jpg"
+                alt="大理古城和洱海"
+                loading="lazy"
+              />
+              <div class="gallery-copy">
+                <h3>大理 | 古城、喜洲、双廊与环洱海</h3>
+                <p>
+                  你们在大理最值得花掉整块白天。建议四个人直接包车，把喜洲和双廊之间最舒服的停靠点都留给自己。
+                </p>
+                <div class="source-links">
+                  <a
+                    href="https://www.xiaohongshu.com/search_result?keyword=%E5%A4%A7%E7%90%86%E5%8F%A4%E5%9F%8E"
+                    target="_blank"
+                    rel="noreferrer"
+                    >大理古城</a
+                  >
+                  <a
+                    href="https://www.xiaohongshu.com/search_result?keyword=%E5%96%9C%E6%B4%B2%E5%8F%A4%E9%95%87"
+                    target="_blank"
+                    rel="noreferrer"
+                    >喜洲古镇</a
+                  >
+                  <a
+                    href="https://www.xiaohongshu.com/search_result?keyword=%E5%8F%8C%E5%BB%8A"
+                    target="_blank"
+                    rel="noreferrer"
+                    >双廊</a
+                  >
+                  <a
+                    href="https://www.xiaohongshu.com/search_result?keyword=%E6%B4%B1%E6%B5%B7"
+                    target="_blank"
+                    rel="noreferrer"
+                    >洱海</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="gallery-card">
+              <img
+                src="https://www.pop-photo.com.cn/data/attachment/forum/201711/26/154919gh6p3sp6mu3j0sus.jpg"
+                alt="腾冲和顺古镇与热海"
+                loading="lazy"
+              />
+              <div class="gallery-copy">
+                <h3>腾冲 | 和顺古镇、热海与温泉</h3>
+                <p>
+                  腾冲不需要贪多。只要把和顺古镇的慢、热海的地貌和温泉的放松连起来，这一站就值回时间成本。
+                </p>
+                <div class="source-links">
+                  <a
+                    href="https://www.xiaohongshu.com/search_result?keyword=%E5%92%8C%E9%A1%BA%E5%8F%A4%E9%95%87"
+                    target="_blank"
+                    rel="noreferrer"
+                    >和顺古镇</a
+                  >
+                  <a
+                    href="https://www.xiaohongshu.com/search_result?keyword=%E7%83%AD%E6%B5%B7"
+                    target="_blank"
+                    rel="noreferrer"
+                    >热海</a
+                  >
+                  <a
+                    href="https://www.xiaohongshu.com/search_result?keyword=%E8%85%BE%E5%86%B2%E6%B8%A9%E6%B3%89"
+                    target="_blank"
+                    rel="noreferrer"
+                    >腾冲温泉</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="gallery-card">
+              <img
+                src="http://m.tuniucdn.com/fb2/t1/G2/M00/49/EA/Cii-T1e-TNGISvvwAAy7V32VWhgAABsJQNY_uUADLtv810_w500_h280_c1_t0.jpg"
+                alt="芒市勐焕大金塔"
+                loading="lazy"
+              />
+              <div class="gallery-copy">
+                <h3>芒市 | 大金塔、银塔与两晚收尾</h3>
+                <p>
+                  这次芒市不再只是一个过夜点，而是全程最后两晚的收尾城市。白天看双塔，晚上吃傣味，第二天还能继续慢逛。
+                </p>
+                <div class="source-links">
+                  <a
+                    href="https://www.xiaohongshu.com/search_result?keyword=%E5%8B%90%E7%84%95%E5%A4%A7%E9%87%91%E5%A1%94"
+                    target="_blank"
+                    rel="noreferrer"
+                    >勐焕大金塔</a
+                  >
+                  <a
+                    href="https://www.xiaohongshu.com/search_result?keyword=%E9%93%B6%E5%A1%94"
+                    target="_blank"
+                    rel="noreferrer"
+                    >银塔</a
+                  >
+                  <a
+                    href="https://www.xiaohongshu.com/search_result?keyword=%E5%82%A3%E6%97%8F%E5%8F%A4%E9%95%87"
+                    target="_blank"
+                    rel="noreferrer"
+                    >傣族古镇</a
+                  >
+                  <a
+                    href="https://www.xiaohongshu.com/search_result?keyword=%E8%8A%92%E5%B8%82%E5%92%96%E5%95%A1"
+                    target="_blank"
+                    rel="noreferrer"
+                    >芒市咖啡</a
+                  >
+                  <a
+                    href="https://www.xiaohongshu.com/search_result?keyword=%E8%8A%92%E5%B8%82%E5%82%A3%E5%91%B3"
+                    target="_blank"
+                    rel="noreferrer"
+                    >芒市傣味</a
+                  >
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="daily-matrix">
+          <div class="section-head">
+            <p class="eyebrow">执行矩阵</p>
+            <h2>按天拆开的出发、景点、用餐与住宿</h2>
+            <p class="section-note">
+              这一块是给实际订票和安排行李用的，比上面的行程节奏更偏执行层。
+            </p>
+          </div>
+          <div class="matrix-grid">
+            <article class="matrix-card">
+              <div class="matrix-head">
+                <span>04-17 周五</span>
+                <strong>去程飞昆明</strong>
+              </div>
+              <p><b>出发 - 到达</b> 武汉组 22:25 起飞，00:35+1 落地；西安组 21:15 起飞，23:35 落地。</p>
+              <p><b>景点</b> 不排景点，以会合和入住为主。</p>
+              <p><b>用餐</b> 机场简餐，落地后可补菌汤米线或夜宵。</p>
+              <p><b>酒店区域</b> 昆明站 / 塘子巷 / 南屏街。</p>
+            </article>
+            <article class="matrix-card">
+              <div class="matrix-head">
+                <span>04-18 周六</span>
+                <strong>昆明轻游</strong>
+              </div>
+              <p><b>出发 - 到达</b> 10:00 出门，21:30 回酒店。</p>
+              <p><b>景点</b> 斗南花市、海埂大坝、南强街巷 / 昆明老街。</p>
+              <p><b>用餐</b> 午餐斗南 / 滇池片区，晚餐南强街夜市。</p>
+              <p><b>酒店区域</b> 昆明站 / 塘子巷 / 南屏街。</p>
+            </article>
+            <article class="matrix-card">
+              <div class="matrix-head">
+                <span>04-19 周日</span>
+                <strong>昆明 → 大理</strong>
+              </div>
+              <p><b>出发 - 到达</b> 06:51 昆明南发车，09:08 抵大理。</p>
+              <p><b>景点</b> 大理古城，傍晚可补三塔外围或苍山日落点。</p>
+              <p><b>用餐</b> 午餐古城，晚餐古城内白族菜或小酒馆。</p>
+              <p><b>酒店区域</b> 大理古城南门附近。</p>
+            </article>
+            <article class="matrix-card">
+              <div class="matrix-head">
+                <span>04-20 周一</span>
+                <strong>大理环洱海</strong>
+              </div>
+              <p><b>出发 - 到达</b> 09:00 包车出发，20:30 回古城。</p>
+              <p><b>景点</b> 喜洲古镇、海舌 / 西岸、双廊、东线日落。</p>
+              <p><b>用餐</b> 午餐喜洲，下午咖啡 / 轻食，晚餐回古城。</p>
+              <p><b>酒店区域</b> 大理古城南门附近。</p>
+            </article>
+            <article class="matrix-card">
+              <div class="matrix-head">
+                <span>04-21 周二</span>
+                <strong>大理 → 保山 → 腾冲</strong>
+              </div>
+              <p><b>出发 - 到达</b> 14:39 大理发车，16:15 到保山，18:30 前后抵腾冲。</p>
+              <p><b>景点</b> 傍晚主玩和顺古镇，晚上泡温泉。</p>
+              <p><b>用餐</b> 午餐大理，晚餐和顺古镇 / 温泉酒店。</p>
+              <p><b>酒店区域</b> 和顺古镇 / 热海路。</p>
+            </article>
+            <article class="matrix-card">
+              <div class="matrix-head">
+                <span>04-22 周三</span>
+                <strong>腾冲深度日</strong>
+              </div>
+              <p><b>出发 - 到达</b> 09:00 出门，20:30 回酒店。</p>
+              <p><b>景点</b> 热海景区、温泉，视体力补叠水河瀑布或火山点位。</p>
+              <p><b>用餐</b> 午餐热海片区，晚餐温泉酒店或和顺古镇。</p>
+              <p><b>酒店区域</b> 和顺古镇 / 热海路。</p>
+            </article>
+            <article class="matrix-card">
+              <div class="matrix-head">
+                <span>04-23 周四</span>
+                <strong>腾冲 → 芒市</strong>
+              </div>
+              <p><b>出发 - 到达</b> 10:00 腾冲出发，12:30 抵芒市。</p>
+              <p><b>景点</b> 勐焕大金塔、银塔、傣族古镇。</p>
+              <p><b>用餐</b> 午餐路上 / 抵达后，晚餐芒市傣味。</p>
+              <p><b>酒店区域</b> 芒市大金塔附近。</p>
+            </article>
+            <article class="matrix-card">
+              <div class="matrix-head">
+                <span>04-24 周五</span>
+                <strong>芒市第二个完整游玩日</strong>
+              </div>
+              <p><b>出发 - 到达</b> 09:30 出门，21:00 回酒店。</p>
+              <p><b>景点</b> 树包塔 / 城市街区、咖啡店、双塔二刷或傣族古镇慢逛。</p>
+              <p><b>用餐</b> 午餐市区；下午咖啡 / 甜品；晚餐继续吃德宏傣味。</p>
+              <p><b>酒店区域</b> 芒市大金塔附近。</p>
+            </article>
+            <article class="matrix-card">
+              <div class="matrix-head">
+                <span>04-25 周六</span>
+                <strong>分组返程日</strong>
+              </div>
+              <p><b>出发 - 到达</b> 武汉组白天仍可正常游玩，傍晚返汉；西安组若坚持当天走，优先晚班一转。</p>
+              <p><b>景点</b> 武汉组可继续在芒市市区慢逛；西安组以机场衔接为主。</p>
+              <p><b>用餐</b> 午餐芒市市区；晚餐机场简餐或机上。</p>
+              <p><b>酒店区域</b> 武汉组当晚返程；西安组如改次晨直飞，可住芒市机场周边。</p>
+            </article>
+            <article class="matrix-card">
+              <div class="matrix-head">
+                <span>04-26 周日</span>
+                <strong>西安组早班返程</strong>
+              </div>
+              <p><b>出发 - 到达</b> 08:20 起飞，10:50 左右抵西安。</p>
+              <p><b>景点</b> 不安排新景点，以轻松返程为主。</p>
+              <p><b>用餐</b> 机场早餐或机上。</p>
+              <p><b>酒店区域</b> 行程结束。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <p class="eyebrow">每日安排</p>
+            <h2>按天执行的节奏</h2>
+          </div>
+
+          <div class="timeline">
+            <article class="day-card">
+              <div class="day-meta">
+                <span>04-17 周五</span>
+                <strong>飞昆明会合</strong>
+              </div>
+              <p>
+                武汉组走 <strong>DR6564 22:25-00:35+1</strong>，西安组走
+                <strong>MU2264 21:15-23:35</strong>。到昆明后直接入住，别再加夜间景点。
+              </p>
+              <p class="minor">住宿：昆明站 / 塘子巷 / 南屏街</p>
+            </article>
+
+            <article class="day-card">
+              <div class="day-meta">
+                <span>04-18 周六</span>
+                <strong>昆明轻游</strong>
+              </div>
+              <p>
+                上午睡到自然醒，下午去斗南花市，傍晚切海埂大坝，晚上回南强街巷或昆明老街吃饭散步。
+              </p>
+              <p class="minor">关键词：花市、滇池、夜市、调状态</p>
+            </article>
+
+            <article class="day-card">
+              <div class="day-meta">
+                <span>04-19 周日</span>
+                <strong>昆明 → 大理</strong>
+              </div>
+              <p>
+                首选 <strong>D8653 / D8652 06:51-09:08</strong> 到大理。下午只玩大理古城，把晚上完整留在古城里。
+              </p>
+              <p class="minor">住宿：大理古城南门附近</p>
+            </article>
+
+            <article class="day-card">
+              <div class="day-meta">
+                <span>04-20 周一</span>
+                <strong>大理深度日</strong>
+              </div>
+              <p>
+                四个人包车环洱海最顺。推荐顺序：喜洲古镇 → 海边停靠点 → 双廊 → 东线看日落。
+              </p>
+              <p class="minor">关键词：古城松弛感、喜洲、双廊、环海公路</p>
+            </article>
+
+            <article class="day-card">
+              <div class="day-meta">
+                <span>04-21 周二</span>
+                <strong>大理 → 保山 → 腾冲</strong>
+              </div>
+              <p>
+                中午后坐 <strong>C9507 14:39-16:15</strong> 到保山，再包车去腾冲。傍晚逛和顺古镇，晚上直接泡温泉。
+              </p>
+              <p class="minor">住宿：和顺古镇 / 热海路</p>
+            </article>
+
+            <article class="day-card">
+              <div class="day-meta">
+                <span>04-22 周三</span>
+                <strong>腾冲深度日</strong>
+              </div>
+              <p>
+                白天主玩热海景区，下午回酒店或温泉区休整。若体力允许，再补叠水河瀑布或火山地貌点位。
+              </p>
+              <p class="minor">关键词：热海、大滚锅、温泉、慢节奏</p>
+            </article>
+
+            <article class="day-card">
+              <div class="day-meta">
+                <span>04-23 周四</span>
+                <strong>腾冲 → 芒市</strong>
+              </div>
+              <p>
+                上午从腾冲包车到芒市。下午玩勐焕大金塔和银塔，晚上去傣族古镇或市区吃傣味。
+              </p>
+              <p class="minor">住宿：芒市大金塔附近</p>
+            </article>
+
+            <article class="day-card">
+              <div class="day-meta">
+                <span>04-24 周五</span>
+                <strong>芒市完整慢游日</strong>
+              </div>
+              <p>
+                调整后，这天不再赶路。建议把节奏完全放慢，白天在芒市街区、咖啡店和傣味餐厅之间慢慢走。
+              </p>
+              <p class="minor">住宿：芒市大金塔附近</p>
+            </article>
+
+            <article class="day-card">
+              <div class="day-meta">
+                <span>04-25 周六</span>
+                <strong>武汉组返汉 / 西安组机动</strong>
+              </div>
+              <p>
+                武汉组优先选芒市晚班直飞返汉。西安组如果坚持当天返程，优先一转；如果更重视轻松，建议住一晚等次晨直飞。
+              </p>
+              <p class="minor">关键词：分组返程、武汉晚返、西安机动</p>
+            </article>
+
+            <article class="day-card">
+              <div class="day-meta">
+                <span>04-26 周日</span>
+                <strong>西安组早班返程</strong>
+              </div>
+              <p>
+                如果西安组不想在 25 日折腾中转，这天早上用直飞结束全程会更稳，也更符合“整体放缓”的新路线逻辑。
+              </p>
+              <p class="minor">关键词：08:20 直飞、10:50 抵西安</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="transport">
+          <div class="section-head">
+            <p class="eyebrow">交通参考</p>
+            <h2>适合当前版本的航班和动车</h2>
+            <p class="section-note">
+              未来班期可能微调，表内信息适合作为优先盯票清单，实际以航空公司和 12306 放票为准。
+            </p>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>日期</th>
+                  <th>类型</th>
+                  <th>班次</th>
+                  <th>区间</th>
+                  <th>参考时刻</th>
+                  <th>备注</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>04-17</td>
+                  <td>去程航班</td>
+                  <td>DR6564</td>
+                  <td>武汉天河 → 昆明长水</td>
+                  <td>22:25 → 00:35+1</td>
+                  <td>武汉组首选</td>
+                </tr>
+                <tr>
+                  <td>04-17</td>
+                  <td>去程航班</td>
+                  <td>MU2264</td>
+                  <td>西安咸阳 → 昆明长水</td>
+                  <td>21:15 → 23:35</td>
+                  <td>西安组首选</td>
+                </tr>
+                <tr>
+                  <td>04-19</td>
+                  <td>动车</td>
+                  <td>D8653 / D8652</td>
+                  <td>昆明南 / 昆明 → 大理</td>
+                  <td>06:51 / 07:09 → 09:08</td>
+                  <td>早到大理，下午可玩</td>
+                </tr>
+                <tr>
+                  <td>04-21</td>
+                  <td>动车</td>
+                  <td>C9507</td>
+                  <td>大理 → 保山</td>
+                  <td>14:39 → 16:15</td>
+                  <td>与腾冲接驳最顺</td>
+                </tr>
+                <tr>
+                  <td>04-25</td>
+                  <td>返程航班</td>
+                  <td>DR5095</td>
+                  <td>芒市 → 武汉</td>
+                  <td>18:25 → 20:50</td>
+                  <td>武汉组优先关注直飞晚班</td>
+                </tr>
+                <tr>
+                  <td>04-25</td>
+                  <td>武汉备选</td>
+                  <td>中转联程</td>
+                  <td>芒市 → 昆明 → 武汉</td>
+                  <td>建议预留至少 2.5 小时中转</td>
+                  <td>直飞不合适时再启用</td>
+                </tr>
+                <tr>
+                  <td>04-25</td>
+                  <td>西安当日返</td>
+                  <td>中转联程</td>
+                  <td>芒市 → 昆明 / 重庆 → 西安</td>
+                  <td>优先下午后起飞的中转班次</td>
+                  <td>适合坚持 25 日返程</td>
+                </tr>
+                <tr>
+                  <td>04-26</td>
+                  <td>西安直飞</td>
+                  <td>MU5791</td>
+                  <td>芒市 → 西安</td>
+                  <td>08:20 → 10:50</td>
+                  <td>西安组更稳妥的方案</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="mobile-transport-list">
+            <article class="mobile-transport-card">
+              <span>04-17</span>
+              <strong>DR6564</strong>
+              <p>武汉天河 → 昆明长水</p>
+              <p>22:25 → 00:35+1</p>
+              <p>武汉组首选</p>
+            </article>
+            <article class="mobile-transport-card">
+              <span>04-17</span>
+              <strong>MU2264</strong>
+              <p>西安咸阳 → 昆明长水</p>
+              <p>21:15 → 23:35</p>
+              <p>西安组首选</p>
+            </article>
+            <article class="mobile-transport-card">
+              <span>04-19</span>
+              <strong>D8653 / D8652</strong>
+              <p>昆明南 / 昆明 → 大理</p>
+              <p>06:51 / 07:09 → 09:08</p>
+              <p>早到大理，下午可玩</p>
+            </article>
+            <article class="mobile-transport-card">
+              <span>04-21</span>
+              <strong>C9507</strong>
+              <p>大理 → 保山</p>
+              <p>14:39 → 16:15</p>
+              <p>与腾冲接驳最顺</p>
+            </article>
+            <article class="mobile-transport-card">
+              <span>04-25</span>
+              <strong>DR5095</strong>
+              <p>芒市 → 武汉</p>
+              <p>18:25 → 20:50</p>
+              <p>武汉组优先关注直飞晚班</p>
+            </article>
+            <article class="mobile-transport-card">
+              <span>04-25</span>
+              <strong>中转联程</strong>
+              <p>芒市 → 昆明 → 武汉</p>
+              <p>建议预留至少 2.5 小时中转</p>
+              <p>直飞不合适时启用</p>
+            </article>
+            <article class="mobile-transport-card">
+              <span>04-25</span>
+              <strong>西安当日返</strong>
+              <p>芒市 → 昆明 / 重庆 → 西安</p>
+              <p>优先下午后起飞的中转班次</p>
+              <p>适合坚持 25 日返程</p>
+            </article>
+            <article class="mobile-transport-card">
+              <span>04-26</span>
+              <strong>MU5791</strong>
+              <p>芒市 → 西安</p>
+              <p>08:20 → 10:50</p>
+              <p>西安组更稳妥的直飞方案</p>
+            </article>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </body>
+</html>
