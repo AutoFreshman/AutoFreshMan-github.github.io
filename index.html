@@ -455,187 +455,6 @@ a {
   margin-top: 16px;
 }
 
-.route-map-frame {
-  display: grid;
-  grid-template-columns: 1.25fr 0.75fr;
-  gap: 18px;
-  align-items: stretch;
-}
-
-.route-map-canvas,
-.route-map-aside {
-  border-radius: 24px;
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.78);
-  overflow: hidden;
-}
-
-.route-map-canvas {
-  position: relative;
-  background:
-    linear-gradient(180deg, rgba(255, 250, 242, 0.9), rgba(247, 239, 226, 0.95));
-  min-height: 520px;
-  padding: 14px 14px 18px;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.7),
-    0 18px 44px rgba(70, 47, 22, 0.08);
-}
-
-.route-map-canvas::before,
-.route-map-canvas::after {
-  content: "";
-  position: absolute;
-  top: 14px;
-  width: 88px;
-  height: 26px;
-  background: rgba(248, 233, 197, 0.72);
-  border: 1px solid rgba(107, 88, 61, 0.12);
-  box-shadow: 0 8px 16px rgba(94, 76, 46, 0.08);
-  z-index: 500;
-}
-
-.route-map-canvas::before {
-  left: 26px;
-  transform: rotate(-7deg);
-}
-
-.route-map-canvas::after {
-  right: 26px;
-  transform: rotate(8deg);
-}
-
-.route-poster {
-  width: 100%;
-  min-height: 520px;
-  border-radius: 20px;
-  overflow: hidden;
-  border: 1px solid rgba(24, 35, 31, 0.08);
-  background:
-    radial-gradient(circle at 12% 14%, rgba(255, 255, 255, 0.65), transparent 16%),
-    radial-gradient(circle at 88% 20%, rgba(255, 255, 255, 0.42), transparent 18%),
-    linear-gradient(180deg, #f7efdf 0%, #f3e7d3 100%);
-}
-
-.route-poster svg {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.route-map-title-tag,
-.route-map-postmark {
-  position: absolute;
-  z-index: 600;
-  pointer-events: none;
-}
-
-.route-map-title-tag {
-  top: 28px;
-  left: 32px;
-  padding: 10px 16px;
-  border-radius: 999px;
-  background: rgba(255, 250, 242, 0.92);
-  border: 1px solid rgba(24, 35, 31, 0.1);
-  color: var(--ink);
-  font-size: 0.96rem;
-  font-weight: 700;
-  box-shadow: 0 10px 24px rgba(70, 47, 22, 0.08);
-}
-
-.route-map-postmark {
-  right: 28px;
-  bottom: 32px;
-  width: 94px;
-  height: 94px;
-  border-radius: 50%;
-  border: 2px dashed rgba(151, 67, 46, 0.55);
-  color: rgba(151, 67, 46, 0.78);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 0.84rem;
-  line-height: 1.2;
-  background: rgba(255, 248, 239, 0.56);
-  transform: rotate(-14deg);
-}
-
-.route-map-legend {
-  display: grid;
-  gap: 10px;
-  margin: 14px 0 16px;
-}
-
-.route-map-legend span {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--muted);
-  font-size: 0.93rem;
-}
-
-.route-map-legend i {
-  display: inline-block;
-  width: 34px;
-  height: 0;
-  border-top-width: 4px;
-  border-top-style: solid;
-  border-radius: 999px;
-}
-
-.route-map-legend .flight-line {
-  border-top-color: #c65a3f;
-  border-top-style: dashed;
-}
-
-.route-map-legend .rail-line {
-  border-top-color: #3d7c76;
-}
-
-.route-map-legend .road-line {
-  border-top-color: #8b6f47;
-  border-top-style: dotted;
-}
-
-.route-map-aside {
-  padding: 18px;
-}
-
-.route-map-aside h3 {
-  margin: 0 0 14px;
-  font-size: 1.14rem;
-}
-
-.route-legs {
-  display: grid;
-  gap: 12px;
-}
-
-.route-leg {
-  padding: 14px 15px;
-  border-radius: 18px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(248, 241, 230, 0.8));
-  border: 1px solid rgba(24, 35, 31, 0.08);
-}
-
-.route-leg strong {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 1rem;
-}
-
-.route-leg p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.94rem;
-}
-
-.route-leg em {
-  font-style: normal;
-  color: var(--accent-deep);
-  font-weight: 700;
-}
-
 .timeline {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -872,7 +691,6 @@ tbody td {
   .gallery-grid,
   .timeline,
   .matrix-grid,
-  .route-map-frame,
   .overview-band,
   .source-board,
   .manual-grid,
@@ -1127,8 +945,6 @@ tbody td {
   .gallery-card,
   .day-card,
   .matrix-card,
-  .route-map-canvas,
-  .route-map-aside,
   .source-item,
   .summary-sheet article,
   .manual-card,
@@ -1141,11 +957,6 @@ tbody td {
   .gallery-card.wide img {
     aspect-ratio: 16 / 10;
     max-height: 58mm;
-  }
-
-  .route-poster,
-  .route-map-canvas {
-    min-height: 70mm;
   }
 
   table {
@@ -1223,7 +1034,6 @@ tbody td {
 
       <nav class="quick-nav">
         <a href="#gallery">重点景点</a>
-        <a href="#route-map">路线地图</a>
         <a href="#daily-matrix">每日矩阵</a>
         <a href="#transport">交通参考</a>
       </nav>
@@ -1393,150 +1203,6 @@ tbody td {
                 </div>
               </div>
             </article>
-          </div>
-        </section>
-
-        <section class="section" id="route-map">
-          <div class="section-head">
-            <p class="eyebrow">路线地图</p>
-            <h2>按正常方位绘制的云南旅行海报</h2>
-            <p class="section-note">
-              这张海报按正常地图方位排布：北在上，西在左，东在右。只保留云南主线，直接看昆明、大理、保山、腾冲、芒市和返昆明的收口关系。
-            </p>
-          </div>
-
-          <div class="route-map-frame">
-            <div class="route-map-canvas">
-              <div class="route-map-title-tag">云南主线旅行地图</div>
-              <div class="route-poster" aria-label="从昆明出发，经大理、保山、腾冲、芒市，再回昆明返程的云南旅行海报">
-                <svg viewBox="0 0 760 560" role="img" aria-label="云南主线旅行海报">
-                  <defs>
-                    <linearGradient id="provinceFill" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stop-color="#f6ecd8" />
-                      <stop offset="100%" stop-color="#eeddbf" />
-                    </linearGradient>
-                    <filter id="paperShadow" x="-20%" y="-20%" width="140%" height="140%">
-                      <feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="rgba(70,47,22,0.12)" />
-                    </filter>
-                    <marker id="arrowHead" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-                      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c65a3f"></path>
-                    </marker>
-                  </defs>
-
-                  <rect x="0" y="0" width="760" height="560" fill="transparent"></rect>
-
-                  <g opacity="0.35">
-                    <path d="M130 102 C188 76, 288 72, 378 98 C468 124, 572 194, 602 276 C626 342, 618 396, 568 446 C494 518, 324 520, 214 468 C144 434, 94 366, 92 286 C90 212, 98 146, 130 102 Z"
-                      fill="url(#provinceFill)" stroke="rgba(120,94,60,0.18)" stroke-width="3" filter="url(#paperShadow)"></path>
-                    <path d="M184 144 C236 122, 314 124, 390 148 C464 172, 530 226, 552 286 C570 334, 556 386, 510 424 C446 476, 334 478, 254 444 C196 420, 154 376, 146 316 C136 244, 144 180, 184 144 Z"
-                      fill="rgba(255,250,242,0.7)" stroke="rgba(120,94,60,0.14)" stroke-width="2"></path>
-                  </g>
-
-                  <g opacity="0.22" fill="#b98d5c">
-                    <path d="M188 220 l20 -28 l18 28 l18 -20 l14 20 l0 12 l-70 0 z"></path>
-                    <path d="M464 206 l18 -24 l14 24 l16 -18 l16 18 l0 12 l-64 0 z"></path>
-                    <path d="M258 364 l18 -22 l16 22 l18 -16 l14 16 l0 12 l-66 0 z"></path>
-                  </g>
-
-                  <g stroke="#cfe4df" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.75">
-                    <path d="M560 132 C518 116, 434 116, 374 136 C324 152, 274 182, 234 218"></path>
-                  </g>
-                  <g stroke="#3d7c76" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none">
-                    <path d="M560 132 C518 116, 434 116, 374 136 C324 152, 274 182, 234 218"></path>
-                  </g>
-
-                  <g stroke="rgba(139,111,71,0.24)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.8">
-                    <path d="M234 218 C186 200, 136 190, 118 170 C142 226, 174 284, 216 344"></path>
-                  </g>
-                  <g stroke="#8b6f47" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-dasharray="2 14">
-                    <path d="M234 218 C186 200, 136 190, 118 170 C142 226, 174 284, 216 344"></path>
-                  </g>
-
-                  <g stroke="rgba(198,90,63,0.22)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.85">
-                    <path d="M216 344 C304 312, 426 222, 560 132"></path>
-                  </g>
-                  <g stroke="#c65a3f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-dasharray="12 12" marker-end="url(#arrowHead)">
-                    <path d="M216 344 C304 312, 426 222, 560 132"></path>
-                  </g>
-
-                  <g>
-                    <circle cx="560" cy="132" r="15" fill="#c65a3f"></circle>
-                    <circle cx="560" cy="132" r="7" fill="#fffaf2"></circle>
-                    <circle cx="374" cy="136" r="14" fill="#c65a3f"></circle>
-                    <circle cx="374" cy="136" r="6" fill="#fffaf2"></circle>
-                    <circle cx="234" cy="218" r="13" fill="#3d7c76"></circle>
-                    <circle cx="234" cy="218" r="6" fill="#fffaf2"></circle>
-                    <circle cx="118" cy="170" r="13" fill="#3d7c76"></circle>
-                    <circle cx="118" cy="170" r="6" fill="#fffaf2"></circle>
-                    <circle cx="216" cy="344" r="13" fill="#3d7c76"></circle>
-                    <circle cx="216" cy="344" r="6" fill="#fffaf2"></circle>
-                  </g>
-
-                  <g font-size="13" font-weight="700">
-                    <g transform="translate(575 108) rotate(-3)">
-                      <rect x="0" y="0" width="86" height="34" rx="17" fill="rgba(255,250,242,0.96)" stroke="rgba(151,67,46,0.22)"></rect>
-                      <text x="43" y="22" text-anchor="middle" fill="#7a3727">昆明</text>
-                    </g>
-                    <g transform="translate(342 92) rotate(2)">
-                      <rect x="0" y="0" width="78" height="34" rx="17" fill="rgba(255,250,242,0.96)" stroke="rgba(151,67,46,0.22)"></rect>
-                      <text x="39" y="22" text-anchor="middle" fill="#7a3727">大理</text>
-                    </g>
-                    <g transform="translate(230 234) rotate(-4)">
-                      <rect x="0" y="0" width="78" height="34" rx="17" fill="rgba(241,248,246,0.98)" stroke="rgba(61,124,118,0.22)"></rect>
-                      <text x="39" y="22" text-anchor="middle" fill="#295f59">保山</text>
-                    </g>
-                    <g transform="translate(44 132) rotate(3)">
-                      <rect x="0" y="0" width="84" height="34" rx="17" fill="rgba(241,248,246,0.98)" stroke="rgba(61,124,118,0.22)"></rect>
-                      <text x="42" y="22" text-anchor="middle" fill="#295f59">腾冲</text>
-                    </g>
-                    <g transform="translate(196 364) rotate(-2)">
-                      <rect x="0" y="0" width="84" height="34" rx="17" fill="rgba(241,248,246,0.98)" stroke="rgba(61,124,118,0.22)"></rect>
-                      <text x="42" y="22" text-anchor="middle" fill="#295f59">芒市</text>
-                    </g>
-                  </g>
-
-                  <g font-size="16" font-weight="700" fill="#2d2621">
-                    <text x="656" y="74">北</text>
-                    <path d="M662 122 L662 86" stroke="#2d2621" stroke-width="3" stroke-linecap="round"></path>
-                    <path d="M662 76 L656 90 L668 90 Z" fill="#2d2621"></path>
-                  </g>
-
-                  <g font-size="14" font-weight="700">
-                    <text x="444" y="92" fill="#2f655f">动车主干线</text>
-                    <text x="88" y="252" fill="#8b6f47">公路接驳</text>
-                    <text x="382" y="286" fill="#97432e">芒市飞回昆明</text>
-                  </g>
-                </svg>
-              </div>
-              <div class="route-map-postmark">YUNNAN<br />ROAD TRIP</div>
-            </div>
-
-            <aside class="route-map-aside">
-              <h3>路线拆解</h3>
-              <div class="route-map-legend">
-                <span><i class="flight-line"></i> 飞机：芒市 → 昆明返程收口</span>
-                <span><i class="rail-line"></i> 动车：昆明 → 大理， 大理 → 保山</span>
-                <span><i class="road-line"></i> 接驳：保山 → 腾冲， 腾冲 → 芒市</span>
-              </div>
-              <div class="route-legs">
-                <article class="route-leg">
-                  <strong>昆明 → 大理</strong>
-                  <p><em>动车主干线</em>。早班出发，上午到大理，下午还能把古城完整留出来。</p>
-                </article>
-                <article class="route-leg">
-                  <strong>大理 → 保山 → 腾冲</strong>
-                  <p><em>动车 + 公路接驳</em>。这段是省内最顺的进腾冲方式，兼顾舒适和效率。</p>
-                </article>
-                <article class="route-leg">
-                  <strong>腾冲 → 芒市</strong>
-                  <p><em>包车慢游</em>。铁路到这里为止，后半程就按边境城市节奏慢下来。</p>
-                </article>
-                <article class="route-leg">
-                  <strong>芒市 → 昆明 → 武汉 / 西安</strong>
-                  <p><em>航班收口</em>。先飞回昆明补半天城市轻游，再按武汉组和西安组分别返程。</p>
-                </article>
-              </div>
-            </aside>
           </div>
         </section>
 
