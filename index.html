@@ -96,6 +96,7 @@ a {
 }
 
 .quick-nav {
+  position: -webkit-sticky;
   position: sticky;
   top: 12px;
   z-index: 20;
@@ -107,6 +108,7 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.65);
   border-radius: 999px;
   background: rgba(255, 250, 242, 0.74);
+  -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
   box-shadow: 0 12px 36px rgba(24, 35, 31, 0.08);
   overflow-x: auto;
@@ -138,6 +140,7 @@ a {
 .day-card,
 .check-card,
 .reason-card {
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
 }
 
@@ -1147,7 +1150,7 @@ tbody td {
 
             <article class="gallery-card">
               <img
-                src="http://m.tuniucdn.com/fb2/t1/G2/M00/49/EA/Cii-T1e-TNGISvvwAAy7V32VWhgAABsJQNY_uUADLtv810_w500_h280_c1_t0.jpg"
+                src="https://m.tuniucdn.com/fb2/t1/G2/M00/49/EA/Cii-T1e-TNGISvvwAAy7V32VWhgAABsJQNY_uUADLtv810_w500_h280_c1_t0.jpg"
                 alt="芒市勐焕大金塔"
                 loading="lazy"
               />
@@ -1600,19 +1603,53 @@ tbody td {
       if (!isMobile) return;
 
       const xhsLinks = document.querySelectorAll('a[href*="xiaohongshu.com/search_result?keyword="]');
+      const forEach = Array.prototype.forEach;
 
-      xhsLinks.forEach((link) => {
-        const url = new URL(link.href);
-        const keyword = url.searchParams.get("keyword");
+      forEach.call(xhsLinks, function (link) {
+        const webUrl = link.href;
+        let keyword = "";
+
+        try {
+          const url = new URL(webUrl, window.location.href);
+          keyword = url.searchParams.get("keyword") || "";
+        } catch (error) {
+          const match = webUrl.match(/[?&]keyword=([^&#]+)/);
+          keyword = match ? decodeURIComponent(match[1].replace(/\+/g, " ")) : "";
+        }
+
         if (!keyword) return;
 
         const schemeUrl = "xhsdiscover://search/result?keyword=" + encodeURIComponent(keyword);
-        link.setAttribute("data-web-url", link.href);
+        link.setAttribute("data-web-url", webUrl);
         link.setAttribute("data-xhs-scheme", schemeUrl);
-        link.href = schemeUrl;
+
         link.addEventListener("click", function (event) {
           event.preventDefault();
-          window.location.href = schemeUrl;
+
+          let appOpened = false;
+          let fallbackTimer = null;
+
+          const onVisibilityChange = function () {
+            if (!document.hidden) return;
+            appOpened = true;
+            if (fallbackTimer) window.clearTimeout(fallbackTimer);
+            document.removeEventListener("visibilitychange", onVisibilityChange);
+          };
+
+          document.addEventListener("visibilitychange", onVisibilityChange);
+
+          fallbackTimer = window.setTimeout(function () {
+            document.removeEventListener("visibilitychange", onVisibilityChange);
+            if (!appOpened) window.location.href = webUrl;
+          }, 1200);
+
+          try {
+            window.location.href = schemeUrl;
+          } catch (error) {
+            if (fallbackTimer) window.clearTimeout(fallbackTimer);
+            document.removeEventListener("visibilitychange", onVisibilityChange);
+            window.location.href = webUrl;
+          }
         });
       });
     })();
