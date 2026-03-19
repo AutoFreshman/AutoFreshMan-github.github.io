@@ -1635,45 +1635,7 @@ tbody td {
 
         link.addEventListener("click", function (event) {
           event.preventDefault();
-
-          let appOpened = false;
-          let fallbackTimer = null;
-          const launchedAt = Date.now();
-
-          const cleanup = function () {
-            if (fallbackTimer) window.clearTimeout(fallbackTimer);
-            document.removeEventListener("visibilitychange", onVisibilityChange);
-            window.removeEventListener("pagehide", onPageHide);
-          };
-
-          const onVisibilityChange = function () {
-            if (!document.hidden) return;
-            appOpened = true;
-            cleanup();
-          };
-
-          const onPageHide = function () {
-            appOpened = true;
-            cleanup();
-          };
-
-          document.addEventListener("visibilitychange", onVisibilityChange);
-          window.addEventListener("pagehide", onPageHide);
-
-          fallbackTimer = window.setTimeout(function () {
-            const elapsed = Date.now() - launchedAt;
-            cleanup();
-
-            if (appOpened || elapsed > 1800) return;
-            if (!appOpened) window.location.href = webUrl;
-          }, 1200);
-
-          try {
-            window.location.href = schemeUrl;
-          } catch (error) {
-            cleanup();
-            window.location.href = webUrl;
-          }
+          window.location.href = schemeUrl;
         });
       });
     })();
