@@ -72,29 +72,6 @@ a {
   line-height: 1.05;
 }
 
-.handbook-text {
-  margin: 14px 0 0;
-  max-width: 58ch;
-  color: rgba(255, 247, 239, 0.82);
-}
-
-.handbook-meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  gap: 10px;
-}
-
-.handbook-meta span {
-  display: inline-flex;
-  align-items: center;
-  min-height: 38px;
-  padding: 0 14px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
 .quick-nav {
   position: -webkit-sticky;
   position: sticky;
@@ -220,20 +197,20 @@ a {
   transition: transform 180ms ease, background 180ms ease;
 }
 
-.hero-actions a:first-child {
+.hero-actions a:first-child,
+.source-links a {
   background: #b44e35;
+  font-weight: 700;
+}
+
+.hero-actions a:first-child {
   color: #111111;
   -webkit-text-fill-color: #111111;
-  font-weight: 700;
-  text-shadow: none;
 }
 
 .source-links a {
-  background: #b44e35;
   color: #fffaf2;
   -webkit-text-fill-color: #fffaf2;
-  font-weight: 700;
-  text-shadow: none;
 }
 
 .hero-actions a:last-child {
@@ -316,16 +293,6 @@ a {
   border: 1px solid var(--line);
 }
 
-.manual-tag {
-  display: inline-block;
-  margin-bottom: 10px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: rgba(61, 124, 118, 0.12);
-  color: var(--teal);
-  font-size: 0.84rem;
-}
-
 .manual-card h3 {
   margin: 0 0 8px;
   font-size: 1.12rem;
@@ -349,16 +316,6 @@ a {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(247, 241, 230, 0.82));
   border: 1px solid var(--line);
-}
-
-.overview-kicker {
-  display: inline-block;
-  margin-bottom: 10px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: rgba(198, 90, 63, 0.12);
-  color: var(--accent-deep);
-  font-size: 0.85rem;
 }
 
 .overview-card strong {
@@ -453,6 +410,26 @@ a {
 
 .source-links {
   margin-top: 16px;
+}
+
+.source-notes {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.source-notes p {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(24, 35, 31, 0.08);
+  background: rgba(255, 255, 255, 0.58);
+  color: var(--muted);
+  font-size: 0.93rem;
+}
+
+.source-notes strong {
+  color: var(--ink);
 }
 
 .timeline {
@@ -889,7 +866,6 @@ tbody td {
     backdrop-filter: none !important;
   }
 
-  .handbook-text,
   .hero-summary,
   .section-note,
   .gallery-copy p,
@@ -1046,6 +1022,7 @@ tbody td {
             <p class="section-note">
               页面保留了对应的
               <strong>小红书搜索入口</strong>。每张卡片下方都拆成了多个关键词入口，方便你们继续补机位、餐厅和最新玩法。
+              下面这些短句不再只写标题，而是按对应笔记正文里的路线、时间和避坑信息压成了更好用的摘要版。
             </p>
           </div>
 
@@ -1080,6 +1057,11 @@ tbody td {
                     rel="noreferrer"
                     >昆明老街</a
                   >
+                </div>
+                <div class="source-notes">
+                  <p><strong>斗南花市：</strong>普通游客更适合按楼层慢逛：1 楼看鲜花和小物，2 楼拍俯视全景、看果壳铃和多肉，3 楼看干花衍生品；真想买鲜花更适合晚市 20:30-24:00，白天便宜花和快递都容易踩坑。</p>
+                  <p><strong>海埂大坝：</strong>更适合卡在 9:30-11:00 或 16:00 以后去，地铁 5 号线渔户村站出来接共享单车更顺；入口买颗粒鸥粮、别带面包，拍照最好去大坝中段观景台，周末尽量 9 点前到。</p>
+                  <p><strong>昆明老街：</strong>按“老街段 + 巡津街段”排半天到一天最顺，中间最好打车或骑车；老街更偏文庙、马家大院、东方书店这类历史建筑，巡津街适合轻松逛巷子和收尾喝咖啡。</p>
                 </div>
               </div>
             </article>
@@ -1121,6 +1103,12 @@ tbody td {
                     >洱海</a
                   >
                 </div>
+                <div class="source-notes">
+                  <p><strong>大理古城：</strong>正文更推荐晚上去，外围商业感更重一些，往里走还有本地小店；夜里风大，最好多带一件外套，如果还要继续跑周边，先在古城门口租电动车会更方便。</p>
+                  <p><strong>喜洲古镇：</strong>更适合留半天到一天慢走，路线重点是转角楼、喜林苑、严家大院、麦田边午餐和下午茶机位；整体节奏比大理古城安静很多，更适合拍白墙、稻田和低饱和街巷。</p>
+                  <p><strong>双廊：</strong>更适合作为 0.5-1 天游，南门进、风情岛、太阳宫，再沿洱海步道慢慢走出来；太阳宫如果要免费参观得提前预约，腿脚不便的话别把它排太重。</p>
+                  <p><strong>洱海：</strong>这篇更偏傍晚机位，建议 17:45 左右到西岸生态廊道，18:15-18:40 是最好看的光线段；礁石、芦苇和废弃渔船都能当前景，适合把洱海排成看光线而不是赶点打卡。</p>
+                </div>
               </div>
             </article>
 
@@ -1154,6 +1142,11 @@ tbody td {
                     rel="noreferrer"
                     >腾冲温泉</a
                   >
+                </div>
+                <div class="source-notes">
+                  <p><strong>和顺古镇：</strong>重点不是一次塞很多点，而是围着洗衣亭双虹桥、李氏宗祠、几家能俯瞰水面或街巷的咖啡店慢慢逛；如果只留半天，可以优先桥、水边和俯瞰位。</p>
+                  <p><strong>热海：</strong>更像“看大滚锅 + 顺手煮蛋”的半日景点，入口到山顶全程步行 1.5-2 小时也能走完；如果不泡温泉，别指望它有太多额外项目，把预期放在地热景观和热海大滚锅就够了。</p>
+                  <p><strong>腾冲温泉：</strong>更建议先区分“干净舒适型”和“野趣型”：前者更偏荷花、热海这类成熟温泉，后者像石墙、石花洞这种更有原汤感；不管选哪类，早点去通常水更干净、体验也更完整。</p>
                 </div>
               </div>
             </article>
@@ -1200,6 +1193,13 @@ tbody td {
                     rel="noreferrer"
                     >芒市傣味</a
                   >
+                </div>
+                <div class="source-notes">
+                  <p><strong>勐焕大金塔：</strong>更顺的走法不是硬赶早，而是看着日落时间倒推，通常提前 1 小时到金塔最合适；租电瓶车能直接到售票口，拍金银塔同框反而更建议走去银塔的路上边走边拍。</p>
+                  <p><strong>银塔：</strong>这条笔记核心全在拍照：上午 9 点或下午 4 点后光线更稳，不建议大中午去；如果准备做旅拍，天空之境往往排队最长，其他点位可以先拍完再回头等它。</p>
+                  <p><strong>傣族古镇：</strong>更适合和金塔、银塔、新玩厂夜市放成一条傍晚线，它本身更像新修古镇和小吃街，不适合抱着老城历史感预期去；如果时间紧，把它留给晚饭和夜景就够了。</p>
+                  <p><strong>芒市咖啡：</strong>更像塔区附近的放空点，逛完金银塔再去坐一杯最顺；像大树咖啡这类店的重点不在菜单有多复杂，而是在树荫、院子和慢节奏氛围本身。</p>
+                  <p><strong>芒市傣味：</strong>更适合直接去本地人密集的巷子里看食材点菜，把它当正餐重点；苦撒这类味型接受度很分人，第一次吃别点太猛，先从更稳妥的傣味烤物和热菜试起。</p>
                 </div>
               </div>
             </article>
