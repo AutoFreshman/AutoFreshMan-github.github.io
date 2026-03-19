@@ -1615,6 +1615,24 @@ tbody td {
       const xhsLinks = document.querySelectorAll('a[href*="xiaohongshu.com/search_result?keyword="]');
       const forEach = Array.prototype.forEach;
 
+      const openSchemeInBackground = function (schemeUrl) {
+        const iframe = document.createElement("iframe");
+        iframe.setAttribute("aria-hidden", "true");
+        iframe.tabIndex = -1;
+        iframe.style.display = "none";
+        iframe.src = schemeUrl;
+        document.body.appendChild(iframe);
+
+        window.setTimeout(function () {
+          if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
+        }, 1200);
+      };
+
+      const openWebFallback = function (webUrl) {
+        const openedWindow = window.open(webUrl, "_blank", "noopener,noreferrer");
+        if (!openedWindow) window.location.href = webUrl;
+      };
+
       forEach.call(xhsLinks, function (link) {
         const webUrl = link.href;
         let keyword = "";
@@ -1638,27 +1656,41 @@ tbody td {
 
           let appOpened = false;
           let fallbackTimer = null;
+          let cleanupTimer = null;
+
+          const cleanup = function () {
+            if (fallbackTimer) window.clearTimeout(fallbackTimer);
+            if (cleanupTimer) window.clearTimeout(cleanupTimer);
+            document.removeEventListener("visibilitychange", onVisibilityChange);
+            window.removeEventListener("pagehide", onPageHide);
+          };
 
           const onVisibilityChange = function () {
             if (!document.hidden) return;
             appOpened = true;
-            if (fallbackTimer) window.clearTimeout(fallbackTimer);
-            document.removeEventListener("visibilitychange", onVisibilityChange);
+            cleanup();
+          };
+
+          const onPageHide = function () {
+            appOpened = true;
+            cleanup();
           };
 
           document.addEventListener("visibilitychange", onVisibilityChange);
+          window.addEventListener("pagehide", onPageHide);
 
           fallbackTimer = window.setTimeout(function () {
-            document.removeEventListener("visibilitychange", onVisibilityChange);
-            if (!appOpened) window.location.href = webUrl;
-          }, 1200);
+            cleanup();
+            if (!appOpened) openWebFallback(webUrl);
+          }, 900);
+
+          cleanupTimer = window.setTimeout(cleanup, 1800);
 
           try {
-            window.location.href = schemeUrl;
+            openSchemeInBackground(schemeUrl);
           } catch (error) {
-            if (fallbackTimer) window.clearTimeout(fallbackTimer);
-            document.removeEventListener("visibilitychange", onVisibilityChange);
-            window.location.href = webUrl;
+            cleanup();
+            openWebFallback(webUrl);
           }
         });
       });
