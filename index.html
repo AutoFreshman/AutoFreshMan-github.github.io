@@ -1615,22 +1615,26 @@ tbody td {
       const xhsLinks = document.querySelectorAll('a[href*="xiaohongshu.com/search_result?keyword="]');
       const forEach = Array.prototype.forEach;
 
-      const openSchemeInBackground = function (schemeUrl) {
-        const iframe = document.createElement("iframe");
-        iframe.setAttribute("aria-hidden", "true");
-        iframe.tabIndex = -1;
-        iframe.style.display = "none";
-        iframe.src = schemeUrl;
-        document.body.appendChild(iframe);
+      const openWebFallback = function (targetWindow, webUrl) {
+        if (targetWindow && !targetWindow.closed) {
+          targetWindow.location.replace(webUrl);
+          return;
+        }
 
-        window.setTimeout(function () {
-          if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
-        }, 1200);
-      };
-
-      const openWebFallback = function (webUrl) {
         const openedWindow = window.open(webUrl, "_blank", "noopener,noreferrer");
         if (!openedWindow) window.location.href = webUrl;
+      };
+
+      const openLaunchWindow = function (schemeUrl) {
+        const launchWindow = window.open("", "_blank");
+        if (!launchWindow) return null;
+
+        launchWindow.document.write(
+          "<!DOCTYPE html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>打开小红书</title><style>body{margin:0;padding:24px;font:16px/1.6 -apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue',sans-serif;background:#fffaf5;color:#2b2b2b;}p{margin:0 0 10px;}small{color:#6b6b6b;}</style></head><body><p>正在尝试打开小红书 App...</p><small>如果没有自动打开，会继续跳转到网页搜索结果。</small></body></html>"
+        );
+        launchWindow.document.close();
+        launchWindow.location.href = schemeUrl;
+        return launchWindow;
       };
 
       forEach.call(xhsLinks, function (link) {
@@ -1657,6 +1661,7 @@ tbody td {
           let appOpened = false;
           let fallbackTimer = null;
           let cleanupTimer = null;
+          const launchWindow = openLaunchWindow(schemeUrl);
 
           const cleanup = function () {
             if (fallbackTimer) window.clearTimeout(fallbackTimer);
@@ -1681,16 +1686,25 @@ tbody td {
 
           fallbackTimer = window.setTimeout(function () {
             cleanup();
-            if (!appOpened) openWebFallback(webUrl);
+            if (!appOpened) openWebFallback(launchWindow, webUrl);
           }, 900);
 
-          cleanupTimer = window.setTimeout(cleanup, 1800);
+          cleanupTimer = window.setTimeout(function () {
+            cleanup();
+            if (appOpened && launchWindow && !launchWindow.closed) {
+              launchWindow.close();
+            }
+          }, 1800);
 
           try {
-            openSchemeInBackground(schemeUrl);
+            if (!launchWindow) throw new Error("launch window blocked");
           } catch (error) {
             cleanup();
-            openWebFallback(webUrl);
+            window.location.href = schemeUrl;
+
+            window.setTimeout(function () {
+              if (!appOpened) window.location.href = webUrl;
+            }, 900);
           }
         });
       });
