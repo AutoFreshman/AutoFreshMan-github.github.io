@@ -3,19 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2026 云南四城单页行程手册 v1.0.0</title>
+    <title>2026 云南高铁优先三线手册 v2.0.0</title>
     <style>
 :root {
-  --bg: #f4efe5;
-  --paper: rgba(255, 251, 245, 0.9);
+  --bg: #f3ede2;
+  --paper: rgba(255, 250, 242, 0.9);
   --paper-strong: #fffaf2;
-  --ink: #18231f;
-  --muted: #53645f;
-  --accent: #c65a3f;
-  --accent-deep: #97432e;
-  --teal: #3d7c76;
-  --line: rgba(24, 35, 31, 0.1);
-  --shadow: 0 18px 50px rgba(25, 42, 39, 0.12);
+  --ink: #1b2521;
+  --muted: #586a63;
+  --accent: #c85f42;
+  --accent-deep: #91432d;
+  --teal: #3f7b75;
+  --gold: #c3933f;
+  --line: rgba(27, 37, 33, 0.1);
+  --shadow: 0 18px 48px rgba(25, 42, 39, 0.12);
 }
 
 * {
@@ -30,16 +31,11 @@ body {
   margin: 0;
   color: var(--ink);
   background:
-    radial-gradient(circle at top left, rgba(198, 90, 63, 0.15), transparent 28%),
-    radial-gradient(circle at top right, rgba(61, 124, 118, 0.18), transparent 32%),
-    linear-gradient(180deg, #f7f1e6 0%, #f3ecdf 40%, #efe7da 100%);
+    radial-gradient(circle at top left, rgba(200, 95, 66, 0.16), transparent 28%),
+    radial-gradient(circle at top right, rgba(63, 123, 117, 0.16), transparent 34%),
+    linear-gradient(180deg, #f7f2e8 0%, #f3ebe0 42%, #efe7da 100%);
   font-family: "Iowan Old Style", "Palatino Linotype", "Noto Serif SC", "Songti SC", serif;
   line-height: 1.65;
-}
-
-img {
-  display: block;
-  width: 100%;
 }
 
 a {
@@ -47,20 +43,19 @@ a {
 }
 
 .page-shell {
-  width: min(1200px, calc(100vw - 32px));
+  width: min(1240px, calc(100vw - 32px));
   margin: 0 auto;
   padding: 28px 0 64px;
 }
 
 .handbook-banner {
   display: grid;
-  grid-template-columns: 1.4fr 0.8fr;
+  grid-template-columns: 1.5fr 0.9fr;
   gap: 18px;
-  margin-bottom: 18px;
   padding: 24px 26px;
   border-radius: 28px;
   background:
-    linear-gradient(135deg, rgba(24, 35, 31, 0.92), rgba(61, 124, 118, 0.86)),
+    linear-gradient(135deg, rgba(27, 37, 33, 0.94), rgba(63, 123, 117, 0.88)),
     var(--paper);
   color: #fff7ef;
   box-shadow: var(--shadow);
@@ -72,33 +67,56 @@ a {
   line-height: 1.05;
 }
 
+.banner-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-self: end;
+  justify-content: flex-end;
+}
+
+.banner-meta span,
+.hero-badges span,
+.source-links span {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 0.92rem;
+  background: rgba(255, 255, 255, 0.08);
+}
+
 .quick-nav {
-  position: -webkit-sticky;
   position: sticky;
   top: 12px;
   z-index: 20;
   display: flex;
   flex-wrap: nowrap;
   gap: 10px;
-  margin: 0 0 10px;
+  margin: 12px 0 10px;
   padding: 12px;
   border: 1px solid rgba(255, 255, 255, 0.65);
   border-radius: 999px;
-  background: rgba(255, 250, 242, 0.74);
+  background: rgba(255, 250, 242, 0.78);
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
   box-shadow: 0 12px 36px rgba(24, 35, 31, 0.08);
   overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
+}
+
+.quick-nav a,
+.card-link,
+.hero-actions a,
+.source-links a,
+.source-item a {
+  text-decoration: none;
+  border-radius: 999px;
+  transition: transform 180ms ease, background 180ms ease, color 180ms ease;
 }
 
 .quick-nav a {
-  text-decoration: none;
   padding: 9px 14px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.74);
   border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.76);
   font-size: 0.95rem;
   white-space: nowrap;
 }
@@ -108,26 +126,35 @@ a {
   grid-template-columns: 1.3fr 0.9fr;
   gap: 24px;
   align-items: stretch;
-  padding: 20px 0 16px;
+  padding: 18px 0 14px;
 }
 
 .hero-copy,
 .hero-panel,
 .section,
-.day-card,
+.gallery-card,
+.matrix-card,
+.overview-card,
+.reason-card,
 .check-card,
-.reason-card {
+.source-item,
+.compact-card {
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
 }
 
 .hero-copy,
-.hero-panel {
+.hero-panel,
+.section {
   background: var(--paper);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.56);
   border-radius: 28px;
-  padding: 34px;
   box-shadow: var(--shadow);
+}
+
+.hero-copy,
+.hero-panel {
+  padding: 34px;
 }
 
 .eyebrow {
@@ -145,8 +172,8 @@ a {
 }
 
 .hero h1 {
-  font-size: clamp(2.3rem, 4vw, 4.5rem);
-  max-width: 10ch;
+  font-size: clamp(2.3rem, 4vw, 4.4rem);
+  max-width: 11ch;
 }
 
 .hero-summary,
@@ -154,14 +181,17 @@ a {
 .gallery-copy p,
 .reason-card p,
 .check-card p,
-.day-card p {
+.matrix-card p,
+.overview-card p,
+.source-item p,
+.compact-card p {
   color: var(--muted);
 }
 
 .hero-summary {
+  margin: 18px 0 0;
   font-size: 1.04rem;
   max-width: 58ch;
-  margin: 18px 0 0;
 }
 
 .hero-badges,
@@ -176,60 +206,37 @@ a {
   margin-top: 22px;
 }
 
-.hero-badges span,
-.source-links span {
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 8px 12px;
-  font-size: 0.92rem;
-  background: rgba(255, 255, 255, 0.55);
-}
-
 .hero-actions {
   margin-top: 26px;
 }
 
 .hero-actions a,
-.source-links a {
-  text-decoration: none;
-  border-radius: 999px;
+.source-links a,
+.source-item a,
+.card-link {
   padding: 10px 14px;
-  transition: transform 180ms ease, background 180ms ease;
 }
 
 .hero-actions a:first-child,
-.source-links a {
+.source-links a,
+.source-item a,
+.card-link {
   background: #b44e35;
-  font-weight: 700;
-}
-
-.hero-actions a:first-child {
-  color: #111111;
-  -webkit-text-fill-color: #111111;
-}
-
-.source-links a {
   color: #fffaf2;
-  -webkit-text-fill-color: #fffaf2;
 }
 
 .hero-actions a:last-child {
   border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.6);
-}
-
-.hero-actions a:hover,
-.source-links a:hover {
-  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.64);
 }
 
 .route-card {
   padding: 20px;
   border-radius: 20px;
   background:
-    linear-gradient(145deg, rgba(198, 90, 63, 0.14), rgba(61, 124, 118, 0.12)),
+    linear-gradient(145deg, rgba(200, 95, 66, 0.14), rgba(63, 123, 117, 0.12)),
     var(--paper-strong);
-  border: 1px solid rgba(198, 90, 63, 0.18);
+  border: 1px solid rgba(200, 95, 66, 0.18);
 }
 
 .route-label {
@@ -253,13 +260,13 @@ a {
 .stat-grid article {
   padding: 18px;
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.72);
   border: 1px solid var(--line);
 }
 
 .stat-grid strong {
   display: block;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
 }
 
 .stat-grid span {
@@ -269,33 +276,81 @@ a {
 .section {
   margin-top: 24px;
   padding: 30px;
-  border-radius: 28px;
-  background: rgba(255, 250, 242, 0.78);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow: var(--shadow);
 }
 
 .section-head {
   margin-bottom: 22px;
 }
 
+.overview-band,
+.reason-grid,
+.check-grid,
+.source-board,
 .manual-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
-  margin-bottom: 18px;
+}
+
+.overview-band {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.reason-grid,
+.check-grid,
+.source-board {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.manual-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.overview-card,
+.reason-card,
+.check-card,
+.source-item,
+.compact-card {
+  padding: 22px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid var(--line);
+}
+
+.overview-card strong,
+.source-item strong,
+.compact-card strong {
+  display: block;
+  font-size: 1.12rem;
+  line-height: 1.45;
+}
+
+.overview-card p,
+.source-item p,
+.compact-card p {
+  margin: 10px 0 0;
+}
+
+.card-link {
+  display: inline-flex;
+  margin-top: 16px;
+  font-size: 0.94rem;
+  font-weight: 700;
 }
 
 .manual-card {
   padding: 20px;
   border-radius: 22px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(250, 244, 235, 0.78));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(249, 243, 234, 0.8));
   border: 1px solid var(--line);
 }
 
-.manual-card h3 {
-  margin: 0 0 8px;
-  font-size: 1.12rem;
+.manual-card h3,
+.reason-card h3,
+.check-card h3,
+.gallery-copy h3,
+.matrix-head strong {
+  margin: 0 0 10px;
+  font-size: 1.14rem;
 }
 
 .manual-card p {
@@ -303,41 +358,14 @@ a {
   color: var(--muted);
 }
 
-.overview-band {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-  margin-bottom: 18px;
-}
-
-.overview-card {
-  padding: 20px;
-  border-radius: 22px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(247, 241, 230, 0.82));
-  border: 1px solid var(--line);
-}
-
-.overview-card strong {
-  display: block;
-  font-size: 1.1rem;
-  line-height: 1.45;
-}
-
-.overview-card p {
-  margin: 10px 0 0;
-  color: var(--muted);
-}
-
 .route-strip {
   display: grid;
-  grid-template-columns: repeat(8, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
   gap: 10px;
-  margin-bottom: 24px;
+  margin: 0 0 24px;
 }
 
 .route-strip span {
-  position: relative;
   padding: 14px 12px;
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.72);
@@ -346,36 +374,16 @@ a {
   font-size: 0.93rem;
 }
 
-.section h2 {
-  font-size: clamp(1.7rem, 2.5vw, 2.7rem);
+.route-strip .accent-stop {
+  background: linear-gradient(135deg, rgba(200, 95, 66, 0.16), rgba(255, 255, 255, 0.82));
 }
 
-.reason-grid,
-.check-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+.route-strip .teal-stop {
+  background: linear-gradient(135deg, rgba(63, 123, 117, 0.15), rgba(255, 255, 255, 0.82));
 }
 
-.reason-card,
-.check-card {
-  padding: 22px;
-  border-radius: 22px;
-  background: rgba(255, 255, 255, 0.68);
-  border: 1px solid var(--line);
-}
-
-.reason-card h3,
-.check-card h3,
-.gallery-copy h3 {
-  margin: 0 0 10px;
-  font-size: 1.15rem;
-}
-
-.reason-card p,
-.check-card p,
-.gallery-copy p {
-  margin: 0;
+.route-strip .gold-stop {
+  background: linear-gradient(135deg, rgba(195, 147, 63, 0.18), rgba(255, 255, 255, 0.82));
 }
 
 .gallery-grid {
@@ -387,7 +395,7 @@ a {
 .gallery-card {
   overflow: hidden;
   border-radius: 24px;
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.76);
   border: 1px solid var(--line);
 }
 
@@ -395,21 +403,125 @@ a {
   grid-column: 1 / -1;
 }
 
-.gallery-card img {
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
+.visual-block {
+  position: relative;
+  min-height: 220px;
+  padding: 22px;
+  display: flex;
+  align-items: end;
+  overflow: hidden;
 }
 
-.gallery-card.wide img {
-  aspect-ratio: 18 / 8;
+.visual-block::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.95;
+}
+
+.visual-block::after {
+  content: "";
+  position: absolute;
+  inset: auto -10% -25% auto;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  filter: blur(6px);
+}
+
+.visual-content {
+  position: relative;
+  z-index: 1;
+  color: #fff9f0;
+}
+
+.visual-content strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.42rem;
+}
+
+.visual-content span {
+  display: inline-flex;
+  margin-right: 8px;
+  margin-top: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  font-size: 0.88rem;
+}
+
+.visual-km::before {
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.16), transparent 32%),
+    linear-gradient(135deg, #d26f55, #9e3d30 48%, #5c886d);
+}
+
+.visual-dl::before {
+  background:
+    radial-gradient(circle at 80% 22%, rgba(255, 255, 255, 0.18), transparent 24%),
+    linear-gradient(140deg, #7ca6c8, #5a8ba6 42%, #9dbd8a);
+}
+
+.visual-lj::before {
+  background:
+    radial-gradient(circle at 18% 20%, rgba(255, 255, 255, 0.18), transparent 24%),
+    linear-gradient(145deg, #566878, #304b60 48%, #a37b5c);
+}
+
+.visual-yx::before {
+  background:
+    radial-gradient(circle at 20% 18%, rgba(255, 255, 255, 0.18), transparent 22%),
+    linear-gradient(145deg, #4d8e93, #2e6c75 42%, #85bfa0);
+}
+
+.visual-pe::before {
+  background:
+    radial-gradient(circle at 76% 24%, rgba(255, 255, 255, 0.18), transparent 24%),
+    linear-gradient(145deg, #557053, #314a38 44%, #a17d4a);
+}
+
+.visual-bn::before {
+  background:
+    radial-gradient(circle at 76% 20%, rgba(255, 255, 255, 0.16), transparent 24%),
+    linear-gradient(145deg, #238163, #1a5c48 44%, #c59a43);
+}
+
+.visual-lp::before {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.22), transparent 24%),
+    linear-gradient(145deg, #d2aa3a, #9a7a27 40%, #64805d);
+}
+
+.visual-ml::before {
+  background:
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.18), transparent 24%),
+    linear-gradient(145deg, #b7654e, #95483f 42%, #c89d5d);
+}
+
+.visual-js::before {
+  background:
+    radial-gradient(circle at 18% 22%, rgba(255, 255, 255, 0.2), transparent 24%),
+    linear-gradient(145deg, #85654d, #694737 44%, #c2834c);
 }
 
 .gallery-copy {
   padding: 20px;
 }
 
+.gallery-copy p {
+  margin: 0;
+}
+
 .source-links {
   margin-top: 16px;
+}
+
+.source-links span {
+  border-color: rgba(27, 37, 33, 0.08);
+  background: rgba(255, 255, 255, 0.64);
+  color: var(--ink);
 }
 
 .source-notes {
@@ -422,26 +534,21 @@ a {
   margin: 0;
   padding: 10px 12px;
   border-radius: 14px;
-  border: 1px solid rgba(24, 35, 31, 0.08);
-  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(27, 37, 33, 0.08);
+  background: rgba(255, 255, 255, 0.6);
   color: var(--muted);
-  font-size: 0.93rem;
+  font-size: 0.94rem;
 }
 
 .source-notes strong {
   color: var(--ink);
 }
 
-.timeline {
+.matrix-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
-}
-
-.matrix-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+  margin-top: 18px;
 }
 
 .matrix-card {
@@ -464,147 +571,13 @@ a {
   font-size: 0.92rem;
 }
 
-.matrix-head strong {
-  font-size: 1.2rem;
-}
-
 .matrix-card p {
   margin: 0 0 10px;
-  color: var(--muted);
 }
 
-.matrix-card p:last-child {
+.matrix-card p:last-child,
+.page-footer p:last-child {
   margin-bottom: 0;
-}
-
-.day-card {
-  padding: 20px;
-  border-radius: 22px;
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid var(--line);
-  min-height: 210px;
-}
-
-.day-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  margin-bottom: 12px;
-}
-
-.day-meta span {
-  color: var(--accent-deep);
-  font-size: 0.92rem;
-}
-
-.day-meta strong {
-  font-size: 1.18rem;
-}
-
-.day-card p {
-  margin: 0;
-}
-
-.day-card .minor {
-  margin-top: 12px;
-  font-size: 0.95rem;
-}
-
-.table-wrap {
-  overflow-x: auto;
-  border-radius: 22px;
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.74);
-}
-
-.mobile-transport-list {
-  display: none;
-}
-
-.mobile-transport-card {
-  padding: 18px;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid var(--line);
-}
-
-.mobile-transport-card span {
-  display: inline-block;
-  margin-bottom: 8px;
-  color: var(--accent-deep);
-  font-size: 0.9rem;
-}
-
-.mobile-transport-card strong {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 1.08rem;
-}
-
-.mobile-transport-card p {
-  margin: 0 0 6px;
-  color: var(--muted);
-}
-
-.mobile-transport-card p:last-child {
-  margin-bottom: 0;
-}
-
-.compact-sheet {
-  background:
-    linear-gradient(180deg, rgba(255, 248, 239, 0.92), rgba(255, 252, 246, 0.92));
-}
-
-.summary-sheet {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.summary-sheet article {
-  padding: 18px;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid var(--line);
-}
-
-.summary-sheet strong {
-  display: block;
-  margin-bottom: 10px;
-  font-size: 1.06rem;
-}
-
-.summary-sheet p {
-  margin: 0 0 8px;
-  color: var(--muted);
-}
-
-.summary-sheet p:last-child {
-  margin-bottom: 0;
-}
-
-.source-board {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.source-item {
-  padding: 20px;
-  border-radius: 22px;
-  background: rgba(255, 255, 255, 0.74);
-  border: 1px solid var(--line);
-}
-
-.source-item strong {
-  display: block;
-  margin-bottom: 10px;
-  font-size: 1.08rem;
-}
-
-.source-item p {
-  margin: 0 0 14px;
-  color: var(--muted);
 }
 
 .source-item a {
@@ -612,18 +585,14 @@ a {
   align-items: center;
   justify-content: center;
   min-height: 42px;
-  padding: 0 14px;
-  border-radius: 999px;
-  background: var(--ink);
-  color: #fff;
-  text-decoration: none;
+  margin-top: 16px;
 }
 
 .page-footer {
   margin-top: 22px;
   padding: 18px 22px;
   border-radius: 22px;
-  background: rgba(255, 250, 242, 0.74);
+  background: rgba(255, 250, 242, 0.76);
   border: 1px solid var(--line);
   color: var(--muted);
 }
@@ -632,51 +601,25 @@ a {
   margin: 0 0 6px;
 }
 
-.page-footer p:last-child {
-  margin-bottom: 0;
+.quick-nav a:hover,
+.card-link:hover,
+.hero-actions a:hover,
+.source-links a:hover,
+.source-item a:hover {
+  transform: translateY(-2px);
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 920px;
-}
-
-th,
-td {
-  padding: 14px 16px;
-  text-align: left;
-  border-bottom: 1px solid rgba(24, 35, 31, 0.08);
-  vertical-align: top;
-}
-
-thead th {
-  background: rgba(61, 124, 118, 0.1);
-  color: var(--ink);
-  font-size: 0.95rem;
-}
-
-tbody td {
-  color: var(--muted);
-}
-
-@media (max-width: 980px) {
+@media (max-width: 1080px) {
   .hero,
   .handbook-banner,
+  .overview-band,
+  .gallery-grid,
+  .matrix-grid,
   .reason-grid,
   .check-grid,
-  .gallery-grid,
-  .timeline,
-  .matrix-grid,
-  .overview-band,
-  .source-board,
   .manual-grid,
-  .summary-sheet {
+  .source-board {
     grid-template-columns: 1fr;
-  }
-
-  .route-strip {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .gallery-card.wide {
@@ -690,19 +633,15 @@ tbody td {
 
 @media (max-width: 640px) {
   .page-shell {
-    width: min(100vw - 20px, 1200px);
+    width: min(100vw - 20px, 1240px);
     padding-top: 12px;
     padding-bottom: 32px;
   }
 
-  body {
-    line-height: 1.55;
-  }
-
+  .handbook-banner,
   .hero-copy,
   .hero-panel,
-  .section,
-  .handbook-banner {
+  .section {
     padding: 18px;
     border-radius: 22px;
   }
@@ -711,7 +650,6 @@ tbody td {
     position: static;
     padding: 10px;
     border-radius: 18px;
-    margin-bottom: 14px;
   }
 
   .quick-nav a {
@@ -723,6 +661,10 @@ tbody td {
     font-size: 1.7rem;
   }
 
+  .banner-meta {
+    justify-content: flex-start;
+  }
+
   .hero {
     gap: 14px;
     padding: 8px 0 12px;
@@ -730,7 +672,7 @@ tbody td {
 
   .hero h1 {
     font-size: 2rem;
-    line-height: 1.02;
+    line-height: 1.03;
   }
 
   .hero-summary {
@@ -750,19 +692,13 @@ tbody td {
     font-size: 1.5rem;
   }
 
-  .route-strip {
-    grid-template-columns: 1fr;
-    margin-bottom: 18px;
-  }
-
+  .overview-card,
   .reason-card,
   .check-card,
-  .overview-card,
-  .manual-card,
-  .matrix-card,
-  .day-card,
   .source-item,
-  .summary-sheet article {
+  .manual-card,
+  .compact-card,
+  .matrix-card {
     padding: 16px;
     border-radius: 18px;
   }
@@ -772,19 +708,13 @@ tbody td {
     border-radius: 20px;
   }
 
-  .gallery-card img,
-  .gallery-card.wide img {
-    aspect-ratio: 4 / 3;
+  .visual-block {
+    min-height: 180px;
+    padding: 18px;
   }
 
   .gallery-copy {
     padding: 16px;
-  }
-
-  .gallery-copy h3,
-  .matrix-head strong,
-  .day-meta strong {
-    font-size: 1.05rem;
   }
 
   .source-links {
@@ -795,15 +725,6 @@ tbody td {
 
   .source-links span {
     grid-column: 1 / -1;
-  }
-
-  .table-wrap {
-    display: none;
-  }
-
-  .mobile-transport-list {
-    display: grid;
-    gap: 12px;
   }
 
   .hero-actions a,
@@ -850,15 +771,15 @@ tbody td {
   .hero-copy,
   .hero-panel,
   .section,
-  .day-card,
+  .gallery-card,
   .matrix-card,
-  .manual-card,
   .overview-card,
-  .source-item,
-  .summary-sheet article,
-  .page-footer,
+  .reason-card,
   .check-card,
-  .reason-card {
+  .source-item,
+  .manual-card,
+  .compact-card,
+  .page-footer {
     background: #fff !important;
     color: #111 !important;
     box-shadow: none !important;
@@ -866,83 +787,19 @@ tbody td {
     backdrop-filter: none !important;
   }
 
-  .hero-summary,
-  .section-note,
-  .gallery-copy p,
-  .reason-card p,
-  .check-card p,
-  .day-card p,
-  .matrix-card p,
-  .overview-card p,
-  .source-item p,
-  .summary-sheet p,
-  .page-footer {
-    color: #333 !important;
-  }
-
   .hero,
   .overview-band,
-  .reason-grid,
   .gallery-grid,
   .matrix-grid,
-  .timeline,
+  .reason-grid,
   .check-grid,
-  .source-board,
-  .summary-sheet,
-  .manual-grid {
+  .manual-grid,
+  .source-board {
     gap: 10px;
   }
 
-  .hero,
-  .gallery-grid,
-  .matrix-grid,
-  .timeline,
-  .source-board,
-  .summary-sheet,
-  .manual-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .gallery-card.wide {
-    grid-column: auto;
-  }
-
-  .section,
-  .handbook-banner,
-  .hero-copy,
-  .hero-panel {
-    margin-top: 10px;
-    padding: 14px;
-    border-radius: 14px;
-    break-inside: avoid;
-    page-break-inside: avoid;
-  }
-
-  .gallery-card,
-  .day-card,
-  .matrix-card,
-  .source-item,
-  .summary-sheet article,
-  .manual-card,
-  .overview-card {
-    break-inside: avoid;
-    page-break-inside: avoid;
-  }
-
-  .gallery-card img,
-  .gallery-card.wide img {
-    aspect-ratio: 16 / 10;
-    max-height: 58mm;
-  }
-
-  table {
-    min-width: 0;
-    font-size: 10pt;
-  }
-
-  th,
-  td {
-    padding: 8px 10px;
+  .visual-block {
+    min-height: 48mm;
   }
 
   a {
@@ -956,690 +813,783 @@ tbody td {
     <div class="page-shell">
       <section class="handbook-banner">
         <div>
-          <p class="eyebrow">单页手册版 · v1.0.0</p>
-          <h1 class="handbook-title">2026 云南四城联游手册</h1>
+          <p class="eyebrow">高铁优先手册 · v2.0.0</p>
+          <h1 class="handbook-title">2026 云南三线方案手册</h1>
+        </div>
+        <div class="banner-meta">
+          <span>3 条新路线</span>
+          <span>只参考小红书</span>
+          <span>省内少大巴</span>
+          <span>支持手机直跳 App</span>
         </div>
       </section>
 
       <header class="hero">
         <div class="hero-copy">
-          <p class="eyebrow">2026-04-17 至 2026-04-26</p>
-          <h1>武汉 / 西安出发的云南四城联游</h1>
+          <p class="eyebrow">从旧版四城线切换到铁路优先版本</p>
+          <h1>把云南省内转场收回到高铁主干线上</h1>
           <p class="hero-summary">
-            调整后，这条线收成了更顺的四城版：昆明、大理、腾冲、芒市。进出云南用飞机，省内尽量用动车，
-            最后在 04-25 早上从芒市飞回昆明，白天轻逛昆明老街和南强街巷，晚上再分组返汉 / 返西安，
-            整段行程会比原方案更从容。
+            旧版路线里最别扭的地方，是若干关键跨城段离不开公路转移。这一版直接把逻辑重做成
+            <strong>三条高铁优先方案</strong>：经典的昆大丽、沿中老铁路南下的玉溪普洱版纳线，
+            以及更偏小众的滇东南环线。页面里的玩法方向、城市关键词和路线气质，都只按
+            <strong>小红书搜索结果</strong>来整理。
           </p>
           <div class="hero-badges">
-            <span>v1.0.0</span>
-            <span>4 人同行</span>
-            <span>10 天 8 晚</span>
-            <span>铁路优先</span>
-            <span>04-25 昆明返程</span>
+            <span>方案一：昆明 / 大理 / 丽江</span>
+            <span>方案二：昆明 / 玉溪 / 普洱 / 版纳</span>
+            <span>方案三：昆明 / 罗平 / 弥勒 / 建水 / 昆明</span>
+            <span>默认高铁优先</span>
           </div>
           <div class="hero-actions">
-            <a href="#transport">查看交通参考</a>
+            <a href="#overview">先看三线对比</a>
+            <a href="#rail">看高铁原则</a>
           </div>
         </div>
         <div class="hero-panel">
           <div class="route-card">
-            <p class="route-label">推荐路线</p>
+            <p class="route-label">当前推荐阅读顺序</p>
             <p class="route-line">
-              武汉 / 西安 → 昆明 → 大理 → 保山 → 腾冲 → 芒市 → 昆明 → 武汉 / 西安
+              先在三条路线里选一个节奏，再去看对应城市卡片和逐日矩阵，最后用页面里的小红书搜索入口继续补酒店、吃饭和具体点位。
             </p>
           </div>
           <div class="stat-grid">
             <article>
-              <strong>3 段</strong>
-              <span>关键航班节点</span>
+              <strong>3 条</strong>
+              <span>独立可执行方案</span>
             </article>
             <article>
-              <strong>2 段</strong>
-              <span>已明确动车</span>
+              <strong>9 城</strong>
+              <span>覆盖的新主线城市</span>
             </article>
             <article>
-              <strong>4 城</strong>
-              <span>主线游历</span>
+              <strong>铁路优先</strong>
+              <span>跨城逻辑重排</span>
             </article>
             <article>
-              <strong>04-25</strong>
-              <span>昆明收口返程</span>
+              <strong>1 条环线</strong>
+              <span>第三条为闭环版本</span>
             </article>
           </div>
         </div>
       </header>
 
       <nav class="quick-nav">
-        <a href="#gallery">重点景点</a>
-        <a href="#daily-matrix">每日矩阵</a>
-        <a href="#transport">交通参考</a>
+        <a href="#overview">方案总览</a>
+        <a href="#route-classic">线路一</a>
+        <a href="#route-south">线路二</a>
+        <a href="#route-loop">线路三</a>
+        <a href="#rail">高铁原则</a>
       </nav>
 
       <main>
-        <section class="section" id="gallery">
+        <section class="section" id="overview">
           <div class="section-head">
-            <p class="eyebrow">主视觉景点</p>
-            <h2>四个城市的重点游玩面</h2>
+            <p class="eyebrow">三线总览</p>
+            <h2>先决定你更想要哪一种云南</h2>
             <p class="section-note">
-              页面保留了对应的
-              <strong>小红书搜索入口</strong>。每张卡片下方都拆成了多个关键词入口，方便你们继续补机位、餐厅和最新玩法。
-              下面这些短句不再只写标题，而是按对应笔记正文里的路线、时间和避坑信息压成了更好用的摘要版。
+              这一步先看路线气质，不要先看景点数量。三条线不是“谁更多”，而是谁更顺、谁更像你们这次真正想要的节奏。
             </p>
           </div>
 
-          <div class="gallery-grid">
-            <article class="gallery-card">
-              <img
-                src="https://img1.qunarzz.com/travel/d2/1605/10/0c8224e482e3b2f7.jpg_r_720x480x95_37fa6074.jpg"
-                alt="昆明斗南花市"
-                loading="lazy"
-              />
-              <div class="gallery-copy">
-                <h3>昆明 | 斗南花市与滇池落日</h3>
-                <p>
-                  斗南负责把云南的色彩拉满，海埂大坝负责把第一天的节奏放慢，适合作为落地日的城市切入口。
-                </p>
-                <div class="source-links">
-                  <a
-                    href="https://www.xiaohongshu.com/search_result?keyword=%E6%96%97%E5%8D%97%E8%8A%B1%E5%B8%82"
-                    target="_blank"
-                    rel="noreferrer"
-                    >斗南花市</a
-                  >
-                  <a
-                    href="https://www.xiaohongshu.com/search_result?keyword=%E6%B5%B7%E5%9F%82%E5%A4%A7%E5%9D%9D"
-                    target="_blank"
-                    rel="noreferrer"
-                    >海埂大坝</a
-                  >
-                  <a
-                    href="https://www.xiaohongshu.com/search_result?keyword=%E6%98%86%E6%98%8E%E8%80%81%E8%A1%97"
-                    target="_blank"
-                    rel="noreferrer"
-                    >昆明老街</a
-                  >
-                </div>
-                <div class="source-notes">
-                  <p><strong>斗南花市：</strong>普通游客更适合按楼层慢逛：1 楼看鲜花和小物，2 楼拍俯视全景、看果壳铃和多肉，3 楼看干花衍生品；真想买鲜花更适合晚市 20:30-24:00，白天便宜花和快递都容易踩坑。</p>
-                  <p><strong>海埂大坝：</strong>更适合卡在 9:30-11:00 或 16:00 以后去，地铁 5 号线渔户村站出来接共享单车更顺；入口买颗粒鸥粮、别带面包，拍照最好去大坝中段观景台，周末尽量 9 点前到。</p>
-                  <p><strong>昆明老街：</strong>按“老街段 + 巡津街段”排半天到一天最顺，中间最好打车或骑车；老街更偏文庙、马家大院、东方书店这类历史建筑，巡津街适合轻松逛巷子和收尾喝咖啡。</p>
-                </div>
-              </div>
+          <div class="overview-band">
+            <article class="overview-card">
+              <strong>方案一：昆明 → 大理 → 丽江</strong>
+              <p>最稳的第一次云南线。小红书里这条线高频出现 `6 天`、`不绕路`、`自由行`、`经典线`。</p>
+              <p>适合想把昆明的轻松、大理的松弛、丽江的景观密度按顺序走一遍。</p>
+              <a class="card-link" href="#route-classic">查看线路一</a>
             </article>
 
-            <article class="gallery-card">
-              <img
-                src="https://dimg09.c-ctrip.com/images/100e0s000000i0zc5A4D8_C_671_10000_Q90.jpg"
-                alt="大理古城和洱海"
-                loading="lazy"
-              />
-              <div class="gallery-copy">
-                <h3>大理 | 古城、喜洲、双廊与环洱海</h3>
-                <p>
-                  你们在大理最值得花掉整块白天。建议四个人直接包车，把喜洲和双廊之间最舒服的停靠点都留给自己。
-                </p>
-                <div class="source-links">
-                  <a
-                    href="https://www.xiaohongshu.com/search_result?keyword=%E5%A4%A7%E7%90%86%E5%8F%A4%E5%9F%8E"
-                    target="_blank"
-                    rel="noreferrer"
-                    >大理古城</a
-                  >
-                  <a
-                    href="https://www.xiaohongshu.com/search_result?keyword=%E5%96%9C%E6%B4%B2%E5%8F%A4%E9%95%87"
-                    target="_blank"
-                    rel="noreferrer"
-                    >喜洲古镇</a
-                  >
-                  <a
-                    href="https://www.xiaohongshu.com/search_result?keyword=%E5%8F%8C%E5%BB%8A"
-                    target="_blank"
-                    rel="noreferrer"
-                    >双廊</a
-                  >
-                  <a
-                    href="https://www.xiaohongshu.com/search_result?keyword=%E6%B4%B1%E6%B5%B7"
-                    target="_blank"
-                    rel="noreferrer"
-                    >洱海</a
-                  >
-                </div>
-                <div class="source-notes">
-                  <p><strong>大理古城：</strong>正文更推荐晚上去，外围商业感更重一些，往里走还有本地小店；夜里风大，最好多带一件外套，如果还要继续跑周边，先在古城门口租电动车会更方便。</p>
-                  <p><strong>喜洲古镇：</strong>更适合留半天到一天慢走，路线重点是转角楼、喜林苑、严家大院、麦田边午餐和下午茶机位；整体节奏比大理古城安静很多，更适合拍白墙、稻田和低饱和街巷。</p>
-                  <p><strong>双廊：</strong>更适合作为 0.5-1 天游，南门进、风情岛、太阳宫，再沿洱海步道慢慢走出来；太阳宫如果要免费参观得提前预约，腿脚不便的话别把它排太重。</p>
-                  <p><strong>洱海：</strong>这篇更偏傍晚机位，建议 17:45 左右到西岸生态廊道，18:15-18:40 是最好看的光线段；礁石、芦苇和废弃渔船都能当前景，适合把洱海排成看光线而不是赶点打卡。</p>
-                </div>
-              </div>
+            <article class="overview-card">
+              <strong>方案二：昆明 → 玉溪 → 普洱 → 西双版纳</strong>
+              <p>最像铁路主轴的版本。高频词是 `中老铁路`、`不自驾`、`普洱 + 版纳`、`高铁直达`。</p>
+              <p>适合想把云南从“古城滤镜”切到“湖、茶、热带”视角的人。</p>
+              <a class="card-link" href="#route-south">查看线路二</a>
             </article>
 
-            <article class="gallery-card">
-              <img
-                src="https://www.pop-photo.com.cn/data/attachment/forum/201711/26/154919gh6p3sp6mu3j0sus.jpg"
-                alt="腾冲和顺古镇与热海"
-                loading="lazy"
-              />
-              <div class="gallery-copy">
-                <h3>腾冲 | 和顺古镇、热海与温泉</h3>
-                <p>
-                  腾冲不需要贪多。只要把和顺古镇的慢、热海的地貌和温泉的放松连起来，这一站就值回时间成本。
-                </p>
-                <div class="source-links">
-                  <a
-                    href="https://www.xiaohongshu.com/search_result?keyword=%E5%92%8C%E9%A1%BA%E5%8F%A4%E9%95%87"
-                    target="_blank"
-                    rel="noreferrer"
-                    >和顺古镇</a
-                  >
-                  <a
-                    href="https://www.xiaohongshu.com/search_result?keyword=%E7%83%AD%E6%B5%B7"
-                    target="_blank"
-                    rel="noreferrer"
-                    >热海</a
-                  >
-                  <a
-                    href="https://www.xiaohongshu.com/search_result?keyword=%E8%85%BE%E5%86%B2%E6%B8%A9%E6%B3%89"
-                    target="_blank"
-                    rel="noreferrer"
-                    >腾冲温泉</a
-                  >
-                </div>
-                <div class="source-notes">
-                  <p><strong>和顺古镇：</strong>重点不是一次塞很多点，而是围着洗衣亭双虹桥、李氏宗祠、几家能俯瞰水面或街巷的咖啡店慢慢逛；如果只留半天，可以优先桥、水边和俯瞰位。</p>
-                  <p><strong>热海：</strong>更像“看大滚锅 + 顺手煮蛋”的半日景点，入口到山顶全程步行 1.5-2 小时也能走完；如果不泡温泉，别指望它有太多额外项目，把预期放在地热景观和热海大滚锅就够了。</p>
-                  <p><strong>腾冲温泉：</strong>更建议先区分“干净舒适型”和“野趣型”：前者更偏荷花、热海这类成熟温泉，后者像石墙、石花洞这种更有原汤感；不管选哪类，早点去通常水更干净、体验也更完整。</p>
-                </div>
-              </div>
-            </article>
-
-            <article class="gallery-card">
-              <img
-                src="https://m.tuniucdn.com/fb2/t1/G2/M00/49/EA/Cii-T1e-TNGISvvwAAy7V32VWhgAABsJQNY_uUADLtv810_w500_h280_c1_t0.jpg"
-                alt="芒市勐焕大金塔"
-                loading="lazy"
-              />
-              <div class="gallery-copy">
-                <h3>芒市 | 大金塔、银塔与两晚收尾</h3>
-                <p>
-                  这次芒市不再只是一个过夜点，而是全程最后两晚的收尾城市。白天看双塔，晚上吃傣味，第二天还能继续慢逛。
-                </p>
-                <div class="source-links">
-                  <a
-                    href="https://www.xiaohongshu.com/search_result?keyword=%E5%8B%90%E7%84%95%E5%A4%A7%E9%87%91%E5%A1%94"
-                    target="_blank"
-                    rel="noreferrer"
-                    >勐焕大金塔</a
-                  >
-                  <a
-                    href="https://www.xiaohongshu.com/search_result?keyword=%E9%93%B6%E5%A1%94"
-                    target="_blank"
-                    rel="noreferrer"
-                    >银塔</a
-                  >
-                  <a
-                    href="https://www.xiaohongshu.com/search_result?keyword=%E5%82%A3%E6%97%8F%E5%8F%A4%E9%95%87"
-                    target="_blank"
-                    rel="noreferrer"
-                    >傣族古镇</a
-                  >
-                  <a
-                    href="https://www.xiaohongshu.com/search_result?keyword=%E8%8A%92%E5%B8%82%E5%92%96%E5%95%A1"
-                    target="_blank"
-                    rel="noreferrer"
-                    >芒市咖啡</a
-                  >
-                  <a
-                    href="https://www.xiaohongshu.com/search_result?keyword=%E8%8A%92%E5%B8%82%E5%82%A3%E5%91%B3"
-                    target="_blank"
-                    rel="noreferrer"
-                    >芒市傣味</a
-                  >
-                </div>
-                <div class="source-notes">
-                  <p><strong>勐焕大金塔：</strong>更顺的走法不是硬赶早，而是看着日落时间倒推，通常提前 1 小时到金塔最合适；租电瓶车能直接到售票口，拍金银塔同框反而更建议走去银塔的路上边走边拍。</p>
-                  <p><strong>银塔：</strong>这条笔记核心全在拍照：上午 9 点或下午 4 点后光线更稳，不建议大中午去；如果准备做旅拍，天空之境往往排队最长，其他点位可以先拍完再回头等它。</p>
-                  <p><strong>傣族古镇：</strong>更适合和金塔、银塔、新玩厂夜市放成一条傍晚线，它本身更像新修古镇和小吃街，不适合抱着老城历史感预期去；如果时间紧，把它留给晚饭和夜景就够了。</p>
-                  <p><strong>芒市咖啡：</strong>更像塔区附近的放空点，逛完金银塔再去坐一杯最顺；像大树咖啡这类店的重点不在菜单有多复杂，而是在树荫、院子和慢节奏氛围本身。</p>
-                  <p><strong>芒市傣味：</strong>更适合直接去本地人密集的巷子里看食材点菜，把它当正餐重点；苦撒这类味型接受度很分人，第一次吃别点太猛，先从更稳妥的傣味烤物和热菜试起。</p>
-                </div>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="section" id="daily-matrix">
-          <div class="section-head">
-            <p class="eyebrow">执行矩阵</p>
-            <h2>按天拆开的出发、景点、用餐与住宿</h2>
-            <p class="section-note">
-              这一块是给实际订票和安排行李用的，比上面的行程节奏更偏执行层。
-            </p>
-          </div>
-          <div class="matrix-grid">
-            <article class="matrix-card">
-              <div class="matrix-head">
-                <span>04-17 周五</span>
-                <strong>去程飞昆明</strong>
-              </div>
-              <p><b>出发 - 到达</b> 武汉组 22:25 起飞，00:35+1 落地；西安组 21:15 起飞，23:35 落地。</p>
-              <p><b>景点</b> 不排景点，以会合和入住为主。</p>
-              <p><b>用餐</b> 机场简餐，落地后可补菌汤米线或夜宵。</p>
-              <p><b>酒店区域</b> 昆明站 / 塘子巷 / 南屏街。</p>
-            </article>
-            <article class="matrix-card">
-              <div class="matrix-head">
-                <span>04-18 周六</span>
-                <strong>昆明轻游</strong>
-              </div>
-              <p><b>出发 - 到达</b> 10:00 出门，21:30 回酒店。</p>
-              <p><b>景点</b> 斗南花市、海埂大坝、南强街巷 / 昆明老街。</p>
-              <p><b>用餐</b> 午餐斗南 / 滇池片区，晚餐南强街夜市。</p>
-              <p><b>酒店区域</b> 昆明站 / 塘子巷 / 南屏街。</p>
-            </article>
-            <article class="matrix-card">
-              <div class="matrix-head">
-                <span>04-19 周日</span>
-                <strong>昆明 → 大理</strong>
-              </div>
-              <p><b>出发 - 到达</b> 06:51 昆明南发车，09:08 抵大理。</p>
-              <p><b>景点</b> 大理古城，傍晚可补三塔外围或苍山日落点。</p>
-              <p><b>用餐</b> 午餐古城，晚餐古城内白族菜或小酒馆。</p>
-              <p><b>酒店区域</b> 大理古城南门附近。</p>
-            </article>
-            <article class="matrix-card">
-              <div class="matrix-head">
-                <span>04-20 周一</span>
-                <strong>大理环洱海</strong>
-              </div>
-              <p><b>出发 - 到达</b> 09:00 包车出发，20:30 回古城。</p>
-              <p><b>景点</b> 喜洲古镇、海舌 / 西岸、双廊、东线日落。</p>
-              <p><b>用餐</b> 午餐喜洲，下午咖啡 / 轻食，晚餐回古城。</p>
-              <p><b>酒店区域</b> 大理古城南门附近。</p>
-            </article>
-            <article class="matrix-card">
-              <div class="matrix-head">
-                <span>04-21 周二</span>
-                <strong>大理 → 保山 → 腾冲</strong>
-              </div>
-              <p><b>出发 - 到达</b> 14:39 大理发车，16:15 到保山，18:30 前后抵腾冲。</p>
-              <p><b>景点</b> 傍晚主玩和顺古镇，晚上泡温泉。</p>
-              <p><b>用餐</b> 午餐大理，晚餐和顺古镇 / 温泉酒店。</p>
-              <p><b>酒店区域</b> 和顺古镇 / 热海路。</p>
-            </article>
-            <article class="matrix-card">
-              <div class="matrix-head">
-                <span>04-22 周三</span>
-                <strong>腾冲深度日</strong>
-              </div>
-              <p><b>出发 - 到达</b> 09:00 出门，20:30 回酒店。</p>
-              <p><b>景点</b> 热海景区、温泉，视体力补叠水河瀑布或火山点位。</p>
-              <p><b>用餐</b> 午餐热海片区，晚餐温泉酒店或和顺古镇。</p>
-              <p><b>酒店区域</b> 和顺古镇 / 热海路。</p>
-            </article>
-            <article class="matrix-card">
-              <div class="matrix-head">
-                <span>04-23 周四</span>
-                <strong>腾冲 → 芒市</strong>
-              </div>
-              <p><b>出发 - 到达</b> 10:00 腾冲出发，12:30 抵芒市。</p>
-              <p><b>景点</b> 勐焕大金塔、银塔、傣族古镇。</p>
-              <p><b>用餐</b> 午餐路上 / 抵达后，晚餐芒市傣味。</p>
-              <p><b>酒店区域</b> 芒市大金塔附近。</p>
-            </article>
-            <article class="matrix-card">
-              <div class="matrix-head">
-                <span>04-24 周五</span>
-                <strong>芒市第二个完整游玩日</strong>
-              </div>
-              <p><b>出发 - 到达</b> 09:30 出门，21:00 回酒店。</p>
-              <p><b>景点</b> 树包塔 / 城市街区、咖啡店、双塔二刷或傣族古镇慢逛。</p>
-              <p><b>用餐</b> 午餐市区；下午咖啡 / 甜品；晚餐继续吃德宏傣味。</p>
-              <p><b>酒店区域</b> 芒市大金塔附近。</p>
-            </article>
-            <article class="matrix-card">
-              <div class="matrix-head">
-                <span>04-25 周六</span>
-                <strong>芒市 → 昆明 → 返程</strong>
-              </div>
-              <p><b>出发 - 到达</b> 08:40 芒市起飞，09:55 抵昆明；武汉组 17:30 返汉，西安组 22:20 返西安。</p>
-              <p><b>景点</b> 昆明老街、南强街巷、南屏街 / 顺城慢逛，顺手买伴手礼。</p>
-              <p><b>用餐</b> 午餐昆明老街 / 南强街；武汉组登机前简餐，西安组可在市区晚餐后去机场。</p>
-              <p><b>酒店区域</b> 不建议再换酒店；如不想赶晚班，可补住长水机场 / 昆明站。</p>
-            </article>
-            <article class="matrix-card">
-              <div class="matrix-head">
-                <span>04-26 周日</span>
-                <strong>仅作兜底返程</strong>
-              </div>
-              <p><b>出发 - 到达</b> 如 04-25 晚班不合适，再改昆明次晨返程。</p>
-              <p><b>景点</b> 不安排新景点，以轻松返程为主。</p>
-              <p><b>用餐</b> 机场早餐或机上。</p>
-              <p><b>酒店区域</b> 行程结束。</p>
+            <article class="overview-card">
+              <strong>方案三：昆明 → 罗平 → 弥勒 → 建水 → 昆明</strong>
+              <p>更少见的东南向环线。搜索结果里已经能看到 `滇东南环线`、`高铁游`、`小环线` 这类内容。</p>
+              <p>适合不想再做昆大丽，但又想保持高铁友好和城市层次感的人。</p>
+              <a class="card-link" href="#route-loop">查看线路三</a>
             </article>
           </div>
         </section>
 
         <section class="section">
           <div class="section-head">
-            <p class="eyebrow">每日安排</p>
-            <h2>按天执行的节奏</h2>
+            <p class="eyebrow">本版原则</p>
+            <h2>这次改版最核心的几个限制</h2>
           </div>
 
-          <div class="timeline">
-            <article class="day-card">
-              <div class="day-meta">
-                <span>04-17 周五</span>
-                <strong>飞昆明会合</strong>
-              </div>
-              <p>
-                武汉组走 <strong>DR6564 22:25-00:35+1</strong>，西安组走
-                <strong>MU2264 21:15-23:35</strong>。到昆明后直接入住，别再加夜间景点。
-              </p>
-              <p class="minor">住宿：昆明站 / 塘子巷 / 南屏街</p>
+          <div class="check-grid">
+            <article class="check-card">
+              <h3>跨城优先铁路，不拿大巴做主干</h3>
+              <p>页面里默认只有城内短驳交给打车或网约车，主线跨城尽量落在高铁 / 动车上。</p>
             </article>
 
-            <article class="day-card">
-              <div class="day-meta">
-                <span>04-18 周六</span>
-                <strong>昆明轻游</strong>
-              </div>
-              <p>
-                上午睡到自然醒，下午去斗南花市，傍晚切海埂大坝，晚上回南强街巷或昆明老街吃饭散步。
-              </p>
-              <p class="minor">关键词：花市、滇池、夜市、调状态</p>
+            <article class="check-card">
+              <h3>所有玩法方向只看小红书搜索结果</h3>
+              <p>本页不混入别的平台攻略口径。景点热度、常见天数和路线语感，全部只看小红书。</p>
             </article>
 
-            <article class="day-card">
-              <div class="day-meta">
-                <span>04-19 周日</span>
-                <strong>昆明 → 大理</strong>
-              </div>
-              <p>
-                首选 <strong>D8653 / D8652 06:51-09:08</strong> 到大理。下午只玩大理古城，把晚上完整留在古城里。
-              </p>
-              <p class="minor">住宿：大理古城南门附近</p>
+            <article class="check-card">
+              <h3>路线顺序允许为“高铁友好度”做调整</h3>
+              <p>尤其是第三条环线，页面会明确写出哪些地方是按铁路顺路程度做的推断优化。</p>
             </article>
 
-            <article class="day-card">
-              <div class="day-meta">
-                <span>04-20 周一</span>
-                <strong>大理深度日</strong>
-              </div>
-              <p>
-                四个人包车环洱海最顺。推荐顺序：喜洲古镇 → 海边停靠点 → 双廊 → 东线看日落。
-              </p>
-              <p class="minor">关键词：古城松弛感、喜洲、双廊、环海公路</p>
-            </article>
-
-            <article class="day-card">
-              <div class="day-meta">
-                <span>04-21 周二</span>
-                <strong>大理 → 保山 → 腾冲</strong>
-              </div>
-              <p>
-                中午后坐 <strong>C9507 14:39-16:15</strong> 到保山，再包车去腾冲。傍晚逛和顺古镇，晚上直接泡温泉。
-              </p>
-              <p class="minor">住宿：和顺古镇 / 热海路</p>
-            </article>
-
-            <article class="day-card">
-              <div class="day-meta">
-                <span>04-22 周三</span>
-                <strong>腾冲深度日</strong>
-              </div>
-              <p>
-                白天主玩热海景区，下午回酒店或温泉区休整。若体力允许，再补叠水河瀑布或火山地貌点位。
-              </p>
-              <p class="minor">关键词：热海、大滚锅、温泉、慢节奏</p>
-            </article>
-
-            <article class="day-card">
-              <div class="day-meta">
-                <span>04-23 周四</span>
-                <strong>腾冲 → 芒市</strong>
-              </div>
-              <p>
-                上午从腾冲包车到芒市。下午玩勐焕大金塔和银塔，晚上去傣族古镇或市区吃傣味。
-              </p>
-              <p class="minor">住宿：芒市大金塔附近</p>
-            </article>
-
-            <article class="day-card">
-              <div class="day-meta">
-                <span>04-24 周五</span>
-                <strong>芒市完整慢游日</strong>
-              </div>
-              <p>
-                调整后，这天不再赶路。建议把节奏完全放慢，白天在芒市街区、咖啡店和傣味餐厅之间慢慢走。
-              </p>
-              <p class="minor">住宿：芒市大金塔附近</p>
-            </article>
-
-            <article class="day-card">
-              <div class="day-meta">
-                <span>04-25 周六</span>
-                <strong>芒市回昆明后再返程</strong>
-              </div>
-              <p>
-                早上用 <strong>KY8342 08:40-09:55</strong> 从芒市回昆明。白天只安排昆明老街、南强街巷和南屏街一带慢逛，
-                武汉组接 <strong>CZ5346 / 3U1498 17:30-19:35</strong> 返汉，西安组接
-                <strong>GS7654 22:20-00:40+1</strong> 返西安。
-              </p>
-              <p class="minor">关键词：先回昆明、半日轻游、分组晚班返程</p>
-            </article>
-
-            <article class="day-card">
-              <div class="day-meta">
-                <span>04-26 周日</span>
-                <strong>只保留兜底空间</strong>
-              </div>
-              <p>
-                这一天不再作为主计划游玩日，只保留给晚班不合适时的昆明次晨补返程。正常版本里，前一晚就已经全部离开云南。
-              </p>
-              <p class="minor">关键词：备用、不加景点、直接回程</p>
+            <article class="check-card">
+              <h3>当前不锁具体车次和日期</h3>
+              <p>你这轮先要的是路线模型。等你定最终方案后，再把它压成具体日期版和订票版就行。</p>
             </article>
           </div>
         </section>
 
-        <section class="section" id="transport">
+        <section class="section" id="route-classic">
           <div class="section-head">
-            <p class="eyebrow">交通参考</p>
-            <h2>适合当前版本的航班和动车</h2>
+            <p class="eyebrow">线路一</p>
+            <h2>昆明 → 大理 → 丽江</h2>
             <p class="section-note">
-              未来班期可能微调，表内信息适合作为优先盯票清单，实际以航空公司和 12306 放票为准。
+              如果你们这次最想要的是“顺、稳、第一次去云南也不会错”，这条线依然是最适合高铁优先执行的经典版本。
             </p>
           </div>
 
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>日期</th>
-                  <th>类型</th>
-                  <th>班次</th>
-                  <th>区间</th>
-                  <th>参考时刻</th>
-                  <th>备注</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>04-17</td>
-                  <td>去程航班</td>
-                  <td>DR6564</td>
-                  <td>武汉天河 → 昆明长水</td>
-                  <td>22:25 → 00:35+1</td>
-                  <td>武汉组首选</td>
-                </tr>
-                <tr>
-                  <td>04-17</td>
-                  <td>去程航班</td>
-                  <td>MU2264</td>
-                  <td>西安咸阳 → 昆明长水</td>
-                  <td>21:15 → 23:35</td>
-                  <td>西安组首选</td>
-                </tr>
-                <tr>
-                  <td>04-19</td>
-                  <td>动车</td>
-                  <td>D8653 / D8652</td>
-                  <td>昆明南 / 昆明 → 大理</td>
-                  <td>06:51 / 07:09 → 09:08</td>
-                  <td>早到大理，下午可玩</td>
-                </tr>
-                <tr>
-                  <td>04-21</td>
-                  <td>动车</td>
-                  <td>C9507</td>
-                  <td>大理 → 保山</td>
-                  <td>14:39 → 16:15</td>
-                  <td>与腾冲接驳最顺</td>
-                </tr>
-                <tr>
-                  <td>04-25</td>
-                  <td>省内返昆明</td>
-                  <td>KY8342</td>
-                  <td>芒市 → 昆明</td>
-                  <td>08:40 → 09:55</td>
-                  <td>先回昆明，白天还能补半日轻游</td>
-                </tr>
-                <tr>
-                  <td>04-25</td>
-                  <td>武汉返程</td>
-                  <td>CZ5346 / 3U1498</td>
-                  <td>昆明 → 武汉</td>
-                  <td>17:30 → 19:35</td>
-                  <td>当前公开长期时刻参考</td>
-                </tr>
-                <tr>
-                  <td>04-25</td>
-                  <td>武汉备选</td>
-                  <td>8L9849</td>
-                  <td>昆明 → 武汉</td>
-                  <td>19:10 → 21:25</td>
-                  <td>想把昆明半日留宽一点可盯这班</td>
-                </tr>
-                <tr>
-                  <td>04-25</td>
-                  <td>西安返程</td>
-                  <td>GS7654</td>
-                  <td>昆明 → 西安</td>
-                  <td>22:20 → 00:40+1</td>
-                  <td>当天从容收尾后返西安</td>
-                </tr>
-                <tr>
-                  <td>04-26</td>
-                  <td>兜底返程</td>
-                  <td>昆明早班</td>
-                  <td>昆明 → 武汉 / 西安</td>
-                  <td>以放票时段为准</td>
-                  <td>仅作晚班不合适时备用</td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="manual-grid">
+            <article class="manual-card">
+              <h3>建议时长</h3>
+              <p><strong>6 天 5 晚</strong> 最稳，不建议再硬压缩。</p>
+            </article>
+            <article class="manual-card">
+              <h3>推荐住法</h3>
+              <p>昆明 1 晚，大理 2 晚，丽江 2 晚。</p>
+            </article>
+            <article class="manual-card">
+              <h3>最适合谁</h3>
+              <p>第一次去云南，或者想把铁路顺线做到最干净的人。</p>
+            </article>
+            <article class="manual-card">
+              <h3>核心节奏</h3>
+              <p>城市适应 → 洱海松弛 → 雪山和古镇收尾。</p>
+            </article>
           </div>
 
-          <div class="mobile-transport-list">
-            <article class="mobile-transport-card">
-              <span>04-17</span>
-              <strong>DR6564</strong>
-              <p>武汉天河 → 昆明长水</p>
-              <p>22:25 → 00:35+1</p>
-              <p>武汉组首选</p>
+          <div class="route-strip">
+            <span class="accent-stop">昆明</span>
+            <span>高铁</span>
+            <span class="teal-stop">大理</span>
+            <span>高铁</span>
+            <span class="gold-stop">丽江</span>
+            <span>返程可高铁回昆明</span>
+          </div>
+
+          <div class="gallery-grid">
+            <article class="gallery-card">
+              <div class="visual-block visual-km">
+                <div class="visual-content">
+                  <strong>昆明</strong>
+                  <span>斗南花市</span>
+                  <span>海埂大坝</span>
+                  <span>昆明老街</span>
+                </div>
+              </div>
+              <div class="gallery-copy">
+                <h3>昆明 | 不抢戏的开场城市</h3>
+                <p>
+                  小红书里最常出现的是 `2 天游`、`48h`、`不绕路`、`花市 + 滇池 + 老街`，所以昆明更适合做落地适应和轻城市切口。
+                </p>
+                <div class="source-links">
+                  <span>小红书搜索入口</span>
+                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E6%98%86%E6%98%8E%20%E6%94%BB%E7%95%A5" target="_blank" rel="noreferrer">昆明攻略</a>
+                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E6%96%97%E5%8D%97%E8%8A%B1%E5%B8%82" target="_blank" rel="noreferrer">斗南花市</a>
+                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E6%B5%B7%E5%9F%82%E5%A4%A7%E5%9D%9D" target="_blank" rel="noreferrer">海埂大坝</a>
+                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E5%AE%98%E6%B8%A1%E5%8F%A4%E9%95%87" target="_blank" rel="noreferrer">官渡古镇</a>
+                </div>
+                <div class="source-notes">
+                  <p><strong>搜索结果观察：</strong>`斗南花市`、`海埂大坝`、`滇池`、`官渡古镇` 在搜索结果里反复出现，说明昆明最适合走“轻松城市线”，不必把它变成重景区日。</p>
+                  <p><strong>执行含义：</strong>这站更像调状态和收行李结构的地方，适合落地后的第一个完整白天。</p>
+                </div>
+              </div>
             </article>
-            <article class="mobile-transport-card">
-              <span>04-17</span>
-              <strong>MU2264</strong>
-              <p>西安咸阳 → 昆明长水</p>
-              <p>21:15 → 23:35</p>
-              <p>西安组首选</p>
+
+            <article class="gallery-card">
+              <div class="visual-block visual-dl">
+                <div class="visual-content">
+                  <strong>大理</strong>
+                  <span>喜洲古镇</span>
+                  <span>龙龛码头</span>
+                  <span>环洱海</span>
+                </div>
+              </div>
+              <div class="gallery-copy">
+                <h3>大理 | 真正要留整块白天的地方</h3>
+                <p>
+                  小红书里高频词几乎都围着 `喜洲古镇`、`龙龛码头`、`环洱海`、`大理古城` 和 `寂照庵` 打转，核心不是景点数量，而是把一天留完整。
+                </p>
+                <div class="source-links">
+                  <span>小红书搜索入口</span>
+                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E5%A4%A7%E7%90%86%20%E6%94%BB%E7%95%A5" target="_blank" rel="noreferrer">大理攻略</a>
+                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E5%96%9C%E6%B4%B2%E5%8F%A4%E9%95%87" target="_blank" rel="noreferrer">喜洲古镇</a>
+                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E9%BE%99%E9%BE%9B%E7%A0%81%E5%A4%B4" target="_blank" rel="noreferrer">龙龛码头</a>
+                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E6%B4%B1%E6%B5%B7" target="_blank" rel="noreferrer">洱海</a>
+                </div>
+                <div class="source-notes">
+                  <p><strong>搜索结果观察：</strong>大理的结果里同时高频出现 `一日路线`、`三天三夜`、`洱海一日游最佳路线`，说明它既能快玩，但更适合慢玩。</p>
+                  <p><strong>执行含义：</strong>建议至少留 `2 晚`，把古城夜晚和洱海白天拆开，不要用一整天都在转场。</p>
+                </div>
+              </div>
             </article>
-            <article class="mobile-transport-card">
-              <span>04-19</span>
-              <strong>D8653 / D8652</strong>
-              <p>昆明南 / 昆明 → 大理</p>
-              <p>06:51 / 07:09 → 09:08</p>
-              <p>早到大理，下午可玩</p>
+
+            <article class="gallery-card wide">
+              <div class="visual-block visual-lj">
+                <div class="visual-content">
+                  <strong>丽江</strong>
+                  <span>玉龙雪山</span>
+                  <span>白沙古镇</span>
+                  <span>玉湖村</span>
+                  <span>忠义市场</span>
+                </div>
+              </div>
+              <div class="gallery-copy">
+                <h3>丽江 | 把强景观和古镇慢游分开</h3>
+                <p>
+                  小红书搜索结果里，`玉龙雪山`、`白沙古镇`、`玉湖村`、`忠义市场` 和 `2 天 / 3 天攻略` 同时高频出现，路线更适合拆成两个不同强度的日子。
+                </p>
+                <div class="source-links">
+                  <span>小红书搜索入口</span>
+                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E4%B8%BD%E6%B1%9F%20%E6%94%BB%E7%95%A5" target="_blank" rel="noreferrer">丽江攻略</a>
+                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E7%8E%89%E9%BE%99%E9%9B%AA%E5%B1%B1" target="_blank" rel="noreferrer">玉龙雪山</a>
+                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E7%99%BD%E6%B2%99%E5%8F%A4%E9%95%87" target="_blank" rel="noreferrer">白沙古镇</a>
+                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E7%8E%89%E6%B9%96%E6%9D%91" target="_blank" rel="noreferrer">玉湖村</a>
+                </div>
+                <div class="source-notes">
+                  <p><strong>搜索结果观察：</strong>丽江的结果不是只推“古城拍照”，而是明显分成 `雪山攻略` 和 `古镇攻略` 两块。</p>
+                  <p><strong>执行含义：</strong>雪山日别再硬拼多个古镇，另留一个下午给白沙 / 束河 / 市场烟火气，体验会顺很多。</p>
+                </div>
+              </div>
             </article>
-            <article class="mobile-transport-card">
-              <span>04-21</span>
-              <strong>C9507</strong>
-              <p>大理 → 保山</p>
-              <p>14:39 → 16:15</p>
-              <p>与腾冲接驳最顺</p>
+          </div>
+
+          <div class="section-head" style="margin-top: 26px;">
+            <p class="eyebrow">逐日矩阵</p>
+            <h2>线路一的推荐拆法</h2>
+          </div>
+
+          <div class="matrix-grid">
+            <article class="matrix-card">
+              <div class="matrix-head">
+                <span>Day 1</span>
+                <strong>抵达昆明</strong>
+              </div>
+              <p><b>交通</b> 飞机落昆明，市区短驳打车。</p>
+              <p><b>玩法</b> 昆明老街、南屏街、夜里轻松收口。</p>
+              <p><b>住宿</b> 老街 / 昆明站片区。</p>
             </article>
-            <article class="mobile-transport-card">
-              <span>04-25</span>
-              <strong>KY8342</strong>
-              <p>芒市 → 昆明</p>
-              <p>08:40 → 09:55</p>
-              <p>先回昆明，白天还能轻松收尾</p>
+            <article class="matrix-card">
+              <div class="matrix-head">
+                <span>Day 2</span>
+                <strong>昆明 → 大理</strong>
+              </div>
+              <p><b>交通</b> 高铁优先。</p>
+              <p><b>玩法</b> 下午只排大理古城与傍晚水边机位。</p>
+              <p><b>住宿</b> 大理古城。</p>
             </article>
-            <article class="mobile-transport-card">
-              <span>04-25</span>
-              <strong>CZ5346 / 3U1498</strong>
-              <p>昆明 → 武汉</p>
-              <p>17:30 → 19:35</p>
-              <p>武汉组主返程班次</p>
+            <article class="matrix-card">
+              <div class="matrix-head">
+                <span>Day 3</span>
+                <strong>大理完整白天</strong>
+              </div>
+              <p><b>玩法</b> 喜洲古镇、洱海西岸、双廊或环海轻线。</p>
+              <p><b>提醒</b> 这一天不要再塞额外跨城转移。</p>
             </article>
-            <article class="mobile-transport-card">
-              <span>04-25</span>
-              <strong>8L9849</strong>
-              <p>昆明 → 武汉</p>
-              <p>19:10 → 21:25</p>
-              <p>武汉组晚一点的备选</p>
+            <article class="matrix-card">
+              <div class="matrix-head">
+                <span>Day 4</span>
+                <strong>大理 → 丽江</strong>
+              </div>
+              <p><b>交通</b> 高铁优先。</p>
+              <p><b>玩法</b> 下午白沙古镇，晚上丽江古城或忠义市场。</p>
+              <p><b>住宿</b> 古城 / 白沙之间。</p>
             </article>
-            <article class="mobile-transport-card">
-              <span>04-25</span>
-              <strong>GS7654</strong>
-              <p>昆明 → 西安</p>
-              <p>22:20 → 00:40+1</p>
-              <p>西安组当晚返程</p>
+            <article class="matrix-card">
+              <div class="matrix-head">
+                <span>Day 5</span>
+                <strong>丽江深度日</strong>
+              </div>
+              <p><b>玩法</b> 玉龙雪山、玉湖村、蓝月谷为主，古镇做夜场。</p>
+              <p><b>提醒</b> 别把雪山日再压成暴走打卡日。</p>
             </article>
-            <article class="mobile-transport-card">
-              <span>04-26</span>
-              <strong>昆明早班</strong>
-              <p>昆明 → 武汉 / 西安</p>
-              <p>以放票时段为准</p>
-              <p>只作为兜底备选</p>
+            <article class="matrix-card">
+              <div class="matrix-head">
+                <span>Day 6</span>
+                <strong>丽江收口返程</strong>
+              </div>
+              <p><b>交通</b> 可直接从丽江离开，也可高铁回昆明衔接返程。</p>
+              <p><b>逻辑</b> 最终回法看你们机票，不必提前把自己锁死。</p>
             </article>
           </div>
         </section>
 
+        <section class="section" id="route-south">
+          <div class="section-head">
+            <p class="eyebrow">线路二</p>
+            <h2>昆明 → 玉溪 → 普洱 → 西双版纳</h2>
+            <p class="section-note">
+              这是三条里最像真正铁路主干线的一条。相比旧方案，它把“跨城主要靠高铁”这件事做得最彻底。
+            </p>
+          </div>
+
+          <div class="manual-grid">
+            <article class="manual-card">
+              <h3>建议时长</h3>
+              <p><strong>7 天 6 晚</strong> 更舒服，压到 6 天会开始失去南线优势。</p>
+            </article>
+            <article class="manual-card">
+              <h3>推荐住法</h3>
+              <p>昆明 1 晚，玉溪 1 晚，普洱 2 晚，版纳 2 晚。</p>
+            </article>
+            <article class="manual-card">
+              <h3>最适合谁</h3>
+              <p>不想再做古城三连，更想看湖、茶咖和热带氛围。</p>
+            </article>
+            <article class="manual-card">
+              <h3>核心节奏</h3>
+              <p>轻会合 → 湖城缓冲 → 普洱慢游 → 版纳热闹收尾。</p>
+            </article>
+          </div>
+
+          <div class="route-strip">
+            <span class="accent-stop">昆明</span>
+            <span>高铁</span>
+            <span class="teal-stop">玉溪</span>
+            <span>高铁</span>
+            <span class="gold-stop">普洱</span>
+            <span>高铁</span>
+            <span class="accent-stop">西双版纳</span>
+          </div>
+
+          <div class="gallery-grid">
+            <article class="gallery-card">
+              <div class="visual-block visual-yx">
+                <div class="visual-content">
+                  <strong>玉溪</strong>
+                  <span>抚仙湖</span>
+                  <span>citywalk</span>
+                  <span>两天一夜</span>
+                </div>
+              </div>
+              <div class="gallery-copy">
+                <h3>玉溪 | 把节奏先稳下来</h3>
+                <p>
+                  小红书搜索里最密的是 `抚仙湖`、`一日游`、`citywalk`、`两天一夜`。玉溪不适合排成“大景区站”，更适合作为云南南线的第一层缓冲。
+                </p>
+                <div class="source-links">
+                  <span>小红书搜索入口</span>
+                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E7%8E%89%E6%BA%AA%20%E6%94%BB%E7%95%A5" target="_blank" rel="noreferrer">玉溪攻略</a>
+                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E6%8A%9A%E4%BB%99%E6%B9%96" target="_blank" rel="noreferrer">抚仙湖</a>
+                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E7%8E%89%E6%BA%AA%20citywalk" target="_blank" rel="noreferrer">玉溪 citywalk</a>
+                </div>
+                <div class="source-notes">
+                  <p><strong>搜索结果观察：</strong>很多内容都在强调 `高铁 1 小时内`、`半日游`、`抚仙湖路线`，说明玉溪非常适合做顺线里的轻停留。</p>
+                  <p><strong>执行含义：</strong>别把玉溪做成暴走景点站，半天到一天的湖边慢玩反而最符合这条线的气质。</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="gallery-card">
+              <div class="visual-block visual-pe">
+                <div class="visual-content">
+                  <strong>普洱</strong>
+                  <span>思茅老街</span>
+                  <span>茶马古城</span>
+                  <span>茶咖慢游</span>
+                </div>
+              </div>
+              <div class="gallery-copy">
+                <h3>普洱 | 主计划留在思茅区最顺</h3>
+                <p>
+                  小红书高频词明显落在 `思茅老街`、`茶马古道`、`茶马古城`、`citywalk` 和 `3 天 2 夜`。如果把“少公路、大交通尽量铁路化”放在第一位，普洱主计划更该围着思茅区转。
+                </p>
+                <div class="source-links">
+                  <span>小红书搜索入口</span>
+                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E6%99%AE%E6%B4%B1%20%E6%94%BB%E7%95%A5" target="_blank" rel="noreferrer">普洱攻略</a>
+                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E6%99%AE%E6%B4%B1%20%E6%80%9D%E8%8C%85%E8%80%81%E8%A1%97%20%E8%8C%B6%E9%A9%AC%E5%8F%A4%E9%81%93" target="_blank" rel="noreferrer">思茅老街</a>
+                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E8%8C%B6%E9%A9%AC%E5%8F%A4%E5%9F%8E" target="_blank" rel="noreferrer">茶马古城</a>
+                </div>
+                <div class="source-notes">
+                  <p><strong>搜索结果观察：</strong>`景迈山` 确实很热，但它和“高铁主干通勤”不是一回事；而 `思茅老街 + 茶马古城 + citywalk` 更适合做成铁路顺线里的主计划。</p>
+                  <p><strong>执行含义：</strong>如果这次路线目标是“尽量少大巴”，就把普洱写成 `思茅区慢游站`，而不是远线大拉车站。</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="gallery-card wide">
+              <div class="visual-block visual-bn">
+                <div class="visual-content">
+                  <strong>西双版纳</strong>
+                  <span>曼听公园</span>
+                  <span>星光夜市</span>
+                  <span>傣族园</span>
+                  <span>三天两夜</span>
+                </div>
+              </div>
+              <div class="gallery-copy">
+                <h3>版纳 | 热带感和夜生活都留在最后</h3>
+                <p>
+                  小红书里和版纳联动最高的就是 `曼听公园`、`星光夜市`、`傣族园`、`懒人版三天两夜`。它非常适合放在整条线最后，拿热带夜晚把整段旅行收住。
+                </p>
+                <div class="source-links">
+                  <span>小红书搜索入口</span>
+                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E8%A5%BF%E5%8F%8C%E7%89%88%E7%BA%B3%20%E6%94%BB%E7%95%A5" target="_blank" rel="noreferrer">版纳攻略</a>
+                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E8%A5%BF%E5%8F%8C%E7%89%88%E7%BA%B3%20%E6%9B%BC%E5%90%AC%E5%85%AC%E5%9B%AD%20%E6%98%9F%E5%85%89%E5%A4%9C%E5%B8%82%20%E5%82%A3%E6%97%8F%E5%9B%AD" target="_blank" rel="noreferrer">曼听 / 夜市 / 傣族园</a>
+                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E5%82%A3%E6%97%8F%E5%9B%AD" target="_blank" rel="noreferrer">傣族园</a>
+                </div>
+                <div class="source-notes">
+                  <p><strong>搜索结果观察：</strong>`4 天 3 晚`、`3 天 2 夜`、`避坑`、`夜市`、`地图版攻略` 是版纳最常见的组织方式，说明它不适合只住一晚匆匆扫过。</p>
+                  <p><strong>执行含义：</strong>建议至少给版纳 `2 晚`，这样你们前面铁路顺线积累下来的松弛感不会在最后一站被打断。</p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="section-head" style="margin-top: 26px;">
+            <p class="eyebrow">逐日矩阵</p>
+            <h2>线路二的推荐拆法</h2>
+          </div>
+
+          <div class="matrix-grid">
+            <article class="matrix-card">
+              <div class="matrix-head">
+                <span>Day 1</span>
+                <strong>抵达昆明</strong>
+              </div>
+              <p><b>玩法</b> 只做会合、轻晚餐和收拾行李结构。</p>
+              <p><b>住宿</b> 昆明站 / 老街片区。</p>
+            </article>
+            <article class="matrix-card">
+              <div class="matrix-head">
+                <span>Day 2</span>
+                <strong>昆明 → 玉溪</strong>
+              </div>
+              <p><b>交通</b> 高铁优先。</p>
+              <p><b>玩法</b> 抚仙湖和玉溪市区慢走，不必塞太多点。</p>
+            </article>
+            <article class="matrix-card">
+              <div class="matrix-head">
+                <span>Day 3</span>
+                <strong>玉溪 → 普洱</strong>
+              </div>
+              <p><b>交通</b> 高铁优先。</p>
+              <p><b>玩法</b> 下午思茅老街、咖啡店、轻 citywalk。</p>
+            </article>
+            <article class="matrix-card">
+              <div class="matrix-head">
+                <span>Day 4</span>
+                <strong>普洱完整慢游日</strong>
+              </div>
+              <p><b>玩法</b> 茶马古城、茶马古道轻徒步、茶咖体验。</p>
+              <p><b>提醒</b> 若坚持高铁优先，景迈山不必列为主计划刚需。</p>
+            </article>
+            <article class="matrix-card">
+              <div class="matrix-head">
+                <span>Day 5</span>
+                <strong>普洱 → 版纳</strong>
+              </div>
+              <p><b>交通</b> 高铁优先。</p>
+              <p><b>玩法</b> 曼听公园、总佛寺、晚上的星光夜市。</p>
+            </article>
+            <article class="matrix-card">
+              <div class="matrix-head">
+                <span>Day 6</span>
+                <strong>版纳完整游玩日</strong>
+              </div>
+              <p><b>玩法</b> 傣族园、告庄、西双景和夜市二刷。</p>
+              <p><b>提醒</b> 再想加远一点的景点，也放在这一天处理。</p>
+            </article>
+            <article class="matrix-card">
+              <div class="matrix-head">
+                <span>Day 7</span>
+                <strong>版纳返程</strong>
+              </div>
+              <p><b>返程</b> 视机票和高铁衔接决定是否回昆明再走。</p>
+              <p><b>逻辑</b> 这条线天然适合南下后在最南端结束。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="route-loop">
+          <div class="section-head">
+            <p class="eyebrow">线路三</p>
+            <h2>昆明 → 罗平 → 弥勒 → 建水 → 昆明</h2>
+            <p class="section-note">
+              你给出的原始串法里 `罗平 -> 建水 -> 弥勒` 是可想象的，但如果把高铁友好度放第一位，我更建议改成 `罗平 -> 弥勒 -> 建水`，
+              这样整条线更像真正的环线，而不是中段反复折返。
+            </p>
+          </div>
+
+          <div class="manual-grid">
+            <article class="manual-card">
+              <h3>建议时长</h3>
+              <p><strong>6 天 5 晚</strong> 会比较平衡。</p>
+            </article>
+            <article class="manual-card">
+              <h3>推荐住法</h3>
+              <p>昆明 1 晚，罗平 1 晚，弥勒 1 晚，建水 2 晚。</p>
+            </article>
+            <article class="manual-card">
+              <h3>最适合谁</h3>
+              <p>想避开最常规云南线，又不想失去铁路主干逻辑的人。</p>
+            </article>
+            <article class="manual-card">
+              <h3>核心节奏</h3>
+              <p>强景观 → 中段放松 → 古城烟火 → 回昆明收口。</p>
+            </article>
+          </div>
+
+          <div class="route-strip">
+            <span class="accent-stop">昆明</span>
+            <span>高铁</span>
+            <span class="gold-stop">罗平</span>
+            <span>高铁优先</span>
+            <span class="accent-stop">弥勒</span>
+            <span>高铁</span>
+            <span class="teal-stop">建水</span>
+            <span>高铁</span>
+            <span class="gold-stop">昆明</span>
+          </div>
+
+          <div class="gallery-grid">
+            <article class="gallery-card">
+              <div class="visual-block visual-lp">
+                <div class="visual-content">
+                  <strong>罗平</strong>
+                  <span>金鸡峰丛</span>
+                  <span>九龙瀑布</span>
+                  <span>季节感最强</span>
+                </div>
+              </div>
+              <div class="gallery-copy">
+                <h3>罗平 | 把景观强度留在环线前半段</h3>
+                <p>
+                  小红书里围绕罗平最密的词依然是 `油菜花`、`金鸡峰丛`、`九龙瀑布` 和多个观景机位。它的体验很吃季节，但也因此适合做整条环线的开场高点。
+                </p>
+                <div class="source-links">
+                  <span>小红书搜索入口</span>
+                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E7%BD%97%E5%B9%B3%20%E6%94%BB%E7%95%A5" target="_blank" rel="noreferrer">罗平攻略</a>
+                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E7%BD%97%E5%B9%B3%20%E9%87%91%E9%B8%A1%E5%B3%B0%E4%B8%9B%20%E4%B9%9D%E9%BE%99%E7%80%91%E5%B8%83" target="_blank" rel="noreferrer">金鸡峰丛 / 九龙瀑布</a>
+                </div>
+                <div class="source-notes">
+                  <p><strong>搜索结果观察：</strong>罗平的结果非常明显地围着 `金鸡峰丛最佳位置`、`九龙瀑布攻略`、`一日游` 打转，说明它更像“强景观站”而不是久住城市。</p>
+                  <p><strong>执行含义：</strong>安排 `1 晚` 就够，重点放在观景和当天状态，不必把罗平写成漫长停留。</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="gallery-card">
+              <div class="visual-block visual-ml">
+                <div class="visual-content">
+                  <strong>弥勒</strong>
+                  <span>东风韵</span>
+                  <span>红河水乡</span>
+                  <span>温泉</span>
+                </div>
+              </div>
+              <div class="gallery-copy">
+                <h3>弥勒 | 用来把环线中段放松下来</h3>
+                <p>
+                  小红书里弥勒的关键词非常稳定：`东风韵`、`红河水乡`、`温泉`、`3 天 2 晚懒人版`。它适合拿来做中段缓冲，不适合只当路过站。
+                </p>
+                <div class="source-links">
+                  <span>小红书搜索入口</span>
+                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E5%BC%A5%E5%8B%92%20%E6%94%BB%E7%95%A5" target="_blank" rel="noreferrer">弥勒攻略</a>
+                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E5%BC%A5%E5%8B%92%20%E4%B8%9C%E9%A3%8E%E9%9F%B5%20%E7%BA%A2%E6%B2%B3%E6%B0%B4%E4%B9%A1%20%E6%B8%A9%E6%B3%89" target="_blank" rel="noreferrer">东风韵 / 水乡 / 温泉</a>
+                </div>
+                <div class="source-notes">
+                  <p><strong>搜索结果观察：</strong>`昆明高铁 0.5h`、`人少景美`、`温泉` 这些词反复出现，让弥勒在三条线里显得最像真正的松弛站。</p>
+                  <p><strong>执行含义：</strong>前一站如果是罗平这种高景观强度城市，弥勒刚好可以把体力和心态拉回舒服区间。</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="gallery-card wide">
+              <div class="visual-block visual-js">
+                <div class="visual-content">
+                  <strong>建水</strong>
+                  <span>小火车</span>
+                  <span>双龙桥</span>
+                  <span>紫陶街</span>
+                  <span>团山民居</span>
+                </div>
+              </div>
+              <div class="gallery-copy">
+                <h3>建水 | 古城烟火感要留够时间</h3>
+                <p>
+                  小红书里建水的关键词组合非常完整：`小火车`、`双龙桥`、`紫陶街`、`团山民居`，而且大量内容会写成 `2 天 1 晚` 或 `3 天 2 晚`。
+                </p>
+                <div class="source-links">
+                  <span>小红书搜索入口</span>
+                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E5%BB%BA%E6%B0%B4%20%E6%94%BB%E7%95%A5" target="_blank" rel="noreferrer">建水攻略</a>
+                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E5%BB%BA%E6%B0%B4%20%E5%B0%8F%E7%81%AB%E8%BD%A6%20%E5%8F%8C%E9%BE%99%E6%A1%A5%20%E7%B4%AB%E9%99%B6%E8%A1%97" target="_blank" rel="noreferrer">小火车 / 双龙桥 / 紫陶街</a>
+                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E5%9B%A2%E5%B1%B1%E6%B0%91%E5%B1%85" target="_blank" rel="noreferrer">团山民居</a>
+                </div>
+                <div class="source-notes">
+                  <p><strong>搜索结果观察：</strong>建水不是“快打快收”的点，而是少见地同时拥有 `古城慢游`、`小火车路线` 和 `夜市烟火气`。</p>
+                  <p><strong>执行含义：</strong>建议至少留 `2 晚`，不然古城、桥、紫陶街和小火车之间只会变成赶路关系。</p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="section-head" style="margin-top: 26px;">
+            <p class="eyebrow">逐日矩阵</p>
+            <h2>线路三的推荐拆法</h2>
+          </div>
+
+          <div class="matrix-grid">
+            <article class="matrix-card">
+              <div class="matrix-head">
+                <span>Day 1</span>
+                <strong>抵达昆明</strong>
+              </div>
+              <p><b>玩法</b> 会合、休整，昆明不再承担重景点任务。</p>
+              <p><b>住宿</b> 昆明站 / 昆明南周边。</p>
+            </article>
+            <article class="matrix-card">
+              <div class="matrix-head">
+                <span>Day 2</span>
+                <strong>昆明 → 罗平</strong>
+              </div>
+              <p><b>交通</b> 高铁优先。</p>
+              <p><b>玩法</b> 金鸡峰丛或核心观景带，晚上住罗平县城。</p>
+            </article>
+            <article class="matrix-card">
+              <div class="matrix-head">
+                <span>Day 3</span>
+                <strong>罗平 → 弥勒</strong>
+              </div>
+              <p><b>交通</b> 优先找高铁友好转场，必要时接受短中转。</p>
+              <p><b>玩法</b> 下午东风韵、红河水乡或温泉。</p>
+            </article>
+            <article class="matrix-card">
+              <div class="matrix-head">
+                <span>Day 4</span>
+                <strong>弥勒 → 建水</strong>
+              </div>
+              <p><b>交通</b> 高铁优先。</p>
+              <p><b>玩法</b> 下午建水古城，晚上紫陶街。</p>
+            </article>
+            <article class="matrix-card">
+              <div class="matrix-head">
+                <span>Day 5</span>
+                <strong>建水完整慢游日</strong>
+              </div>
+              <p><b>玩法</b> 小火车、双龙桥、团山民居，晚上继续古城。</p>
+              <p><b>提醒</b> 这一天别再塞新的跨城点。</p>
+            </article>
+            <article class="matrix-card">
+              <div class="matrix-head">
+                <span>Day 6</span>
+                <strong>建水 → 昆明</strong>
+              </div>
+              <p><b>交通</b> 高铁回昆明。</p>
+              <p><b>逻辑</b> 这样才真正完成闭环，而不是在中途拉回头路。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="rail">
+          <div class="section-head">
+            <p class="eyebrow">高铁原则</p>
+            <h2>这三条线里真正该坚持的执行逻辑</h2>
+            <p class="section-note">
+              这里分开写“搜索结果直接观察”和“基于铁路友好度的推断”。只要你之后确定其中一条，我再把它压成具体日期版时会继续细化。
+            </p>
+          </div>
+
+          <div class="reason-grid">
+            <article class="reason-card">
+              <h3>直接观察：昆大丽仍是最成熟的铁路经典线</h3>
+              <p>小红书里 `昆明 + 大理 + 丽江` 仍然是内容最多、也最容易被压成 `5-6 天自由行` 的方案。</p>
+            </article>
+            <article class="reason-card">
+              <h3>直接观察：玉溪普洱版纳线已经被写成“中老铁路顺线”</h3>
+              <p>搜索结果里已经出现 `不自驾`、`高铁直达`、`中老铁路乘车攻略` 这类内容，说明南线本身就越来越适合铁路通勤。</p>
+            </article>
+            <article class="reason-card">
+              <h3>推断：第三条环线需要为“高铁顺路”优化顺序</h3>
+              <p>如果仍死守 `罗平 -> 建水 -> 弥勒`，更容易出现折返和碎转场；因此页面里改成了 `罗平 -> 弥勒 -> 建水`。</p>
+            </article>
+            <article class="reason-card">
+              <h3>推断：没有合适直达时，宁可中转，也不要用长途大巴兜底</h3>
+              <p>尤其第三条线里，如果个别城市间没有顺手车次，更建议查 `昆明南中转`，而不是把主干切回公路模式。</p>
+            </article>
+          </div>
+
+          <div class="source-board" style="margin-top: 18px;">
+            <article class="source-item">
+              <strong>线路一总搜索</strong>
+              <p>用来继续补 `昆明 / 大理 / 丽江` 的酒店、吃饭和城市顺序感。</p>
+              <a href="https://www.xiaohongshu.com/search_result?keyword=%E6%98%86%E6%98%8E%20%E5%A4%A7%E7%90%86%20%E4%B8%BD%E6%B1%9F%20%E9%AB%98%E9%93%81%20%E6%94%BB%E7%95%A5" target="_blank" rel="noreferrer">打开搜索</a>
+            </article>
+
+            <article class="source-item">
+              <strong>线路二总搜索</strong>
+              <p>重点看 `玉溪 / 普洱 / 版纳` 这条铁路主轴线还能不能继续压掉公路段。</p>
+              <a href="https://www.xiaohongshu.com/search_result?keyword=%E7%8E%89%E6%BA%AA%20%E6%99%AE%E6%B4%B1%20%E8%A5%BF%E5%8F%8C%E7%89%88%E7%BA%B3%20%E9%AB%98%E9%93%81%20%E6%94%BB%E7%95%A5" target="_blank" rel="noreferrer">打开搜索</a>
+            </article>
+
+            <article class="source-item">
+              <strong>线路三总搜索</strong>
+              <p>这里最值得继续看的是 `滇东南高铁游`、`小环线` 和不同顺序的实际写法。</p>
+              <a href="https://www.xiaohongshu.com/search_result?keyword=%E6%98%86%E6%98%8E%20%E7%BD%97%E5%B9%B3%20%E5%BB%BA%E6%B0%B4%20%E5%BC%A5%E5%8B%92%20%E9%AB%98%E9%93%81%20%E7%8E%AF%E7%BA%BF%20%E6%94%BB%E7%95%A5" target="_blank" rel="noreferrer">打开搜索</a>
+            </article>
+
+            <article class="source-item">
+              <strong>铁路补充搜索</strong>
+              <p>小红书里也已经有人专门整理 `中老铁路乘车攻略` 和 `滇东南高铁游`。</p>
+              <a href="https://www.xiaohongshu.com/search_result?keyword=%E4%B8%AD%E8%80%81%E9%93%81%E8%B7%AF%20%E4%B9%98%E8%BD%A6%E6%94%BB%E7%95%A5" target="_blank" rel="noreferrer">中老铁路</a>
+            </article>
+          </div>
+        </section>
       </main>
+
+      <footer class="page-footer">
+        <p>本页已删除旧版“腾冲 / 芒市”主路线，改为三条高铁优先的新方案。</p>
+        <p>页面中的玩法判断来自小红书搜索结果；具体车次、放票和时刻仍需在确定最终方案后再做订票版细化。</p>
+        <p>若你下一步确认其中一条，我可以继续把它压成“具体日期版 + 酒店区位版 + 订票优先级版”。</p>
+      </footer>
     </div>
-  <script>
-    (function () {
-      const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
-      if (!isMobile) return;
 
-      const xhsLinks = document.querySelectorAll('a[href*="xiaohongshu.com/search_result?keyword="]');
-      const forEach = Array.prototype.forEach;
+    <script>
+      (function () {
+        const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+        if (!isMobile) return;
 
-      forEach.call(xhsLinks, function (link) {
-        const webUrl = link.href;
-        let keyword = "";
+        const xhsLinks = document.querySelectorAll('a[href*="xiaohongshu.com/search_result?keyword="]');
+        const forEach = Array.prototype.forEach;
 
-        try {
-          const url = new URL(webUrl, window.location.href);
-          keyword = url.searchParams.get("keyword") || "";
-        } catch (error) {
-          const match = webUrl.match(/[?&]keyword=([^&#]+)/);
-          keyword = match ? decodeURIComponent(match[1].replace(/\+/g, " ")) : "";
-        }
+        forEach.call(xhsLinks, function (link) {
+          const webUrl = link.href;
+          let keyword = "";
 
-        if (!keyword) return;
+          try {
+            const url = new URL(webUrl, window.location.href);
+            keyword = url.searchParams.get("keyword") || "";
+          } catch (error) {
+            const match = webUrl.match(/[?&]keyword=([^&#]+)/);
+            keyword = match ? decodeURIComponent(match[1].replace(/\+/g, " ")) : "";
+          }
 
-        const schemeUrl = "xhsdiscover://search/result?keyword=" + encodeURIComponent(keyword);
-        link.setAttribute("data-web-url", webUrl);
-        link.setAttribute("data-xhs-scheme", schemeUrl);
+          if (!keyword) return;
 
-        link.addEventListener("click", function (event) {
-          event.preventDefault();
-          window.location.href = schemeUrl;
+          const schemeUrl = "xhsdiscover://search/result?keyword=" + encodeURIComponent(keyword);
+          link.setAttribute("data-web-url", webUrl);
+          link.setAttribute("data-xhs-scheme", schemeUrl);
+
+          link.addEventListener("click", function (event) {
+            event.preventDefault();
+            window.location.href = schemeUrl;
+          });
         });
-      });
-    })();
-  </script>
+      })();
+    </script>
   </body>
 </html>
