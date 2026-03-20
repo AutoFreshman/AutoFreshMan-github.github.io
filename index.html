@@ -6,17 +6,21 @@
     <title>2026 云南高铁优先三线手册 v2.0.0</title>
     <style>
 :root {
-  --bg: #f3ede2;
-  --paper: rgba(255, 250, 242, 0.9);
-  --paper-strong: #fffaf2;
-  --ink: #1b2521;
-  --muted: #586a63;
-  --accent: #c85f42;
-  --accent-deep: #91432d;
-  --teal: #3f7b75;
-  --gold: #c3933f;
-  --line: rgba(27, 37, 33, 0.1);
-  --shadow: 0 18px 48px rgba(25, 42, 39, 0.12);
+  --bg: #f4f7fb;
+  --paper: rgba(255, 255, 255, 0.94);
+  --paper-strong: #ffffff;
+  --surface-soft: #f8fbff;
+  --surface-alt: #edf4ff;
+  --ink: #0f172a;
+  --muted: #607086;
+  --accent: #2f6df6;
+  --accent-deep: #1d4ed8;
+  --teal: #0f9f9a;
+  --gold: #0891b2;
+  --line: rgba(96, 112, 134, 0.16);
+  --line-strong: rgba(96, 112, 134, 0.24);
+  --shadow: 0 26px 64px rgba(15, 23, 42, 0.08);
+  --shadow-soft: 0 12px 28px rgba(15, 23, 42, 0.05);
 }
 
 * {
@@ -31,10 +35,10 @@ body {
   margin: 0;
   color: var(--ink);
   background:
-    radial-gradient(circle at top left, rgba(200, 95, 66, 0.16), transparent 28%),
-    radial-gradient(circle at top right, rgba(63, 123, 117, 0.16), transparent 34%),
-    linear-gradient(180deg, #f7f2e8 0%, #f3ebe0 42%, #efe7da 100%);
-  font-family: "Iowan Old Style", "Palatino Linotype", "Noto Serif SC", "Songti SC", serif;
+    radial-gradient(circle at top left, rgba(47, 109, 246, 0.12), transparent 28%),
+    radial-gradient(circle at top right, rgba(15, 159, 154, 0.1), transparent 30%),
+    linear-gradient(180deg, #f8fbff 0%, #f3f7fc 48%, #eef3f9 100%);
+  font-family: "Avenir Next", "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", sans-serif;
   line-height: 1.65;
 }
 
@@ -45,20 +49,36 @@ a {
 .page-shell {
   width: min(1240px, calc(100vw - 32px));
   margin: 0 auto;
-  padding: 28px 0 64px;
+  padding: 24px 0 72px;
 }
 
 .handbook-banner {
+  position: relative;
+  overflow: hidden;
   display: grid;
-  grid-template-columns: 1.5fr 0.9fr;
+  grid-template-columns: 1.25fr 0.95fr;
   gap: 18px;
   padding: 24px 26px;
-  border-radius: 28px;
-  background:
-    linear-gradient(135deg, rgba(27, 37, 33, 0.94), rgba(63, 123, 117, 0.88)),
-    var(--paper);
-  color: #fff7ef;
+  border-radius: 30px;
+  border: 1px solid var(--line-strong);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(246, 250, 255, 0.95));
+  color: var(--ink);
   box-shadow: var(--shadow);
+}
+
+.handbook-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(47, 109, 246, 0.12), transparent 22%),
+    linear-gradient(90deg, transparent 0, transparent 56%, rgba(47, 109, 246, 0.04) 56%, rgba(47, 109, 246, 0.04) 100%);
+  pointer-events: none;
+}
+
+.handbook-banner > * {
+  position: relative;
+  z-index: 1;
 }
 
 .handbook-title {
@@ -78,28 +98,29 @@ a {
 .banner-meta span,
 .hero-badges span,
 .source-links span {
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid var(--line);
   border-radius: 999px;
   padding: 8px 12px;
   font-size: 0.92rem;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--surface-soft);
+  color: var(--ink);
 }
 
 .quick-nav {
   position: sticky;
-  top: 12px;
+  top: 14px;
   z-index: 20;
   display: flex;
   flex-wrap: nowrap;
   gap: 10px;
   margin: 12px 0 10px;
-  padding: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.65);
+  padding: 10px;
+  border: 1px solid var(--line-strong);
   border-radius: 999px;
-  background: rgba(255, 250, 242, 0.78);
+  background: rgba(255, 255, 255, 0.86);
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
-  box-shadow: 0 12px 36px rgba(24, 35, 31, 0.08);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
   overflow-x: auto;
 }
 
@@ -114,10 +135,12 @@ a {
 }
 
 .quick-nav a {
-  padding: 9px 14px;
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.76);
+  padding: 9px 15px;
+  border: 1px solid transparent;
+  background: transparent;
   font-size: 0.95rem;
+  color: var(--muted);
+  font-weight: 600;
   white-space: nowrap;
 }
 
@@ -147,9 +170,9 @@ a {
 .hero-panel,
 .section {
   background: var(--paper);
-  border: 1px solid rgba(255, 255, 255, 0.56);
+  border: 1px solid var(--line-strong);
   border-radius: 28px;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-soft);
 }
 
 .hero-copy,
@@ -158,11 +181,19 @@ a {
 }
 
 .eyebrow {
-  margin: 0 0 8px;
-  font-size: 0.82rem;
-  letter-spacing: 0.16em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 12px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(47, 109, 246, 0.14);
+  background: var(--surface-alt);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent-deep);
+  font-weight: 700;
 }
 
 .hero h1,
@@ -174,6 +205,7 @@ a {
 .hero h1 {
   font-size: clamp(2.3rem, 4vw, 4.4rem);
   max-width: 11ch;
+  letter-spacing: -0.03em;
 }
 
 .hero-summary,
@@ -214,40 +246,46 @@ a {
 .source-links a,
 .source-item a,
 .card-link {
-  padding: 10px 14px;
+  padding: 10px 15px;
+  border: 1px solid transparent;
+  font-weight: 700;
 }
 
 .hero-actions a:first-child,
 .source-links a,
 .source-item a,
 .card-link {
-  background: #b44e35;
-  color: #fffaf2;
+  background: var(--accent);
+  color: #f8fbff;
+  box-shadow: 0 8px 20px rgba(47, 109, 246, 0.2);
 }
 
 .hero-actions a:last-child {
   border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.64);
+  background: #ffffff;
+  color: var(--ink);
 }
 
 .route-card {
   padding: 20px;
   border-radius: 20px;
   background:
-    linear-gradient(145deg, rgba(200, 95, 66, 0.14), rgba(63, 123, 117, 0.12)),
-    var(--paper-strong);
-  border: 1px solid rgba(200, 95, 66, 0.18);
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.14), transparent 24%),
+    linear-gradient(135deg, #0f172a, #1e3a8a 58%, #2563eb);
+  border: 1px solid rgba(47, 109, 246, 0.24);
+  box-shadow: 0 18px 40px rgba(29, 78, 216, 0.16);
 }
 
 .route-label {
   margin: 0 0 10px;
-  color: var(--accent-deep);
+  color: rgba(255, 255, 255, 0.72);
   font-weight: 700;
 }
 
 .route-line {
   margin: 0;
   font-size: 1.08rem;
+  color: #ffffff;
 }
 
 .stat-grid {
@@ -260,13 +298,15 @@ a {
 .stat-grid article {
   padding: 18px;
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.72);
+  background: linear-gradient(180deg, #ffffff, #f8fbff);
   border: 1px solid var(--line);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .stat-grid strong {
   display: block;
   font-size: 1.5rem;
+  color: var(--accent-deep);
 }
 
 .stat-grid span {
@@ -276,10 +316,13 @@ a {
 .section {
   margin-top: 24px;
   padding: 30px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 251, 255, 0.95));
 }
 
 .section-head {
   margin-bottom: 22px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(96, 112, 134, 0.12);
 }
 
 .overview-band,
@@ -313,8 +356,9 @@ a {
 .compact-card {
   padding: 22px;
   border-radius: 22px;
-  background: rgba(255, 255, 255, 0.74);
+  background: linear-gradient(180deg, #ffffff, #f9fbff);
   border: 1px solid var(--line);
+  box-shadow: var(--shadow-soft);
 }
 
 .overview-card strong,
@@ -331,8 +375,8 @@ a {
   margin-bottom: 12px;
   padding: 7px 12px;
   border-radius: 999px;
-  border: 1px solid rgba(27, 37, 33, 0.08);
-  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid rgba(47, 109, 246, 0.14);
+  background: var(--surface-alt);
   color: var(--accent-deep);
   font-size: 0.88rem;
   font-weight: 700;
@@ -355,8 +399,9 @@ a {
 .manual-card {
   padding: 20px;
   border-radius: 22px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(249, 243, 234, 0.8));
+  background: linear-gradient(180deg, #ffffff, #f7fbff);
   border: 1px solid var(--line);
+  box-shadow: inset 0 3px 0 rgba(47, 109, 246, 0.1), var(--shadow-soft);
 }
 
 .manual-card h3,
@@ -388,8 +433,9 @@ a {
   min-width: 96px;
   padding: 14px 14px;
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.72);
+  background: #ffffff;
   border: 1px solid var(--line);
+  box-shadow: var(--shadow-soft);
   text-align: center;
   font-size: 0.93rem;
   font-weight: 700;
@@ -408,7 +454,7 @@ a {
 .transfer-arrow b {
   font-size: 1.4rem;
   line-height: 1;
-  color: var(--accent-deep);
+  color: var(--accent);
 }
 
 .transfer-arrow small {
@@ -419,20 +465,27 @@ a {
 }
 
 .return-stop {
-  background: linear-gradient(135deg, rgba(24, 35, 31, 0.1), rgba(255, 255, 255, 0.84));
-  color: var(--accent-deep);
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.06), rgba(255, 255, 255, 0.94));
+  color: var(--ink);
+  border-color: rgba(15, 23, 42, 0.12);
 }
 
 .accent-stop {
-  background: linear-gradient(135deg, rgba(200, 95, 66, 0.16), rgba(255, 255, 255, 0.82));
+  background: linear-gradient(135deg, rgba(47, 109, 246, 0.12), rgba(255, 255, 255, 0.96));
+  border-color: rgba(47, 109, 246, 0.22);
+  color: var(--accent-deep);
 }
 
 .teal-stop {
-  background: linear-gradient(135deg, rgba(63, 123, 117, 0.15), rgba(255, 255, 255, 0.82));
+  background: linear-gradient(135deg, rgba(15, 159, 154, 0.12), rgba(255, 255, 255, 0.96));
+  border-color: rgba(15, 159, 154, 0.2);
+  color: #0f766e;
 }
 
 .gold-stop {
-  background: linear-gradient(135deg, rgba(195, 147, 63, 0.18), rgba(255, 255, 255, 0.82));
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.12), rgba(255, 255, 255, 0.96));
+  border-color: rgba(8, 145, 178, 0.22);
+  color: #0c4a6e;
 }
 
 .gallery-grid {
@@ -444,8 +497,9 @@ a {
 .gallery-card {
   overflow: hidden;
   border-radius: 24px;
-  background: rgba(255, 255, 255, 0.76);
+  background: linear-gradient(180deg, #ffffff, #f8fbff);
   border: 1px solid var(--line);
+  box-shadow: var(--shadow-soft);
 }
 
 .gallery-card.wide {
@@ -459,6 +513,7 @@ a {
   display: flex;
   align-items: end;
   overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.24);
 }
 
 .visual-block::before {
@@ -497,62 +552,63 @@ a {
   margin-top: 8px;
   padding: 6px 10px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   font-size: 0.88rem;
 }
 
 .visual-km::before {
   background:
     radial-gradient(circle at top left, rgba(255, 255, 255, 0.16), transparent 32%),
-    linear-gradient(135deg, #d26f55, #9e3d30 48%, #5c886d);
+    linear-gradient(135deg, #2563eb, #1e40af 48%, #0f766e);
 }
 
 .visual-dl::before {
   background:
     radial-gradient(circle at 80% 22%, rgba(255, 255, 255, 0.18), transparent 24%),
-    linear-gradient(140deg, #7ca6c8, #5a8ba6 42%, #9dbd8a);
+    linear-gradient(140deg, #38bdf8, #2563eb 42%, #0f9f9a);
 }
 
 .visual-lj::before {
   background:
     radial-gradient(circle at 18% 20%, rgba(255, 255, 255, 0.18), transparent 24%),
-    linear-gradient(145deg, #566878, #304b60 48%, #a37b5c);
+    linear-gradient(145deg, #334155, #1e3a8a 48%, #0f766e);
 }
 
 .visual-yx::before {
   background:
     radial-gradient(circle at 20% 18%, rgba(255, 255, 255, 0.18), transparent 22%),
-    linear-gradient(145deg, #4d8e93, #2e6c75 42%, #85bfa0);
+    linear-gradient(145deg, #0891b2, #0f766e 42%, #67e8f9);
 }
 
 .visual-pe::before {
   background:
     radial-gradient(circle at 76% 24%, rgba(255, 255, 255, 0.18), transparent 24%),
-    linear-gradient(145deg, #557053, #314a38 44%, #a17d4a);
+    linear-gradient(145deg, #166534, #0f766e 44%, #1d4ed8);
 }
 
 .visual-bn::before {
   background:
     radial-gradient(circle at 76% 20%, rgba(255, 255, 255, 0.16), transparent 24%),
-    linear-gradient(145deg, #238163, #1a5c48 44%, #c59a43);
+    linear-gradient(145deg, #0f766e, #0891b2 44%, #2563eb);
 }
 
 .visual-lp::before {
   background:
     radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.22), transparent 24%),
-    linear-gradient(145deg, #d2aa3a, #9a7a27 40%, #64805d);
+    linear-gradient(145deg, #0ea5e9, #2563eb 40%, #1e293b);
 }
 
 .visual-ml::before {
   background:
     radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.18), transparent 24%),
-    linear-gradient(145deg, #b7654e, #95483f 42%, #c89d5d);
+    linear-gradient(145deg, #38bdf8, #0f766e 42%, #1d4ed8);
 }
 
 .visual-js::before {
   background:
     radial-gradient(circle at 18% 22%, rgba(255, 255, 255, 0.2), transparent 24%),
-    linear-gradient(145deg, #85654d, #694737 44%, #c2834c);
+    linear-gradient(145deg, #334155, #0f766e 44%, #0891b2);
 }
 
 .gallery-copy {
@@ -568,8 +624,8 @@ a {
 }
 
 .source-links span {
-  border-color: rgba(27, 37, 33, 0.08);
-  background: rgba(255, 255, 255, 0.64);
+  border-color: var(--line);
+  background: #f7faff;
   color: var(--ink);
 }
 
@@ -583,8 +639,8 @@ a {
   margin: 0;
   padding: 10px 12px;
   border-radius: 14px;
-  border: 1px solid rgba(27, 37, 33, 0.08);
-  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--line);
+  background: #f8fbff;
   color: var(--muted);
   font-size: 0.94rem;
 }
@@ -603,9 +659,9 @@ a {
 .matrix-card {
   padding: 22px;
   border-radius: 24px;
-  background: rgba(255, 255, 255, 0.78);
+  background: linear-gradient(180deg, #ffffff, #f7fbff);
   border: 1px solid var(--line);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  box-shadow: inset 0 3px 0 rgba(47, 109, 246, 0.08), var(--shadow-soft);
 }
 
 .matrix-head {
@@ -616,8 +672,9 @@ a {
 }
 
 .matrix-head span {
-  color: var(--accent-deep);
+  color: var(--accent);
   font-size: 0.92rem;
+  font-weight: 700;
 }
 
 .matrix-card p {
@@ -642,6 +699,12 @@ a {
 .source-links a:hover,
 .source-item a:hover {
   transform: translateY(-2px);
+}
+
+.quick-nav a:hover {
+  background: var(--surface-alt);
+  border-color: rgba(47, 109, 246, 0.14);
+  color: var(--accent-deep);
 }
 
 @media (max-width: 1080px) {
