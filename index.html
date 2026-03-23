@@ -16,7 +16,7 @@
   --accent: #2f6df6;
   --accent-deep: #1d4ed8;
   --teal: #0f9f9a;
-  --gold: #0891b2;
+  --gold: #d97706;
   --line: rgba(96, 112, 134, 0.16);
   --line-strong: rgba(96, 112, 134, 0.24);
   --shadow: 0 26px 64px rgba(15, 23, 42, 0.08);
@@ -44,6 +44,18 @@ body {
 
 a {
   color: inherit;
+}
+
+code {
+  display: inline-block;
+  padding: 0.08em 0.46em;
+  border-radius: 0.5em;
+  border: 1px solid rgba(47, 109, 246, 0.14);
+  background: var(--surface-alt);
+  color: var(--accent-deep);
+  font-family: "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", monospace;
+  font-size: 0.92em;
+  line-height: 1.35;
 }
 
 .page-shell {
@@ -173,6 +185,11 @@ a {
   border: 1px solid var(--line-strong);
   border-radius: 28px;
   box-shadow: var(--shadow-soft);
+}
+
+.overview-card,
+.gallery-card {
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
 .hero-copy,
@@ -485,9 +502,9 @@ a {
 }
 
 .gold-stop {
-  background: linear-gradient(135deg, rgba(8, 145, 178, 0.12), rgba(255, 255, 255, 0.96));
-  border-color: rgba(8, 145, 178, 0.22);
-  color: #0c4a6e;
+  background: linear-gradient(135deg, rgba(217, 119, 6, 0.14), rgba(255, 255, 255, 0.96));
+  border-color: rgba(217, 119, 6, 0.24);
+  color: #9a3412;
 }
 
 .gallery-grid {
@@ -705,6 +722,13 @@ a {
 .source-links a:hover,
 .source-item a:hover {
   transform: translateY(-2px);
+}
+
+.overview-card:hover,
+.gallery-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(47, 109, 246, 0.2);
+  box-shadow: 0 18px 38px rgba(15, 23, 42, 0.08);
 }
 
 .quick-nav a:hover {
@@ -953,7 +977,7 @@ a {
           <p class="eyebrow">2026 行程总览</p>
           <h1>云南三条高铁优先方案</h1>
           <p class="hero-summary">
-            按 `2026-04-17` 晚出发、`2026-04-25` 晚返程来排，武汉 2 人和西安 2 人在昆明会合，
+            按 <code>2026-04-17</code> 晚出发、<code>2026-04-25</code> 晚返程来排，武汉 2 人和西安 2 人在昆明会合，
             再从三条线路里选一条进入细化。
           </p>
           <div class="hero-badges">
@@ -1019,7 +1043,7 @@ a {
             <article class="overview-card">
               <span class="decision-tag">第一次去云南，先选它</span>
               <strong>方案一：昆明 → 大理 → 丽江</strong>
-              <p>`昆明` 在搜索结果里更像轻起点，负责花市、滇池和老街；`大理` 的内容明显围着古城、喜洲、龙龛和环洱海展开；`丽江` 则高频分成雪山攻略和古镇攻略两块。</p>
+              <p><code>昆明</code> 在搜索结果里更像轻起点，负责花市、滇池和老街；<code>大理</code> 的内容明显围着古城、喜洲、龙龛和环洱海展开；<code>丽江</code> 则高频分成雪山攻略和古镇攻略两块。</p>
               <p>如果你们想先走一条几乎不会出大错、而且高铁顺线最清楚的路线，这条依然是三条里最稳的主方案。</p>
               <a class="card-link" href="#route-classic">查看线路一</a>
             </article>
@@ -1027,7 +1051,7 @@ a {
             <article class="overview-card">
               <span class="decision-tag">最少公路主干段，选它</span>
               <strong>方案二：昆明 → 玉溪 → 普洱 → 西双版纳</strong>
-              <p>它的吸引力不在古城，而在层层递进的氛围变化：`玉溪` 是湖城缓冲，`普洱` 是茶咖与思茅慢游，`西双版纳` 则把热带夜市和傣味生活感推到最前面。</p>
+              <p>它的吸引力不在古城，而在层层递进的氛围变化：<code>玉溪</code> 是湖城缓冲，<code>普洱</code> 是茶咖与思茅慢游，<code>西双版纳</code> 则把热带夜市和傣味生活感推到最前面。</p>
               <p>如果你们这次更想避开“云南 = 古城三连”的既视感，同时又想把省内转场尽量压在高铁主轴上，这条线的辨识度其实是最高的。</p>
               <a class="card-link" href="#route-south">查看线路二</a>
             </article>
@@ -1035,7 +1059,7 @@ a {
             <article class="overview-card">
               <span class="decision-tag">最有新鲜感的小众版本</span>
               <strong>方案三：昆明 → 罗平 → 弥勒 → 建水 → 昆明</strong>
-              <p>它最有意思的地方在于城市反差很大：`罗平` 是强景观开场，`弥勒` 是温泉和松弛感中转，`建水` 则是古城烟火与小火车收尾，整体比昆大丽更少模板感。</p>
+              <p>它最有意思的地方在于城市反差很大：<code>罗平</code> 是强景观开场，<code>弥勒</code> 是温泉和松弛感中转，<code>建水</code> 则是古城烟火与小火车收尾，整体比昆大丽更少模板感。</p>
               <p>如果你们不想再做最常规的云南首刷线，但又不愿意把路线完全交给自驾，这条经过顺序优化后的高铁友好版本，会是三条里最有新鲜感的一条。</p>
               <a class="card-link" href="#route-loop">查看线路三</a>
             </article>
@@ -1054,7 +1078,7 @@ a {
           <div class="manual-grid">
             <article class="manual-card">
               <h3>固定时间窗</h3>
-              <p><strong>04-17 周五晚出发</strong>，`04-25` 周六晚返。</p>
+              <p><strong>04-17 周五晚出发</strong>，<code>04-25</code> 周六晚返。</p>
             </article>
             <article class="manual-card">
               <h3>推荐住法</h3>
@@ -1062,11 +1086,11 @@ a {
             </article>
             <article class="manual-card">
               <h3>出发结构</h3>
-              <p>武汉 2 人、西安 2 人，`04-17` 晚在昆明会合。</p>
+              <p>武汉 2 人、西安 2 人，<code>04-17</code> 晚在昆明会合。</p>
             </article>
             <article class="manual-card">
               <h3>回程结构</h3>
-              <p>`04-25` 先回昆明，晚上分组返汉 / 返西安。</p>
+              <p><code>04-25</code> 先回昆明，晚上分组返汉 / 返西安。</p>
             </article>
           </div>
 
@@ -1095,7 +1119,7 @@ a {
               <div class="gallery-copy">
                 <h3>昆明 | 不抢戏的开场城市</h3>
                 <p>
-                  小红书里最常出现的是 `2 天游`、`48h`、`不绕路`、`花市 + 滇池 + 老街`，所以昆明更适合做落地适应和轻城市切口。
+                  小红书里最常出现的是 <code>2 天游</code>、<code>48h</code>、<code>不绕路</code>、<code>花市 + 滇池 + 老街</code>，所以昆明更适合做落地适应和轻城市切口。
                 </p>
                 <div class="source-links">
                   <span>小红书搜索入口</span>
@@ -1105,7 +1129,7 @@ a {
                   <a href="https://www.xiaohongshu.com/search_result?keyword=%E5%AE%98%E6%B8%A1%E5%8F%A4%E9%95%87" target="_blank" rel="noreferrer">官渡古镇</a>
                 </div>
                 <div class="source-notes">
-                  <p><strong>搜索结果观察：</strong>`斗南花市`、`海埂大坝`、`滇池`、`官渡古镇` 在搜索结果里反复出现，说明昆明最适合走“轻松城市线”，不必把它变成重景区日。</p>
+                  <p><strong>搜索结果观察：</strong><code>斗南花市</code>、<code>海埂大坝</code>、<code>滇池</code>、<code>官渡古镇</code> 在搜索结果里反复出现，说明昆明最适合走“轻松城市线”，不必把它变成重景区日。</p>
                   <p><strong>执行含义：</strong>这站更像调状态和收行李结构的地方，适合落地后的第一个完整白天。</p>
                 </div>
               </div>
@@ -1123,7 +1147,7 @@ a {
               <div class="gallery-copy">
                 <h3>大理 | 真正要留整块白天的地方</h3>
                 <p>
-                  小红书里高频词几乎都围着 `喜洲古镇`、`龙龛码头`、`环洱海`、`大理古城` 和 `寂照庵` 打转，核心不是景点数量，而是把一天留完整。
+                  小红书里高频词几乎都围着 <code>喜洲古镇</code>、<code>龙龛码头</code>、<code>环洱海</code>、<code>大理古城</code> 和 <code>寂照庵</code> 打转，核心不是景点数量，而是把一天留完整。
                 </p>
                 <div class="source-links">
                   <span>小红书搜索入口</span>
@@ -1133,8 +1157,8 @@ a {
                   <a href="https://www.xiaohongshu.com/search_result?keyword=%E6%B4%B1%E6%B5%B7" target="_blank" rel="noreferrer">洱海</a>
                 </div>
                 <div class="source-notes">
-                  <p><strong>搜索结果观察：</strong>大理的结果里同时高频出现 `一日路线`、`三天三夜`、`洱海一日游最佳路线`，说明它既能快玩，但更适合慢玩。</p>
-                  <p><strong>执行含义：</strong>建议至少留 `2 晚`，把古城夜晚和洱海白天拆开，不要用一整天都在转场。</p>
+                  <p><strong>搜索结果观察：</strong>大理的结果里同时高频出现 <code>一日路线</code>、<code>三天三夜</code>、<code>洱海一日游最佳路线</code>，说明它既能快玩，但更适合慢玩。</p>
+                  <p><strong>执行含义：</strong>建议至少留 <code>2 晚</code>，把古城夜晚和洱海白天拆开，不要用一整天都在转场。</p>
                 </div>
               </div>
             </article>
@@ -1152,7 +1176,7 @@ a {
               <div class="gallery-copy">
                 <h3>丽江 | 把强景观和古镇慢游分开</h3>
                 <p>
-                  小红书搜索结果里，`玉龙雪山`、`白沙古镇`、`玉湖村`、`忠义市场` 和 `2 天 / 3 天攻略` 同时高频出现，路线更适合拆成两个不同强度的日子。
+                  小红书搜索结果里，<code>玉龙雪山</code>、<code>白沙古镇</code>、<code>玉湖村</code>、<code>忠义市场</code> 和 <code>2 天 / 3 天攻略</code> 同时高频出现，路线更适合拆成两个不同强度的日子。
                 </p>
                 <div class="source-links">
                   <span>小红书搜索入口</span>
@@ -1162,7 +1186,7 @@ a {
                   <a href="https://www.xiaohongshu.com/search_result?keyword=%E7%8E%89%E6%B9%96%E6%9D%91" target="_blank" rel="noreferrer">玉湖村</a>
                 </div>
                 <div class="source-notes">
-                  <p><strong>搜索结果观察：</strong>丽江的结果不是只推“古城拍照”，而是明显分成 `雪山攻略` 和 `古镇攻略` 两块。</p>
+                  <p><strong>搜索结果观察：</strong>丽江的结果不是只推“古城拍照”，而是明显分成 <code>雪山攻略</code> 和 <code>古镇攻略</code> 两块。</p>
                   <p><strong>执行含义：</strong>雪山日别再硬拼多个古镇，另留一个下午给白沙 / 束河 / 市场烟火气，体验会顺很多。</p>
                 </div>
               </div>
@@ -1270,7 +1294,7 @@ a {
           <div class="manual-grid">
             <article class="manual-card">
               <h3>固定时间窗</h3>
-              <p><strong>04-17 周五晚出发</strong>，`04-25` 周六晚返。</p>
+              <p><strong>04-17 周五晚出发</strong>，<code>04-25</code> 周六晚返。</p>
             </article>
             <article class="manual-card">
               <h3>推荐住法</h3>
@@ -1278,11 +1302,11 @@ a {
             </article>
             <article class="manual-card">
               <h3>出发结构</h3>
-              <p>武汉 2 人、西安 2 人，`04-17` 晚在昆明会合。</p>
+              <p>武汉 2 人、西安 2 人，<code>04-17</code> 晚在昆明会合。</p>
             </article>
             <article class="manual-card">
               <h3>回程结构</h3>
-              <p>`04-25` 回昆明后，武汉组返汉，西安组返西安。</p>
+              <p><code>04-25</code> 回昆明后，武汉组返汉，西安组返西安。</p>
             </article>
           </div>
 
@@ -1313,7 +1337,7 @@ a {
               <div class="gallery-copy">
                 <h3>玉溪 | 把节奏先稳下来</h3>
                 <p>
-                  小红书搜索里最密的是 `抚仙湖`、`一日游`、`citywalk`、`两天一夜`。玉溪不适合排成“大景区站”，更适合作为云南南线的第一层缓冲。
+                  小红书搜索里最密的是 <code>抚仙湖</code>、<code>一日游</code>、<code>citywalk</code>、<code>两天一夜</code>。玉溪不适合排成“大景区站”，更适合作为云南南线的第一层缓冲。
                 </p>
                 <div class="source-links">
                   <span>小红书搜索入口</span>
@@ -1322,7 +1346,7 @@ a {
                   <a href="https://www.xiaohongshu.com/search_result?keyword=%E7%8E%89%E6%BA%AA%20citywalk" target="_blank" rel="noreferrer">玉溪 citywalk</a>
                 </div>
                 <div class="source-notes">
-                  <p><strong>搜索结果观察：</strong>很多内容都在强调 `高铁 1 小时内`、`半日游`、`抚仙湖路线`，说明玉溪非常适合做顺线里的轻停留。</p>
+                  <p><strong>搜索结果观察：</strong>很多内容都在强调 <code>高铁 1 小时内</code>、<code>半日游</code>、<code>抚仙湖路线</code>，说明玉溪非常适合做顺线里的轻停留。</p>
                   <p><strong>执行含义：</strong>别把玉溪做成暴走景点站，半天到一天的湖边慢玩反而最符合这条线的气质。</p>
                 </div>
               </div>
@@ -1340,7 +1364,7 @@ a {
               <div class="gallery-copy">
                 <h3>普洱 | 主计划留在思茅区最顺</h3>
                 <p>
-                  小红书高频词明显落在 `思茅老街`、`茶马古道`、`茶马古城`、`citywalk` 和 `3 天 2 夜`。如果把“少公路、大交通尽量铁路化”放在第一位，普洱主计划更该围着思茅区转。
+                  小红书高频词明显落在 <code>思茅老街</code>、<code>茶马古道</code>、<code>茶马古城</code>、<code>citywalk</code> 和 <code>3 天 2 夜</code>。如果把“少公路、大交通尽量铁路化”放在第一位，普洱主计划更该围着思茅区转。
                 </p>
                 <div class="source-links">
                   <span>小红书搜索入口</span>
@@ -1349,8 +1373,8 @@ a {
                   <a href="https://www.xiaohongshu.com/search_result?keyword=%E8%8C%B6%E9%A9%AC%E5%8F%A4%E5%9F%8E" target="_blank" rel="noreferrer">茶马古城</a>
                 </div>
                 <div class="source-notes">
-                  <p><strong>搜索结果观察：</strong>`景迈山` 确实很热，但它和“高铁主干通勤”不是一回事；而 `思茅老街 + 茶马古城 + citywalk` 更适合做成铁路顺线里的主计划。</p>
-                  <p><strong>执行含义：</strong>如果这次路线目标是“尽量少大巴”，就把普洱写成 `思茅区慢游站`，而不是远线大拉车站。</p>
+                  <p><strong>搜索结果观察：</strong><code>景迈山</code> 确实很热，但它和“高铁主干通勤”不是一回事；而 <code>思茅老街 + 茶马古城 + citywalk</code> 更适合做成铁路顺线里的主计划。</p>
+                  <p><strong>执行含义：</strong>如果这次路线目标是“尽量少大巴”，就把普洱写成 <code>思茅区慢游站</code>，而不是远线大拉车站。</p>
                 </div>
               </div>
             </article>
@@ -1368,7 +1392,7 @@ a {
               <div class="gallery-copy">
                 <h3>版纳 | 热带感和夜生活都留在最后</h3>
                 <p>
-                  小红书里和版纳联动最高的就是 `曼听公园`、`星光夜市`、`傣族园`、`懒人版三天两夜`。它非常适合放在整条线最后，拿热带夜晚把整段旅行收住。
+                  小红书里和版纳联动最高的就是 <code>曼听公园</code>、<code>星光夜市</code>、<code>傣族园</code>、<code>懒人版三天两夜</code>。它非常适合放在整条线最后，拿热带夜晚把整段旅行收住。
                 </p>
                 <div class="source-links">
                   <span>小红书搜索入口</span>
@@ -1377,8 +1401,8 @@ a {
                   <a href="https://www.xiaohongshu.com/search_result?keyword=%E5%82%A3%E6%97%8F%E5%9B%AD" target="_blank" rel="noreferrer">傣族园</a>
                 </div>
                 <div class="source-notes">
-                  <p><strong>搜索结果观察：</strong>`4 天 3 晚`、`3 天 2 夜`、`避坑`、`夜市`、`地图版攻略` 是版纳最常见的组织方式，说明它不适合只住一晚匆匆扫过。</p>
-                  <p><strong>执行含义：</strong>建议至少给版纳 `2 晚`，这样你们前面铁路顺线积累下来的松弛感不会在最后一站被打断。</p>
+                  <p><strong>搜索结果观察：</strong><code>4 天 3 晚</code>、<code>3 天 2 夜</code>、<code>避坑</code>、<code>夜市</code>、<code>地图版攻略</code> 是版纳最常见的组织方式，说明它不适合只住一晚匆匆扫过。</p>
+                  <p><strong>执行含义：</strong>建议至少给版纳 <code>2 晚</code>，这样你们前面铁路顺线积累下来的松弛感不会在最后一站被打断。</p>
                 </div>
               </div>
             </article>
@@ -1478,7 +1502,7 @@ a {
             <p class="eyebrow">线路三</p>
             <h2>昆明 → 罗平 → 弥勒 → 建水 → 昆明</h2>
             <p class="section-note">
-              你给出的原始串法里 `罗平 -> 建水 -> 弥勒` 是可想象的，但如果把高铁友好度放第一位，我更建议改成 `罗平 -> 弥勒 -> 建水`，
+              如果把高铁友好度放第一位，更适合按 <code>罗平 -> 弥勒 -> 建水</code> 这条顺序执行，
               这样整条线更像真正的环线，而不是中段反复折返。
             </p>
           </div>
@@ -1486,7 +1510,7 @@ a {
           <div class="manual-grid">
             <article class="manual-card">
               <h3>固定时间窗</h3>
-              <p><strong>04-17 周五晚出发</strong>，`04-25` 周六晚返。</p>
+              <p><strong>04-17 周五晚出发</strong>，<code>04-25</code> 周六晚返。</p>
             </article>
             <article class="manual-card">
               <h3>推荐住法</h3>
@@ -1494,11 +1518,11 @@ a {
             </article>
             <article class="manual-card">
               <h3>出发结构</h3>
-              <p>武汉 2 人、西安 2 人，`04-17` 晚在昆明会合。</p>
+              <p>武汉 2 人、西安 2 人，<code>04-17</code> 晚在昆明会合。</p>
             </article>
             <article class="manual-card">
               <h3>回程结构</h3>
-              <p>`04-25` 回昆明后，武汉组返汉，西安组返西安。</p>
+              <p><code>04-25</code> 回昆明后，武汉组返汉，西安组返西安。</p>
             </article>
           </div>
 
@@ -1511,7 +1535,7 @@ a {
             <span class="transfer-arrow"><b>&rarr;</b><small>高铁</small></span>
             <span class="route-stop teal-stop">建水</span>
             <span class="transfer-arrow"><b>&rarr;</b><small>高铁</small></span>
-            <span class="route-stop gold-stop">昆明</span>
+            <span class="route-stop accent-stop">昆明</span>
             <span class="transfer-arrow"><b>&rarr;</b><small>分组返程</small></span>
             <span class="route-stop return-stop">武汉 / 西安</span>
           </div>
@@ -1529,7 +1553,7 @@ a {
               <div class="gallery-copy">
                 <h3>罗平 | 把景观强度留在环线前半段</h3>
                 <p>
-                  小红书里围绕罗平最密的词依然是 `油菜花`、`金鸡峰丛`、`九龙瀑布` 和多个观景机位。它的体验很吃季节，但也因此适合做整条环线的开场高点。
+                  小红书里围绕罗平最密的词依然是 <code>油菜花</code>、<code>金鸡峰丛</code>、<code>九龙瀑布</code> 和多个观景机位。它的体验很吃季节，但也因此适合做整条环线的开场高点。
                 </p>
                 <div class="source-links">
                   <span>小红书搜索入口</span>
@@ -1537,8 +1561,8 @@ a {
                   <a href="https://www.xiaohongshu.com/search_result?keyword=%E7%BD%97%E5%B9%B3%20%E9%87%91%E9%B8%A1%E5%B3%B0%E4%B8%9B%20%E4%B9%9D%E9%BE%99%E7%80%91%E5%B8%83" target="_blank" rel="noreferrer">金鸡峰丛 / 九龙瀑布</a>
                 </div>
                 <div class="source-notes">
-                  <p><strong>搜索结果观察：</strong>罗平的结果非常明显地围着 `金鸡峰丛最佳位置`、`九龙瀑布攻略`、`一日游` 打转，说明它更像“强景观站”而不是久住城市。</p>
-                  <p><strong>执行含义：</strong>短版模型里 `1 晚` 也能跑，但你们这次的固定时间窗更适合给罗平留成 `2 晚`，把观景日和转场日彻底拆开。</p>
+                  <p><strong>搜索结果观察：</strong>罗平的结果非常明显地围着 <code>金鸡峰丛最佳位置</code>、<code>九龙瀑布攻略</code>、<code>一日游</code> 打转，说明它更像“强景观站”而不是久住城市。</p>
+                  <p><strong>执行含义：</strong>短版模型里 <code>1 晚</code> 也能跑，但你们这次的固定时间窗更适合给罗平留成 <code>2 晚</code>，把观景日和转场日彻底拆开。</p>
                 </div>
               </div>
             </article>
@@ -1555,7 +1579,7 @@ a {
               <div class="gallery-copy">
                 <h3>弥勒 | 用来把环线中段放松下来</h3>
                 <p>
-                  小红书里弥勒的关键词非常稳定：`东风韵`、`红河水乡`、`温泉`、`3 天 2 晚懒人版`。它适合拿来做中段缓冲，不适合只当路过站。
+                  小红书里弥勒的关键词非常稳定：<code>东风韵</code>、<code>红河水乡</code>、<code>温泉</code>、<code>3 天 2 晚懒人版</code>。它适合拿来做中段缓冲，不适合只当路过站。
                 </p>
                 <div class="source-links">
                   <span>小红书搜索入口</span>
@@ -1563,7 +1587,7 @@ a {
                   <a href="https://www.xiaohongshu.com/search_result?keyword=%E5%BC%A5%E5%8B%92%20%E4%B8%9C%E9%A3%8E%E9%9F%B5%20%E7%BA%A2%E6%B2%B3%E6%B0%B4%E4%B9%A1%20%E6%B8%A9%E6%B3%89" target="_blank" rel="noreferrer">东风韵 / 水乡 / 温泉</a>
                 </div>
                 <div class="source-notes">
-                  <p><strong>搜索结果观察：</strong>`昆明高铁 0.5h`、`人少景美`、`温泉` 这些词反复出现，让弥勒在三条线里显得最像真正的松弛站。</p>
+                  <p><strong>搜索结果观察：</strong><code>昆明高铁 0.5h</code>、<code>人少景美</code>、<code>温泉</code> 这些词反复出现，让弥勒在三条线里显得最像真正的松弛站。</p>
                   <p><strong>执行含义：</strong>前一站如果是罗平这种高景观强度城市，弥勒刚好可以把体力和心态拉回舒服区间。</p>
                 </div>
               </div>
@@ -1582,7 +1606,7 @@ a {
               <div class="gallery-copy">
                 <h3>建水 | 古城烟火感要留够时间</h3>
                 <p>
-                  小红书里建水的关键词组合非常完整：`小火车`、`双龙桥`、`紫陶街`、`团山民居`，而且大量内容会写成 `2 天 1 晚` 或 `3 天 2 晚`。
+                  小红书里建水的关键词组合非常完整：<code>小火车</code>、<code>双龙桥</code>、<code>紫陶街</code>、<code>团山民居</code>，而且大量内容会写成 <code>2 天 1 晚</code> 或 <code>3 天 2 晚</code>。
                 </p>
                 <div class="source-links">
                   <span>小红书搜索入口</span>
@@ -1591,8 +1615,8 @@ a {
                   <a href="https://www.xiaohongshu.com/search_result?keyword=%E5%9B%A2%E5%B1%B1%E6%B0%91%E5%B1%85" target="_blank" rel="noreferrer">团山民居</a>
                 </div>
                 <div class="source-notes">
-                  <p><strong>搜索结果观察：</strong>建水不是“快打快收”的点，而是少见地同时拥有 `古城慢游`、`小火车路线` 和 `夜市烟火气`。</p>
-                  <p><strong>执行含义：</strong>建议至少留 `2 晚`，不然古城、桥、紫陶街和小火车之间只会变成赶路关系。</p>
+                  <p><strong>搜索结果观察：</strong>建水不是“快打快收”的点，而是少见地同时拥有 <code>古城慢游</code>、<code>小火车路线</code> 和 <code>夜市烟火气</code>。</p>
+                  <p><strong>执行含义：</strong>建议至少留 <code>2 晚</code>，不然古城、桥、紫陶街和小火车之间只会变成赶路关系。</p>
                 </div>
               </div>
             </article>
@@ -1692,51 +1716,51 @@ a {
             <p class="eyebrow">高铁原则</p>
             <h2>这三条线里真正该坚持的执行逻辑</h2>
             <p class="section-note">
-              这里分开写“搜索结果直接观察”和“基于铁路友好度的推断”。只要你之后确定其中一条，我再把它压成具体日期版时会继续细化。
+              这里分开写“搜索结果直接观察”和“基于铁路友好度的推断”，方便先判断路线逻辑，再进入订票层面的细化。
             </p>
           </div>
 
           <div class="reason-grid">
             <article class="reason-card">
               <h3>直接观察：昆大丽仍是最成熟的铁路经典线</h3>
-              <p>小红书里 `昆明 + 大理 + 丽江` 仍然是内容最多、也最容易被压成 `5-6 天自由行` 的方案。</p>
+              <p>小红书里 <code>昆明 + 大理 + 丽江</code> 仍然是内容最多、也最容易被压成 <code>5-6 天自由行</code> 的方案。</p>
             </article>
             <article class="reason-card">
               <h3>直接观察：玉溪普洱版纳线已经被写成“中老铁路顺线”</h3>
-              <p>搜索结果里已经出现 `不自驾`、`高铁直达`、`中老铁路乘车攻略` 这类内容，说明南线本身就越来越适合铁路通勤。</p>
+              <p>搜索结果里已经出现 <code>不自驾</code>、<code>高铁直达</code>、<code>中老铁路乘车攻略</code> 这类内容，说明南线本身就越来越适合铁路通勤。</p>
             </article>
             <article class="reason-card">
               <h3>推断：第三条环线需要为“高铁顺路”优化顺序</h3>
-              <p>如果仍死守 `罗平 -> 建水 -> 弥勒`，更容易出现折返和碎转场；因此页面里改成了 `罗平 -> 弥勒 -> 建水`。</p>
+              <p>如果仍死守 <code>罗平 -> 建水 -> 弥勒</code>，更容易出现折返和碎转场；因此页面里改成了 <code>罗平 -> 弥勒 -> 建水</code>。</p>
             </article>
             <article class="reason-card">
               <h3>推断：没有合适直达时，宁可中转，也不要用长途大巴兜底</h3>
-              <p>尤其第三条线里，如果个别城市间没有顺手车次，更建议查 `昆明南中转`，而不是把主干切回公路模式。</p>
+              <p>尤其第三条线里，如果个别城市间没有顺手车次，更建议查 <code>昆明南中转</code>，而不是把主干切回公路模式。</p>
             </article>
           </div>
 
           <div class="source-board" style="margin-top: 18px;">
             <article class="source-item">
               <strong>线路一总搜索</strong>
-              <p>用来继续补 `昆明 / 大理 / 丽江` 的酒店、吃饭和城市顺序感。</p>
+              <p>用来继续补 <code>昆明 / 大理 / 丽江</code> 的酒店、吃饭和城市顺序感。</p>
               <a href="https://www.xiaohongshu.com/search_result?keyword=%E6%98%86%E6%98%8E%20%E5%A4%A7%E7%90%86%20%E4%B8%BD%E6%B1%9F%20%E9%AB%98%E9%93%81%20%E6%94%BB%E7%95%A5" target="_blank" rel="noreferrer">打开搜索</a>
             </article>
 
             <article class="source-item">
               <strong>线路二总搜索</strong>
-              <p>重点看 `玉溪 / 普洱 / 版纳` 这条铁路主轴线还能不能继续压掉公路段。</p>
+              <p>重点看 <code>玉溪 / 普洱 / 版纳</code> 这条铁路主轴线还能不能继续压掉公路段。</p>
               <a href="https://www.xiaohongshu.com/search_result?keyword=%E7%8E%89%E6%BA%AA%20%E6%99%AE%E6%B4%B1%20%E8%A5%BF%E5%8F%8C%E7%89%88%E7%BA%B3%20%E9%AB%98%E9%93%81%20%E6%94%BB%E7%95%A5" target="_blank" rel="noreferrer">打开搜索</a>
             </article>
 
             <article class="source-item">
               <strong>线路三总搜索</strong>
-              <p>这里最值得继续看的是 `滇东南高铁游`、`小环线` 和不同顺序的实际写法。</p>
+              <p>这里最值得继续看的是 <code>滇东南高铁游</code>、<code>小环线</code> 和不同顺序的实际写法。</p>
               <a href="https://www.xiaohongshu.com/search_result?keyword=%E6%98%86%E6%98%8E%20%E7%BD%97%E5%B9%B3%20%E5%BB%BA%E6%B0%B4%20%E5%BC%A5%E5%8B%92%20%E9%AB%98%E9%93%81%20%E7%8E%AF%E7%BA%BF%20%E6%94%BB%E7%95%A5" target="_blank" rel="noreferrer">打开搜索</a>
             </article>
 
             <article class="source-item">
               <strong>铁路补充搜索</strong>
-              <p>小红书里也已经有人专门整理 `中老铁路乘车攻略` 和 `滇东南高铁游`。</p>
+              <p>小红书里也已经有人专门整理 <code>中老铁路乘车攻略</code> 和 <code>滇东南高铁游</code>。</p>
               <a href="https://www.xiaohongshu.com/search_result?keyword=%E4%B8%AD%E8%80%81%E9%93%81%E8%B7%AF%20%E4%B9%98%E8%BD%A6%E6%94%BB%E7%95%A5" target="_blank" rel="noreferrer">中老铁路</a>
             </article>
           </div>
