@@ -1141,18 +1141,6 @@
         return `xhsdiscover://search/result?keyword=${encodeURIComponent(keyword)}`;
       }
 
-      function openCustomSchemeWithoutLeavingPage(appUrl) {
-        const iframe = document.createElement("iframe");
-        iframe.style.display = "none";
-        iframe.setAttribute("aria-hidden", "true");
-        iframe.src = appUrl;
-        document.body.appendChild(iframe);
-
-        window.setTimeout(() => {
-          iframe.remove();
-        }, 1200);
-      }
-
       function setupXiaohongshuAppLinks() {
         const links = Array.from(
           document.querySelectorAll('a[href*="xiaohongshu.com/search_result"]')
@@ -1203,18 +1191,14 @@
             };
 
             const handleBlur = () => {
-              window.setTimeout(() => {
-                if (document.hidden) {
-                  markAppOpened();
-                  clearFallback();
-                }
-              }, 200);
+              markAppOpened();
+              clearFallback();
             };
 
             document.addEventListener("visibilitychange", handleVisibilityChange, { once: true });
             window.addEventListener("pagehide", handlePageHide, { once: true });
             window.addEventListener("blur", handleBlur, { once: true });
-            openCustomSchemeWithoutLeavingPage(appUrl);
+            window.location.href = appUrl;
           });
         });
       }
