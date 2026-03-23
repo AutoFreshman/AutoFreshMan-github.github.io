@@ -250,8 +250,7 @@
       .matrix-card,
       .stay-card,
       .logic-card,
-      .fact-box,
-      .weather-card {
+      .fact-box {
         background: var(--bg-card);
         border: 1px solid var(--border);
         border-radius: var(--radius-md);
@@ -262,8 +261,7 @@
       .city-card:hover,
       .matrix-card:hover,
       .stay-card:hover,
-      .logic-card:hover,
-      .weather-card:hover {
+      .logic-card:hover {
         border-color: var(--border-hover);
         box-shadow: var(--shadow-md);
         transform: translateY(-2px);
@@ -366,8 +364,7 @@
       .city-grid,
       .stay-grid,
       .logic-grid,
-      .matrix-grid,
-      .weather-grid {
+      .matrix-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 20px;
@@ -433,83 +430,55 @@
         background: #e0f2fe;
       }
 
-      .weather-card {
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-        background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-      }
-
-      .weather-card.is-loading,
-      .weather-card.is-error {
-        border-style: dashed;
-      }
-
-      .weather-head {
+      .weather-inline {
         display: flex;
         justify-content: space-between;
-        align-items: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
         gap: 12px;
+        margin-top: 4px;
+        padding: 12px 14px 0;
+        border-top: 1px solid var(--border);
       }
 
-      .weather-date {
-        font-size: 0.9rem;
-        color: var(--accent);
-        font-weight: 700;
+      .weather-inline.is-loading,
+      .weather-inline.is-error {
+        border-top-style: dashed;
       }
 
-      .weather-city {
-        padding: 6px 10px;
-        border-radius: var(--radius-full);
-        background: #eff6ff;
-        border: 1px solid #dbeafe;
-        color: var(--primary);
-        font-size: 0.82rem;
-        font-weight: 700;
-        white-space: nowrap;
-      }
-
-      .weather-card h3 {
-        margin: 0;
-        font-size: 1.05rem;
-        line-height: 1.45;
-      }
-
-      .weather-main {
+      .weather-inline-main {
         display: flex;
-        flex-direction: column;
-        gap: 6px;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
       }
 
-      .weather-temp {
-        font-size: 2rem;
+      .weather-inline-temp {
+        font-size: 1.2rem;
         line-height: 1;
         font-weight: 800;
         letter-spacing: -0.03em;
       }
 
-      .weather-range,
-      .weather-rain,
-      .weather-tip,
-      .weather-state,
-      .weather-source {
+      .weather-inline-range,
+      .weather-inline-rain,
+      .weather-inline-tip {
         color: var(--text-muted);
-        font-size: 0.92rem;
+        font-size: 0.88rem;
       }
 
-      .weather-tip {
-        margin: 0;
-        padding-top: 10px;
-        border-top: 1px solid var(--border);
+      .weather-inline-tip {
+        flex-basis: 100%;
       }
 
-      .weather-source {
-        margin: 20px 0 0;
-      }
-
-      .weather-source a {
+      .weather-inline-city {
+        padding: 5px 10px;
+        border-radius: var(--radius-full);
+        background: #eff6ff;
+        border: 1px solid #dbeafe;
         color: var(--primary);
+        font-size: 0.8rem;
+        font-weight: 700;
       }
 
       .matrix-card {
@@ -611,7 +580,6 @@
 
       <nav class="nav">
         <a href="#overview">行程总览</a>
-        <a href="#weather">天气</a>
         <a href="#cities">城市拆法</a>
         <a href="#roadbook">逐日路书</a>
         <a href="#drive-playbook">自驾细化</a>
@@ -728,167 +696,6 @@
           </div>
         </section>
 
-        <section class="section" id="weather">
-          <div class="section-head">
-            <p class="eyebrow">天气</p>
-            <h2>04-17 到 04-25 的逐日天气监测</h2>
-            <p class="section-note">
-              按当日主活动城市展示，页面打开时自动更新。
-            </p>
-          </div>
-
-          <div class="weather-grid">
-            <article class="weather-card is-loading" data-weather-card data-city="kunming" data-date="2026-04-17">
-              <div class="weather-head">
-                <div>
-                  <div class="weather-date">04-17 周五</div>
-                  <h3>夜间抵达 / 集合入住</h3>
-                </div>
-                <span class="weather-city">昆明</span>
-              </div>
-              <div class="weather-main">
-                <div class="weather-temp" data-weather-temp>加载中</div>
-                <div class="weather-range" data-weather-range>温度区间加载中</div>
-                <div class="weather-rain" data-weather-rain>降水数据加载中</div>
-              </div>
-              <p class="weather-tip" data-weather-tip>正在获取公开天气数据。</p>
-            </article>
-
-            <article class="weather-card is-loading" data-weather-card data-city="kunming" data-date="2026-04-18">
-              <div class="weather-head">
-                <div>
-                  <div class="weather-date">04-18 周六</div>
-                  <h3>昆明适应日</h3>
-                </div>
-                <span class="weather-city">昆明</span>
-              </div>
-              <div class="weather-main">
-                <div class="weather-temp" data-weather-temp>加载中</div>
-                <div class="weather-range" data-weather-range>温度区间加载中</div>
-                <div class="weather-rain" data-weather-rain>降水数据加载中</div>
-              </div>
-              <p class="weather-tip" data-weather-tip>正在获取公开天气数据。</p>
-            </article>
-
-            <article class="weather-card is-loading" data-weather-card data-city="dali" data-date="2026-04-19">
-              <div class="weather-head">
-                <div>
-                  <div class="weather-date">04-19 周日</div>
-                  <h3>昆明取车后去大理</h3>
-                </div>
-                <span class="weather-city">大理</span>
-              </div>
-              <div class="weather-main">
-                <div class="weather-temp" data-weather-temp>加载中</div>
-                <div class="weather-range" data-weather-range>温度区间加载中</div>
-                <div class="weather-rain" data-weather-rain>降水数据加载中</div>
-              </div>
-              <p class="weather-tip" data-weather-tip>正在获取公开天气数据。</p>
-            </article>
-
-            <article class="weather-card is-loading" data-weather-card data-city="dali" data-date="2026-04-20">
-              <div class="weather-head">
-                <div>
-                  <div class="weather-date">04-20 周一</div>
-                  <h3>大理洱海西岸日</h3>
-                </div>
-                <span class="weather-city">大理</span>
-              </div>
-              <div class="weather-main">
-                <div class="weather-temp" data-weather-temp>加载中</div>
-                <div class="weather-range" data-weather-range>温度区间加载中</div>
-                <div class="weather-rain" data-weather-rain>降水数据加载中</div>
-              </div>
-              <p class="weather-tip" data-weather-tip>正在获取公开天气数据。</p>
-            </article>
-
-            <article class="weather-card is-loading" data-weather-card data-city="dali" data-date="2026-04-21">
-              <div class="weather-head">
-                <div>
-                  <div class="weather-date">04-21 周二</div>
-                  <h3>大理洱海东岸日</h3>
-                </div>
-                <span class="weather-city">大理</span>
-              </div>
-              <div class="weather-main">
-                <div class="weather-temp" data-weather-temp>加载中</div>
-                <div class="weather-range" data-weather-range>温度区间加载中</div>
-                <div class="weather-rain" data-weather-rain>降水数据加载中</div>
-              </div>
-              <p class="weather-tip" data-weather-tip>正在获取公开天气数据。</p>
-            </article>
-
-            <article class="weather-card is-loading" data-weather-card data-city="lijiang" data-date="2026-04-22">
-              <div class="weather-head">
-                <div>
-                  <div class="weather-date">04-22 周三</div>
-                  <h3>大理半天后去丽江</h3>
-                </div>
-                <span class="weather-city">丽江</span>
-              </div>
-              <div class="weather-main">
-                <div class="weather-temp" data-weather-temp>加载中</div>
-                <div class="weather-range" data-weather-range>温度区间加载中</div>
-                <div class="weather-rain" data-weather-rain>降水数据加载中</div>
-              </div>
-              <p class="weather-tip" data-weather-tip>正在获取公开天气数据。</p>
-            </article>
-
-            <article class="weather-card is-loading" data-weather-card data-city="lijiang" data-date="2026-04-23">
-              <div class="weather-head">
-                <div>
-                  <div class="weather-date">04-23 周四</div>
-                  <h3>丽江雪山日</h3>
-                </div>
-                <span class="weather-city">丽江</span>
-              </div>
-              <div class="weather-main">
-                <div class="weather-temp" data-weather-temp>加载中</div>
-                <div class="weather-range" data-weather-range>温度区间加载中</div>
-                <div class="weather-rain" data-weather-rain>降水数据加载中</div>
-              </div>
-              <p class="weather-tip" data-weather-tip>正在获取公开天气数据。</p>
-            </article>
-
-            <article class="weather-card is-loading" data-weather-card data-city="kunming" data-date="2026-04-24">
-              <div class="weather-head">
-                <div>
-                  <div class="weather-date">04-24 周五</div>
-                  <h3>丽江半天后回昆明</h3>
-                </div>
-                <span class="weather-city">昆明</span>
-              </div>
-              <div class="weather-main">
-                <div class="weather-temp" data-weather-temp>加载中</div>
-                <div class="weather-range" data-weather-range>温度区间加载中</div>
-                <div class="weather-rain" data-weather-rain>降水数据加载中</div>
-              </div>
-              <p class="weather-tip" data-weather-tip>正在获取公开天气数据。</p>
-            </article>
-
-            <article class="weather-card is-loading" data-weather-card data-city="kunming" data-date="2026-04-25">
-              <div class="weather-head">
-                <div>
-                  <div class="weather-date">04-25 周六</div>
-                  <h3>昆明白天休整，夜间返程</h3>
-                </div>
-                <span class="weather-city">昆明</span>
-              </div>
-              <div class="weather-main">
-                <div class="weather-temp" data-weather-temp>加载中</div>
-                <div class="weather-range" data-weather-range>温度区间加载中</div>
-                <div class="weather-rain" data-weather-rain>降水数据加载中</div>
-              </div>
-              <p class="weather-tip" data-weather-tip>正在获取公开天气数据。</p>
-            </article>
-          </div>
-
-          <p class="weather-source">
-            数据源：
-            <a href="https://open-meteo.com/en/docs/seasonal-forecast-api" target="_blank" rel="noreferrer">Open-Meteo Seasonal Forecast API</a>
-          </p>
-        </section>
-
         <section class="section" id="cities">
           <div class="section-head">
             <p class="eyebrow">城市拆法</p>
@@ -970,7 +777,7 @@
             <h2>04-17 晚到 04-25 晚的 8 晚 9 天执行表</h2>
             <p class="section-note">
               <code>04-17</code> 夜间出发，<code>04-18</code> 昆明适应，
-              <code>04-24</code> 回昆明，<code>04-25</code> 夜间返程。
+              <code>04-24</code> 回昆明，<code>04-25</code> 夜间返程。每张卡片内的天气会随页面打开自动更新。
             </p>
           </div>
 
@@ -983,6 +790,15 @@
               <p><b>交通</b> 两地分头飞昆明，集合时间以最晚到达的人为准。</p>
               <p><b>玩法</b> 不编正式景点，只完成集合、入住、吃饭、休息。</p>
               <p><b>住宿</b> <code>南屏街 / 昆明老街 / 翠湖外圈</code> 首晚。</p>
+              <div class="weather-inline is-loading" data-weather-inline data-city="kunming" data-date="2026-04-17">
+                <div class="weather-inline-main">
+                  <span class="weather-inline-temp" data-weather-temp>加载中</span>
+                  <span class="weather-inline-range" data-weather-range>温度区间加载中</span>
+                  <span class="weather-inline-rain" data-weather-rain>降水数据加载中</span>
+                </div>
+                <span class="weather-inline-city">昆明天气</span>
+                <div class="weather-inline-tip" data-weather-tip>正在获取公开天气数据。</div>
+              </div>
               <div class="links">
                 <span>小红书搜索</span>
                 <a href="https://www.xiaohongshu.com/search_result?keyword=%E5%8D%97%E5%B1%8F%E8%A1%97" target="_blank" rel="noreferrer">南屏街</a>
@@ -999,6 +815,15 @@
               <p><b>交通</b> 市内轻移动，不取车，不安排跨城。</p>
               <p><b>玩法</b> 按城市核心区走法执行：<code>南屏街</code>、<code>昆明老街</code>、<code>翠湖</code>、<code>文明街 / 文化巷</code> 四选三。</p>
               <p><b>执行</b> 这一天的目标是把 4 个人的作息和身体状态调整到一致，不追景点数量。</p>
+              <div class="weather-inline is-loading" data-weather-inline data-city="kunming" data-date="2026-04-18">
+                <div class="weather-inline-main">
+                  <span class="weather-inline-temp" data-weather-temp>加载中</span>
+                  <span class="weather-inline-range" data-weather-range>温度区间加载中</span>
+                  <span class="weather-inline-rain" data-weather-rain>降水数据加载中</span>
+                </div>
+                <span class="weather-inline-city">昆明天气</span>
+                <div class="weather-inline-tip" data-weather-tip>正在获取公开天气数据。</div>
+              </div>
               <div class="links">
                 <span>小红书搜索</span>
                 <a href="https://www.xiaohongshu.com/search_result?keyword=%E5%8D%97%E5%B1%8F%E8%A1%97" target="_blank" rel="noreferrer">南屏街</a>
@@ -1016,6 +841,15 @@
               <p><b>交通</b> 上午取车，在 <code>官渡古镇</code> 和 <code>斗南花市</code> 中选择一个，下午出发去大理。</p>
               <p><b>玩法</b> 抵达大理后只安排入住和 <code>大理古城</code> 夜游，环海内容从第二天开始。</p>
               <p><b>执行</b> 第一段长驾只完成进城与安顿，住宿不进古城深处。</p>
+              <div class="weather-inline is-loading" data-weather-inline data-city="dali" data-date="2026-04-19">
+                <div class="weather-inline-main">
+                  <span class="weather-inline-temp" data-weather-temp>加载中</span>
+                  <span class="weather-inline-range" data-weather-range>温度区间加载中</span>
+                  <span class="weather-inline-rain" data-weather-rain>降水数据加载中</span>
+                </div>
+                <span class="weather-inline-city">大理天气</span>
+                <div class="weather-inline-tip" data-weather-tip>正在获取公开天气数据。</div>
+              </div>
               <div class="links">
                 <span>小红书搜索</span>
                 <a href="https://www.xiaohongshu.com/search_result?keyword=%E5%AE%98%E6%B8%A1%E5%8F%A4%E9%95%87" target="_blank" rel="noreferrer">官渡古镇</a>
@@ -1032,6 +866,15 @@
               <p><b>玩法</b> 按视频拆法执行 <code>生态廊道</code>、<code>崇圣寺三塔</code>、<code>喜洲古镇</code>、<code>海舌公园</code>。</p>
               <p><b>交通</b> 全日自驾，但按片区停车后步行展开。</p>
               <p><b>执行</b> 上午水边，午间喜洲，下午海舌，晚上回古城外围休息。</p>
+              <div class="weather-inline is-loading" data-weather-inline data-city="dali" data-date="2026-04-20">
+                <div class="weather-inline-main">
+                  <span class="weather-inline-temp" data-weather-temp>加载中</span>
+                  <span class="weather-inline-range" data-weather-range>温度区间加载中</span>
+                  <span class="weather-inline-rain" data-weather-rain>降水数据加载中</span>
+                </div>
+                <span class="weather-inline-city">大理天气</span>
+                <div class="weather-inline-tip" data-weather-tip>正在获取公开天气数据。</div>
+              </div>
               <div class="links">
                 <span>小红书搜索</span>
                 <a href="https://www.xiaohongshu.com/search_result?keyword=%E5%A4%A7%E7%90%86%20%E7%94%9F%E6%80%81%E5%BB%8A%E9%81%93" target="_blank" rel="noreferrer">生态廊道</a>
@@ -1049,6 +892,15 @@
               <p><b>玩法</b> 按 <code>双廊古镇</code>、<code>小普陀</code>、<code>文笔村</code>、<code>理想邦</code>、<code>大理云想山日落</code> 顺序组织。</p>
               <p><b>交通</b> 自驾，洱海东岸单独成天，不和洱海西岸混编。</p>
               <p><b>执行</b> 这一天控制停车次数，不做“见点就停”的低效率走法。</p>
+              <div class="weather-inline is-loading" data-weather-inline data-city="dali" data-date="2026-04-21">
+                <div class="weather-inline-main">
+                  <span class="weather-inline-temp" data-weather-temp>加载中</span>
+                  <span class="weather-inline-range" data-weather-range>温度区间加载中</span>
+                  <span class="weather-inline-rain" data-weather-rain>降水数据加载中</span>
+                </div>
+                <span class="weather-inline-city">大理天气</span>
+                <div class="weather-inline-tip" data-weather-tip>正在获取公开天气数据。</div>
+              </div>
               <div class="links">
                 <span>小红书搜索</span>
                 <a href="https://www.xiaohongshu.com/search_result?keyword=%E5%8F%8C%E5%BB%8A%E5%8F%A4%E9%95%87" target="_blank" rel="noreferrer">双廊古镇</a>
@@ -1067,6 +919,15 @@
               <p><b>交通</b> 上午仍在大理，下午顺行去丽江。</p>
               <p><b>玩法</b> 早段可在 <code>苍山索道 / 感通片区</code> 和 <code>大理古城</code> 中选择一处，傍晚入住丽江后安排 <code>束河古镇</code> 或 <code>白沙古镇</code>。</p>
               <p><b>住宿</b> <code>束河 / 清溪 / 古城北侧可停车片区</code>。</p>
+              <div class="weather-inline is-loading" data-weather-inline data-city="lijiang" data-date="2026-04-22">
+                <div class="weather-inline-main">
+                  <span class="weather-inline-temp" data-weather-temp>加载中</span>
+                  <span class="weather-inline-range" data-weather-range>温度区间加载中</span>
+                  <span class="weather-inline-rain" data-weather-rain>降水数据加载中</span>
+                </div>
+                <span class="weather-inline-city">丽江天气</span>
+                <div class="weather-inline-tip" data-weather-tip>正在获取公开天气数据。</div>
+              </div>
               <div class="links">
                 <span>小红书搜索</span>
                 <a href="https://www.xiaohongshu.com/search_result?keyword=%E8%8B%8D%E5%B1%B1%E7%B4%A2%E9%81%93" target="_blank" rel="noreferrer">苍山索道</a>
@@ -1084,6 +945,15 @@
               <p><b>玩法</b> 仅安排 <code>玉龙雪山</code>、<code>蓝月谷</code> 主线；不把古镇群和雪山日混编。</p>
               <p><b>交通</b> 车只负责到集散点或官方停车区，山上以景区交通为主。</p>
               <p><b>执行</b> 不把 <code>4680</code> 作为唯一目标，按天气和票务把 <code>牦牛坪 / 云杉坪</code> 作为稳方案。</p>
+              <div class="weather-inline is-loading" data-weather-inline data-city="lijiang" data-date="2026-04-23">
+                <div class="weather-inline-main">
+                  <span class="weather-inline-temp" data-weather-temp>加载中</span>
+                  <span class="weather-inline-range" data-weather-range>温度区间加载中</span>
+                  <span class="weather-inline-rain" data-weather-rain>降水数据加载中</span>
+                </div>
+                <span class="weather-inline-city">丽江天气</span>
+                <div class="weather-inline-tip" data-weather-tip>正在获取公开天气数据。</div>
+              </div>
               <div class="links">
                 <span>小红书搜索</span>
                 <a href="https://www.xiaohongshu.com/search_result?keyword=%E7%8E%89%E9%BE%99%E9%9B%AA%E5%B1%B1" target="_blank" rel="noreferrer">玉龙雪山</a>
@@ -1101,6 +971,15 @@
               <p><b>玩法</b> 优先安排 <code>白沙古镇</code> 或 <code>束河古镇</code> 一个北线片区。</p>
               <p><b>交通</b> 午前结束丽江内容，午后直接自驾回昆明。</p>
               <p><b>住宿</b> <code>机场 / 官渡 / 环城南路</code> 片区，完成还车、餐饮、行李整理。</p>
+              <div class="weather-inline is-loading" data-weather-inline data-city="kunming" data-date="2026-04-24">
+                <div class="weather-inline-main">
+                  <span class="weather-inline-temp" data-weather-temp>加载中</span>
+                  <span class="weather-inline-range" data-weather-range>温度区间加载中</span>
+                  <span class="weather-inline-rain" data-weather-rain>降水数据加载中</span>
+                </div>
+                <span class="weather-inline-city">昆明天气</span>
+                <div class="weather-inline-tip" data-weather-tip>正在获取公开天气数据。</div>
+              </div>
               <div class="links">
                 <span>小红书搜索</span>
                 <a href="https://www.xiaohongshu.com/search_result?keyword=%E7%99%BD%E6%B2%99%E5%8F%A4%E9%95%87" target="_blank" rel="noreferrer">白沙古镇</a>
@@ -1117,6 +996,15 @@
               <p><b>交通</b> 按后续锁定的航班，从昆明分别返武汉和西安。</p>
               <p><b>玩法</b> 白天安排轻松城市行程，如 <code>斗南花市</code>、<code>官渡古镇</code> 或直接休整。</p>
               <p><b>安排</b> 省内长距离移动在 <code>04-24</code> 前完成。</p>
+              <div class="weather-inline is-loading" data-weather-inline data-city="kunming" data-date="2026-04-25">
+                <div class="weather-inline-main">
+                  <span class="weather-inline-temp" data-weather-temp>加载中</span>
+                  <span class="weather-inline-range" data-weather-range>温度区间加载中</span>
+                  <span class="weather-inline-rain" data-weather-rain>降水数据加载中</span>
+                </div>
+                <span class="weather-inline-city">昆明天气</span>
+                <div class="weather-inline-tip" data-weather-tip>正在获取公开天气数据。</div>
+              </div>
               <div class="links">
                 <span>小红书搜索</span>
                 <a href="https://www.xiaohongshu.com/search_result?keyword=%E6%96%97%E5%8D%97%E8%8A%B1%E5%B8%82" target="_blank" rel="noreferrer">斗南花市</a>
@@ -1368,7 +1256,7 @@
       }
 
       async function loadTripWeather() {
-        const cards = Array.from(document.querySelectorAll("[data-weather-card]"));
+        const cards = Array.from(document.querySelectorAll("[data-weather-inline]"));
         const cityKeys = [...new Set(cards.map((card) => card.dataset.city))];
 
         try {
