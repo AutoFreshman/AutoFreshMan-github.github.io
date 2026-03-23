@@ -1141,6 +1141,18 @@
         return `xhsdiscover://search/result?keyword=${encodeURIComponent(keyword)}`;
       }
 
+      function openCustomSchemeWithoutLeavingPage(appUrl) {
+        const iframe = document.createElement("iframe");
+        iframe.style.display = "none";
+        iframe.setAttribute("aria-hidden", "true");
+        iframe.src = appUrl;
+        document.body.appendChild(iframe);
+
+        window.setTimeout(() => {
+          iframe.remove();
+        }, 1200);
+      }
+
       function setupXiaohongshuAppLinks() {
         const links = Array.from(
           document.querySelectorAll('a[href*="xiaohongshu.com/search_result"]')
@@ -1158,12 +1170,18 @@
             }
 
             event.preventDefault();
+            const webUrl = link.href;
+            let appOpened = false;
+
+            const markAppOpened = () => {
+              appOpened = true;
+            };
 
             let fallbackTimer = window.setTimeout(() => {
-              if (!document.hidden) {
-                window.location.assign(link.href);
+              if (!appOpened && !document.hidden) {
+                window.open(webUrl, "_blank", "noopener,noreferrer");
               }
-            }, 1400);
+            }, 1600);
 
             const clearFallback = () => {
               if (fallbackTimer) {
@@ -1172,9 +1190,31 @@
               }
             };
 
-            document.addEventListener("visibilitychange", clearFallback, { once: true });
-            window.addEventListener("pagehide", clearFallback, { once: true });
-            window.location.href = appUrl;
+            const handleVisibilityChange = () => {
+              if (document.hidden) {
+                markAppOpened();
+                clearFallback();
+              }
+            };
+
+            const handlePageHide = () => {
+              markAppOpened();
+              clearFallback();
+            };
+
+            const handleBlur = () => {
+              window.setTimeout(() => {
+                if (document.hidden) {
+                  markAppOpened();
+                  clearFallback();
+                }
+              }, 200);
+            };
+
+            document.addEventListener("visibilitychange", handleVisibilityChange, { once: true });
+            window.addEventListener("pagehide", handlePageHide, { once: true });
+            window.addEventListener("blur", handleBlur, { once: true });
+            openCustomSchemeWithoutLeavingPage(appUrl);
           });
         });
       }
