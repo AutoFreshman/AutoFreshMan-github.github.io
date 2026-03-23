@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2026 昆大丽自驾手册 v3.1.0</title>
+    <title>2026 昆明 / 大理 / 丽江旅行手册</title>
     <style>
 :root {
   --bg: #f4f3ef;
@@ -149,8 +149,7 @@ code {
 
 .nav a,
 .button,
-.links a,
-.source-link {
+.links a {
   text-decoration: none;
   transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease;
 }
@@ -165,8 +164,7 @@ code {
 
 .nav a:hover,
 .button:hover,
-.links a:hover,
-.source-link:hover {
+.links a:hover {
   transform: translateY(-1px);
 }
 
@@ -183,7 +181,6 @@ code {
 .section-note,
 .body-copy p,
 .matrix-card p,
-.source-card p,
 .stay-card p {
   color: var(--muted);
 }
@@ -199,7 +196,6 @@ code {
 .route-strip,
 .facts,
 .links,
-.source-grid,
 .matrix-grid,
 .city-grid,
 .stay-grid,
@@ -234,7 +230,6 @@ code {
 .city-card,
 .matrix-card,
 .stay-card,
-.source-card,
 .logic-card {
   background: rgba(255, 255, 255, 0.76);
   border: 1px solid var(--line);
@@ -247,7 +242,6 @@ code {
 .city-card:hover,
 .matrix-card:hover,
 .stay-card:hover,
-.source-card:hover,
 .logic-card:hover {
   transform: translateY(-2px);
   border-color: var(--line-strong);
@@ -262,7 +256,6 @@ code {
 .city-card h3,
 .matrix-card strong,
 .stay-card h3,
-.source-card strong,
 .logic-card h3 {
   display: block;
   margin: 0 0 8px;
@@ -346,15 +339,13 @@ code {
 
 .city-grid,
 .stay-grid,
-.logic-grid,
-.source-grid {
+.logic-grid {
   margin-top: 20px;
 }
 
 .city-card,
 .stay-card,
-.logic-card,
-.source-card {
+.logic-card {
   flex: 1 1 280px;
   padding: 20px;
 }
@@ -408,8 +399,7 @@ code {
   margin-top: 4px;
 }
 
-.links a,
-.source-link {
+.links a {
   display: inline-flex;
   align-items: center;
   padding: 8px 12px;
@@ -449,21 +439,6 @@ code {
 
 .matrix-card b {
   color: var(--ink);
-}
-
-.source-grid {
-  align-items: stretch;
-}
-
-.source-card {
-  flex: 1 1 240px;
-}
-
-.source-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 12px;
 }
 
 .footer-note {
@@ -510,10 +485,10 @@ code {
     <div class="page-shell">
       <section class="banner">
         <div>
-          <p class="eyebrow">Self-Drive Handbook · v3.1.0</p>
-          <h1>2026 昆明 / 大理 / 丽江自驾手册</h1>
+          <p class="eyebrow">Yunnan Trip 2026</p>
+          <h1>2026 昆明 / 大理 / 丽江旅行手册</h1>
           <p>
-            页面内容已校正为按实际出行窗口执行的单线自驾版，固定路线为
+            本页只保留这次云南旅行本身，固定路线为
             <code>昆明 → 大理 → 丽江 → 昆明</code>。
           </p>
         </div>
@@ -523,30 +498,27 @@ code {
           <span>2026-04-25 周六夜间返程</span>
           <span>武汉 2 人 / 西安 2 人</span>
           <span>省内以自驾为主</span>
-          <span>只参考小红书</span>
         </div>
       </section>
 
       <nav class="nav">
-        <a href="#overview">路线判断</a>
+        <a href="#overview">行程总览</a>
         <a href="#cities">城市拆法</a>
         <a href="#roadbook">逐日路书</a>
         <a href="#drive-playbook">自驾细化</a>
         <a href="#stay">住宿落点</a>
-        <a href="#sources">小红书来源</a>
       </nav>
 
       <header class="hero">
         <div class="hero-copy">
           <p class="eyebrow">2026 行程总览</p>
-          <h2>首刷云南的昆大丽自驾线，执行重点是先落地昆明适应，再把大理和丽江的自驾价值吃满。</h2>
+          <h2>这次云南行的重点，是把昆明首尾收口、大理环海和丽江雪山古镇三段节奏走顺。</h2>
           <p class="hero-summary">
             本手册按 <code>2026-04-17</code> 周五晚从武汉和西安分头出发、
             <code>2026-04-18</code> 周六在昆明会合、
-            <code>2026-04-25</code> 周六晚从昆明分组返程编排。视频转写里最稳定的判断是
-            <code>先落地昆明</code>、<code>一路向北更适合首刷</code>、<code>住宿优先可停车片区</code>，
-            因此本版把昆明定义为首尾缓冲，把自驾强度集中放在 <code>大理环洱海</code> 和
-            <code>丽江古镇群短驳</code>。
+            <code>2026-04-25</code> 周六晚从昆明分组返程编排。昆明负责首晚适应和返程前夜，
+            自驾强度集中放在 <code>大理环洱海</code>、<code>苍山半天</code>、
+            <code>丽江雪山日</code> 和 <code>古镇短驳</code> 这几段。
           </p>
           <div class="badges">
             <span>路线固定：昆明 / 大理 / 丽江</span>
@@ -558,25 +530,24 @@ code {
           </div>
           <div class="actions">
             <a class="button" href="#roadbook">直接看逐日安排</a>
-            <a class="button" href="#sources">看小红书来源</a>
+            <a class="button" href="#stay">直接看住宿落点</a>
           </div>
         </div>
 
         <div class="hero-panel">
           <div class="feature-card">
-            <strong>路线选择依据</strong>
+            <strong>这次路线</strong>
             <p>
-              本版不再只看封面，而是按本地转写文件与 OCR 结果整理。视频里反复强调
-              <code>推荐大家落地昆明</code>、<code>一路向北</code>、
-              <code>先适应海拔再往上走</code>，与当前的昆大丽首刷线完全一致。
+              旅行主线固定为 <code>昆明</code>、<code>大理</code>、<code>丽江</code> 三城，
+              不再拆分其他支线，也不再加入和本次旅行无关的说明内容。
             </p>
           </div>
           <div class="feature-card">
-            <strong>自驾切换依据</strong>
+            <strong>移动方式</strong>
             <p>
-              视频内容对首刷云南的推荐原本偏高铁，但其中关于
-              <code>住宿片区</code>、<code>环洱海拆天</code>、<code>丽江古镇群顺序</code>
-              的判断同样适用于自驾。当前改法是保留视频里的拆天逻辑，用自驾解决片区短驳问题。
+              省内以自驾为主。车辆主要用于 <code>大理环海</code>、
+              <code>苍山脚下与古城间切换</code>、<code>丽江古镇群短驳</code>，
+              首尾两天不安排高强度驾驶。
             </p>
           </div>
           <div class="fact-grid">
@@ -603,37 +574,33 @@ code {
       <main>
         <section class="section" id="overview">
           <div class="section-head">
-            <p class="eyebrow">路线判断</p>
-            <h2>本页仅保留昆大丽自驾线的执行判断。</h2>
+            <p class="eyebrow">行程总览</p>
+            <h2>本页只保留这次旅行本身的结构。</h2>
             <p class="section-note">
-              执行口径如下：<code>04-17</code> 夜间分头出发，<code>04-18</code> 昆明会合后再进入云南地面行程；
-              省内主移动切到自驾，但不在落地当晚和返程当日硬压夜路。
+              <code>04-17</code> 夜间分头出发，<code>04-18</code> 昆明会合后开始云南行程；
+              <code>04-24</code> 回昆明收口，<code>04-25</code> 夜间返程。
             </p>
           </div>
 
           <div class="logic-grid">
             <article class="logic-card">
-              <h3>判断一：昆明承担首尾缓冲</h3>
+              <h3>昆明</h3>
               <p>
-                视频转写明确给出理由：<code>昆明机票便宜</code>、<code>游客集散能力强</code>、
-                <code>比高海拔机场更适合首刷</code>。因此昆明在本手册中不是主玩法城市，而是
-                <code>会合</code>、<code>适应</code>、<code>返程收口</code> 三合一节点。
+                负责四人会合、首晚适应和返程前夜，不承担长时间主玩法。
               </p>
             </article>
             <article class="logic-card">
-              <h3>判断二：自驾价值集中在大理与丽江</h3>
+              <h3>大理</h3>
               <p>
-                转写里最有价值的不是城际交通，而是拆天方法：
-                <code>大理海西 / 海东分天</code>、<code>丽江雪山日单列</code>、
-                <code>白沙 / 玉湖 / 束河一线串</code>。这些内容切到自驾后反而更顺。
+                负责环洱海和苍山脚下的主玩法，按 <code>海西</code>、<code>海东</code>、
+                <code>古城 / 苍山半天</code> 三段展开。
               </p>
             </article>
             <article class="logic-card">
-              <h3>判断三：不把夜路风险留给山线</h3>
+              <h3>丽江</h3>
               <p>
-                视频后半段专门提醒了山路夜驾和高海拔日程的风险。当前版本对应的改法是：
-                <code>04-17</code> 只完成到昆明，<code>04-24</code> 提前把车和人都收回昆明，
-                <code>04-25</code> 只保留返程动作。
+                负责雪山日和古镇补点，按 <code>雪山单独一天</code>、
+                <code>白沙 / 束河补点半天</code> 的节奏执行。
               </p>
             </article>
           </div>
@@ -658,7 +625,7 @@ code {
             <p class="eyebrow">城市拆法</p>
             <h2>三座城市的功能分工</h2>
             <p class="section-note">
-              玩法方向只按小红书高频关键词收束，不按景点数量堆表格。
+              每座城市只保留对这次旅行真正有用的内容。
             </p>
           </div>
 
@@ -673,26 +640,17 @@ code {
               <div class="body-copy">
                 <h3>昆明 | 首尾节点</h3>
                 <p>
-                  这次不再只保留地图封面信息，视频转写已经明确给出昆明段的首刷逻辑：
-                  <code>落地昆明</code>、<code>住南屏街 / 老街 / 翠湖这一片</code>、
-                  <code>不要把首晚放到滇池远侧</code>。因此昆明段按轻量适应与返程收口组织。
+                  昆明段只承担 <code>首晚适应</code>、<code>城市轻松散步</code> 和
+                  <code>返程前夜</code> 三个任务，不扩展成重景点城市玩法。
                 </p>
                 <p>
-                  视频里把 <code>官渡古镇</code> 和 <code>斗南花市</code> 放在第二天补充位，
-                  这与当前自驾版也一致：<code>04-18</code> 住城核心，<code>04-19</code> 上午补官渡或斗南后再取车出城。
+                  首晚和末晚都以接驳方便为主，主活动集中在
+                  <code>南屏街</code>、<code>老街</code>、<code>翠湖</code> 一带。
                 </p>
                 <p>
-                  OCR 抽出的 <code>昆明旅游地图</code> 里，核心节点稳定出现
-                  <code>长水机场</code>、<code>翠湖</code>、<code>南屏街老街</code>、
-                  <code>官渡古镇</code>、<code>斗南花市</code>、<code>海埂大坝</code>、
-                  <code>西山风景区</code>、<code>捞鱼河湿地公园</code>。页面里只取与当前时长最契合的前四类。
+                  如果抵达时间早，可加一个 <code>官渡古镇</code> 或 <code>斗南花市</code>；
+                  如果抵达时间晚，就只保留晚餐和休息。
                 </p>
-                <div class="links">
-                  <span>小红书搜索</span>
-                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E6%98%86%E6%98%8E%20%E6%94%BB%E7%95%A5" target="_blank" rel="noreferrer">昆明攻略</a>
-                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E6%96%97%E5%8D%97%E8%8A%B1%E5%B8%82" target="_blank" rel="noreferrer">斗南花市</a>
-                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E6%B5%B7%E5%9F%82%E5%A4%A7%E5%9D%9D" target="_blank" rel="noreferrer">海埂大坝</a>
-                </div>
               </div>
             </article>
 
@@ -706,24 +664,15 @@ code {
               <div class="body-copy">
                 <h3>大理 | 环海按两天组织</h3>
                 <p>
-                  转写里对大理最稳定的建议有两条：一是
-                  <code>古城附近不要住进最深处</code>，二是
-                  <code>海西和海东分成两天</code>。OCR 地图里对应出现了
-                  <code>才村码头</code>、<code>喜洲古镇</code>、<code>海舌公园</code>、
-                  <code>双廊古镇</code>、<code>小普陀</code>、<code>文笔村</code>、
-                  <code>理想邦</code>、<code>大理云想山</code>。
+                  大理是这次旅行里最完整的一站，直接拆成
+                  <code>海西日</code>、<code>海东日</code> 和
+                  <code>古城 / 苍山补点</code> 三段。
                 </p>
                 <p>
-                  大理段固定为 <code>3 晚</code>：进城日、西岸日、东岸日。住宿落点不选古城深处，也不选洱海边清水房，
-                  优先 <code>古城西侧 / 苍山脚下可停车民宿群</code>，重点看 <code>三文笔村</code>、
-                  <code>中和村</code> 一带。
+                  海西重点是 <code>生态廊道</code>、<code>三塔</code>、<code>喜洲</code>、<code>海舌</code>；
+                  海东重点是 <code>双廊</code>、<code>小普陀</code>、<code>文笔村</code>、
+                  <code>理想邦</code> 和 <code>云想山</code>。
                 </p>
-                <div class="links">
-                  <span>小红书搜索</span>
-                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E5%A4%A7%E7%90%86%20%E8%87%AA%E9%A9%BE" target="_blank" rel="noreferrer">大理自驾</a>
-                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E6%B4%B1%E6%B5%B7%20%E8%87%AA%E9%A9%BE" target="_blank" rel="noreferrer">环洱海</a>
-                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E5%96%9C%E6%B4%B2%E5%8F%A4%E9%95%87" target="_blank" rel="noreferrer">喜洲古镇</a>
-                </div>
               </div>
             </article>
 
@@ -737,23 +686,13 @@ code {
               <div class="body-copy">
                 <h3>丽江 | 雪山与古镇分天执行</h3>
                 <p>
-                  转写里对丽江的拆法比当前页更具体：
-                  <code>住束河优于住古城深处</code>、
-                  <code>白沙 / 玉湖 / 束河是一条直线</code>、
-                  <code>雪山日单独留整天</code>。当前页面直接照这个口径落地。
+                  丽江部分只分成两类：一类是 <code>玉龙雪山</code> 和
+                  <code>蓝月谷</code> 的整天安排，一类是 <code>白沙</code>、
+                  <code>束河</code> 这样的古镇补点。
                 </p>
                 <p>
-                  自驾版里，丽江车辆只负责 <code>束河 / 白沙 / 玉湖</code> 的片区切换。雪山日不追求把车开进最深处，
-                  只负责到集散点或官方停车区。转写里还明确提到
-                  <code>4680 不是唯一重点</code>，可把 <code>蓝月谷</code>、
-                  <code>牦牛坪 / 云杉坪</code> 作为更稳的执行核心。
+                  雪山日不叠加古镇；回昆明当天只补一个北线片区，不再把全部慢游内容塞满。
                 </p>
-                <div class="links">
-                  <span>小红书搜索</span>
-                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E4%B8%BD%E6%B1%9F%20%E8%87%AA%E9%A9%BE" target="_blank" rel="noreferrer">丽江自驾</a>
-                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E7%99%BD%E6%B2%99%E5%8F%A4%E9%95%87" target="_blank" rel="noreferrer">白沙古镇</a>
-                  <a href="https://www.xiaohongshu.com/search_result?keyword=%E7%8E%89%E9%BE%99%E9%9B%AA%E5%B1%B1" target="_blank" rel="noreferrer">玉龙雪山</a>
-                </div>
               </div>
             </article>
           </div>
@@ -969,13 +908,13 @@ code {
             </article>
 
             <article class="logic-card">
-              <h3>白沙慢游日 | 一条北线串起来</h3>
+              <h3>丽江补点半天 | 一条北线串起来</h3>
               <p>
-                执行顺序：<code>住处出发 → 白沙古镇 → 玉湖村 → 束河古镇 → 丽江古城夜间补点</code>。
-                白沙与玉湖并入同一天，雪山日单独编排。
+                执行顺序：<code>住处出发 → 白沙古镇或束河古镇 → 午后回昆明</code>。
+                回程日只补一个北线片区，不再拉满慢游线。
               </p>
               <p>
-                车辆用途：<code>村与村之间切换</code> 与 <code>午后回城补点</code>。这是视频里最清晰的一条不绕路慢游线。
+                车辆用途：<code>半天短驳</code> 与 <code>午后返昆</code>。
               </p>
             </article>
 
@@ -992,72 +931,6 @@ code {
           </div>
         </section>
 
-        <section class="section" id="sources">
-          <div class="section-head">
-            <p class="eyebrow">小红书来源</p>
-            <h2>页面仅保留小红书来源入口</h2>
-            <p class="section-note">
-              本版页面改写依据该笔记的本地转写结果与 OCR 结果，不再只引用视频封面。
-            </p>
-          </div>
-
-          <div class="source-grid">
-            <article class="source-card">
-              <strong>路线判断起点</strong>
-              <p>
-                笔记：<code>第一次来云南该如何选择路线？</code><br />
-                作者：<code>好人阿滇</code><br />
-                时间：<code>2025-06-17</code>
-              </p>
-              <p>
-                本版页面采用的第一层判断来自视频正文转写而不是单看封面：
-                <code>推荐落地昆明</code>、<code>先适应海拔再一路向北</code>、
-                <code>大理和丽江内部拆天比城际交通更重要</code>。
-              </p>
-              <a class="source-link" href="http://xhslink.com/o/9kvHYrr3MHj" target="_blank" rel="noreferrer">打开原笔记</a>
-              <div class="source-meta">
-                <span class="fact-chip">路线选择参考</span>
-                <span class="fact-chip">首刷云南</span>
-              </div>
-            </article>
-
-            <article class="source-card">
-              <strong>本地分析文件</strong>
-              <p>
-                当前页面直接参考了本地工作链生成的四份文件：
-                <code>transcript.txt</code>、<code>transcript.json</code>、
-                <code>ocr-summary.md</code>、<code>ocr-hits.json</code>。
-              </p>
-              <p>
-                其中正文转写负责给出 <code>落地昆明</code>、<code>大理住宿分区</code>、
-                <code>丽江拆天顺序</code>；OCR 负责补齐
-                <code>昆明旅游地图</code>、<code>大理旅游地图</code> 和地名列表。
-              </p>
-            </article>
-
-            <article class="source-card">
-              <strong>昆明搜索入口</strong>
-              <p>继续补首晚和末晚玩法，重点看 <code>昆明攻略</code>、<code>斗南花市</code>、<code>海埂大坝</code>。</p>
-              <a class="source-link" href="https://www.xiaohongshu.com/search_result?keyword=%E6%98%86%E6%98%8E%20%E6%94%BB%E7%95%A5" target="_blank" rel="noreferrer">打开昆明搜索</a>
-            </article>
-
-            <article class="source-card">
-              <strong>大理搜索入口</strong>
-              <p>重点看 <code>大理自驾</code>、<code>环洱海</code>、<code>喜洲</code>、<code>双廊</code> 的实际组合方式。</p>
-              <a class="source-link" href="https://www.xiaohongshu.com/search_result?keyword=%E5%A4%A7%E7%90%86%20%E8%87%AA%E9%A9%BE%20%E6%B4%B1%E6%B5%B7" target="_blank" rel="noreferrer">打开大理搜索</a>
-            </article>
-
-            <article class="source-card">
-              <strong>丽江搜索入口</strong>
-              <p>重点看 <code>丽江自驾</code>、<code>白沙古镇</code>、<code>玉湖村</code>、<code>玉龙雪山</code> 怎么拆天数。</p>
-              <a class="source-link" href="https://www.xiaohongshu.com/search_result?keyword=%E4%B8%BD%E6%B1%9F%20%E8%87%AA%E9%A9%BE%20%E7%99%BD%E6%B2%99%E5%8F%A4%E9%95%87%20%E7%8E%89%E9%BE%99%E9%9B%AA%E5%B1%B1" target="_blank" rel="noreferrer">打开丽江搜索</a>
-            </article>
-          </div>
-
-          <p class="footer-note">
-            注：本版已经把本地转写和 OCR 识别结果并入页面，因此路线、住宿与逐日拆法不再停留在视频封面层，而是按视频正文中能稳定提取出的内容重写。
-          </p>
-        </section>
       </main>
     </div>
   </body>
