@@ -1137,6 +1137,9 @@
             "temperature_2m_min",
             "temperature_2m_max",
             "precipitation_sum",
+            "weather_code",
+            "cloud_cover_mean",
+            "wind_speed_10m_max",
           ].join(",")
         );
         url.searchParams.set("start_date", WEATHER_START_DATE);
@@ -1151,14 +1154,87 @@
 
       function formatRain(value) {
         if (value < 0.1) {
-          return "降水信号弱";
+          return "降水 0.0 mm";
         }
         return `降水 ${value.toFixed(1)} mm`;
       }
 
+      function formatCloudCover(value) {
+        return `云量 ${Math.round(value)}%`;
+      }
+
+      function formatWind(value) {
+        return `最大风速 ${Math.round(value)} km/h`;
+      }
+
+      function getWeatherCondition(code) {
+        const weatherCodeMap = {
+          0: "晴天",
+          1: "大部晴朗",
+          2: "晴间多云",
+          3: "阴天",
+          45: "有雾",
+          48: "雾凇",
+          51: "小毛雨",
+          53: "毛雨",
+          55: "强毛雨",
+          56: "冻毛雨",
+          57: "强冻毛雨",
+          61: "小雨",
+          63: "中雨",
+          65: "大雨",
+          66: "冻雨",
+          67: "强冻雨",
+          71: "小雪",
+          73: "中雪",
+          75: "大雪",
+          77: "阵雪",
+          80: "小阵雨",
+          81: "阵雨",
+          82: "强阵雨",
+          85: "小阵雪",
+          86: "强阵雪",
+          95: "雷阵雨",
+          96: "雷雨夹小冰雹",
+          99: "雷雨夹冰雹",
+        };
+
+        return weatherCodeMap[code] || "天气待定";
+      }
+
+      function buildWeatherSummary(entry) {
+        return `${getWeatherCondition(entry.weatherCode)} · ${roundTemperature(entry.temperatureMin)} - ${roundTemperature(entry.temperatureMax)}`;
+      }
+
+      function buildWeatherDetail(entry) {
+        return [
+          formatRain(entry.precipitation),
+          formatCloudCover(entry.cloudCoverMean),
+          formatWind(entry.windSpeedMax),
+        ].join(" · ");
+      }
+
       function buildWeatherTip(entry) {
+        if ([95, 96, 99].includes(entry.weatherCode)) {
+          return "有雷雨信号，尽量压缩户外停留时间，山路和湖边注意临时天气变化。";
+        }
+        if ([61, 63, 65, 80, 81, 82].includes(entry.weatherCode)) {
+          return "有降雨信号，准备轻薄雨具，行车注意湿滑路面。";
+        }
+        if ([71, 73, 75, 77, 85, 86].includes(entry.weatherCode)) {
+          return "有降雪或雨夹雪信号，山区注意低温和道路状况。";
+        }
+        if (entry.windSpeedMax >= 28) {
+          return "风力偏强，湖边和山口体感会更冷，外套别放车上。";
+        }
         if (entry.precipitation >= 3) {
           return "准备轻薄雨具，行车注意湿滑路面。";
+        }
+        if (entry.cloudCoverMean <= 25) {
+          return "晴天概率高，白天适合拍照，但要注意防晒和补水。";
+        }
+        if (entry.cloudCoverMean >= 75) {
+          return "云量偏高，拍日落和远景建议留弹性，不要把单一机位排太死。";
         }
         if (entry.temperatureMax >= 25 && entry.temperatureMin <= 12) {
           return "白天偏暖，早晚有温差，带一件薄外套。";
@@ -1179,6 +1255,9 @@
           entry.temperatureMin,
           entry.temperatureMax,
           entry.precipitation,
+          entry.weatherCode,
+          entry.cloudCoverMean,
+          entry.windSpeedMax,
         ].every((value) => Number.isFinite(value));
       }
 
@@ -1259,9 +1338,9 @@
 
       function renderWeatherCard(card, entry) {
         card.classList.remove("is-loading", "is-error");
-        card.querySelector("[data-weather-temp]").textContent = roundTemperature(entry.temperatureMean);
-        card.querySelector("[data-weather-range]").textContent = `${roundTemperature(entry.temperatureMin)} - ${roundTemperature(entry.temperatureMax)}`;
-        card.querySelector("[data-weather-rain]").textContent = formatRain(entry.precipitation);
+        card.querySelector("[data-weather-temp]").textContent = `${getWeatherCondition(entry.weatherCode)} ${roundTemperature(entry.temperatureMean)}`;
+        card.querySelector("[data-weather-range]").textContent = buildWeatherSummary(entry);
+        card.querySelector("[data-weather-rain]").textContent = buildWeatherDetail(entry);
         card.querySelector("[data-weather-tip]").textContent = buildWeatherTip(entry);
       }
 
@@ -1269,9 +1348,9 @@
         card.classList.remove("is-loading");
         card.classList.add("is-error");
         card.querySelector("[data-weather-temp]").textContent = "--";
-        card.querySelector("[data-weather-range]").textContent = "天气数据暂不可用";
-        card.querySelector("[data-weather-rain]").textContent = "请稍后刷新页面重试";
-        card.querySelector("[data-weather-tip]").textContent = "公开接口请求失败，当前卡片未更新。";
+        card.querySelector("[data-weather-range]").textContent = "天气现象暂不可用";
+        card.querySelector("[data-weather-rain]").textContent = "详细天气数据获取失败";
+        card.querySelector("[data-weather-tip]").textContent = "公开接口请求失败，当前卡片未更新，请稍后刷新重试。";
       }
 
       async function fetchCityWeather(cityKey) {
@@ -1287,6 +1366,9 @@
         const min = daily.temperature_2m_min || [];
         const max = daily.temperature_2m_max || [];
         const rain = daily.precipitation_sum || [];
+        const weatherCode = daily.weather_code || [];
+        const cloudCoverMean = daily.cloud_cover_mean || [];
+        const windSpeedMax = daily.wind_speed_10m_max || [];
         const result = {};
 
         times.forEach((date, index) => {
@@ -1295,6 +1377,9 @@
             temperatureMin: min[index],
             temperatureMax: max[index],
             precipitation: rain[index],
+            weatherCode: weatherCode[index],
+            cloudCoverMean: cloudCoverMean[index],
+            windSpeedMax: windSpeedMax[index],
           };
         });
 
