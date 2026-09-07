@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>武汉·杭州·乌镇·西塘·上海 — 双人江南行程手册（9.24–10.5）</title>
+<style>
+  :root{
+    --bg:#FBF9F4; --card:#FFFFFF; --ink:#3A3A38; --ink-soft:#6B6B66;
+    --line:#EDE9E0; --line-strong:#D9D4C8;
+    --accent:#C9563F; --accent-soft:#F6E4DE;
+    --gold:#B9843A; --gold-soft:#F6EBDD;
+    --blue:#4E7FB0; --blue-soft:#E6EFF7;
+    --green:#5E8A3C; --green-soft:#EAF1E0;
+    --pin-scenic:#F0997B; --pin-scenic-stroke:#993C1D;
+    --pin-food:#FAC775; --pin-food-stroke:#854F0B;
+    --pin-station:#85B7EB; --pin-station-stroke:#185FA5;
+    --shadow:0 1px 3px rgba(60,50,40,.06), 0 6px 24px rgba(60,50,40,.05);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    line-height:1.7; font-size:15px;
+  }
+  .wrap{max-width:1000px; margin:0 auto; padding:0 20px}
+  /* header */
+  header.hero{
+    background:linear-gradient(135deg,#F6E4DE 0%,#F6EBDD 55%,#E6EFF7 100%);
+    border-bottom:1px solid var(--line); padding:46px 0 38px;
+  }
+  .hero .kicker{font-size:13px; letter-spacing:.12em; color:var(--accent); text-transform:uppercase; font-weight:600}
+  .hero h1{font-size:32px; margin:10px 0 8px; letter-spacing:.01em; font-weight:700}
+  .hero .sub{font-size:15px; color:var(--ink-soft); max-width:640px}
+  .hero .meta{margin-top:16px; display:flex; flex-wrap:wrap; gap:8px}
+  .chip{display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,.72);
+    border:1px solid var(--line); border-radius:999px; padding:5px 12px; font-size:13px; color:var(--ink)}
+  .chip b{color:var(--accent)}
+  /* nav */
+  nav.sticky{position:sticky; top:0; z-index:20; background:rgba(251,249,244,.92);
+    backdrop-filter:blur(8px); border-bottom:1px solid var(--line)}
+  nav .inner{display:flex; gap:4px; overflow-x:auto; padding:10px 0; white-space:nowrap; scrollbar-width:none}
+  nav .inner::-webkit-scrollbar{display:none}
+  nav a{color:var(--ink-soft); text-decoration:none; font-size:13.5px; padding:6px 12px; border-radius:999px}
+  nav a:hover{color:var(--ink); background:#fff}
+  nav a.active{color:var(--accent); background:var(--accent-soft); font-weight:600}
+  /* sections */
+  section{padding:40px 0; border-bottom:1px solid var(--line)}
+  h2.sec{font-size:22px; margin:0 0 6px; font-weight:700}
+  h2.sec .no{color:var(--accent); margin-right:8px}
+  .sec-desc{color:var(--ink-soft); font-size:14px; margin:0 0 24px}
+  /* route pills */
+  .route{display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin:22px 0}
+  .pill{border:1px solid var(--line-strong); border-radius:12px; padding:10px 16px; background:#fff; text-align:center; box-shadow:var(--shadow)}
+  .pill .city{font-size:17px; font-weight:700}
+  .pill .stamp{font-size:12px; color:var(--ink-soft)}
+  .arrow{color:var(--accent); font-size:20px; font-weight:700}
+  .arrow.air{color:var(--blue)}
+  /* cards grid */
+  .grid{display:grid; gap:16px}
+  .grid.cols2{grid-template-columns:1fr 1fr}
+  @media(max-width:860px){.grid.cols2{grid-template-columns:1fr}}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 20px; box-shadow:var(--shadow)}
+  .card h3{margin:0 0 10px; font-size:16px}
+  /* tables */
+  table{width:100%; border-collapse:collapse; font-size:13.5px; background:#fff; border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+  th,td{text-align:left; padding:10px 12px; border-bottom:1px solid var(--line)}
+  th{background:var(--blue-soft); color:#33414e; font-weight:600}
+  tr:last-child td{border-bottom:none}
+  td.tag{font-weight:600; color:var(--accent); white-space:nowrap}
+  /* timeline / days */
+  .day{border-left:3px solid var(--line-strong); padding:4px 0 4px 20px; position:relative; margin-bottom:20px}
+  .day::before{content:""; position:absolute; left:-8px; top:8px; width:13px; height:13px; border-radius:50%;
+    background:#fff; border:3px solid var(--accent)}
+  .day.transfer::before{border-color:var(--blue)}
+  .day .dhead{display:flex; flex-wrap:wrap; align-items:baseline; gap:10px}
+  .day .ddate{font-weight:700; font-size:16px}
+  .day .dlabel{font-size:12.5px; color:var(--accent); font-weight:600}
+  .day.transfer .dlabel{color:var(--blue)}
+  .day .holiday{font-size:12px; color:var(--gold); background:var(--gold-soft); border-radius:6px; padding:1px 7px}
+  .seg{margin-top:10px; padding-left:14px; border-left:2px solid var(--line)}
+  .seg .t{font-weight:600; font-size:13px; color:var(--ink-soft); margin-bottom:1px}
+  .seg p{margin:0; font-size:14px}
+  .seg .tip{color:var(--ink-soft); font-size:13px; margin-top:3px}
+  /* city sections */
+  .citygrid{display:block}
+  .citydetail h3{font-size:20px; margin:0 0 4px}
+  .citydetail .stay{font-size:13px; color:var(--accent); font-weight:600}
+  .block{margin:18px 0}
+  .block .bt{font-size:13px; letter-spacing:.08em; color:var(--ink-soft); font-weight:700; margin-bottom:8px}
+  .block ul{margin:0; padding-left:0; list-style:none}
+  .block ul li{padding:7px 0 7px 22px; position:relative; border-bottom:1px dashed var(--line); font-size:14px}
+  .block ul li:last-child{border-bottom:none}
+  .block ul li::before{content:""; position:absolute; left:4px; top:15px; width:7px; height:7px; border-radius:50%}
+  .block.scenic li::before{background:var(--pin-scenic)}
+  .block.food li::before{background:var(--pin-food)}
+  .block.stay li::before{background:var(--pin-station)}
+  .block.warn li::before{background:#E0C9C0}
+  .tag-pill{font-size:11px; color:var(--ink-soft); border:1px solid var(--line-strong); border-radius:6px; padding:0 6px; margin-right:5px; white-space:nowrap}
+  .price{color:var(--accent); font-weight:600}
+  /* xhs hot cards */
+  .xhs-hot{margin-top:20px; background:var(--accent-soft); border:1px solid #F0D5CB; border-radius:14px; padding:16px 18px}
+  .xhs-hot .xh{font-size:13px; font-weight:700; color:var(--accent); margin-bottom:2px}
+  .xhs-hot .xs{font-size:12px; color:var(--ink-soft); margin-bottom:10px}
+  .xh-list{display:grid; grid-template-columns:1fr 1fr; gap:8px}
+  @media(max-width:640px){.xh-list{grid-template-columns:1fr}}
+  .xh-item{background:#fff; border-radius:10px; padding:9px 11px; font-size:12.5px; box-shadow:0 1px 2px rgba(0,0,0,.03)}
+  .xh-item .xt{color:var(--ink); font-weight:600; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; line-height:1.5}
+  .xh-item .xa{color:var(--ink-soft); margin-top:4px; font-size:11.5px}
+  .xh-item .xa b{color:var(--accent)}
+  /* ticket calendar */
+  .calgrid{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+  @media(max-width:720px){.calgrid{grid-template-columns:1fr}}
+  .calrow{display:flex; justify-content:space-between; align-items:center; padding:10px 12px; border-bottom:1px dashed var(--line); font-size:14px}
+  .calrow .k{color:var(--ink-soft)}
+  .calrow .v{font-weight:600}
+  .calrow .v.hot{color:var(--accent)}
+  /* footer */
+  footer{padding:34px 0 60px; color:var(--ink-soft); font-size:12.5px}
+  footer .disc{background:#fff; border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin-top:12px}
+  .note{background:var(--blue-soft); border-left:3px solid var(--blue); border-radius:8px; padding:10px 14px; font-size:13.5px; margin:12px 0}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">Couple Trip · 江南 12 天</div>
+    <h1>武汉 · 杭州 · 乌镇 · 西塘 · 上海 双人行程手册</h1>
+    <div class="sub">2026 年 9 月 24 日 — 10 月 5 日 · 往返飞机 · 亚朵/麗枫/全季 · 近地铁 · 悠闲度假节奏 · 沿杭州向上海顺路游玩</div>
+    <div class="meta">
+      <span class="chip">🗓 <b>12 天 11 晚</b></span>
+      <span class="chip">✈️ 往返飞机</span>
+      <span class="chip">👫 双人（情侣）</span>
+      <span class="chip">🏨 亚朵/麗枫/全季 · 近地铁 ¥500上下</span>
+      <span class="chip">☕ 悠闲度假</span>
+    </div>
+  </div>
+</header>
+
+<nav class="sticky">
+  <div class="wrap inner">
+    <a href="#overview">行程总览</a>
+    <a href="#calendar">抢票日历</a>
+    <a href="#days">逐日行程</a>
+    <a href="#hz">杭州</a>
+    <a href="#wz">乌镇</a>
+    <a href="#xt">西塘</a>
+    <a href="#sh">上海</a>
+    <a href="#source">数据说明</a>
+  </div>
+</nav>
+
+<!-- ============ 行程总览 ============ -->
+<section id="overview">
+  <div class="wrap">
+    <h2 class="sec"><span class="no">01</span>行程总览</h2>
+    <p class="sec-desc">一条从杭州一路向东、贴着「杭州 → 上海」方向的顺路路线，中间停乌镇、西塘两座江南古镇，节奏放慢、每天 1–2 个重点。</p>
+
+    <div class="route">
+      <div class="pill"><div class="city">武汉</div><div class="stamp">9/24 上午出发</div></div>
+      <span class="arrow air">✈️ →</span>
+      <div class="pill"><div class="city">杭州</div><div class="stamp">3 晚</div></div>
+      <span class="arrow">→</span>
+      <div class="pill"><div class="city">乌镇</div><div class="stamp">1 晚</div></div>
+      <span class="arrow">→</span>
+      <div class="pill"><div class="city">西塘</div><div class="stamp">1 晚</div></div>
+      <span class="arrow">→</span>
+      <div class="pill"><div class="city">上海</div><div class="stamp">6 晚</div></div>
+      <span class="arrow air">✈️ →</span>
+      <div class="pill"><div class="city">武汉</div><div class="stamp">10/5 下午返程</div></div>
+    </div>
+
+    <div class="grid cols2">
+      <div class="card">
+        <h3>🏙 停留分配</h3>
+        <table>
+          <tr><th>城市</th><th>日期</th><th>晚数</th></tr>
+          <tr><td class="tag">杭州</td><td>9/24 下午 – 9/27 上午</td><td>3 晚</td></tr>
+          <tr><td class="tag">乌镇</td><td>9/27 中午 – 9/28 午后</td><td>1 晚</td></tr>
+          <tr><td class="tag">西塘</td><td>9/28 午后 – 9/29 午后</td><td>1 晚</td></tr>
+          <tr><td class="tag">上海</td><td>9/29 午后 – 10/5 下午</td><td>6 晚</td></tr>
+        </table>
+        <p style="font-size:13px;color:var(--ink-soft);margin-top:10px">返程日 10/5 整天留给赶路，当天不安排游玩，只留上午打包 + 下午航班。</p>
+      </div>
+      <div class="card">
+        <h3>🚄 交通班次表</h3>
+        <table>
+          <tr><th>段</th><th>方式</th><th>时长</th></tr>
+          <tr><td>武汉 → 杭州</td><td>飞机（天河 WUH → 萧山 HGH）</td><td>约 1.5–2h</td></tr>
+          <tr><td>杭州 → 乌镇</td><td>高铁 杭州东→桐乡 + 打车/公交</td><td>高铁 20min + 接驳 30min</td></tr>
+          <tr><td>乌镇 → 西塘</td><td>直达大巴 / 打车</td><td>约 1h</td></tr>
+          <tr><td>西塘 → 上海</td><td>打车至嘉善南 + 高铁→虹桥</td><td>20min + 25min</td></tr>
+          <tr><td>上海 → 武汉</td><td>飞机（虹桥/浦东 → 天河 WUH）</td><td>约 1.5–2h</td></tr>
+        </table>
+        <p style="font-size:13px;color:var(--ink-soft);margin-top:10px">五段均为高频线路，无需改线；抵达/出发机场请留意「杭州萧山」与「上海虹桥 vs 浦东」是否同一机场。</p>
+      </div>
+    </div>
+
+    <div class="note">⚠️ <b>假期提示</b>：行程横跨两个假期——<b>中秋</b>（9/25–9/27，杭州段人流偏大）与<b>国庆</b>（10/1–10/7，上海段为全年峰值）。乌镇、西塘（9/27–9/29）恰好卡在双节之间，属相对错峰段。</div>
+  </div>
+</section>
+
+<!-- ============ 抢票日历 ============ -->
+<section id="calendar">
+  <div class="wrap">
+    <h2 class="sec"><span class="no">02</span>抢票 / 订房日历</h2>
+    <p class="sec-desc">火车票预售期 15 天，倒推开售日；国庆机票越早越便宜，返程 10/5 尽早锁定。</p>
+    <div class="grid cols2">
+      <div class="card">
+        <h3>🎫 车票开售日（预售 15 天）</h3>
+        <div class="calrow"><span class="k">9/27 杭州东 → 桐乡（高铁）</span><span class="v hot">9/12 开售</span></div>
+        <div class="calrow"><span class="k">9/29 嘉善南 → 上海虹桥（高铁）</span><span class="v hot">9/14 开售</span></div>
+        <p style="font-size:13px;color:var(--ink-soft);margin-top:8px">杭州↔乌镇、西塘↔上海这两段高铁建议开售当天抢，尤其是 9/27 中秋假期内班次。</p>
+      </div>
+      <div class="card">
+        <h3>✈️ 机票 · 🏨 酒店</h3>
+        <div class="calrow"><span class="k">9/24 武汉→杭州 去程机票</span><span class="v hot">立即买</span></div>
+        <div class="calrow"><span class="k">10/5 上海→武汉 返程机票</span><span class="v hot">立即买</span></div>
+        <div class="calrow"><span class="k">乌镇/西塘 亚朵·全季门店</span><span class="v">提前 1–2 周订</span></div>
+        <div class="calrow"><span class="k">上海国庆酒店（10/1–10/5）</span><span class="v hot">现在订</span></div>
+        <p style="font-size:13px;color:var(--ink-soft);margin-top:8px">国庆黄金周酒店与返程机票是全年最紧俏资源，建议今天起就锁定可退改的房间与机票。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 逐日行程 ============ -->
+<section id="days">
+  <div class="wrap">
+    <h2 class="sec"><span class="no">03</span>逐日行程</h2>
+    <p class="sec-desc">悠闲度假节奏：每天 1–2 个重点，其余留白。蓝色为「转场日」。</p>
+
+    <div class="day">
+      <div class="dhead"><span class="ddate">Day 1 · 9/24（周四）</span><span class="dlabel">武汉 → 杭州</span></div>
+      <div class="seg"><div class="t">上午</div><p>武汉天河机场乘机飞杭州，中午抵达萧山机场。</p></div>
+      <div class="seg"><div class="t">中午</div><p>机场地铁/打车进市区，入住西湖湖滨/龙翔桥的全季或亚朵（近地铁，放行李）。</p></div>
+      <div class="seg"><div class="t">下午</div><p>西湖漫步：断桥残雪 → 白堤 → 平湖秋月，傍晚到<b>长桥公园</b>看「雷峰夕照」。</p></div>
+      <div class="seg"><div class="t">晚上</div><p>湖滨商圈晚餐，看西湖音乐喷泉（需公众号预约）。<span class="tip">tip：1314 路公交、孤山路光影都是出片点。</span></p></div>
+    </div>
+
+    <div class="day">
+      <div class="dhead"><span class="ddate">Day 2 · 9/25（周五）</span><span class="holiday">中秋假期</span></div>
+      <div class="seg"><div class="t">上午</div><p><b>灵隐寺 + 飞来峰</b>（8:00–9:30 人少，提前 1 天在小程序预约，香花券 30 元）。</p></div>
+      <div class="seg"><div class="t">中午</div><p>市区午餐，稍作休息。</p></div>
+      <div class="seg"><div class="t">下午</div><p><b>龙井茶园 + 九溪烟树</b>溪谷徒步，清幽松弛、免费，避假期人流。</p></div>
+      <div class="seg"><div class="t">晚上</div><p>河坊街/南宋御街逛吃，或订一顿特色杭帮菜（人均 ¥200 内）。</p></div>
+    </div>
+
+    <div class="day">
+      <div class="dhead"><span class="ddate">Day 3 · 9/26（周六）</span><span class="holiday">中秋假期</span></div>
+      <div class="seg"><div class="t">上午</div><p>睡到自然醒，<b>花港观鱼 + 苏堤</b>，顺路 <b>净慈寺</b>（10 元，拍雷峰塔最佳机位）。</p></div>
+      <div class="seg"><div class="t">中午</div><p>湖畔午餐。</p></div>
+      <div class="seg"><div class="t">下午</div><p>湖景下午茶，或逛街购物。</p></div>
+      <div class="seg"><div class="t">晚上</div><p>可选《印象西湖》实景演出，或西湖边夜景散步。</p></div>
+    </div>
+
+    <div class="day transfer">
+      <div class="dhead"><span class="ddate">Day 4 · 9/27（周日）</span><span class="holiday">中秋假期</span><span class="dlabel">杭州 → 乌镇</span></div>
+      <div class="seg"><div class="t">上午</div><p>睡到自然醒，打包退房。</p></div>
+      <div class="seg"><div class="t">中午</div><p>杭州东 → 桐乡高铁（约 20min），再打车/公交到乌镇，入住乌镇新华南路亚朵酒店（近东栅/西栅）。</p></div>
+      <div class="seg"><div class="t">下午</div><p>下午 3 点前后进<b>西栅</b>，看白天到夜晚的过渡。</p></div>
+      <div class="seg"><div class="t">晚上</div><p>西栅夜景：通安桥、定升桥、白莲塔，乘官方摇橹船赏灯。</p></div>
+    </div>
+
+    <div class="day transfer">
+      <div class="dhead"><span class="ddate">Day 5 · 9/28（周一）</span><span class="dlabel">乌镇 → 西塘</span></div>
+      <div class="seg"><div class="t">上午</div><p>「早茶客」水上集市早餐，西栅慢逛（草木本色染坊等）。</p></div>
+      <div class="seg"><div class="t">中午</div><p>退房，乌镇 → 西塘（直达大巴 / 打车约 1h）。</p></div>
+      <div class="seg"><div class="t">下午</div><p>入住全季酒店（嘉善西塘古镇店，景区门口），逛烟雨长廊、石皮弄、送子来凤桥。</p></div>
+      <div class="seg"><div class="t">晚上</div><p>西塘夜景（永宁桥、环秀桥），乘夜游摇橹船。</p></div>
+    </div>
+
+    <div class="day transfer">
+      <div class="dhead"><span class="ddate">Day 6 · 9/29（周二）</span><span class="dlabel">西塘 → 上海</span></div>
+      <div class="seg"><div class="t">上午</div><p>西塘晨景慢逛，拍静谧水巷。</p></div>
+      <div class="seg"><div class="t">中午</div><p>退房，打车至嘉善南站 + 高铁嘉善南 → 上海虹桥（约 25min），入住人民广场/静安寺的全季或亚朵（近地铁）。</p></div>
+      <div class="seg"><div class="t">傍晚</div><p><b>外滩</b>（18:00 亮灯），走外白渡桥/北外滩，人少景同。</p></div>
+      <div class="seg"><div class="t">晚上</div><p>外滩夜景 + 黄浦江游船（或 2 元东金线轮渡平替）。</p></div>
+    </div>
+
+    <div class="day">
+      <div class="dhead"><span class="ddate">Day 7 · 9/30（周三）</span></div>
+      <div class="seg"><div class="t">上午</div><p><b>豫园 + 城隍庙</b>（提前 1 天预约，成人 40 元），九曲桥、湖心亭。</p></div>
+      <div class="seg"><div class="t">中午</div><p>城隍庙老街小吃或本帮老字号午餐。</p></div>
+      <div class="seg"><div class="t">下午</div><p><b>田子坊 / 新天地</b>（石库门街区）。</p></div>
+      <div class="seg"><div class="t">晚上</div><p>新天地夜景晚餐。</p></div>
+    </div>
+
+    <div class="day">
+      <div class="dhead"><span class="ddate">Day 8 · 10/1（周四）</span><span class="holiday">国庆</span></div>
+      <div class="seg"><div class="t">上午</div><p><b>法租界 Citywalk</b>：武康路 → 武康大楼 → 安福路咖啡，早晨人少出片。</p></div>
+      <div class="seg"><div class="t">中午</div><p>安福路/进贤路小店午餐。</p></div>
+      <div class="seg"><div class="t">下午</div><p>衡山路、思南公馆慢逛。</p></div>
+      <div class="seg"><div class="t">晚上</div><p>悠闲晚餐，国庆首日避开外滩、南京路人流。</p></div>
+    </div>
+
+    <div class="day">
+      <div class="dhead"><span class="ddate">Day 9 · 10/2（周五）</span><span class="holiday">国庆</span></div>
+      <div class="seg"><div class="t">上午</div><p><b>上海博物馆</b>（免费，需预约，青铜器/陶瓷馆藏强）。</p></div>
+      <div class="seg"><div class="t">中午</div><p>人民广场附近午餐。</p></div>
+      <div class="seg"><div class="t">下午</div><p><b>陆家嘴</b>：上海中心「上海之巅」118 层俯瞰（约 180 元），滨江大道看三件套。</p></div>
+      <div class="seg"><div class="t">晚上</div><p>北外滩 / 陆家嘴夜景。</p></div>
+    </div>
+
+    <div class="day">
+      <div class="dhead"><span class="ddate">Day 10 · 10/3（周六）</span><span class="holiday">国庆</span></div>
+      <div class="seg"><div class="t">上午</div><p><b>静安寺 / 南京西路</b>。</p></div>
+      <div class="seg"><div class="t">中午</div><p>静安商圈午餐。</p></div>
+      <div class="seg"><div class="t">下午</div><p>文艺购物：太古里、思南公馆、前滩太古里。</p></div>
+      <div class="seg"><div class="t">晚上</div><p>特色晚餐（人均 ¥200 内，可挑江景/景观位，需提前订）。</p></div>
+    </div>
+
+    <div class="day">
+      <div class="dhead"><span class="ddate">Day 11 · 10/4（周日）</span><span class="holiday">国庆</span></div>
+      <div class="seg"><div class="t">全天</div><p>自由活动 / 补漏：可逛小众街区、补购物，或悠闲下午茶。朱家角国庆大客流（瞬时超 8000 人分流），不建议去。</p></div>
+      <div class="seg"><div class="t">晚上</div><p>收拾行李，早休息。</p></div>
+    </div>
+
+    <div class="day transfer">
+      <div class="dhead"><span class="ddate">Day 12 · 10/5（周一）</span><span class="holiday">国庆</span><span class="dlabel">上海 → 武汉</span></div>
+      <div class="seg"><div class="t">上午</div><p>睡到自然醒，打包退房，酒店附近轻活动（10/5 上博闭馆，勿安排博物馆）。</p></div>
+      <div class="seg"><div class="t">下午</div><p>提前 3 小时出发去机场（虹桥近市区约 40min，浦东约 1h），乘机返回武汉。</p></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 杭州 ============ -->
+<section id="hz">
+  <div class="wrap">
+    <div class="citygrid">
+      
+      <div class="citydetail">
+        <h3>杭州 <span class="stay">9/24 下午 – 9/27 上午 · 3 晚</span></h3>
+        <div class="block scenic">
+          <div class="bt">必玩景点</div>
+          <ul>
+            <li><b>西湖环湖</b> — 断桥、白堤、苏堤、平湖秋月，长桥公园拍「雷峰夕照」。</li>
+            <li><b>灵隐寺 + 飞来峰</b> — 2026 起飞来峰免门票，须提前 1 天预约，香花券 30 元。</li>
+            <li><b>龙井茶园 + 九溪烟树</b> — 溪谷徒步，免费清幽，情侣悠闲首选。</li>
+            <li><b>净慈寺</b>（10 元）— 释迦殿平台拍雷峰塔最佳机位，可撞南屏晚钟。</li>
+          </ul>
+        </div>
+        <div class="block food">
+          <div class="bt">美食 · 人均 ¥200 内</div>
+          <ul>
+            <li><b>楼外楼</b>（孤山路 30 号）百年老字号·湖景 <span class="price">¥157–200</span> · 西湖醋鱼/东坡肉</li>
+            <li><b>知味观·味庄</b>（杨公堤）园林湖景 <span class="price">¥130</span> · G20 元首宴</li>
+            <li><b>杭州酒家</b>（延安路 205 号）性价比之王 <span class="price">¥75–150</span> · 叫花鸡/干炸响铃</li>
+            <li><b>知味观</b>（仁和路 83 号）老字号点心 <span class="price">¥80–150</span></li>
+            <li><b>奎元馆</b>（解放路 154 号）「江南面王」<span class="price">¥45–90</span> · 虾爆鳝面</li>
+          </ul>
+        </div>
+        <div class="block stay">
+          <div class="bt">住宿 · 亚朵/全季/麗枫（近地铁）</div>
+          <ul>
+            <li><b>全季酒店（杭州西湖湖滨店）</b>· 龙翔桥地铁站旁 <span class="price">¥380–480</span></li>
+            <li><b>杭州西湖湖滨延安路亚朵X酒店</b>· 近龙翔桥 <span class="price">¥438 起</span></li>
+            <li><b>杭州西湖河坊街亚朵酒店</b>（江城路 471 号）<span class="price">¥513</span></li>
+          </ul>
+          <p style="font-size:13px;color:var(--ink-soft);margin:8px 0 0">麗枫同档位门店可在预订平台按品牌筛选（具体门店未检索到确切信息）。</p>
+        </div>
+        <div class="block warn">
+          <div class="bt">避坑 · 节假日注意</div>
+          <ul>
+            <li>西湖边「免费送花」是骗局；灵隐门口高价香别买，寺内免费领 3 支。</li>
+            <li>游船只坐国营码头（手划船 150 元/船/时、摇橹 180 元/船/时），上船先扫船身二维码计时。</li>
+            <li>河坊街特产溢价 3–5 倍，选明码标价店；音乐喷泉免费但需公众号预约。</li>
+            <li>中秋假期西湖景区限行、灵隐限量区禁网约车，需换乘景区接驳。</li>
+          </ul>
+        </div>
+        <div class="xhs-hot"><div class="xh">📕 小红书实况热帖 · 杭州</div><div class="xs">真实账号实时抓取（美食/攻略/景点搜索结果，去重后按点赞 top 6）</div><div class="xh-list"><div class="xh-item"><div class="xt">除西湖，会带每个来杭州的朋友来这citywalk</div><div class="xa">@炸裂泡泡 · <b>赞 5084</b> · 藏 5748</div></div><div class="xh-item"><div class="xt">杭州西湖景点从夯到拉排名！</div><div class="xa">@高井井 · <b>赞 4322</b> · 藏 5880</div></div><div class="xh-item"><div class="xt">杭州一日游建议</div><div class="xa">@大山猫 · <b>赞 3384</b> · 藏 3064</div></div><div class="xh-item"><div class="xt">本人在杭招待外地朋友已有SOP（工作日版）</div><div class="xa">@笑笑的记事本 · <b>赞 2979</b> · 藏 3835</div></div><div class="xh-item"><div class="xt">一条鱼做成西湖醋鱼  这鱼算是白死了。</div><div class="xa">@。。。。。 · <b>赞 2621</b> · 藏 368</div></div><div class="xh-item"><div class="xt">杭州第一顿有点太好吃了😭</div><div class="xa">@失眠吐司 · <b>赞 2438</b> · 藏 2766</div></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 乌镇 ============ -->
+<section id="wz">
+  <div class="wrap">
+    <div class="citygrid">
+      
+      <div class="citydetail">
+        <h3>乌镇 <span class="stay">9/27 中午 – 9/28 午后 · 1 晚</span></h3>
+        <div class="block scenic">
+          <div class="bt">必玩景点</div>
+          <ul>
+            <li><b>西栅夜景</b> — 通安桥（明信片位）、定升桥（S 弯）、白莲塔（登塔俯瞰）。</li>
+            <li><b>草木本色染坊</b> — 晚 8 点后人流散，蓝白布架超好拍。</li>
+            <li><b>月老庙</b>、桥里桥、昭明书院回廊 — 情侣出片点。</li>
+            <li>东栅偏市井民俗、18:00 关门，留 1 晚节奏建议跳过。</li>
+          </ul>
+        </div>
+        <div class="block food">
+          <div class="bt">美食 · 人均 ¥200 内</div>
+          <ul>
+            <li><b>书生羊肉面</b>（西栅大街 216 号）<span class="price">¥30–45</span></li>
+            <li><b>定胜糕</b>（锦记/永平粉团铺）<span class="price">¥3–5</span> · 午后常售罄</li>
+            <li><b>萝卜丝饼</b>（滋啦啦油煎铺）<span class="price">¥3</span> · 现炸酥脆</li>
+            <li><b>三珍斋酱鸭</b>、吴妈馄饨、三白酒（东栅高公生酒坊）</li>
+            <li>住景区内可约「早茶客」水上集市早餐（约 30 元额度）。</li>
+          </ul>
+        </div>
+        <div class="block stay">
+          <div class="bt">住宿 · 亚朵（近景区，乌镇无地铁）</div>
+          <ul>
+            <li><b>乌镇新华南路亚朵酒店</b>· 近东栅/西栅/南栅，步行东栅约 8 分钟、距西栅约 1 公里 <span class="price">¥400–600</span></li>
+          </ul>
+          <p style="font-size:13px;color:var(--ink-soft);margin:8px 0 0">乌镇为古镇、无地铁，此店是当地符合品牌且紧邻景区的首选；若你更看重「住在景区里看夜景」，西栅景区内多为民宿/精品（含双人门票），可再权衡。</p>
+        </div>
+        <div class="block warn">
+          <div class="bt">避坑 · 节假日注意</div>
+          <ul>
+            <li>景区内住宿须到西栅 1 号游客中心统一刷脸办入住（免费托运 + 游览车）。</li>
+            <li>摇橹船认官方码头（拼船约 60 元/人、包船双人约 580 元），别找黄牛。</li>
+            <li>订房务必确认「西栅景区内」标签，否则每天进出重买 150 元/人门票。</li>
+            <li>早茶客名额有限，办入住时尽早预约。</li>
+          </ul>
+        </div>
+        <div class="xhs-hot"><div class="xh">📕 小红书实况热帖 · 乌镇</div><div class="xs">真实账号实时抓取（美食/攻略/景点搜索结果，去重后按点赞 top 6）</div><div class="xh-list"><div class="xh-item"><div class="xt">🔥走一圈乌镇西栅手机都跑没电了</div><div class="xa">@秦😈💍💎 · <b>赞 3440</b> · 藏 3562</div></div><div class="xh-item"><div class="xt">替你们试过了‼️再去乌镇不当大大大冤种</div><div class="xa">@古古有力 · <b>赞 3056</b> · 藏 3222</div></div><div class="xh-item"><div class="xt">乌镇西栅一日游攻略！附路线图和机位</div><div class="xa">@冬冬的旅行日志 · <b>赞 2158</b> · 藏 2295</div></div><div class="xh-item"><div class="xt">100万人看过的乌镇照片😘攻略版</div><div class="xa">@我喝露水qwq · <b>赞 2157</b> · 藏 999</div></div><div class="xh-item"><div class="xt">跟着向往的生活打卡乌镇美食！</div><div class="xa">@小刘日记 · <b>赞 1094</b> · 藏 1112</div></div><div class="xh-item"><div class="xt">乌镇本地人推荐</div><div class="xa">@景行行止 · <b>赞 828</b> · 藏 1003</div></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 西塘 ============ -->
+<section id="xt">
+  <div class="wrap">
+    <div class="citygrid">
+      
+      <div class="citydetail">
+        <h3>西塘 <span class="stay">9/28 午后 – 9/29 午后 · 1 晚</span></h3>
+        <div class="block scenic">
+          <div class="bt">必玩景点</div>
+          <ul>
+            <li><b>烟雨长廊</b> — 江南唯一千米临河廊棚，夜灯绝美，出片 C 位。</li>
+            <li><b>石皮弄</b> — 最窄处 0.8 米「一线天」，仰拍极出片。</li>
+            <li><b>西园</b> — 古镇最大私家园林，可喝茶观景。</li>
+            <li><b>送子来凤桥</b>、永宁桥（夜景俯拍 C 位）、环秀桥（《碟中谍 3》取景地）。</li>
+          </ul>
+        </div>
+        <div class="block food">
+          <div class="bt">美食 · 人均 ¥200 内</div>
+          <ul>
+            <li><b>管老太臭豆腐</b>（北栅街总店）<span class="price">¥12</span></li>
+            <li><b>陆氏小馄饨</b>（永宁桥旁）<span class="price">¥8–12</span></li>
+            <li><b>森林牌芡实糕</b>（塘东街 18 号）<span class="price">¥10</span> · 伴手礼首选</li>
+            <li><b>老马荷叶粉蒸肉</b> <span class="price">¥15</span> · 西塘人家（临河）<span class="price">¥60–80</span></li>
+          </ul>
+        </div>
+        <div class="block stay">
+          <div class="bt">住宿 · 全季/亚朵（近景区，西塘无地铁）</div>
+          <ul>
+            <li><b>全季酒店（嘉善西塘古镇店）</b>· 西塘景区门口（南苑路 309 号）<span class="price">¥350–500</span></li>
+            <li><b>嘉善罗星中央花园亚朵酒店</b>· 嘉善市区（距西塘需打车，作备选）</li>
+          </ul>
+          <p style="font-size:13px;color:var(--ink-soft);margin:8px 0 0">全季就在景区大门口，位置最方便；西塘无地铁，进出景区靠步行或打车。</p>
+        </div>
+        <div class="block warn">
+          <div class="bt">避坑 · 节假日注意</div>
+          <ul>
+            <li>门票别信路边黄牛低价带路（假票/过期票）；联票 95 元（11 小景点、2 天有效）。</li>
+            <li>酒吧街高价网红奶茶、称重花茶溢价严重，慎购；浅眠者勿住酒吧街临河房。</li>
+            <li>白水鱼超 80 元/条大概率被宰；路边私船别坐，只选正规码头摇橹船。</li>
+            <li>工作日 17:00 后、节假日 21:00 后免大门票仅限逛巷，小景点已闭。</li>
+          </ul>
+        </div>
+        <div class="xhs-hot"><div class="xh">📕 小红书实况热帖 · 西塘</div><div class="xs">真实账号实时抓取（美食/攻略/景点搜索结果，去重后按点赞 top 6）</div><div class="xh-list"><div class="xh-item"><div class="xt">被〈国家地理〉评为中国最美的古镇有多绝❗️</div><div class="xa">@沈奕铭 · <b>赞 5740</b> · 藏 2174</div></div><div class="xh-item"><div class="xt">西塘逛吃一日攻略✨纯美食不赶路！</div><div class="xa">@徐明 · <b>赞 232</b> · 藏 147</div></div><div class="xh-item"><div class="xt">2026西塘最新攻略｜省钱高效+避坑+逛吃全指</div><div class="xa">@心想事成 · <b>赞 149</b> · 藏 199</div></div><div class="xh-item"><div class="xt">不吹不黑：我在西塘吃什么（特辑篇）</div><div class="xa">@糯米团子你站起来吧！ · <b>赞 141</b> · 藏 81</div></div><div class="xh-item"><div class="xt">马上去西塘｜千万要看❗不踩雷❌不绕路指南</div><div class="xa">@Frio^ · <b>赞 131</b> · 藏 173</div></div><div class="xh-item"><div class="xt">西塘古镇</div><div class="xa">@十二的生活日记 · <b>赞 105</b> · 藏 34</div></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 上海 ============ -->
+<section id="sh">
+  <div class="wrap">
+    <div class="citygrid">
+      
+      <div class="citydetail">
+        <h3>上海 <span class="stay">9/29 午后 – 10/5 下午 · 6 晚</span></h3>
+        <div class="block scenic">
+          <div class="bt">必玩景点</div>
+          <ul>
+            <li><b>外滩</b>（免费、18:00 亮灯）— 北外滩/外白渡桥人少景同。</li>
+            <li><b>豫园 + 城隍庙</b>（40 元，提前 1 天预约）— 九曲桥、湖心亭。</li>
+            <li><b>法租界 Citywalk</b> — 武康路、武康大楼、安福路咖啡、思南公馆。</li>
+            <li><b>陆家嘴</b> — 上海中心「上海之巅」118 层（约 180 元）+ 滨江大道。</li>
+            <li><b>上海博物馆</b>（免费预约，周一闭馆）— 青铜器/陶瓷馆藏强。</li>
+          </ul>
+        </div>
+        <div class="block food">
+          <div class="bt">美食 · 人均 ¥200 内</div>
+          <ul>
+            <li><b>老正兴菜馆</b>（福州路 556 号）米其林一星本帮 <span class="price">¥150–200</span> · 油爆河虾/草头圈子</li>
+            <li><b>人和馆</b>（肇嘉浜路）米其林+黑珍珠 <span class="price">¥178</span> · 蟹黄捞饭/金牌红烧肉</li>
+            <li><b>上海老饭店</b>（福佑路 242 号·豫园旁）<span class="price">¥165</span> · 八宝鸭</li>
+            <li><b>老吉士</b>（天平路 41 号）明星常客 <span class="price">¥120–180</span> · 红烧肉/吉士咸鸡</li>
+            <li><b>德兴馆</b>（广东路 471 号）<span class="price">¥80–120</span> · <b>光明邨</b>（淮海中路）<span class="price">¥80</span> · 生煎/鲜肉月饼</li>
+          </ul>
+        </div>
+        <div class="block stay">
+          <div class="bt">住宿 · 亚朵/全季/麗枫（近地铁）</div>
+          <ul>
+            <li><b>全季酒店（上海人民广场南京路店）</b>· 黄陂南路站步行 9 分钟 <span class="price">¥487</span></li>
+            <li><b>上海人民广场南京路步行街亚朵酒店</b>（宁波路 586 号）· 人民广场站 480 米</li>
+            <li><b>上海静安寺西康路/愚园路亚朵酒店</b>· 静安寺商圈</li>
+          </ul>
+          <p style="font-size:13px;color:var(--ink-soft);margin:8px 0 0">均近地铁 1/2 号线；国庆房价会上浮，建议尽早锁定；麗枫同档门店可筛选。</p>
+        </div>
+        <div class="block warn">
+          <div class="bt">避坑 · 节假日注意</div>
+          <ul>
+            <li>豫园、上博、上海之巅务必提前线上预约，否则跑空。</li>
+            <li>外滩北段滨江比陈毅广场人少一半；路边「免费拍照/低价一日游」均套路。</li>
+            <li>游船别买路边高价票，2 元东金线轮渡（金陵东路↔东昌路）平替。</li>
+            <li>国庆 10/1–10/5 全年峰值，博物馆/豫园提前 3–5 天抢约；返程虹桥近市区约 40min、浦东约 1h，提前 3 小时出发。</li>
+          </ul>
+        </div>
+        <div class="xhs-hot"><div class="xh">📕 小红书实况热帖 · 上海</div><div class="xs">真实账号实时抓取（美食/攻略/景点搜索结果，去重后按点赞 top 6）</div><div class="xh-list"><div class="xh-item"><div class="xt">📍远行记｜时隔二十年的地道上海菜</div><div class="xa">@聂远 · <b>赞 44933</b> · 藏 16802</div></div><div class="xh-item"><div class="xt">陆家嘴三件套打卡点位，就这么去简单</div><div class="xa">@哦是益达 · <b>赞 12216</b> · 藏 13347</div></div><div class="xh-item"><div class="xt">上海citywalk 1.5天</div><div class="xa">@CING · <b>赞 7535</b> · 藏 8917</div></div><div class="xh-item"><div class="xt">上海最近很火的</div><div class="xa">@辣铁男孩 · <b>赞 5023</b> · 藏 1781</div></div><div class="xh-item"><div class="xt">上海🚶特种兵一日游｜🗺️不走回头路懒人攻略</div><div class="xa">@走走逛逛耍耍 · <b>赞 3238</b> · 藏 2926</div></div><div class="xh-item"><div class="xt">朋友来上海，我带了8拨人都走这条路（附路线</div><div class="xa">@潇潇在路上 · <b>赞 1349</b> · 藏 2264</div></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 数据说明 ============ -->
+<section id="source">
+  <div class="wrap">
+    <h2 class="sec"><span class="no">04</span>数据说明</h2>
+    <p class="sec-desc">本手册所有信息出处与口径说明。</p>
+    <div class="disc">
+      <p style="margin:0 0 8px"><b>信息构成：</b></p>
+      <ul style="margin:0;padding-left:18px">
+        <li><b>景点/美食/住宿</b>：来自公开网络检索（含小红书笔记、官方公众号、米其林榜单等），店名、人均、地址均以检索到的公开信息为准；未能确认处已标注「未检索到确切信息」。</li>
+        <li><b>小红书实况热帖</b>：来自本地扩展 + 用户扫码登录真实账号，实时抓取各城「美食/攻略/景点」搜索结果列表的标题与热度（点赞/收藏），仅作热度参考，未抓取笔记详情页。</li>
+        <li><b>假期安排</b>：依据国务院办公厅 2026 年节假日通知——中秋 9/25–27、国庆 10/1–7。</li>
+      </ul>
+      <p style="margin:12px 0 0;color:var(--ink-soft)"><b>⚠️ 出行前请复核</b>：门票价格、开售时间、航班时刻、酒店价格会随季节与节假日实时浮动，请以官方渠道当天公示为准。</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    武汉 · 杭州 · 乌镇 · 西塘 · 上海 双人江南行程手册 · 2026.9.24 – 10.5 · 祝旅途愉快 🌿
+  </div>
+</footer>
+
+</body>
+</html>
