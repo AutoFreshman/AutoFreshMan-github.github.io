@@ -94,6 +94,11 @@ li{margin-bottom:5px}
   .tscroll table td:not(:first-child)::before{content:attr(data-label);display:block;font-size:11.5px;color:var(--ink3);line-height:1.5;margin-bottom:1px}
 }
 .num{font-variant-numeric:tabular-nums}
+ul.hotlist{list-style:none;padding-left:0;margin:8px 0 2px}
+ul.hotlist li{font-size:13.5px;line-height:1.65;padding:5px 0;border-bottom:1px dashed var(--line2);color:var(--ink2)}
+ul.hotlist li:last-child{border-bottom:none}
+ul.hotlist .tnum{font-variant-numeric:tabular-nums;color:var(--ink);font-weight:600}
+ul.hotlist .tag{margin-left:2px}
 footer{border-top:1px solid var(--line);padding-top:20px;color:var(--ink3);font-size:12.5px;line-height:1.8}
 footer b{color:var(--ink2);font-weight:600}
 .kv{font-size:14px;color:var(--ink2)}
@@ -400,7 +405,7 @@ footer b{color:var(--ink2);font-weight:600}
 
 <section id="food">
   <h2>逐日美食</h2>
-  <p class="lead">人均全部控制在 <b>¥200 以内</b>，优先按小红书探店口径筛，并与大众点评 / 携程交叉核对。跟团那几天正餐多已含，所以只给自由时间的觅食点。</p>
+  <p class="lead">人均全部控制在 <b>¥200 以内</b>。下面两张：先是按行程排的逐日推荐（来自点评平台与小红书帖的交叉核对），再是<b>刚刚用你自己账号实时抓取的小红书热帖</b>。跟团那几天正餐多已含，所以只给自由时间的觅食点。</p>
 
   <div class="tscroll">
   <table>
@@ -418,6 +423,84 @@ footer b{color:var(--ink2);font-weight:600}
     <tr><td class="num">10/3 周六</td><td data-label="在哪吃">澄江（午）→ 昆明（晚）</td><td data-label="推荐"><b>午</b> 鱼知味 · 澄江店（右所镇大湾村 18 号，2 人餐 ¥112）· 杨记石锅鱼 · 明星鱼洞店（¥80）<br><b>晚</b> 福照楼 · 文明街店（汽锅鸡，¥60）</td></tr>
     <tr><td class="num">10/4 周日</td><td data-label="在哪吃">官渡（午）→ 机场（晚）</td><td data-label="推荐"><b>午</b> 留焕美食（官渡古镇，豆花米线 / 炒饵块；人均未检索到确切信息）· 眼镜粑粑（官渡粑粑 ¥3–6/个）<br><b>晚</b> 长兴集美食萃（长水机场 B2，同城同价，¥20 左右）</td></tr>
   </table>
+  </div>
+
+  <h3>小红书实况热帖</h3>
+  <p class="kv">下面是用你自己的账号、经本地扩展在<b>小红书实时抓取</b>的搜索结果，抓取时间 <b>2026-09-16</b>，已按点赞数排序。<b>标题本身就是线索</b> —— 想细看哪条，去小红书搜标题即可。<br>
+    注意：这是<b>搜索列表</b>的数据（标题 + 热度），没有点进正文。小红书详情页风控很严，抓多了会触发验证，对你自己账号不划算。</p>
+
+  <div class="card tight">
+    <div class="kv" style="font-size:15px"><b>大理</b> <span class="tag t">实况</span></div>
+    <ul class="hotlist">
+      <li><span class="tnum">4396</span> 赞 · <span class="tnum">3586</span> 藏 ｜ 大理的！大学生吃到嘴抽筋。。。。（无广合集 <span class="tag">@高吖喂</span></li>
+      <li><span class="tnum">3363</span> 赞 · <span class="tnum">3087</span> 藏 ｜ 《1分钟告诉你云南大理有多好吃》附地址 <span class="tag">@Lvy</span></li>
+      <li><span class="tnum">3023</span> 赞 · <span class="tnum">3072</span> 藏 ｜ 离开大理后念念不忘的12家。。。。（附地址） <span class="tag">@西瓜冰淇淋</span></li>
+      <li><span class="tnum">2502</span> 赞 · <span class="tnum">507</span> 藏 ｜ 给大家介绍一下白族菜 <span class="tag">@耶叔来了</span></li>
+      <li><span class="tnum">2151</span> 赞 · <span class="tnum">1987</span> 藏 ｜ 大理美食｜喜洲古镇超夯饭店 <span class="tag">@momo</span></li>
+      <li><span class="tnum">1860</span> 赞 · <span class="tnum">2404</span> 藏 ｜ 大理巨难吃但巨会营销店，一人说一个 <span class="tag">@脆脆不脆</span></li>
+    </ul>
+  </div>
+  <div class="card tight">
+    <div class="kv" style="font-size:15px"><b>丽江</b> <span class="tag t">实况</span></div>
+    <ul class="hotlist">
+      <li><span class="tnum">8271</span> 赞 · <span class="tnum">7517</span> 藏 ｜ 丽江忠义市场｜纯吃3小时vlog <span class="tag">@好想睡觉</span></li>
+      <li><span class="tnum">5083</span> 赞 · <span class="tnum">6520</span> 藏 ｜ 来了丽江之后才知道之前看的攻略有多吓人 <span class="tag">@吴花肉</span></li>
+      <li><span class="tnum">3433</span> 赞 · <span class="tnum">4632</span> 藏 ｜ 丽江个人觉得无法超越的店（附地址） <span class="tag">@卷卷心</span></li>
+      <li><span class="tnum">2791</span> 赞 · <span class="tnum">2552</span> 藏 ｜ 云南丽江！一定一定要吃的8家店！ <span class="tag">@Lvy</span></li>
+      <li><span class="tnum">2656</span> 赞 · <span class="tnum">2130</span> 藏 ｜ （丽江）nb好吃的10件套 <span class="tag">@高吖喂</span></li>
+      <li><span class="tnum">1034</span> 赞 · <span class="tnum">1028</span> 藏 ｜ 丽江忠义市场红黑榜测评 <span class="tag">@Pinerryy</span></li>
+    </ul>
+  </div>
+  <div class="card tight">
+    <div class="kv" style="font-size:15px"><b>泸沽湖</b> <span class="tag t">实况</span></div>
+    <ul class="hotlist">
+      <li><span class="tnum">1715</span> 赞 · <span class="tnum">2132</span> 藏 ｜ 如果在泸沽湖只能吃两顿饭 <span class="tag">@何乐</span></li>
+      <li><span class="tnum">271</span> 赞 · <span class="tnum">230</span> 藏 ｜ 泸沽湖跟风最成功的一次 <span class="tag">@中央空调暖气*风铃子</span></li>
+      <li><span class="tnum">242</span> 赞 · <span class="tnum">293</span> 藏 ｜ 泸沽湖干饭合集 <span class="tag">@爱生活爱自己</span></li>
+      <li><span class="tnum">188</span> 赞 · <span class="tnum">213</span> 藏 ｜ 泸沽湖第一顿晚餐过程：夯！ <span class="tag">@嘻嘻欤哈哈</span></li>
+    </ul>
+  </div>
+  <div class="card tight">
+    <div class="kv" style="font-size:15px"><b>沙溪</b> <span class="tag t">实况</span></div>
+    <ul class="hotlist">
+      <li><span class="tnum">827</span> 赞 · <span class="tnum">675</span> 藏 ｜ 在沙溪古镇吃到我的人生炒饭！！！！！ <span class="tag">@浅梨Sylvia</span></li>
+      <li><span class="tnum">485</span> 赞 · <span class="tnum">496</span> 藏 ｜ 沙溪旅居！一些我反复去吃的店！！（附地址） <span class="tag">@小刘就吃亿口</span></li>
+      <li><span class="tnum">343</span> 赞 · <span class="tnum">248</span> 藏 ｜ 好吃到可以原谅全世界的沙溪日式定食 <span class="tag">@邓如花</span></li>
+      <li><span class="tnum">276</span> 赞 · <span class="tnum">314</span> 藏 ｜ 本地人带路！熬夜整理的沙溪古镇逛吃攻略 <span class="tag">@今天炫了一桶饭</span></li>
+      <li><span class="tnum">263</span> 赞 · <span class="tnum">356</span> 藏 ｜ （个人认为）沙溪无法超越的9家 <span class="tag">@小华</span></li>
+    </ul>
+  </div>
+  <div class="card tight">
+    <div class="kv" style="font-size:15px"><b>香格里拉 · 独克宗</b> <span class="tag t">实况</span></div>
+    <ul class="hotlist">
+      <li><span class="tnum">7897</span> 赞 · <span class="tnum">3776</span> 藏 ｜ 在香格里拉发现了惊人的美食 <span class="tag">@香芋西米露</span></li>
+      <li><span class="tnum">5681</span> 赞 · <span class="tnum">3760</span> 藏 ｜ 香格里拉！！吃完用一生怀念的 <span class="tag">@活捉小黄</span></li>
+      <li><span class="tnum">3903</span> 赞 · <span class="tnum">943</span> 藏 ｜ 确实是香格里拉top1的牦牛干锅 <span class="tag">@吹个大泡泡</span></li>
+      <li><span class="tnum">3006</span> 赞 · <span class="tnum">2061</span> 藏 ｜ 香格里拉。。超nb伟大好吃的九件套！！！ <span class="tag">@我吃薯条减肥</span></li>
+      <li><span class="tnum">2906</span> 赞 · <span class="tnum">2235</span> 藏 ｜ 香格里拉已回！让我念念不忘的8家 <span class="tag">@小小小小新</span></li>
+      <li><span class="tnum">2597</span> 赞 · <span class="tnum">2169</span> 藏 ｜ 香格里拉最好吃的牦牛奶酪披萨 <span class="tag">@koilin</span></li>
+    </ul>
+  </div>
+  <div class="card tight">
+    <div class="kv" style="font-size:15px"><b>昆明</b> <span class="tag t">实况</span></div>
+    <ul class="hotlist">
+      <li><span class="tnum">1.4万</span> 赞 · <span class="tnum">1.6万</span> 藏 ｜ 昆明菜市场怎么选？我有3个小tips <span class="tag">@飞向月球的田二哈</span></li>
+      <li><span class="tnum">7454</span> 赞 · <span class="tnum">7830</span> 藏 ｜ 去昆明旅游到底多快乐！！48h不跟风纯吃攻略 <span class="tag">@壹六三三</span></li>
+      <li><span class="tnum">3726</span> 赞 · <span class="tnum">4205</span> 藏 ｜ 昆明，个人觉得无法超越的18家小店 <span class="tag">@小杜要天天开心_</span></li>
+      <li><span class="tnum">2923</span> 赞 · <span class="tnum">1899</span> 藏 ｜ 在昆明！！本地人指路老街这个过桥米线巨top！ <span class="tag">@酥甜</span></li>
+      <li><span class="tnum">2584</span> 赞 · <span class="tnum">2787</span> 藏 ｜ 昆明美食从夯到拉（自测版） <span class="tag">@铁牛哥哥</span></li>
+      <li><span class="tnum">2129</span> 赞 · <span class="tnum">2234</span> 藏 ｜ 昆明老街一人食！！土著会带你去这4家 <span class="tag">@兔子不减肥</span></li>
+    </ul>
+  </div>
+  <div class="card tight">
+    <div class="kv" style="font-size:15px"><b>抚仙湖 · 澄江</b> <span class="tag t">实况</span></div>
+    <ul class="hotlist">
+      <li><span class="tnum">2739</span> 赞 · <span class="tnum">3981</span> 藏 ｜ 抚仙湖自驾全攻略｜一天一夜极限环湖 <span class="tag">@胡萝卜崽崽</span></li>
+      <li><span class="tnum">1015</span> 赞 · <span class="tnum">1133</span> 藏 ｜ 感觉是抚仙湖目前top好吃的！！ <span class="tag">@番茄小旋风</span></li>
+      <li><span class="tnum">987</span> 赞 · <span class="tnum">1068</span> 藏 ｜ 要去抚仙湖的吃东西不要乱吃 <span class="tag">@D嘻嘻哈哈</span></li>
+      <li><span class="tnum">601</span> 赞 · <span class="tnum">627</span> 藏 ｜ 抚仙湖最好吃的菜 <span class="tag">@叼嘴王老赵</span></li>
+      <li><span class="tnum">521</span> 赞 · <span class="tnum">589</span> 藏 ｜ 抚仙湖神仙早餐 <span class="tag">@晶晶的旅程</span></li>
+    </ul>
   </div>
 
   <h3>必吃单品与参考价</h3>
@@ -587,7 +670,7 @@ footer b{color:var(--ink2);font-weight:600}
 
 <footer>
   <p><b>云南 12 日行程手册</b> · 2026 年 9 月 23 日 – 10 月 4 日 · 2 人 · 生成于 2026-09-16</p>
-  <p>行程骨架与自由行安排为规划建议；跟团段来自用户提供的团行程单。所有价格、门票、天气数据均标注了来源与查询日期，出行前请以官方渠道实时信息为准。</p>
+  <p>行程骨架与自由行安排为规划建议；跟团段来自用户提供的团行程单。所有价格、门票、天气数据均标注了来源与查询日期。美食章节中的「小红书实况热帖」为本地扩展 + 用户账号扫码登录实时抓取，抓取时间 2026-09-16，仅取搜索列表（标题与热度），未抓取正文。出行前请以官方渠道实时信息为准。</p>
 </footer>
 
 </div>
