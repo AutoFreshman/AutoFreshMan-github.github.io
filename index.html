@@ -2,589 +2,558 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>武汉·杭州·乌镇·西塘·上海 — 双人江南行程手册（9.23–10.5）</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>云南 13 日行程手册 · 9/22–10/4</title>
 <style>
-  :root{
-    --bg:#FBF9F4; --card:#FFFFFF; --ink:#3A3A38; --ink-soft:#6B6B66;
-    --line:#EDE9E0; --line-strong:#D9D4C8;
-    --accent:#C9563F; --accent-soft:#F6E4DE;
-    --gold:#B9843A; --gold-soft:#F6EBDD;
-    --blue:#4E7FB0; --blue-soft:#E6EFF7;
-    --green:#5E8A3C; --green-soft:#EAF1E0;
-    --pin-scenic:#F0997B; --pin-scenic-stroke:#993C1D;
-    --pin-food:#FAC775; --pin-food-stroke:#854F0B;
-    --pin-station:#85B7EB; --pin-station-stroke:#185FA5;
-    --shadow:0 1px 3px rgba(60,50,40,.06), 0 6px 24px rgba(60,50,40,.05);
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    margin:0; background:var(--bg); color:var(--ink);
-    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
-    line-height:1.7; font-size:15px;
-  }
-  .wrap{max-width:1000px; margin:0 auto; padding:0 20px}
-  /* header */
-  header.hero{
-    background:linear-gradient(135deg,#F6E4DE 0%,#F6EBDD 55%,#E6EFF7 100%);
-    border-bottom:1px solid var(--line); padding:46px 0 38px;
-  }
-  .hero .kicker{font-size:13px; letter-spacing:.12em; color:var(--accent); text-transform:uppercase; font-weight:600}
-  .hero h1{font-size:32px; margin:10px 0 8px; letter-spacing:.01em; font-weight:700}
-  .hero .sub{font-size:15px; color:var(--ink-soft); max-width:640px}
-  .hero .meta{margin-top:16px; display:flex; flex-wrap:wrap; gap:8px}
-  .chip{display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,.72);
-    border:1px solid var(--line); border-radius:999px; padding:5px 12px; font-size:13px; color:var(--ink)}
-  .chip b{color:var(--accent)}
-  /* nav */
-  nav.sticky{position:sticky; top:0; z-index:20; background:rgba(251,249,244,.92);
-    backdrop-filter:blur(8px); border-bottom:1px solid var(--line)}
-  nav .inner{display:flex; gap:4px; overflow-x:auto; padding:10px 0; white-space:nowrap; scrollbar-width:none}
-  nav .inner::-webkit-scrollbar{display:none}
-  nav a{color:var(--ink-soft); text-decoration:none; font-size:13.5px; padding:6px 12px; border-radius:999px}
-  nav a:hover{color:var(--ink); background:#fff}
-  nav a.active{color:var(--accent); background:var(--accent-soft); font-weight:600}
-  /* sections */
-  section{padding:40px 0; border-bottom:1px solid var(--line)}
-  h2.sec{font-size:22px; margin:0 0 6px; font-weight:700}
-  h2.sec .no{color:var(--accent); margin-right:8px}
-  .sec-desc{color:var(--ink-soft); font-size:14px; margin:0 0 24px}
-  /* route pills */
-  .route{display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin:22px 0}
-  .pill{border:1px solid var(--line-strong); border-radius:12px; padding:10px 16px; background:#fff; text-align:center; box-shadow:var(--shadow)}
-  .pill .city{font-size:17px; font-weight:700}
-  .pill .stamp{font-size:12px; color:var(--ink-soft)}
-  .arrow{color:var(--accent); font-size:20px; font-weight:700}
-  .arrow.air{color:var(--blue)}
-  /* cards grid */
-  .grid{display:grid; gap:16px}
-  .grid.cols2{grid-template-columns:1fr 1fr}
-  @media(max-width:860px){.grid.cols2{grid-template-columns:1fr}}
-  .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 20px; box-shadow:var(--shadow)}
-  .card h3{margin:0 0 10px; font-size:16px}
-  /* tables */
-  table{width:100%; border-collapse:collapse; font-size:13.5px; background:#fff; border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
-  th,td{text-align:left; padding:10px 12px; border-bottom:1px solid var(--line)}
-  th{background:var(--blue-soft); color:#33414e; font-weight:600}
-  tr:last-child td{border-bottom:none}
-  td.tag{font-weight:600; color:var(--accent); white-space:nowrap}
-  /* timeline / days */
-  .day{border-left:3px solid var(--line-strong); padding:4px 0 4px 20px; position:relative; margin-bottom:20px}
-  .day::before{content:""; position:absolute; left:-8px; top:8px; width:13px; height:13px; border-radius:50%;
-    background:#fff; border:3px solid var(--accent)}
-  .day.transfer::before{border-color:var(--blue)}
-  .day .dhead{display:flex; flex-wrap:wrap; align-items:baseline; gap:10px}
-  .day .ddate{font-weight:700; font-size:16px}
-  .day .dlabel{font-size:12.5px; color:var(--accent); font-weight:600}
-  .day.transfer .dlabel{color:var(--blue)}
-  .day .holiday{font-size:12px; color:var(--gold); background:var(--gold-soft); border-radius:6px; padding:1px 7px}
-  .seg{margin-top:10px; padding-left:14px; border-left:2px solid var(--line)}
-  .seg .t{font-weight:600; font-size:13px; color:var(--ink-soft); margin-bottom:1px}
-  .seg p{margin:0; font-size:14px}
-  .seg .tip{color:var(--ink-soft); font-size:13px; margin-top:3px}
-  /* city sections */
-  .citygrid{display:block}
-  .citydetail h3{font-size:20px; margin:0 0 4px}
-  .citydetail .stay{font-size:13px; color:var(--accent); font-weight:600}
-  .block{margin:18px 0}
-  .block .bt{font-size:13px; letter-spacing:.08em; color:var(--ink-soft); font-weight:700; margin-bottom:8px}
-  .block ul{margin:0; padding-left:0; list-style:none}
-  .block ul li{padding:7px 0 7px 22px; position:relative; border-bottom:1px dashed var(--line); font-size:14px}
-  .block ul li:last-child{border-bottom:none}
-  .block ul li::before{content:""; position:absolute; left:4px; top:15px; width:7px; height:7px; border-radius:50%}
-  .block.scenic li::before{background:var(--pin-scenic)}
-  .block.food li::before{background:var(--pin-food)}
-  .block.stay li::before{background:var(--pin-station)}
-  .block.warn li::before{background:#E0C9C0}
-  .tag-pill{font-size:11px; color:var(--ink-soft); border:1px solid var(--line-strong); border-radius:6px; padding:0 6px; margin-right:5px; white-space:nowrap}
-  .price{color:var(--accent); font-weight:600}
-  /* xhs hot cards */
-  .xhs-hot{margin-top:20px; background:var(--accent-soft); border:1px solid #F0D5CB; border-radius:14px; padding:16px 18px}
-  .xhs-hot .xh{font-size:13px; font-weight:700; color:var(--accent); margin-bottom:2px}
-  .xhs-hot .xs{font-size:12px; color:var(--ink-soft); margin-bottom:10px}
-  .xh-list{display:grid; grid-template-columns:1fr 1fr; gap:8px}
-  @media(max-width:640px){.xh-list{grid-template-columns:1fr}}
-  .xh-item{background:#fff; border-radius:10px; padding:9px 11px; font-size:12.5px; box-shadow:0 1px 2px rgba(0,0,0,.03)}
-  .xh-item .xt{color:var(--ink); font-weight:600; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; line-height:1.5}
-  .xh-item .xa{color:var(--ink-soft); margin-top:4px; font-size:11.5px}
-  .xh-item .xa b{color:var(--accent)}
-  /* ticket calendar */
-  .calgrid{display:grid; grid-template-columns:1fr 1fr; gap:16px}
-  @media(max-width:720px){.calgrid{grid-template-columns:1fr}}
-  .calrow{display:flex; justify-content:space-between; align-items:center; padding:10px 12px; border-bottom:1px dashed var(--line); font-size:14px}
-  .calrow .k{color:var(--ink-soft)}
-  .calrow .v{font-weight:600}
-  .calrow .v.hot{color:var(--accent)}
-  /* footer */
-  footer{padding:34px 0 60px; color:var(--ink-soft); font-size:12.5px}
-  footer .disc{background:#fff; border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin-top:12px}
-  .note{background:var(--blue-soft); border-left:3px solid var(--blue); border-radius:8px; padding:10px 14px; font-size:13.5px; margin:12px 0}
-  a.xhs{color:inherit; text-decoration:none; cursor:pointer; touch-action:manipulation}
-  a.xhs:hover{color:var(--accent)}
-  a.xhs .mag{display:inline-block; padding:3px 6px; margin-left:1px; color:#ff2442; font-size:15px; line-height:1.2; vertical-align:-1px; opacity:.9; border-radius:4px}
-  a.xhs:hover .mag{opacity:1; background:rgba(255,36,66,.08)}
+:root{
+  --bg:#F6F5F2; --card:#FFFFFF; --line:#E6E3DC; --line2:#F0EEE8;
+  --ink:#2C2C2A; --ink2:#5F5E5A; --ink3:#8A8880;
+  --blue:#185FA5; --blue-bg:#E6F1FB; --blue-line:#B5D4F4;
+  --teal:#0F6E56; --teal-bg:#E1F5EE; --teal-line:#9FE1CB;
+  --amber:#854F0B; --amber-bg:#FAEEDA; --amber-line:#FAC775;
+  --red:#A32D2D; --red-bg:#FCEBEB; --red-line:#F7C1C1;
+  --gray-bg:#F1EFE8; --r:12px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  font-size:15px;line-height:1.7;-webkit-text-size-adjust:100%;
+}
+.wrap{max-width:1000px;margin:0 auto;padding:0 16px 64px}
+h1{font-size:24px;font-weight:600;margin:0 0 6px;letter-spacing:-.2px}
+h2{font-size:19px;font-weight:600;margin:0 0 4px}
+h3{font-size:16px;font-weight:600;margin:22px 0 8px}
+p{margin:0 0 10px}
+a{color:var(--blue);text-decoration:none}
+.hero{background:#fff;border-bottom:1px solid var(--line);padding:34px 0 26px;margin-bottom:0}
+.hero .sub{color:var(--ink2);font-size:14px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chip{display:inline-block;background:var(--gray-bg);color:var(--ink2);border-radius:999px;padding:3px 11px;font-size:12.5px;line-height:1.7}
+.chip.b{background:var(--blue-bg);color:var(--blue)}
+.chip.t{background:var(--teal-bg);color:var(--teal)}
+.chip.a{background:var(--amber-bg);color:var(--amber)}
+nav{position:sticky;top:0;z-index:20;background:rgba(246,245,242,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);margin-bottom:26px}
+nav .inner{max-width:1000px;margin:0 auto;padding:0 16px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+nav .inner::-webkit-scrollbar{display:none}
+nav a{flex:0 0 auto;padding:12px 4px;margin-right:16px;font-size:14px;color:var(--ink2);border-bottom:2px solid transparent;white-space:nowrap}
+nav a:hover{color:var(--blue);border-bottom-color:var(--blue-line)}
+section{scroll-margin-top:56px;margin-bottom:40px}
+section>.lead{color:var(--ink2);font-size:14px;margin-bottom:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;margin-bottom:14px}
+.card.tight{padding:14px 16px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line2);vertical-align:top}
+th{font-weight:600;color:var(--ink2);font-size:13px;background:#FAF9F7}
+tr:last-child td{border-bottom:none}
+.tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tscroll table{min-width:520px}
+.day{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-bottom:12px}
+.day .hd{display:flex;align-items:center;gap:12px;padding:13px 18px;border-bottom:1px solid var(--line2)}
+.day .dt{font-weight:600;font-size:15px;white-space:nowrap}
+.day .ttl{color:var(--ink2);font-size:14px;flex:1;min-width:0}
+.day .bd{padding:6px 18px 16px}
+.row{display:flex;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line2)}
+.row:last-child{border-bottom:none}
+.row .k{flex:0 0 46px;font-size:12.5px;color:var(--ink3);padding-top:3px}
+.row .v{flex:1;min-width:0;font-size:14px}
+.free{border-left:3px solid var(--teal-line)}
+.tour{border-left:3px solid var(--blue-line)}
+.warn{border-left:3px solid var(--red-line)}
+.tag{display:inline-block;font-size:11.5px;padding:1px 7px;border-radius:6px;background:var(--gray-bg);color:var(--ink3);vertical-align:1px;margin-left:6px}
+.tag.b{background:var(--blue-bg);color:var(--blue)}
+.tag.t{background:var(--teal-bg);color:var(--teal)}
+.tag.r{background:var(--red-bg);color:var(--red)}
+.tag.a{background:var(--amber-bg);color:var(--amber)}
+ul{margin:6px 0 10px;padding-left:18px}
+li{margin-bottom:5px}
+.bx{border-radius:10px;padding:12px 15px;margin:12px 0;font-size:14px}
+.bx.info{background:var(--blue-bg);color:#0C447C}
+.bx.warn{background:var(--red-bg);color:#791F1F}
+.bx.ok{background:var(--teal-bg);color:#085041}
+.bx.tip{background:var(--amber-bg);color:#633806}
+.bx b{font-weight:600}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:720px){
+  .grid2{grid-template-columns:1fr}
+  h1{font-size:21px}
+  .hero{padding:26px 0 20px}
+  .day .hd{flex-wrap:wrap;gap:6px}
+  .card{padding:16px 15px}
+  .day .hd{padding:12px 15px}
+  .day .bd{padding:4px 15px 14px}
+  .row .k{flex:0 0 40px}
+  .tscroll{overflow:visible}
+  .tscroll table{min-width:0;display:block}
+  .tscroll table tr:first-child{display:none}
+  .tscroll table tr{display:block;background:#fff;border:1px solid var(--line);border-radius:10px;padding:4px 13px 8px;margin-bottom:10px}
+  .tscroll table td{display:block;border-bottom:1px dashed var(--line2);padding:7px 0;font-size:14px}
+  .tscroll table td:last-child{border-bottom:none}
+  .tscroll table td:first-child{font-weight:600;font-size:15px;border-bottom:1px solid var(--line);padding:9px 0 7px}
+  .tscroll table td:first-child::before{content:none}
+  .tscroll table td:not(:first-child)::before{content:attr(data-label);display:block;font-size:11.5px;color:var(--ink3);line-height:1.5;margin-bottom:1px}
+}
+.num{font-variant-numeric:tabular-nums}
+footer{border-top:1px solid var(--line);padding-top:20px;color:var(--ink3);font-size:12.5px;line-height:1.8}
+footer b{color:var(--ink2);font-weight:600}
+.kv{font-size:14px;color:var(--ink2)}
+.kv b{color:var(--ink);font-weight:600}
 </style>
 </head>
 <body>
 
-<header class="hero">
+<div class="hero">
   <div class="wrap">
-    <div class="kicker">Couple Trip · 江南 13 天</div>
-    <h1>武汉 · 杭州 · 乌镇 · 西塘 · 上海 双人行程手册</h1>
-    <div class="sub">2026 年 9 月 23 日 — 10 月 5 日 · 往返飞机 · 亚朵/麗枫/全季 · 近地铁 · 悠闲度假节奏 · 沿杭州向上海顺路游玩</div>
+    <h1>云南 13 日行程手册</h1>
+    <div class="sub">9 月 22 日 – 10 月 4 日 · 2 人 · 武汉出发 · 昆明 → 大理 → 丽江 → 香格里拉 → 昆明 → 抚仙湖</div>
     <div class="meta">
-      <span class="chip">🗓 <b>13 天 12 晚</b></span>
-      <span class="chip">✈️ 往返飞机</span>
-      <span class="chip">👫 双人（情侣）</span>
-      <span class="chip">🏨 亚朵/麗枫/全季 · 近地铁 ¥500上下</span>
-      <span class="chip">☕ 悠闲度假</span>
+      <span class="chip t">自由行 3 天</span>
+      <span class="chip b">跟团 7 天</span>
+      <span class="chip t">自由行 4 天</span>
+      <span class="chip a">跨中秋 9/25–27</span>
+      <span class="chip a">跨国庆 10/1–7</span>
     </div>
   </div>
-</header>
+</div>
 
-<nav class="sticky">
-  <div class="wrap inner">
-    <a href="#overview">行程总览</a>
-    <a href="#calendar">抢票日历</a>
+<nav>
+  <div class="inner">
+    <a href="#overview">总览</a>
+    <a href="#tickets">订票与预约</a>
     <a href="#days">逐日行程</a>
-    <a href="#hz">杭州</a>
-    <a href="#wz">乌镇</a>
-    <a href="#xt">西塘</a>
-    <a href="#sh">上海</a>
-    <a href="#source">数据说明</a>
+    <a href="#weather">天气与穿衣</a>
+    <a href="#cities">城市详解</a>
+    <a href="#altitude">高反</a>
+    <a href="#data">数据口径</a>
   </div>
 </nav>
 
-<!-- ============ 行程总览 ============ -->
+<div class="wrap">
+
 <section id="overview">
-  <div class="wrap">
-    <h2 class="sec"><span class="no">01</span>行程总览</h2>
-    <p class="sec-desc">一条从杭州一路向东、贴着「杭州 → 上海」方向的顺路路线，中间停乌镇、西塘两座江南古镇，节奏放慢、每天 1–2 个重点。</p>
+  <h2>行程总览</h2>
+  <p class="lead">三段结构：前 3 天自由行把昆明、大理串起来，中间 7 天交给跟团，最后 4 天回昆明并去抚仙湖收尾。全程压在两个假期上，所以票是最大的变量。</p>
 
-    <div class="route">
-      <div class="pill"><div class="city">武汉</div><div class="stamp">9/23 上午出发</div></div>
-      <span class="arrow air">✈️ →</span>
-      <div class="pill"><div class="city">杭州</div><div class="stamp">4 晚</div></div>
-      <span class="arrow">→</span>
-      <div class="pill"><div class="city">乌镇</div><div class="stamp">1 晚</div></div>
-      <span class="arrow">→</span>
-      <div class="pill"><div class="city">西塘</div><div class="stamp">1 晚</div></div>
-      <span class="arrow">→</span>
-      <div class="pill"><div class="city">上海</div><div class="stamp">6 晚</div></div>
-      <span class="arrow air">✈️ →</span>
-      <div class="pill"><div class="city">武汉</div><div class="stamp">10/5 下午返程</div></div>
+  <div class="card">
+    <h3 style="margin-top:0">路线</h3>
+    <p class="kv"><b>武汉</b> ✈ <b>昆明</b> → <b>大理</b> → <b>丽江</b>（跟团起）→ 泸沽湖 → 沙溪 → 香格里拉 → 白水台·虎跳峡 → 玉龙雪山 → 丽江（跟团散）→ <b>昆明</b> → <b>抚仙湖</b> → <b>昆明</b> ✈ <b>武汉</b></p>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0">时间分配</h3>
+    <div class="tscroll">
+    <table>
+      <tr><th>阶段</th><th>日期</th><th>天数</th><th>内容</th></tr>
+      <tr><td data-label="阶段">自由行 ①</td><td class="num" data-label="日期">9/22 – 9/24</td><td data-label="天数">3 天</td><td data-label="内容">武汉 → 昆明（石林）→ 大理</td></tr>
+      <tr><td data-label="阶段">跟团</td><td class="num" data-label="日期">9/25 – 10/1</td><td data-label="天数">7 天</td><td data-label="内容">丽江出发：泸沽湖 / 沙溪 / 香格里拉 / 白水台·虎跳峡 / 玉龙雪山</td></tr>
+      <tr><td data-label="阶段">自由行 ②</td><td class="num" data-label="日期">10/1 – 10/4</td><td data-label="天数">4 天</td><td data-label="内容">丽江 → 昆明 → 抚仙湖 → 昆明回武汉</td></tr>
+    </table>
     </div>
+  </div>
 
-    <div class="grid cols2">
-      <div class="card">
-        <h3>🏙 停留分配</h3>
-        <table>
-          <tr><th>城市</th><th>日期</th><th>晚数</th></tr>
-          <tr><td class="tag">杭州</td><td>9/23 下午 – 9/27 上午</td><td>4 晚</td></tr>
-          <tr><td class="tag">乌镇</td><td>9/27 中午 – 9/28 午后</td><td>1 晚</td></tr>
-          <tr><td class="tag">西塘</td><td>9/28 午后 – 9/29 午后</td><td>1 晚</td></tr>
-          <tr><td class="tag">上海</td><td>9/29 午后 – 10/5 下午</td><td>6 晚</td></tr>
-        </table>
-        <p style="font-size:13px;color:var(--ink-soft);margin-top:10px">返程日 10/5 整天留给赶路，当天不安排游玩，只留上午打包 + 下午航班。</p>
-      </div>
-      <div class="card">
-        <h3>🚄 交通班次表</h3>
-        <table>
-          <tr><th>段</th><th>方式</th><th>时长</th></tr>
-          <tr><td>武汉 → 杭州</td><td>飞机（天河 WUH → 萧山 HGH）</td><td>约 1.5–2h</td></tr>
-          <tr><td>杭州 → 乌镇</td><td>高铁 杭州东→桐乡 + 打车/公交</td><td>高铁 20min + 接驳 30min</td></tr>
-          <tr><td>乌镇 → 西塘</td><td>直达大巴 / 打车</td><td>约 1h</td></tr>
-          <tr><td>西塘 → 上海</td><td>打车至嘉善南 + 高铁→虹桥</td><td>20min + 25min</td></tr>
-          <tr><td>上海 → 武汉</td><td>飞机（虹桥/浦东 → 天河 WUH）</td><td>约 1.5–2h</td></tr>
-        </table>
-        <p style="font-size:13px;color:var(--ink-soft);margin-top:10px">五段均为高频线路，无需改线；抵达/出发机场请留意「杭州萧山」与「上海虹桥 vs 浦东」是否同一机场。</p>
-      </div>
+  <div class="card">
+    <h3 style="margin-top:0">关键交通（含税 / 二等座，单程每人）</h3>
+    <div class="tscroll">
+    <table>
+      <tr><th>日期</th><th>路段</th><th>方式</th><th>耗时</th><th>参考价</th></tr>
+      <tr><td class="num" data-label="日期">9/22 晚</td><td data-label="路段">武汉 → 昆明</td><td data-label="方式">飞机</td><td data-label="耗时">约 2h15m</td><td data-label="参考价">¥308 起</td></tr>
+      <tr><td class="num" data-label="日期">9/24 上午</td><td data-label="路段">昆明 → 大理</td><td data-label="方式">动车</td><td data-label="耗时">约 2h – 2h40m</td><td data-label="参考价">¥114 – 155.5</td></tr>
+      <tr><td class="num" data-label="日期">9/25 16:35</td><td data-label="路段">大理 → 丽江</td><td data-label="方式">动车</td><td data-label="耗时">约 2h30m</td><td data-label="参考价">¥80</td></tr>
+      <tr><td class="num" data-label="日期">10/1 下午</td><td data-label="路段">丽江 → 昆明</td><td data-label="方式">飞机 / 动车</td><td data-label="耗时">约 1h / 3h30m–4h30m</td><td data-label="参考价">¥400 起 / ¥182–220</td></tr>
+      <tr><td class="num" data-label="日期">10/3</td><td data-label="路段">昆明 → 抚仙湖</td><td data-label="方式">大巴 / 直通车</td><td data-label="耗时">约 1h – 1h30m</td><td data-label="参考价">¥20 – 70</td></tr>
+      <tr><td class="num" data-label="日期">10/4</td><td data-label="路段">昆明 → 武汉</td><td data-label="方式">飞机</td><td data-label="耗时">约 2h15m</td><td data-label="参考价">¥450 起</td></tr>
+    </table>
     </div>
-
-    <div class="note">⚠️ <b>假期提示</b>：行程横跨两个假期——<b>中秋</b>（9/25–9/27，杭州段人流偏大）与<b>国庆</b>（10/1–10/7，上海段为全年峰值）。9/23–9/24 出发与灵隐段落在节前工作日，属错峰好窗口；乌镇、西塘（9/27–9/29）恰好卡在双节之间，属相对错峰段。</div>
+    <div class="bx tip"><b>看清楚发车站：</b>昆明站在市中心，昆明南站在呈贡（进城还要 1 小时）。去大理的动车两个站都有车，买票时务必核对站名。</div>
   </div>
 </section>
 
-<!-- ============ 抢票日历 ============ -->
-<section id="calendar">
-  <div class="wrap">
-    <h2 class="sec"><span class="no">02</span>抢票 / 订房日历</h2>
-    <p class="sec-desc">火车票预售期 15 天，倒推开售日；国庆机票越早越便宜，返程 10/5 尽早锁定。</p>
-    <div class="grid cols2">
-      <div class="card">
-        <h3>🎫 车票开售日（预售 15 天）</h3>
-        <div class="calrow"><span class="k">9/27 杭州东 → 桐乡（高铁）</span><span class="v hot">9/12 开售</span></div>
-        <div class="calrow"><span class="k">9/29 嘉善南 → 上海虹桥（高铁）</span><span class="v hot">9/14 开售</span></div>
-        <p style="font-size:13px;color:var(--ink-soft);margin-top:8px">杭州↔乌镇、西塘↔上海这两段高铁建议开售当天抢，尤其是 9/27 中秋假期内班次。</p>
-      </div>
-      <div class="card">
-        <h3>✈️ 机票 · 🏨 酒店</h3>
-        <div class="calrow"><span class="k">9/23 武汉→杭州 去程机票</span><span class="v hot">立即买</span></div>
-        <div class="calrow"><span class="k">10/5 上海→武汉 返程机票</span><span class="v hot">立即买</span></div>
-        <div class="calrow"><span class="k">乌镇/西塘 亚朵·全季门店</span><span class="v">提前 1–2 周订</span></div>
-        <div class="calrow"><span class="k">上海国庆酒店（10/1–10/5）</span><span class="v hot">现在订</span></div>
-        <p style="font-size:13px;color:var(--ink-soft);margin-top:8px">国庆黄金周酒店与返程机票是全年最紧俏资源，建议今天起就锁定可退改的房间与机票。</p>
-      </div>
-    </div>
+<section id="tickets">
+  <h2>订票与预约</h2>
+  <p class="lead">铁路 12306 预售期是 15 天。你们这趟的首尾正好压在两个假期的第一天，卖票和预约都要提前卡点。</p>
+
+  <div class="bx warn">
+    <b>最紧的两件，建议今天就办：</b><br>
+    ① 10/4 昆明 → 武汉机票，现在 ¥450 起；再往后一天一个价 —— 10/5 ¥600、10/6 ¥800、10/7 ¥980。<br>
+    ② 9/22 武汉 → 昆明机票 ¥308 起（9/30 同航线涨到 ¥780）。<br>
+    10/1 丽江 → 昆明：直接买机票（¥400 起、约 1 小时），散团当天省下 3 小时。
   </div>
+
+  <div class="tscroll">
+  <table>
+    <tr><th>开售 / 购买时间</th><th>要买什么</th><th>方式</th><th>说明</th></tr>
+    <tr><td data-label="开售 / 购买时间">现在</td><td data-label="要买什么">9/22 武汉 → 昆明</td><td data-label="方式">机票</td><td data-label="说明">¥308 起，低谷价</td></tr>
+    <tr><td data-label="开售 / 购买时间">现在</td><td data-label="要买什么">10/4 昆明 → 武汉</td><td data-label="方式">机票</td><td data-label="说明">¥450 起，越晚越贵</td></tr>
+    <tr><td data-label="开售 / 购买时间">现在</td><td data-label="要买什么">9/24 昆明 → 大理、9/25 大理 → 丽江</td><td data-label="方式">动车</td><td data-label="说明">已过 15 天窗口，可正常购买</td></tr>
+    <tr><td data-label="开售 / 购买时间">9/17（周四）</td><td data-label="要买什么">10/1 丽江 → 昆明</td><td data-label="方式">动车</td><td data-label="说明">国庆首日，放票即抢；也可直接买当天机票</td></tr>
+    <tr><td data-label="开售 / 购买时间">9/20（周日）</td><td data-label="要买什么">10/4 昆明 → 武汉</td><td data-label="方式">火车</td><td data-label="说明">若改坐火车，这天开售</td></tr>
+  </table>
+  </div>
+
+  <div class="bx info"><b>没抢到怎么办：</b>12306 候补购票最多可设 60 个「日期 + 车次」组合；直达票售罄时优先看 12306 推荐的同车接续 / 中转换乘方案。</div>
+
+  <h3>机票价格走势（含税起价）</h3>
+  <p class="kv">查询于 2026-09-16，携程移动端比价页。去哪儿同日报价基本一致（9/22 携程 ¥308 / 去哪儿 ¥320）。<b>注意：这个「起价」本身是实时变动的</b> —— 同一天上午查 9/25 显示 ¥590，一小时后变成 ¥470。下单时以你看到的为准。</p>
+
+  <p class="kv" style="margin-top:14px"><b>武汉 → 昆明</b><span class="tag t">去程方向</span></p>
+  <p class="kv num">9/16 ¥400 · 9/17 ¥370 · 9/18 ¥280 · 9/19 ¥290 · 9/20 ¥328 · 9/21 ¥298 · <b>9/22 ¥308 ← 你的出发日</b> · 9/23 ¥370 · 9/24 ¥480 · 9/25 ¥470 · 9/26 ¥450 · 9/27 ¥446 · 9/28 ¥430 · 9/29 ¥400 · <b>9/30 ¥780</b> · <b>10/1 ¥610</b> · 10/2 ¥520 · 10/3 ¥450 · 10/4 ¥350 · 10/5 ¥360 · 10/6 ¥470 · 10/7 ¥450 · 10/8 ¥360 · 10/9 ¥398 · 10/10 ¥380 · <b>10/11 ¥330</b> · 10/13–10/15 ¥330 · 10/16 ¥360</p>
+
+  <p class="kv" style="margin-top:14px"><b>昆明 → 武汉</b><span class="tag t">返程方向</span></p>
+  <p class="kv num">9/19 ¥350 · 9/20–9/22 ¥400 · 9/23 ¥350 · 9/24–9/25 ¥400 · 9/26 ¥350 · 9/27 ¥380 · 9/28 ¥400 · 9/29–9/30 ¥420 · <b>10/1 ¥600</b> · 10/2 ¥450 · 10/3 ¥420 · <b>10/4 ¥450 ← 你的返程日</b> · <b>10/5 ¥600</b> · <b>10/6 ¥800</b> · <b>10/7 ¥980</b> · 10/8 ¥600 · 10/9 ¥330 · 10/10 ¥320 · <b>10/11 ¥300</b> · 10/12–10/14 ¥398–400 · 10/15 ¥370 · 10/16–10/19 ¥398–400</p>
+
+  <div class="bx ok"><b>结论：两张都现在买，不用再等。</b><br>
+    去程 9/22 的 ¥308 已在 9/16–9/29 区间的低位（只高于 9/18 的 ¥280 和 9/19 的 ¥290），距起飞只剩 6 天。返程 10/4 的 ¥450 是 10/1–10/7 里最便宜的一天，之后一路涨到 10/7 的 ¥980 —— 节后 10/11 才回落到 ¥300 档，但那已经超出你们的行程。<br>
+    节假日航线没有「再等等会更低」这回事，越接近起飞只会越贵；唯一的变量是余票，而国庆返程班次售罄后只会剩高价舱。
+  </div>
+
+  <div class="bx info"><b>想查这两个航班的历史成交价，得进 App：</b><br>
+    · <b>航旅纵横</b>：据公开介绍，输入具体日期 + 航班号，可查该航班<b>近 30 天的价格波动区间</b>（民航局数据接口）—— 这是最贴近你需求的功能。<br>
+    · <b>去哪儿 App</b>：航线级「历史价格查询」，可看过去 30 天的价格变动曲线。<br>
+    · <b>南航 / 东航官方 App</b>：如果这张票你已经买过，订单历史里能调出你自己的成交价与税费明细。<br>
+    这几个都要登录，公开网页渠道拿不到历史票价 —— 所以上面给你的是<b>未来一个月的价格曲线</b>，它才是能公开验证的那份。
+  </div>
+
+  <h3>需要提前预约的项</h3>
+  <p class="kv">假期里这几个是「没约到就进不去」，跟买票是两回事，别混在一起。</p>
+  <div class="tscroll">
+  <table>
+    <tr><th>项目</th><th>何时约</th><th>渠道</th><th>备注</th></tr>
+    <tr>
+      <td>云南省博物馆</td>
+      <td data-label="何时约">提前 1–3 天；国庆建议再早</td>
+      <td data-label="渠道">微信小程序「数字云博」／支付宝「云南省博物馆」</td>
+      <td data-label="备注">免费，严格实名预约。线上显示「已满」= 当天名额全满，现场也不能再约</td>
+    </tr>
+    <tr>
+      <td>石林风景区门票</td>
+      <td data-label="何时约">提前 1–2 天线上购</td>
+      <td data-label="渠道">官方渠道／携程同程</td>
+      <td data-label="备注">国庆热门，可能售罄</td>
+    </tr>
+    <tr>
+      <td>玉溪 A 级景区（禄充等）</td>
+      <td data-label="何时约">提前 7 天</td>
+      <td data-label="渠道">「一部手机游云南」／「玉溪文旅通」</td>
+      <td data-label="备注">分时预约 + 动态限流</td>
+    </tr>
+    <tr>
+      <td>澄江化石地博物馆</td>
+      <td data-label="何时约">提前线上预约</td>
+      <td data-label="渠道">官方渠道</td>
+      <td data-label="备注">免费，周一闭馆</td>
+    </tr>
+    <tr>
+      <td>玉龙雪山冰川公园大索道</td>
+      <td data-label="何时约">想升级才需要</td>
+      <td data-label="渠道">官方渠道</td>
+      <td data-label="备注">跟团含的是云杉坪索道；大索道旺季难抢</td>
+    </tr>
+  </table>
+  </div>
+  <div class="bx warn"><b>别买「含预约名额」的票：</b>云南省博物馆已明确说明，凡声称「无需预约」或「含预约名额」的第三方票务均为虚假宣传。只走官方渠道。</div>
 </section>
 
-<!-- ============ 逐日行程 ============ -->
 <section id="days">
-  <div class="wrap">
-    <h2 class="sec"><span class="no">03</span>逐日行程</h2>
-    <p class="sec-desc">悠闲度假节奏：每天 1–2 个重点，其余留白。蓝色为「转场日」。</p>
+  <h2>逐日行程</h2>
+  <p class="lead">自由行段是我给的具体安排，跟团段按你们提供的团行程展开并补上了避坑提醒。返程日 10/4 不排景点。</p>
 
-    <div class="day">
-      <div class="dhead"><span class="ddate">Day 1 · 9/23（周三）</span><span class="dlabel">武汉 → 杭州</span></div>
-      <div class="seg"><div class="t">上午</div><p>武汉天河机场乘机飞杭州，中午抵达萧山机场。</p></div>
-      <div class="seg"><div class="t">中午</div><p>机场地铁/打车进市区，入住西湖湖滨/龙翔桥的全季或亚朵（近地铁，放行李）。</p></div>
-      <div class="seg"><div class="t">下午</div><p>西湖漫步：<a class="xhs" href="xhsdiscover://search/result?keyword=%E6%96%AD%E6%A1%A5%E6%AE%8B%E9%9B%AA" data-web="https://www.xiaohongshu.com/search_result?keyword=%E6%96%AD%E6%A1%A5%E6%AE%8B%E9%9B%AA" target="_blank" rel="noopener" title="在小红书搜索「断桥残雪」">断桥残雪 <span class="mag">🔍</span></a> → <a class="xhs" href="xhsdiscover://search/result?keyword=%E7%99%BD%E5%A0%A4" data-web="https://www.xiaohongshu.com/search_result?keyword=%E7%99%BD%E5%A0%A4" target="_blank" rel="noopener" title="在小红书搜索「白堤」">白堤 <span class="mag">🔍</span></a> → <a class="xhs" href="xhsdiscover://search/result?keyword=%E5%B9%B3%E6%B9%96%E7%A7%8B%E6%9C%88" data-web="https://www.xiaohongshu.com/search_result?keyword=%E5%B9%B3%E6%B9%96%E7%A7%8B%E6%9C%88" target="_blank" rel="noopener" title="在小红书搜索「平湖秋月」">平湖秋月 <span class="mag">🔍</span></a>，傍晚到<b><a class="xhs" href="xhsdiscover://search/result?keyword=%E9%95%BF%E6%A1%A5%E5%85%AC%E5%9B%AD" data-web="https://www.xiaohongshu.com/search_result?keyword=%E9%95%BF%E6%A1%A5%E5%85%AC%E5%9B%AD" target="_blank" rel="noopener" title="在小红书搜索「长桥公园」">长桥公园 <span class="mag">🔍</span></a></b>看「<a class="xhs" href="xhsdiscover://search/result?keyword=%E9%9B%B7%E5%B3%B0%E5%A4%95%E7%85%A7" data-web="https://www.xiaohongshu.com/search_result?keyword=%E9%9B%B7%E5%B3%B0%E5%A4%95%E7%85%A7" target="_blank" rel="noopener" title="在小红书搜索「雷峰夕照」">雷峰夕照 <span class="mag">🔍</span></a>」。</p></div>
-      <div class="seg"><div class="t">晚上</div><p>湖滨商圈晚餐，看<a class="xhs" href="xhsdiscover://search/result?keyword=%E8%A5%BF%E6%B9%96%E9%9F%B3%E4%B9%90%E5%96%B7%E6%B3%89" data-web="https://www.xiaohongshu.com/search_result?keyword=%E8%A5%BF%E6%B9%96%E9%9F%B3%E4%B9%90%E5%96%B7%E6%B3%89" target="_blank" rel="noopener" title="在小红书搜索「西湖音乐喷泉」">西湖音乐喷泉 <span class="mag">🔍</span></a>（需公众号预约）。<span class="tip">tip：1314 路公交、孤山路光影都是出片点。</span></p></div>
+  <div class="day free">
+    <div class="hd"><span class="dt">9/22 周二</span><span class="ttl">武汉 ✈ 昆明<span class="tag t">自由行</span></span></div>
+    <div class="bd">
+      <div class="row"><div class="k">晚上</div><div class="v">武汉天河 ✈ 昆明长水，约 2h15m。含税起价 ¥308/人。</div></div>
+      <div class="row"><div class="k">接驳</div><div class="v">长水机场 → 市区：地铁 6 号线转 1/2 号线约 50–65 分钟；空港快线火车站专线 ¥25、约 40–70 分钟（8:00–次日 2:00）。</div></div>
+      <div class="row"><div class="k">住宿</div><div class="v">昆明市区，建议南屏街 / 翠湖一带 —— 次日上午去昆明站、昆明南站都不绕。</div></div>
+      <div class="row"><div class="k">提醒</div><div class="v">昆明海拔约 1890m，多数人无明显反应。但落地当天别熬夜、别剧烈活动，为后面一路爬升留体力。</div></div>
     </div>
-
-    <div class="day">
-      <div class="dhead"><span class="ddate">Day 2 · 9/24（周四）</span><span class="holiday">节前错峰日</span></div>
-      <div class="seg"><div class="t">上午</div><p><b><a class="xhs" href="xhsdiscover://search/result?keyword=%E7%81%B5%E9%9A%90%E5%AF%BA" data-web="https://www.xiaohongshu.com/search_result?keyword=%E7%81%B5%E9%9A%90%E5%AF%BA" target="_blank" rel="noopener" title="在小红书搜索「灵隐寺」">灵隐寺 <span class="mag">🔍</span></a> + <a class="xhs" href="xhsdiscover://search/result?keyword=%E9%A3%9E%E6%9D%A5%E5%B3%B0" data-web="https://www.xiaohongshu.com/search_result?keyword=%E9%A3%9E%E6%9D%A5%E5%B3%B0" target="_blank" rel="noopener" title="在小红书搜索「飞来峰」">飞来峰 <span class="mag">🔍</span></a></b>（节前工作日人少，提前 1 天在小程序预约，香花券 30 元）。</p></div>
-      <div class="seg"><div class="t">中午</div><p>市区午餐，稍作休息。</p></div>
-      <div class="seg"><div class="t">下午</div><p><b><a class="xhs" href="xhsdiscover://search/result?keyword=%E9%BE%99%E4%BA%95%E8%8C%B6%E5%9B%AD" data-web="https://www.xiaohongshu.com/search_result?keyword=%E9%BE%99%E4%BA%95%E8%8C%B6%E5%9B%AD" target="_blank" rel="noopener" title="在小红书搜索「龙井茶园」">龙井茶园 <span class="mag">🔍</span></a> + <a class="xhs" href="xhsdiscover://search/result?keyword=%E4%B9%9D%E6%BA%AA%E7%83%9F%E6%A0%91" data-web="https://www.xiaohongshu.com/search_result?keyword=%E4%B9%9D%E6%BA%AA%E7%83%9F%E6%A0%91" target="_blank" rel="noopener" title="在小红书搜索「九溪烟树」">九溪烟树 <span class="mag">🔍</span></a></b>溪谷徒步，清幽松弛、免费，避假期人流。</p></div>
-      <div class="seg"><div class="t">晚上</div><p><a class="xhs" href="xhsdiscover://search/result?keyword=%E6%B2%B3%E5%9D%8A%E8%A1%97" data-web="https://www.xiaohongshu.com/search_result?keyword=%E6%B2%B3%E5%9D%8A%E8%A1%97" target="_blank" rel="noopener" title="在小红书搜索「河坊街」">河坊街 <span class="mag">🔍</span></a>/<a class="xhs" href="xhsdiscover://search/result?keyword=%E5%8D%97%E5%AE%8B%E5%BE%A1%E8%A1%97" data-web="https://www.xiaohongshu.com/search_result?keyword=%E5%8D%97%E5%AE%8B%E5%BE%A1%E8%A1%97" target="_blank" rel="noopener" title="在小红书搜索「南宋御街」">南宋御街 <span class="mag">🔍</span></a>逛吃，或订一顿特色杭帮菜（人均 ¥200 内）。</p></div>
-    </div>
-
-    <div class="day">
-      <div class="dhead"><span class="ddate">Day 3 · 9/25（周五）</span><span class="holiday">中秋假期</span></div>
-      <div class="seg"><div class="t">上午</div><p>睡到自然醒，<b><a class="xhs" href="xhsdiscover://search/result?keyword=%E8%8A%B1%E6%B8%AF%E8%A7%82%E9%B1%BC" data-web="https://www.xiaohongshu.com/search_result?keyword=%E8%8A%B1%E6%B8%AF%E8%A7%82%E9%B1%BC" target="_blank" rel="noopener" title="在小红书搜索「花港观鱼」">花港观鱼 <span class="mag">🔍</span></a> + <a class="xhs" href="xhsdiscover://search/result?keyword=%E8%8B%8F%E5%A0%A4" data-web="https://www.xiaohongshu.com/search_result?keyword=%E8%8B%8F%E5%A0%A4" target="_blank" rel="noopener" title="在小红书搜索「苏堤」">苏堤 <span class="mag">🔍</span></a></b>，顺路 <b><a class="xhs" href="xhsdiscover://search/result?keyword=%E5%87%80%E6%85%88%E5%AF%BA" data-web="https://www.xiaohongshu.com/search_result?keyword=%E5%87%80%E6%85%88%E5%AF%BA" target="_blank" rel="noopener" title="在小红书搜索「净慈寺」">净慈寺 <span class="mag">🔍</span></a></b>（10 元，拍雷峰塔最佳机位）。</p></div>
-      <div class="seg"><div class="t">中午</div><p>湖畔午餐。</p></div>
-      <div class="seg"><div class="t">下午</div><p>湖景下午茶，或逛街购物。</p></div>
-      <div class="seg"><div class="t">晚上</div><p>可选《<a class="xhs" href="xhsdiscover://search/result?keyword=%E5%8D%B0%E8%B1%A1%E8%A5%BF%E6%B9%96" data-web="https://www.xiaohongshu.com/search_result?keyword=%E5%8D%B0%E8%B1%A1%E8%A5%BF%E6%B9%96" target="_blank" rel="noopener" title="在小红书搜索「印象西湖」">印象西湖 <span class="mag">🔍</span></a>》实景演出，或西湖边夜景散步。</p></div>
-    </div>
-
-        <div class="day">
-      <div class="dhead"><span class="ddate">Day 4 · 9/26（周六）</span><span class="holiday">中秋假期</span></div>
-      <div class="seg"><div class="t">上午</div><p><b>京杭大运河 Citywalk</b>：<a class="xhs" href="xhsdiscover://search/result?keyword=%E6%8B%B1%E5%AE%B8%E6%A1%A5" data-web="https://www.xiaohongshu.com/search_result?keyword=%E6%8B%B1%E5%AE%B8%E6%A1%A5" target="_blank" rel="noopener" title="在小红书搜索「拱宸桥」">拱宸桥 <span class="mag">🔍</span></a> → 桥西历史文化街区 → <a class="xhs" href="xhsdiscover://search/result?keyword=%E5%B0%8F%E6%B2%B3%E7%9B%B4%E8%A1%97" data-web="https://www.xiaohongshu.com/search_result?keyword=%E5%B0%8F%E6%B2%B3%E7%9B%B4%E8%A1%97" target="_blank" rel="noopener" title="在小红书搜索「小河直街」">小河直街 <span class="mag">🔍</span></a>，运河边咖啡馆慢坐，比西湖核心松弛得多。<span class="tip">tip：中秋假期西湖核心人流峰值在午后，运河段客流量小一档。</span></p></div>
-      <div class="seg"><div class="t">中午</div><p>大兜路历史街区沿河餐厅午餐（人均 ¥200 内很宽裕）。</p></div>
-      <div class="seg"><div class="t">下午</div><p>回酒店午休或湖边闲逛，晚间再出动。</p></div>
-      <div class="seg"><div class="t">晚上</div><p><a class="xhs" href="xhsdiscover://search/result?keyword=%E8%BF%90%E6%B2%B3%E5%A4%9C%E6%B8%B8" data-web="https://www.xiaohongshu.com/search_result?keyword=%E8%BF%90%E6%B2%B3%E5%A4%9C%E6%B8%B8" target="_blank" rel="noopener" title="在小红书搜索「运河夜游」">运河夜游 <span class="mag">🔍</span></a>漕舫船看亮灯拱宸桥（码头与班次以现场为准），或 <a class="xhs" href="xhsdiscover://search/result?keyword=%E6%AD%A6%E6%9E%97%E5%A4%9C%E5%B8%82" data-web="https://www.xiaohongshu.com/search_result?keyword=%E6%AD%A6%E6%9E%97%E5%A4%9C%E5%B8%82" target="_blank" rel="noopener" title="在小红书搜索「武林夜市」">武林夜市 <span class="mag">🔍</span></a>逛吃收尾。</p></div>
-    </div>
-
-    <div class="day transfer">
-      <div class="dhead"><span class="ddate">Day 5 · 9/27（周日）</span><span class="holiday">中秋假期</span><span class="dlabel">杭州 → 乌镇</span></div>
-      <div class="seg"><div class="t">上午</div><p>睡到自然醒，打包退房。</p></div>
-      <div class="seg"><div class="t">中午</div><p>杭州东 → 桐乡高铁（约 20min），打车直达乌镇（桐乡站约 30min、¥30–40，带行李比公交省力），入住新华南路亚朵放下行李（近东栅/<a class="xhs" href="xhsdiscover://search/result?keyword=%E4%B9%8C%E9%95%87%E8%A5%BF%E6%A0%85" data-web="https://www.xiaohongshu.com/search_result?keyword=%E4%B9%8C%E9%95%87%E8%A5%BF%E6%A0%85" target="_blank" rel="noopener" title="在小红书搜索「乌镇西栅」">西栅 <span class="mag">🔍</span></a>）。</p></div>
-      <div class="seg"><div class="t">下午</div><p>先在酒店附近吃午饭，稍作休整，下午 3 点前后进<b><a class="xhs" href="xhsdiscover://search/result?keyword=%E4%B9%8C%E9%95%87%E8%A5%BF%E6%A0%85" data-web="https://www.xiaohongshu.com/search_result?keyword=%E4%B9%8C%E9%95%87%E8%A5%BF%E6%A0%85" target="_blank" rel="noopener" title="在小红书搜索「乌镇西栅」">西栅 <span class="mag">🔍</span></a></b>，看白天到夜晚的过渡。</p></div>
-      <div class="seg"><div class="t">晚上</div><p><a class="xhs" href="xhsdiscover://search/result?keyword=%E4%B9%8C%E9%95%87%E8%A5%BF%E6%A0%85" data-web="https://www.xiaohongshu.com/search_result?keyword=%E4%B9%8C%E9%95%87%E8%A5%BF%E6%A0%85" target="_blank" rel="noopener" title="在小红书搜索「乌镇西栅」">西栅 <span class="mag">🔍</span></a>夜景：<a class="xhs" href="xhsdiscover://search/result?keyword=%E4%B9%8C%E9%95%87%E9%80%9A%E5%AE%89%E6%A1%A5" data-web="https://www.xiaohongshu.com/search_result?keyword=%E4%B9%8C%E9%95%87%E9%80%9A%E5%AE%89%E6%A1%A5" target="_blank" rel="noopener" title="在小红书搜索「乌镇通安桥」">通安桥 <span class="mag">🔍</span></a>、<a class="xhs" href="xhsdiscover://search/result?keyword=%E4%B9%8C%E9%95%87%E5%AE%9A%E5%8D%87%E6%A1%A5" data-web="https://www.xiaohongshu.com/search_result?keyword=%E4%B9%8C%E9%95%87%E5%AE%9A%E5%8D%87%E6%A1%A5" target="_blank" rel="noopener" title="在小红书搜索「乌镇定升桥」">定升桥 <span class="mag">🔍</span></a>、<a class="xhs" href="xhsdiscover://search/result?keyword=%E4%B9%8C%E9%95%87%E7%99%BD%E8%8E%B2%E5%A1%94" data-web="https://www.xiaohongshu.com/search_result?keyword=%E4%B9%8C%E9%95%87%E7%99%BD%E8%8E%B2%E5%A1%94" target="_blank" rel="noopener" title="在小红书搜索「乌镇白莲塔」">白莲塔 <span class="mag">🔍</span></a>，乘官方摇橹船赏灯。</p></div>
-    </div>
-
-    <div class="day transfer">
-      <div class="dhead"><span class="ddate">Day 6 · 9/28（周一）</span><span class="dlabel">乌镇 → 西塘</span></div>
-      <div class="seg"><div class="t">上午</div><p>睡到自然醒，打包退房，打车直达西塘（约 1h、¥100 上下；不想打车也可乘乌镇—西塘直达大巴）。<span class="tip">tip：西栅门票当日有效，次日重进需另购票，第二上午不回西栅、直接转场更划算。</span></p></div>
-      <div class="seg"><div class="t">中午</div><p>抵达西塘，先在全季（嘉善西塘古镇店）前台寄存行李，古镇里解决午餐。</p></div>
-      <div class="seg"><div class="t">下午</div><p>办理入住、放下行李后轻装慢逛：<a class="xhs" href="xhsdiscover://search/result?keyword=%E8%A5%BF%E5%A1%98%E7%83%9F%E9%9B%A8%E9%95%BF%E5%BB%8A" data-web="https://www.xiaohongshu.com/search_result?keyword=%E8%A5%BF%E5%A1%98%E7%83%9F%E9%9B%A8%E9%95%BF%E5%BB%8A" target="_blank" rel="noopener" title="在小红书搜索「西塘烟雨长廊」">烟雨长廊 <span class="mag">🔍</span></a>、<a class="xhs" href="xhsdiscover://search/result?keyword=%E8%A5%BF%E5%A1%98%E7%9F%B3%E7%9A%AE%E5%BC%84" data-web="https://www.xiaohongshu.com/search_result?keyword=%E8%A5%BF%E5%A1%98%E7%9F%B3%E7%9A%AE%E5%BC%84" target="_blank" rel="noopener" title="在小红书搜索「西塘石皮弄」">石皮弄 <span class="mag">🔍</span></a>、<a class="xhs" href="xhsdiscover://search/result?keyword=%E8%A5%BF%E5%A1%98%E9%80%81%E5%AD%90%E6%9D%A5%E5%87%A4%E6%A1%A5" data-web="https://www.xiaohongshu.com/search_result?keyword=%E8%A5%BF%E5%A1%98%E9%80%81%E5%AD%90%E6%9D%A5%E5%87%A4%E6%A1%A5" target="_blank" rel="noopener" title="在小红书搜索「西塘送子来凤桥」">送子来凤桥 <span class="mag">🔍</span></a>。</p></div>
-      <div class="seg"><div class="t">晚上</div><p>西塘夜景（<a class="xhs" href="xhsdiscover://search/result?keyword=%E8%A5%BF%E5%A1%98%E6%B0%B8%E5%AE%81%E6%A1%A5" data-web="https://www.xiaohongshu.com/search_result?keyword=%E8%A5%BF%E5%A1%98%E6%B0%B8%E5%AE%81%E6%A1%A5" target="_blank" rel="noopener" title="在小红书搜索「西塘永宁桥」">永宁桥 <span class="mag">🔍</span></a>、<a class="xhs" href="xhsdiscover://search/result?keyword=%E8%A5%BF%E5%A1%98%E7%8E%AF%E7%A7%80%E6%A1%A5" data-web="https://www.xiaohongshu.com/search_result?keyword=%E8%A5%BF%E5%A1%98%E7%8E%AF%E7%A7%80%E6%A1%A5" target="_blank" rel="noopener" title="在小红书搜索「西塘环秀桥」">环秀桥 <span class="mag">🔍</span></a>），乘夜游摇橹船。</p></div>
-    </div>
-
-    <div class="day transfer">
-      <div class="dhead"><span class="ddate">Day 7 · 9/29（周二）</span><span class="dlabel">西塘 → 上海</span></div>
-      <div class="seg"><div class="t">上午</div><p>西塘晨景慢逛，拍静谧水巷。</p></div>
-      <div class="seg"><div class="t">中午</div><p>退房，打车至嘉善南站 + 高铁嘉善南 → 上海虹桥（约 25min），入住人民广场/<a class="xhs" href="xhsdiscover://search/result?keyword=%E9%9D%99%E5%AE%89%E5%AF%BA" data-web="https://www.xiaohongshu.com/search_result?keyword=%E9%9D%99%E5%AE%89%E5%AF%BA" target="_blank" rel="noopener" title="在小红书搜索「静安寺」">静安寺 <span class="mag">🔍</span></a>的全季或亚朵（近地铁）。</p></div>
-      <div class="seg"><div class="t">傍晚</div><p><b><a class="xhs" href="xhsdiscover://search/result?keyword=%E4%B8%8A%E6%B5%B7%E5%A4%96%E6%BB%A9" data-web="https://www.xiaohongshu.com/search_result?keyword=%E4%B8%8A%E6%B5%B7%E5%A4%96%E6%BB%A9" target="_blank" rel="noopener" title="在小红书搜索「上海外滩」">外滩 <span class="mag">🔍</span></a></b>（18:00 亮灯），走<a class="xhs" href="xhsdiscover://search/result?keyword=%E5%A4%96%E7%99%BD%E6%B8%A1%E6%A1%A5" data-web="https://www.xiaohongshu.com/search_result?keyword=%E5%A4%96%E7%99%BD%E6%B8%A1%E6%A1%A5" target="_blank" rel="noopener" title="在小红书搜索「外白渡桥」">外白渡桥 <span class="mag">🔍</span></a>/<a class="xhs" href="xhsdiscover://search/result?keyword=%E5%8C%97%E5%A4%96%E6%BB%A9" data-web="https://www.xiaohongshu.com/search_result?keyword=%E5%8C%97%E5%A4%96%E6%BB%A9" target="_blank" rel="noopener" title="在小红书搜索「北外滩」">北外滩 <span class="mag">🔍</span></a>，人少景同。</p></div>
-      <div class="seg"><div class="t">晚上</div><p><a class="xhs" href="xhsdiscover://search/result?keyword=%E4%B8%8A%E6%B5%B7%E5%A4%96%E6%BB%A9" data-web="https://www.xiaohongshu.com/search_result?keyword=%E4%B8%8A%E6%B5%B7%E5%A4%96%E6%BB%A9" target="_blank" rel="noopener" title="在小红书搜索「上海外滩」">外滩 <span class="mag">🔍</span></a>夜景 + <a class="xhs" href="xhsdiscover://search/result?keyword=%E9%BB%84%E6%B5%A6%E6%B1%9F%E6%B8%B8%E8%88%B9" data-web="https://www.xiaohongshu.com/search_result?keyword=%E9%BB%84%E6%B5%A6%E6%B1%9F%E6%B8%B8%E8%88%B9" target="_blank" rel="noopener" title="在小红书搜索「黄浦江游船」">黄浦江游船 <span class="mag">🔍</span></a>（或 2 元东金线轮渡平替）。</p></div>
-    </div>
-
-    <div class="day">
-      <div class="dhead"><span class="ddate">Day 8 · 9/30（周三）</span></div>
-      <div class="seg"><div class="t">上午</div><p><b><a class="xhs" href="xhsdiscover://search/result?keyword=%E4%B8%8A%E6%B5%B7%E8%B1%AB%E5%9B%AD" data-web="https://www.xiaohongshu.com/search_result?keyword=%E4%B8%8A%E6%B5%B7%E8%B1%AB%E5%9B%AD" target="_blank" rel="noopener" title="在小红书搜索「上海豫园」">豫园 <span class="mag">🔍</span></a> + <a class="xhs" href="xhsdiscover://search/result?keyword=%E4%B8%8A%E6%B5%B7%E5%9F%8E%E9%9A%8D%E5%BA%99" data-web="https://www.xiaohongshu.com/search_result?keyword=%E4%B8%8A%E6%B5%B7%E5%9F%8E%E9%9A%8D%E5%BA%99" target="_blank" rel="noopener" title="在小红书搜索「上海城隍庙」">城隍庙 <span class="mag">🔍</span></a></b>（提前 1 天预约，成人 40 元），<a class="xhs" href="xhsdiscover://search/result?keyword=%E8%B1%AB%E5%9B%AD%E4%B9%9D%E6%9B%B2%E6%A1%A5" data-web="https://www.xiaohongshu.com/search_result?keyword=%E8%B1%AB%E5%9B%AD%E4%B9%9D%E6%9B%B2%E6%A1%A5" target="_blank" rel="noopener" title="在小红书搜索「豫园九曲桥」">九曲桥 <span class="mag">🔍</span></a>、<a class="xhs" href="xhsdiscover://search/result?keyword=%E8%B1%AB%E5%9B%AD%E6%B9%96%E5%BF%83%E4%BA%AD" data-web="https://www.xiaohongshu.com/search_result?keyword=%E8%B1%AB%E5%9B%AD%E6%B9%96%E5%BF%83%E4%BA%AD" target="_blank" rel="noopener" title="在小红书搜索「豫园湖心亭」">湖心亭 <span class="mag">🔍</span></a>。</p></div>
-      <div class="seg"><div class="t">中午</div><p><a class="xhs" href="xhsdiscover://search/result?keyword=%E4%B8%8A%E6%B5%B7%E5%9F%8E%E9%9A%8D%E5%BA%99" data-web="https://www.xiaohongshu.com/search_result?keyword=%E4%B8%8A%E6%B5%B7%E5%9F%8E%E9%9A%8D%E5%BA%99" target="_blank" rel="noopener" title="在小红书搜索「上海城隍庙」">城隍庙 <span class="mag">🔍</span></a>老街小吃或本帮老字号午餐。</p></div>
-      <div class="seg"><div class="t">下午</div><p><b><a class="xhs" href="xhsdiscover://search/result?keyword=%E7%94%B0%E5%AD%90%E5%9D%8A" data-web="https://www.xiaohongshu.com/search_result?keyword=%E7%94%B0%E5%AD%90%E5%9D%8A" target="_blank" rel="noopener" title="在小红书搜索「田子坊」">田子坊 <span class="mag">🔍</span></a> / <a class="xhs" href="xhsdiscover://search/result?keyword=%E4%B8%8A%E6%B5%B7%E6%96%B0%E5%A4%A9%E5%9C%B0" data-web="https://www.xiaohongshu.com/search_result?keyword=%E4%B8%8A%E6%B5%B7%E6%96%B0%E5%A4%A9%E5%9C%B0" target="_blank" rel="noopener" title="在小红书搜索「上海新天地」">新天地 <span class="mag">🔍</span></a></b>（石库门街区）。</p></div>
-      <div class="seg"><div class="t">晚上</div><p><a class="xhs" href="xhsdiscover://search/result?keyword=%E4%B8%8A%E6%B5%B7%E6%96%B0%E5%A4%A9%E5%9C%B0" data-web="https://www.xiaohongshu.com/search_result?keyword=%E4%B8%8A%E6%B5%B7%E6%96%B0%E5%A4%A9%E5%9C%B0" target="_blank" rel="noopener" title="在小红书搜索「上海新天地」">新天地 <span class="mag">🔍</span></a>夜景晚餐。</p></div>
-    </div>
-
-    <div class="day">
-      <div class="dhead"><span class="ddate">Day 9 · 10/1（周四）</span><span class="holiday">国庆</span></div>
-      <div class="seg"><div class="t">上午</div><p><b><a class="xhs" href="xhsdiscover://search/result?keyword=%E4%B8%8A%E6%B5%B7%E6%B3%95%E7%A7%9F%E7%95%8C" data-web="https://www.xiaohongshu.com/search_result?keyword=%E4%B8%8A%E6%B5%B7%E6%B3%95%E7%A7%9F%E7%95%8C" target="_blank" rel="noopener" title="在小红书搜索「上海法租界」">法租界 <span class="mag">🔍</span></a> Citywalk</b>：<a class="xhs" href="xhsdiscover://search/result?keyword=%E6%AD%A6%E5%BA%B7%E8%B7%AF" data-web="https://www.xiaohongshu.com/search_result?keyword=%E6%AD%A6%E5%BA%B7%E8%B7%AF" target="_blank" rel="noopener" title="在小红书搜索「武康路」">武康路 <span class="mag">🔍</span></a> → <a class="xhs" href="xhsdiscover://search/result?keyword=%E6%AD%A6%E5%BA%B7%E5%A4%A7%E6%A5%BC" data-web="https://www.xiaohongshu.com/search_result?keyword=%E6%AD%A6%E5%BA%B7%E5%A4%A7%E6%A5%BC" target="_blank" rel="noopener" title="在小红书搜索「武康大楼」">武康大楼 <span class="mag">🔍</span></a> → <a class="xhs" href="xhsdiscover://search/result?keyword=%E5%AE%89%E7%A6%8F%E8%B7%AF" data-web="https://www.xiaohongshu.com/search_result?keyword=%E5%AE%89%E7%A6%8F%E8%B7%AF" target="_blank" rel="noopener" title="在小红书搜索「安福路」">安福路 <span class="mag">🔍</span></a>咖啡，早晨人少出片。</p></div>
-      <div class="seg"><div class="t">中午</div><p><a class="xhs" href="xhsdiscover://search/result?keyword=%E5%AE%89%E7%A6%8F%E8%B7%AF" data-web="https://www.xiaohongshu.com/search_result?keyword=%E5%AE%89%E7%A6%8F%E8%B7%AF" target="_blank" rel="noopener" title="在小红书搜索「安福路」">安福路 <span class="mag">🔍</span></a>/进贤路小店午餐。</p></div>
-      <div class="seg"><div class="t">下午</div><p><a class="xhs" href="xhsdiscover://search/result?keyword=%E8%A1%A1%E5%B1%B1%E8%B7%AF" data-web="https://www.xiaohongshu.com/search_result?keyword=%E8%A1%A1%E5%B1%B1%E8%B7%AF" target="_blank" rel="noopener" title="在小红书搜索「衡山路」">衡山路 <span class="mag">🔍</span></a>、<a class="xhs" href="xhsdiscover://search/result?keyword=%E6%80%9D%E5%8D%97%E5%85%AC%E9%A6%86" data-web="https://www.xiaohongshu.com/search_result?keyword=%E6%80%9D%E5%8D%97%E5%85%AC%E9%A6%86" target="_blank" rel="noopener" title="在小红书搜索「思南公馆」">思南公馆 <span class="mag">🔍</span></a>慢逛。</p></div>
-      <div class="seg"><div class="t">晚上</div><p>悠闲晚餐，<a class="xhs" href="xhsdiscover://search/result?keyword=%E4%B8%8A%E6%B5%B7%E5%A4%96%E6%BB%A9" data-web="https://www.xiaohongshu.com/search_result?keyword=%E4%B8%8A%E6%B5%B7%E5%A4%96%E6%BB%A9" target="_blank" rel="noopener" title="在小红书搜索「上海外滩」">国庆首日避开外滩 <span class="mag">🔍</span></a>、南京路人流。</p></div>
-    </div>
-
-    <div class="day">
-      <div class="dhead"><span class="ddate">Day 10 · 10/2（周五）</span><span class="holiday">国庆</span></div>
-      <div class="seg"><div class="t">上午</div><p><b><a class="xhs" href="xhsdiscover://search/result?keyword=%E4%B8%8A%E6%B5%B7%E5%8D%9A%E7%89%A9%E9%A6%86" data-web="https://www.xiaohongshu.com/search_result?keyword=%E4%B8%8A%E6%B5%B7%E5%8D%9A%E7%89%A9%E9%A6%86" target="_blank" rel="noopener" title="在小红书搜索「上海博物馆」">上海博物馆 <span class="mag">🔍</span></a></b>（免费，需预约，青铜器/陶瓷馆藏强）。</p></div>
-      <div class="seg"><div class="t">中午</div><p>人民广场附近午餐。</p></div>
-      <div class="seg"><div class="t">下午</div><p><b><a class="xhs" href="xhsdiscover://search/result?keyword=%E9%99%86%E5%AE%B6%E5%98%B4" data-web="https://www.xiaohongshu.com/search_result?keyword=%E9%99%86%E5%AE%B6%E5%98%B4" target="_blank" rel="noopener" title="在小红书搜索「陆家嘴」">陆家嘴 <span class="mag">🔍</span></a></b>：<a class="xhs" href="xhsdiscover://search/result?keyword=%E4%B8%8A%E6%B5%B7%E4%B8%AD%E5%BF%83" data-web="https://www.xiaohongshu.com/search_result?keyword=%E4%B8%8A%E6%B5%B7%E4%B8%AD%E5%BF%83" target="_blank" rel="noopener" title="在小红书搜索「上海中心」">上海中心 <span class="mag">🔍</span></a>「上海之巅」118 层俯瞰（约 180 元），<a class="xhs" href="xhsdiscover://search/result?keyword=%E9%99%86%E5%AE%B6%E5%98%B4%E6%BB%A8%E6%B1%9F%E5%A4%A7%E9%81%93" data-web="https://www.xiaohongshu.com/search_result?keyword=%E9%99%86%E5%AE%B6%E5%98%B4%E6%BB%A8%E6%B1%9F%E5%A4%A7%E9%81%93" target="_blank" rel="noopener" title="在小红书搜索「陆家嘴滨江大道」">滨江大道 <span class="mag">🔍</span></a>看三件套。</p></div>
-      <div class="seg"><div class="t">晚上</div><p><a class="xhs" href="xhsdiscover://search/result?keyword=%E5%8C%97%E5%A4%96%E6%BB%A9" data-web="https://www.xiaohongshu.com/search_result?keyword=%E5%8C%97%E5%A4%96%E6%BB%A9" target="_blank" rel="noopener" title="在小红书搜索「北外滩」">北外滩 <span class="mag">🔍</span></a> / <a class="xhs" href="xhsdiscover://search/result?keyword=%E9%99%86%E5%AE%B6%E5%98%B4" data-web="https://www.xiaohongshu.com/search_result?keyword=%E9%99%86%E5%AE%B6%E5%98%B4" target="_blank" rel="noopener" title="在小红书搜索「陆家嘴」">陆家嘴 <span class="mag">🔍</span></a>夜景。</p></div>
-    </div>
-
-    <div class="day">
-      <div class="dhead"><span class="ddate">Day 11 · 10/3（周六）</span><span class="holiday">国庆</span></div>
-      <div class="seg"><div class="t">上午</div><p><b><a class="xhs" href="xhsdiscover://search/result?keyword=%E9%9D%99%E5%AE%89%E5%AF%BA" data-web="https://www.xiaohongshu.com/search_result?keyword=%E9%9D%99%E5%AE%89%E5%AF%BA" target="_blank" rel="noopener" title="在小红书搜索「静安寺」">静安寺 <span class="mag">🔍</span></a> / <a class="xhs" href="xhsdiscover://search/result?keyword=%E5%8D%97%E4%BA%AC%E8%A5%BF%E8%B7%AF" data-web="https://www.xiaohongshu.com/search_result?keyword=%E5%8D%97%E4%BA%AC%E8%A5%BF%E8%B7%AF" target="_blank" rel="noopener" title="在小红书搜索「南京西路」">南京西路 <span class="mag">🔍</span></a></b>。</p></div>
-      <div class="seg"><div class="t">中午</div><p>静安商圈午餐。</p></div>
-      <div class="seg"><div class="t">下午</div><p>文艺购物：<a class="xhs" href="xhsdiscover://search/result?keyword=%E4%B8%8A%E6%B5%B7%E5%A4%AA%E5%8F%A4%E9%87%8C" data-web="https://www.xiaohongshu.com/search_result?keyword=%E4%B8%8A%E6%B5%B7%E5%A4%AA%E5%8F%A4%E9%87%8C" target="_blank" rel="noopener" title="在小红书搜索「上海太古里」">太古里 <span class="mag">🔍</span></a>、<a class="xhs" href="xhsdiscover://search/result?keyword=%E6%80%9D%E5%8D%97%E5%85%AC%E9%A6%86" data-web="https://www.xiaohongshu.com/search_result?keyword=%E6%80%9D%E5%8D%97%E5%85%AC%E9%A6%86" target="_blank" rel="noopener" title="在小红书搜索「思南公馆」">思南公馆 <span class="mag">🔍</span></a>、<a class="xhs" href="xhsdiscover://search/result?keyword=%E5%89%8D%E6%BB%A9%E5%A4%AA%E5%8F%A4%E9%87%8C" data-web="https://www.xiaohongshu.com/search_result?keyword=%E5%89%8D%E6%BB%A9%E5%A4%AA%E5%8F%A4%E9%87%8C" target="_blank" rel="noopener" title="在小红书搜索「前滩太古里」">前滩太古里 <span class="mag">🔍</span></a>。</p></div>
-      <div class="seg"><div class="t">晚上</div><p>特色晚餐（人均 ¥200 内，可挑江景/景观位，需提前订）。</p></div>
-    </div>
-
-    <div class="day">
-      <div class="dhead"><span class="ddate">Day 12 · 10/4（周日）</span><span class="holiday">国庆</span></div>
-      <div class="seg"><div class="t">全天</div><p>自由活动 / 补漏：可逛小众街区、补购物，或悠闲下午茶。朱家角国庆大客流（瞬时超 8000 人分流），不建议去。</p></div>
-      <div class="seg"><div class="t">晚上</div><p>收拾行李，早休息。</p></div>
-    </div>
-
-    <div class="day transfer">
-      <div class="dhead"><span class="ddate">Day 13 · 10/5（周一）</span><span class="holiday">国庆</span><span class="dlabel">上海 → 武汉</span></div>
-      <div class="seg"><div class="t">上午</div><p>睡到自然醒，打包退房，酒店附近轻活动（10/5 上博闭馆，勿安排博物馆）。</p></div>
-      <div class="seg"><div class="t">下午</div><p>提前 3 小时出发去机场（虹桥近市区约 40min，浦东约 1h），乘机返回武汉。</p></div>
-    </div>
-
   </div>
-</section>
 
-<!-- ============ 杭州 ============ -->
-<section id="hz">
-  <div class="wrap">
-    <div class="citygrid">
-      
-      <div class="citydetail">
-        <h3>杭州 <span class="stay">9/23 下午 – 9/27 上午 · 4 晚</span></h3>
-        <div class="block scenic">
-          <div class="bt">必玩景点</div>
-          <ul>
-            <li><b>西湖环湖</b> — 断桥、白堤、苏堤、平湖秋月，长桥公园拍「雷峰夕照」。</li>
-            <li><b>灵隐寺 + 飞来峰</b> — 2026 起飞来峰免门票，须提前 1 天预约，香花券 30 元。</li>
-            <li><b>龙井茶园 + 九溪烟树</b> — 溪谷徒步，免费清幽，情侣悠闲首选。</li>
-            <li><b>净慈寺</b>（10 元）— 释迦殿平台拍雷峰塔最佳机位，可撞南屏晚钟。</li>
-            <li><b>京杭大运河（拱宸桥 + 桥西街区）</b> — 免费 Citywalk，运河夜游漕舫船看亮灯拱宸桥，市区松弛感之选。</li>
-          </ul>
-        </div>
-        <div class="block food">
-          <div class="bt">美食 · 人均 ¥200 内</div>
-          <ul>
-            <li><b>楼外楼</b>（孤山路 30 号）百年老字号·湖景 <span class="price">¥157–200</span> · 西湖醋鱼/东坡肉</li>
-            <li><b>知味观·味庄</b>（杨公堤）园林湖景 <span class="price">¥130</span> · G20 元首宴</li>
-            <li><b>杭州酒家</b>（延安路 205 号）性价比之王 <span class="price">¥75–150</span> · 叫花鸡/干炸响铃</li>
-            <li><b>知味观</b>（仁和路 83 号）老字号点心 <span class="price">¥80–150</span></li>
-            <li><b>奎元馆</b>（解放路 154 号）「江南面王」<span class="price">¥45–90</span> · 虾爆鳝面</li>
-          </ul>
-        </div>
-        <div class="block stay">
-          <div class="bt">住宿 · 亚朵/全季/麗枫（近地铁）</div>
-          <ul>
-            <li><b>全季酒店（杭州西湖湖滨店）</b>· 龙翔桥地铁站旁 <span class="price">¥380–480</span></li>
-            <li><b>杭州西湖湖滨延安路亚朵X酒店</b>· 近龙翔桥 <span class="price">¥438 起</span></li>
-            <li><b>杭州西湖河坊街亚朵酒店</b>（江城路 471 号）<span class="price">¥513</span></li>
-          </ul>
-          <p style="font-size:13px;color:var(--ink-soft);margin:8px 0 0">麗枫同档位门店可在预订平台按品牌筛选（具体门店未检索到确切信息）。</p>
-        </div>
-        <div class="block warn">
-          <div class="bt">避坑 · 节假日注意</div>
-          <ul>
-            <li>西湖边「免费送花」是骗局；灵隐门口高价香别买，寺内免费领 3 支。</li>
-            <li>游船只坐国营码头（手划船 150 元/船/时、摇橹 180 元/船/时），上船先扫船身二维码计时。</li>
-            <li>河坊街特产溢价 3–5 倍，选明码标价店；音乐喷泉免费但需公众号预约。</li>
-            <li>中秋假期西湖景区限行、灵隐限量区禁网约车，需换乘景区接驳。</li>
-          </ul>
-        </div>
-        <div class="xhs-hot"><div class="xh">📕 小红书实况热帖 · 杭州</div><div class="xs">真实账号实时抓取（美食/攻略/景点搜索结果，去重后按点赞 top 6）</div><div class="xh-list"><div class="xh-item"><div class="xt">除西湖，会带每个来杭州的朋友来这citywalk</div><div class="xa">@炸裂泡泡 · <b>赞 5084</b> · 藏 5748</div></div><div class="xh-item"><div class="xt">杭州西湖景点从夯到拉排名！</div><div class="xa">@高井井 · <b>赞 4322</b> · 藏 5880</div></div><div class="xh-item"><div class="xt">杭州一日游建议</div><div class="xa">@大山猫 · <b>赞 3384</b> · 藏 3064</div></div><div class="xh-item"><div class="xt">本人在杭招待外地朋友已有SOP（工作日版）</div><div class="xa">@笑笑的记事本 · <b>赞 2979</b> · 藏 3835</div></div><div class="xh-item"><div class="xt">一条鱼做成西湖醋鱼  这鱼算是白死了。</div><div class="xa">@。。。。。 · <b>赞 2621</b> · 藏 368</div></div><div class="xh-item"><div class="xt">杭州第一顿有点太好吃了😭</div><div class="xa">@失眠吐司 · <b>赞 2438</b> · 藏 2766</div></div></div></div>
-      </div>
+  <div class="day free">
+    <div class="hd"><span class="dt">9/23 周三</span><span class="ttl">昆明 · 石林整日<span class="tag t">自由行</span></span></div>
+    <div class="bd">
+      <div class="row"><div class="k">上午</div><div class="v">出发去<b>石林风景区</b>（5A、世界自然遗产）。距市区约 78km，从昆明南站坐高铁到石林西站最快。门票 ¥130 + 观光车 ¥25。</div></div>
+      <div class="row"><div class="k">下午</div><div class="v">石林精华游览约 4 小时（开放 7:30–18:00）。喀斯特石峰群 + 阿诗玛文化，是昆明唯一不可替代的看点。</div></div>
+      <div class="row"><div class="k">晚上</div><div class="v">回昆明市区。晚饭走<b>篆新农贸市场</b>（豆花米线、粉蒸肉 ¥12–20，9 点后摊位最全）或南强街夜市。</div></div>
+      <div class="row"><div class="k">备选</div><div class="v">不想跑远可换 <b>滇池海埂大坝 + 西山龙门</b>（龙门门票 ¥30，约 3 小时，地铁 3 号线「西山公园」站换景区大巴）。</div></div>
+      <div class="row"><div class="k">避坑</div><div class="v">路边 ¥99 / ¥128 的「石林 / 九乡一日游」基本是购物团，会拉去玉石、银器、茶叶店，别报。走官方直通车或高铁自由行。</div></div>
+    </div>
+  </div>
+
+  <div class="day free">
+    <div class="hd"><span class="dt">9/24 周四</span><span class="ttl">昆明 → 大理<span class="tag t">自由行</span></span></div>
+    <div class="bd">
+      <div class="row"><div class="k">上午</div><div class="v">昆明 → 大理动车，约 2–2h40m，二等座 ¥114–155.5。<b>买票先看清是昆明站还是昆明南站发车。</b></div></div>
+      <div class="row"><div class="k">中午</div><div class="v">大理站 → 古城 / 住处约 15–17km，打车 ¥30–50、30–40 分钟。</div></div>
+      <div class="row"><div class="k">下午</div><div class="v">大理古城 → <b>崇圣寺三塔</b>（门票 ¥75/人，含倒影公园）。只看外景的话在景区外围也能拍到三塔倒影，不一定要买票。</div></div>
+      <div class="row"><div class="k">傍晚</div><div class="v">洱海西线南段：<b>才村 → 龙龛码头 → 磻溪 S 湾</b>，骑行 + 看日落。西线是田园湖景，机动车进不了生态廊道。</div></div>
+      <div class="row"><div class="k">住宿</div><div class="v">住<b>大理古城或才村</b>。古城吃饭方便、价位 ¥100–150/晚；才村近廊道、海景人均 ¥100–150，但餐饮少。双廊太远（离古城约 50km），这次不推荐。</div></div>
+      <div class="row"><div class="k">交通</div><div class="v">环海电动车 ¥50–80/天（两人首选）；生态廊道观光车单站 ¥10、磻溪–海舌往返 ¥60；环海巴士 1 日卡 ¥98。</div></div>
+    </div>
+  </div>
+
+  <div class="day free">
+    <div class="hd"><span class="dt">9/25 周五</span><span class="ttl">大理 → 丽江<span class="tag a">中秋首日</span></span></div>
+    <div class="bd">
+      <div class="row"><div class="k">上午</div><div class="v"><b>喜洲古镇</b>（转角楼、四方街、喜洲粑粑）→ <b>海舌公园</b>。这两处都在西线北段，离大理站方向顺路。</div></div>
+      <div class="row"><div class="k">中午</div><div class="v">12:00 前收尾，12:30 出发回大理站，路上留足缓冲。</div></div>
+      <div class="row"><div class="k">下午</div><div class="v"><b>16:35 大理 → 丽江 动车</b>（约 2h30m，二等座 ¥80，19:05 抵达丽江站）。这是今天唯一的硬约束。</div></div>
+      <div class="row"><div class="k">晚上</div><div class="v">丽江站 → 酒店，跟团含接站。入住，这就是团行程的 D1，当天不安排活动。</div></div>
+      <div class="row"><div class="k">提醒</div><div class="v">中秋首日，大理—丽江这段动车会紧张，提前买。傍晚班次集中在 16:35–18:55，别再往后赌。</div></div>
+    </div>
+  </div>
+
+  <div class="day tour">
+    <div class="hd"><span class="dt">9/26 周六</span><span class="ttl">跟团 D2 · 丽江 → 泸沽湖<span class="tag b">跟团</span></span></div>
+    <div class="bd">
+      <div class="row"><div class="k">全天</div><div class="v">丽江 → 泸沽湖观景台（车程约 3.5h）→ 环湖：里格观景台、四川情人滩、女神湾 → 草海走婚桥 → 住泸沽湖。</div></div>
+      <div class="row"><div class="k">海拔</div><div class="v">约 2690m。今天开始进入高原，动作放慢。</div></div>
+      <div class="row"><div class="k">拍照</div><div class="v"><b>里格观景台</b>是泸沽湖全景机位；<b>女神湾</b>日落是「橘子海」，最出片。9–10 月湖面还有水性杨花。</div></div>
+    </div>
+  </div>
+
+  <div class="day tour">
+    <div class="hd"><span class="dt">9/27 周日</span><span class="ttl">跟团 D3 · 泸沽湖 → 沙溪<span class="tag b">跟团</span></span></div>
+    <div class="bd">
+      <div class="row"><div class="k">上午</div><div class="v">乘<b>猪槽船</b>登里务比岛。旺季排队很长，跟团一般会把时间卡在早班。</div></div>
+      <div class="row"><div class="k">下午</div><div class="v"><b>沙溪古镇</b> Country Walk（车程约 1.5h）。茶马古道上唯一幸存的古集市，慢逛 1–2 小时，人少、免费。</div></div>
+      <div class="row"><div class="k">住宿</div><div class="v">住沙溪。</div></div>
+    </div>
+  </div>
+
+  <div class="day tour warn">
+    <div class="hd"><span class="dt">9/28 周一</span><span class="ttl">跟团 D4 · 沙溪 → 普达措 → 香格里拉<span class="tag r">高反最高风险</span></span></div>
+    <div class="bd">
+      <div class="row"><div class="k">上午</div><div class="v">沙溪自由活动，出发去<b>普达措国家公园</b>。</div></div>
+      <div class="row"><div class="k">下午</div><div class="v">普达措 <b>属都湖木栈道</b>环湖 3.3km、2–3 小时 → <b>独克宗古城</b>（龟山公园世界最大转经筒，高 21m、重 60 吨，免费）→ 住香格里拉。</div></div>
+      <div class="row"><div class="k">注意</div><div class="v"><b>碧塔海 2026/5/22–12/31 封闭维护</b>，只能走到湖尾约 1km，别抱期待。</div></div>
+      <div class="row"><div class="k">海拔</div><div class="v">普达措属都湖约 3595–3705m，香格里拉约 3300m。<b>这是连续第三天爬升，也是全程最危险的一天</b>——普达措还要走路，耗氧大。详见「高反」章节。</div></div>
+    </div>
+  </div>
+
+  <div class="day tour">
+    <div class="hd"><span class="dt">9/29 周二</span><span class="ttl">跟团 D5 · 白水台 · 虎跳峡 → 丽江<span class="tag b">跟团</span></span></div>
+    <div class="bd">
+      <div class="row"><div class="k">上午</div><div class="v"><b>白水台</b>（约 2380m），「仙人遗田」钙华梯田，2–3 小时。海拔回落，体感会明显舒服。</div></div>
+      <div class="row"><div class="k">下午</div><div class="v"><b>虎跳峡</b>：HALFWAY 打卡点 → 上虎跳栈道看虎跳石，1–2 小时。</div></div>
+      <div class="row"><div class="k">拍照</div><div class="v">HALFWAY 的「爽死你阳台」和 28 道拐顶是经典机位，跟团多只走上虎跳栈道。</div></div>
+      <div class="row"><div class="k">住宿</div><div class="v">回丽江住。</div></div>
+    </div>
+  </div>
+
+  <div class="day tour">
+    <div class="hd"><span class="dt">9/30 周三</span><span class="ttl">跟团 D6 · 玉龙雪山<span class="tag b">跟团</span></span></div>
+    <div class="bd">
+      <div class="row"><div class="k">全天</div><div class="v"><b>玉龙雪山 · 云杉坪索道</b>（3240m，草甸 2–3 小时）→《印象丽江》→<b>蓝月谷</b>。</div></div>
+      <div class="row"><div class="k">索道</div><div class="v">跟团给的是<b>云杉坪小索道</b>；大索道冰川公园（4506–4680m）更震撼，但 ¥140、旺季秒没，跟团一般不排。想上大索道要自己抢票。</div></div>
+      <div class="row"><div class="k">蓝月谷</div><div class="v">下午光线柔和、穿浅色最出片；观光车在「水月阁」下才是起点，别下错站。</div></div>
+      <div class="row"><div class="k">穿衣</div><div class="v">山顶常 0℃ 以下且风大。跟团租防寒服 ¥50/件但很脏，<b>自带一件薄羽绒服更划算</b>。</div></div>
+    </div>
+  </div>
+
+  <div class="day tour">
+    <div class="hd"><span class="dt">10/1 周四</span><span class="ttl">跟团 D7 散团 → 昆明<span class="tag a">国庆首日</span></span></div>
+    <div class="bd">
+      <div class="row"><div class="k">上午</div><div class="v">丽江散团，跟团适时送机 / 站。</div></div>
+      <div class="row"><div class="k">下午</div><div class="v"><b>丽江 → 昆明</b>。推荐飞机：约 1 小时、含税起价 ¥400/人。动车约 3h30m–4h30m、二等座 ¥182–220。</div></div>
+      <div class="row"><div class="k">晚上</div><div class="v">昆明住下。南强街夜市 / 昆明老街逛吃。</div></div>
+      <div class="row"><div class="k">提醒</div><div class="v">10/1 是国庆出行最高峰，高速免费首日也会堵。这段票现在就定，别指望临时买。</div></div>
+    </div>
+  </div>
+
+  <div class="day free">
+    <div class="hd"><span class="dt">10/2 周五</span><span class="ttl">昆明 · 市区整日<span class="tag t">自由行</span></span></div>
+    <div class="bd">
+      <div class="row"><div class="k">上午</div><div class="v"><b>云南省博物馆</b>（官渡区广福路 6393 号）。免费，<b>必须提前实名预约</b>：微信小程序「数字云博」或支付宝「云南省博物馆」，线上显示「已满」时现场也不再放号。开放 9:00–17:00、16:30 停止入馆，周一闭馆（10/2 是周五，不受影响）。<br>
+        <b>六大基本陈列</b>：远古云南 → 文明之光 → 南中称雄 → 妙香佛国 → 开疆戍边 → 百年风云，走完 2–3 小时。<br>
+        <b>档期正好</b>：「灰烬下的史诗——庞贝文物展」展到 10/8，你们赶得上（一层临展一、二号厅）。<br>
+        馆内公益定时讲解是开放日 10:00 与 14:00，想听就 10:00 前到。行李可在正门广场右侧人工寄存。</div></div>
+      <div class="row"><div class="k">中午</div><div class="v"><b>官渡古镇</b>，就在省博附近（同在官渡区广福路一带），出馆过去很顺。免费，主街商业化、往小巷走更有味道。<br>
+        午餐在古镇解决 —— <b>官渡粑粑</b>是本地名小吃，古镇内留焕美食有卖；想过桥米线或汽锅鸡的话回市区有建新园、福照楼（详见「城市详解 · 昆明」）。逛 + 吃约 1.5 小时。</div></div>
+      <div class="row"><div class="k">下午</div><div class="v"><b>滇池海埂大坝</b>（免费）→ 坐 <b>滇池索道</b>上 <b>西山龙门</b>。<br>
+        滇池索道是国内少有的跨湖观光索道：下站海埂公园、上站直达西山龙门景区门口，全长约 2000m，其中约 1000m 跨滇池水面，单程约 20 分钟。票价旺季单程 ¥60 / 往返 ¥100，淡季 ¥40 / ¥70；节假日运营 9:00–17:30。<br>
+        龙门门票含在景区套票里，另有「观光车 + 龙门索道 + 门票」套票约 ¥60–65/人。西山 17:30 前清场。<br>
+        <b>把日落留给这一段</b> —— 龙门俯瞰整个滇池，是昆明最好的视角。</div></div>
+      <div class="row"><div class="k">晚上</div><div class="v"><b>斗南花市</b>（地铁 4 号线金桂街站，20:30 后最热闹）—— 亚洲最大鲜切花市场，论束买、可砍价，约 1.5 小时。</div></div>
+      <div class="row"><div class="k">注意</div><div class="v"><b>红嘴鸥 10 月初基本还没到</b>：近年先头部队 10/10–10/25 才抵滇池，大部队 11 月才来。海埂大坝当普通湖景看就行，别专程为鸥去。</div></div>
+      <div class="row"><div class="k">提醒</div><div class="v">这天的动线是「东南（省博 / 官渡）→ 西南（滇池 / 西山）→ 东南（斗南）」，地铁能连上但要来回跑，<b>是全程最满的一天</b>。如果累了，优先砍斗南（花市随时能去），把西山的日落节奏留足。</div></div>
+    </div>
+  </div>
+
+  <div class="day free">
+    <div class="hd"><span class="dt">10/3 周六</span><span class="ttl">昆明 → 抚仙湖（玉溪澄江）→ 昆明<span class="tag t">自由行</span></span></div>
+    <div class="bd">
+      <div class="row"><div class="k">上午</div><div class="v">昆明 → 澄江。<b>大巴</b>：昆明南部客运站 → 澄江客运站 ¥20–25、约 1 小时、滚动发车（首班约 8:20，末班约 20:00）。<b>景区直通车</b>：「抚仙湖悠生活」小程序，机场 ¥70/50 分钟、昆明南站 ¥50/40 分钟。<b>网约车</b>：昆明南站 → 澄江约 ¥130。</div></div>
+      <div class="row"><div class="k">全天</div><div class="v"><b>禄充风景区</b>（¥15，登笔架山看全景 1–2 小时；8 点前 / 18 点后免票）→ 明星鱼洞（¥15）→ 铜锅鱼午餐 → 月亮湾湿地公园（¥30，可抵消费）/ 抚海湾 → 傍晚太阳山栈道看日落。</div></div>
+      <div class="row"><div class="k">晚上</div><div class="v"><b>回昆明住</b>。别住澄江 —— 10/4 从昆明市区去长水机场只要 40–50 分钟，风险低得多；从澄江赶机场约 1 小时（国庆早高峰可能 1.5 小时）。</div></div>
+      <div class="row"><div class="k">预约</div><div class="v">玉溪 A 级景区实行分时预约 + 动态限流，建议提前 7 天在「一部手机游云南 / 玉溪文旅通」预约。澄江化石地博物馆免费但需线上预约、周一闭馆。</div></div>
+      <div class="row"><div class="k">避坑</div><div class="v">抗浪鱼多为养殖、价格虚高（有来源称约 ¥800/斤），谨慎点单。景区内餐厅比村口贵约一半，优先禄充村口 / 广龙夜市 / 县城。环湖限速 40–60，别超速。</div></div>
+    </div>
+  </div>
+
+  <div class="day free">
+    <div class="hd"><span class="dt">10/4 周日</span><span class="ttl">昆明 ✈ 武汉<span class="tag t">返程日</span></span></div>
+    <div class="bd">
+      <div class="row"><div class="k">上午</div><div class="v">视航班时间：宽裕就去翠湖公园 / 昆明老街走一圈，紧张就直接去机场。返程日不安排需要跑动的景点。</div></div>
+      <div class="row"><div class="k">接驳</div><div class="v">市区 → 长水机场：地铁 6 号线约 50–65 分钟；空港快线 ¥25。国庆返程车流大，建议比平时多留 40 分钟。</div></div>
+      <div class="row"><div class="k">机票</div><div class="v">含税起价 ¥450/人。这是这周里最划算的返程日 —— 再往后一天一个价。</div></div>
     </div>
   </div>
 </section>
 
-<!-- ============ 乌镇 ============ -->
-<section id="wz">
-  <div class="wrap">
-    <div class="citygrid">
-      
-      <div class="citydetail">
-        <h3>乌镇 <span class="stay">9/27 中午 – 9/28 午后 · 1 晚</span></h3>
-        <div class="block scenic">
-          <div class="bt">必玩景点</div>
-          <ul>
-            <li><b>西栅夜景</b> — 通安桥（明信片位）、定升桥（S 弯）、白莲塔（登塔俯瞰）。</li>
-            <li><b>草木本色染坊</b> — 晚 8 点后人流散，蓝白布架超好拍。</li>
-            <li><b>月老庙</b>、桥里桥、昭明书院回廊 — 情侣出片点。</li>
-            <li>东栅偏市井民俗、18:00 关门，留 1 晚节奏建议跳过。</li>
-          </ul>
-        </div>
-        <div class="block food">
-          <div class="bt">美食 · 人均 ¥200 内</div>
-          <ul>
-            <li><b>书生羊肉面</b>（西栅大街 216 号）<span class="price">¥30–45</span></li>
-            <li><b>定胜糕</b>（锦记/永平粉团铺）<span class="price">¥3–5</span> · 午后常售罄</li>
-            <li><b>萝卜丝饼</b>（滋啦啦油煎铺）<span class="price">¥3</span> · 现炸酥脆</li>
-            <li><b>三珍斋酱鸭</b>、吴妈馄饨、三白酒（东栅高公生酒坊）</li>
-            <li>住景区内可约「早茶客」水上集市早餐（约 30 元额度）。</li>
-          </ul>
-        </div>
-        <div class="block stay">
-          <div class="bt">住宿 · 亚朵（近景区，乌镇无地铁）</div>
-          <ul>
-            <li><b>乌镇新华南路亚朵酒店</b>· 近东栅/西栅/南栅，步行东栅约 8 分钟、距西栅约 1 公里 <span class="price">¥400–600</span></li>
-          </ul>
-          <p style="font-size:13px;color:var(--ink-soft);margin:8px 0 0">乌镇为古镇、无地铁，此店是当地符合品牌且紧邻景区的首选；若你更看重「住在景区里看夜景」，西栅景区内多为民宿/精品（含双人门票），可再权衡。</p>
-        </div>
-        <div class="block warn">
-          <div class="bt">避坑 · 节假日注意</div>
-          <ul>
-            <li>景区内住宿须到西栅 1 号游客中心统一刷脸办入住（免费托运 + 游览车）。</li>
-            <li>摇橹船认官方码头（拼船约 60 元/人、包船双人约 580 元），别找黄牛。</li>
-            <li>订房务必确认「西栅景区内」标签，否则每天进出重买 150 元/人门票。</li>
-            <li>早茶客名额有限，办入住时尽早预约。</li>
-          </ul>
-        </div>
-        <div class="xhs-hot"><div class="xh">📕 小红书实况热帖 · 乌镇</div><div class="xs">真实账号实时抓取（美食/攻略/景点搜索结果，去重后按点赞 top 6）</div><div class="xh-list"><div class="xh-item"><div class="xt">🔥走一圈乌镇西栅手机都跑没电了</div><div class="xa">@秦😈💍💎 · <b>赞 3440</b> · 藏 3562</div></div><div class="xh-item"><div class="xt">替你们试过了‼️再去乌镇不当大大大冤种</div><div class="xa">@古古有力 · <b>赞 3056</b> · 藏 3222</div></div><div class="xh-item"><div class="xt">乌镇西栅一日游攻略！附路线图和机位</div><div class="xa">@冬冬的旅行日志 · <b>赞 2158</b> · 藏 2295</div></div><div class="xh-item"><div class="xt">100万人看过的乌镇照片😘攻略版</div><div class="xa">@我喝露水qwq · <b>赞 2157</b> · 藏 999</div></div><div class="xh-item"><div class="xt">跟着向往的生活打卡乌镇美食！</div><div class="xa">@小刘日记 · <b>赞 1094</b> · 藏 1112</div></div><div class="xh-item"><div class="xt">乌镇本地人推荐</div><div class="xa">@景行行止 · <b>赞 828</b> · 藏 1003</div></div></div></div>
-      </div>
-    </div>
+<section id="weather">
+  <h2>天气与穿衣</h2>
+  <p class="lead">这一路的天气关键词是「雨多」和「昼夜温差大」。白天能到 27℃，但到了香格里拉夜里只有 5–7℃，玉龙雪山山顶在 0℃ 以下。</p>
+
+  <h3>9/24 – 9/30 逐日预报</h3>
+  <div class="tscroll">
+  <table>
+    <tr><th>日期</th><th>大理</th><th>丽江</th><th>香格里拉</th><th>昆明</th></tr>
+    <tr><td class="num" data-label="日期">9/24</td><td data-label="大理">27/15 雨转多云</td><td data-label="丽江">23/13 雨</td><td data-label="香格里拉">18/6 雨转多云</td><td data-label="昆明">27/18 雨</td></tr>
+    <tr><td class="num" data-label="日期">9/25</td><td data-label="大理">25/19 雨</td><td data-label="丽江">25/14 雨转阴</td><td data-label="香格里拉">20/7 雨转阴</td><td data-label="昆明">26/18 雨</td></tr>
+    <tr><td class="num" data-label="日期">9/26</td><td data-label="大理">27/14 雨</td><td data-label="丽江">26/13 雨转阴</td><td data-label="香格里拉">18/7 雨转阴</td><td data-label="昆明">27/17 多云转雨</td></tr>
+    <tr><td class="num" data-label="日期">9/27</td><td data-label="大理">—</td><td data-label="丽江">24/15 雨</td><td data-label="香格里拉">19/10 雨</td><td data-label="昆明">25/18 雨</td></tr>
+    <tr><td class="num" data-label="日期">9/28</td><td data-label="大理">—</td><td data-label="丽江">25/14 雨</td><td data-label="香格里拉">20/8 雨转多云</td><td data-label="昆明">23/16 雨</td></tr>
+    <tr><td class="num" data-label="日期">9/29</td><td data-label="大理">—</td><td data-label="丽江">23/14 雨</td><td data-label="香格里拉">20/7 雨转多云</td><td data-label="昆明">20/16 雨</td></tr>
+    <tr><td class="num" data-label="日期">9/30</td><td data-label="大理">—</td><td data-label="丽江">21/14 雨</td><td data-label="香格里拉">17/7</td><td data-label="昆明">24/15</td></tr>
+  </table>
+  </div>
+  <p class="kv">单位 ℃，格式为「最高 / 最低」。数据来源：中国天气网（中央气象台）。</p>
+
+  <h3>10/1 – 10/4：无预报，用气候常年值</h3>
+  <div class="bx tip">这段时间超出可预报范围，下面是<b>历史均值</b>（气候平均），用来判断该带什么衣服是够用的，但别当成预报看。</div>
+  <div class="tscroll">
+  <table>
+    <tr><th>城市</th><th>白天</th><th>夜间</th><th>降水概率</th></tr>
+    <tr><td data-label="城市">昆明</td><td data-label="白天">19 – 23℃</td><td data-label="夜间">约 14℃</td><td data-label="降水概率">47% – 57%</td></tr>
+    <tr><td data-label="城市">丽江</td><td data-label="白天">21 – 23℃</td><td data-label="夜间">10 – 12℃</td><td data-label="降水概率">50% – 70%</td></tr>
+    <tr><td data-label="城市">香格里拉</td><td data-label="白天">17 – 19℃</td><td data-label="夜间">5 – 7℃</td><td data-label="降水概率">43% – 77%</td></tr>
+    <tr><td data-label="城市">抚仙湖 / 澄江（以昆明为参照）</td><td data-label="白天">21 – 24℃</td><td data-label="夜间">约 14℃</td><td data-label="降水概率">约 50%</td></tr>
+  </table>
+  </div>
+
+  <div class="bx info">
+    <b>结论一句话：</b>按「洋葱式三层 + 防水外壳」准备。<br>
+    白天在昆明 / 大理穿一件长袖就够；到香格里拉和玉龙雪山，白天要加抓绒 + 薄羽绒；夜里普达措、香格里拉一带接近 5℃，<b>薄羽绒服是刚需，不是备选</b>。<br>
+    全程 13 天里有 6 天预报是雨——<b>防水比保暖更重要</b>，鞋和外套这两件别省。
+  </div>
+
+  <h3>带衣清单（1 人份，2 人各备一套）</h3>
+  <div class="tscroll">
+  <table>
+    <tr><th>类别</th><th>单品</th><th>件数</th><th>说明</th></tr>
+    <tr><td data-label="类别">内层</td><td data-label="单品">速干短袖 / 长袖 T</td><td data-label="件数">4 – 5</td><td data-label="说明">白天 20–27℃ 穿，出汗多、要勤换</td></tr>
+    <tr><td data-label="类别">中层</td><td data-label="单品">薄抓绒 或 针织开衫</td><td data-label="件数">1 – 2</td><td data-label="说明">早晚、阴雨天加</td></tr>
+    <tr><td data-label="类别">中层</td><td data-label="单品">薄羽绒服（可压缩）</td><td data-label="件数">1</td><td data-label="说明">香格里拉、玉龙雪山刚需；自带比跟团租的干净</td></tr>
+    <tr><td data-label="类别">外层</td><td data-label="单品">防风防水冲锋衣</td><td data-label="件数">1</td><td data-label="说明">全程主力，挡雨挡风</td></tr>
+    <tr><td data-label="类别">下装</td><td data-label="单品">长裤（速干 / 牛仔）</td><td data-label="件数">2 – 3</td><td data-label="说明"></td></tr>
+    <tr><td data-label="类别">下装</td><td data-label="单品">薄绒打底裤</td><td data-label="件数">1</td><td data-label="说明">给女生，香格里拉 / 雪山当天用</td></tr>
+    <tr><td data-label="类别">鞋</td><td data-label="单品">防水徒步鞋 或 运动鞋</td><td data-label="件数">1 双</td><td data-label="说明">雨多 + 栈道多，最好已经穿旧的</td></tr>
+    <tr><td data-label="类别">鞋</td><td data-label="单品">凉拖 / 洞洞鞋</td><td data-label="件数">1 双</td><td data-label="说明">客栈、湖边</td></tr>
+    <tr><td data-label="类别">配件</td><td data-label="单品">宽檐帽 + 保暖帽</td><td data-label="件数">各 1</td><td data-label="说明">雪山风大，保暖帽比什么都管用</td></tr>
+    <tr><td data-label="类别">配件</td><td data-label="单品">太阳镜、防晒霜 SPF50+、防晒唇膏</td><td data-label="件数">各 1</td><td data-label="说明">高原紫外线强，阴天也会晒伤</td></tr>
+    <tr><td data-label="类别">配件</td><td data-label="单品">折叠伞 + 一次性雨衣</td><td data-label="件数">1 + 3</td><td data-label="说明">雨衣给栈道、索道排队用，打伞不方便</td></tr>
+    <tr><td data-label="类别">配件</td><td data-label="单品">保温杯</td><td data-label="件数">1</td><td data-label="说明">高海拔、冷天喝热水很有用</td></tr>
+    <tr><td data-label="类别">药品</td><td data-label="单品">红景天、晕车药、感冒药、肠胃药、创可贴</td><td data-label="件数">各 1</td><td data-label="说明">见「高反」章节</td></tr>
+    <tr><td data-label="类别">电子</td><td data-label="单品">充电宝、多口充电头、数据线</td><td data-label="件数">1 套</td><td data-label="说明">跟团长途车程多，充电位少</td></tr>
+  </table>
+  </div>
+
+  <div class="grid2">
+    <div class="bx ok"><b>打包口径</b><br>上衣约 6–7 件、裤装 3 件、鞋 2 双。一个 24 寸箱 + 一个双肩包：跟团 7 天要频繁换酒店，大箱子搬上搬下很累，跟团日只带双肩包。</div>
+    <div class="bx warn"><b>别带</b><br>高跟鞋、全新的鞋（走栈道必磨脚）；太多厚衣服（昆明、大理白天还用不上）；大件硬壳行李进跟团大巴。</div>
   </div>
 </section>
 
-<!-- ============ 西塘 ============ -->
-<section id="xt">
-  <div class="wrap">
-    <div class="citygrid">
-      
-      <div class="citydetail">
-        <h3>西塘 <span class="stay">9/28 午后 – 9/29 午后 · 1 晚</span></h3>
-        <div class="block scenic">
-          <div class="bt">必玩景点</div>
-          <ul>
-            <li><b>烟雨长廊</b> — 江南唯一千米临河廊棚，夜灯绝美，出片 C 位。</li>
-            <li><b>石皮弄</b> — 最窄处 0.8 米「一线天」，仰拍极出片。</li>
-            <li><b>西园</b> — 古镇最大私家园林，可喝茶观景。</li>
-            <li><b>送子来凤桥</b>、永宁桥（夜景俯拍 C 位）、环秀桥（《碟中谍 3》取景地）。</li>
-          </ul>
-        </div>
-        <div class="block food">
-          <div class="bt">美食 · 人均 ¥200 内</div>
-          <ul>
-            <li><b>管老太臭豆腐</b>（北栅街总店）<span class="price">¥12</span></li>
-            <li><b>陆氏小馄饨</b>（永宁桥旁）<span class="price">¥8–12</span></li>
-            <li><b>森林牌芡实糕</b>（塘东街 18 号）<span class="price">¥10</span> · 伴手礼首选</li>
-            <li><b>老马荷叶粉蒸肉</b> <span class="price">¥15</span> · 西塘人家（临河）<span class="price">¥60–80</span></li>
-          </ul>
-        </div>
-        <div class="block stay">
-          <div class="bt">住宿 · 全季/亚朵（近景区，西塘无地铁）</div>
-          <ul>
-            <li><b>全季酒店（嘉善西塘古镇店）</b>· 西塘景区门口（南苑路 309 号）<span class="price">¥350–500</span></li>
-            <li><b>嘉善罗星中央花园亚朵酒店</b>· 嘉善市区（距西塘需打车，作备选）</li>
-          </ul>
-          <p style="font-size:13px;color:var(--ink-soft);margin:8px 0 0">全季就在景区大门口，位置最方便；西塘无地铁，进出景区靠步行或打车。</p>
-        </div>
-        <div class="block warn">
-          <div class="bt">避坑 · 节假日注意</div>
-          <ul>
-            <li>门票别信路边黄牛低价带路（假票/过期票）；联票 95 元（11 小景点、2 天有效）。</li>
-            <li>酒吧街高价网红奶茶、称重花茶溢价严重，慎购；浅眠者勿住酒吧街临河房。</li>
-            <li>白水鱼超 80 元/条大概率被宰；路边私船别坐，只选正规码头摇橹船。</li>
-            <li>工作日 17:00 后、节假日 21:00 后免大门票仅限逛巷，小景点已闭。</li>
-          </ul>
-        </div>
-        <div class="xhs-hot"><div class="xh">📕 小红书实况热帖 · 西塘</div><div class="xs">真实账号实时抓取（美食/攻略/景点搜索结果，去重后按点赞 top 6）</div><div class="xh-list"><div class="xh-item"><div class="xt">被〈国家地理〉评为中国最美的古镇有多绝❗️</div><div class="xa">@沈奕铭 · <b>赞 5740</b> · 藏 2174</div></div><div class="xh-item"><div class="xt">西塘逛吃一日攻略✨纯美食不赶路！</div><div class="xa">@徐明 · <b>赞 232</b> · 藏 147</div></div><div class="xh-item"><div class="xt">2026西塘最新攻略｜省钱高效+避坑+逛吃全指</div><div class="xa">@心想事成 · <b>赞 149</b> · 藏 199</div></div><div class="xh-item"><div class="xt">不吹不黑：我在西塘吃什么（特辑篇）</div><div class="xa">@糯米团子你站起来吧！ · <b>赞 141</b> · 藏 81</div></div><div class="xh-item"><div class="xt">马上去西塘｜千万要看❗不踩雷❌不绕路指南</div><div class="xa">@Frio^ · <b>赞 131</b> · 藏 173</div></div><div class="xh-item"><div class="xt">西塘古镇</div><div class="xa">@十二的生活日记 · <b>赞 105</b> · 藏 34</div></div></div></div>
-      </div>
+<section id="cities">
+  <h2>城市详解</h2>
+
+  <h3>昆明</h3>
+  <div class="card">
+    <div class="kv"><b>景点</b>：石林（¥130 + 观光车 ¥25，约 4h）｜云南省博物馆（免费；须提前在微信小程序「数字云博」或支付宝「云南省博物馆」实名预约；周一闭馆；2–3h）｜官渡古镇（免费，离省博很近，可同日串联）｜滇池海埂大坝（免费）｜滇池索道（下站海埂公园 ↔ 上站西山龙门景区门口，跨湖约 2000m、单程约 20 分钟，旺季 ¥60 / 淡季 ¥40）｜西山龙门（另需「观光车 + 龙门索道 + 门票」套票约 ¥60–65，约 3h，17:30 前）｜斗南花市（免费，20:30 后最好）｜篆新农贸市场（小吃集中，适合早餐）</div>
+    <div class="kv" style="margin-top:10px"><b>美食</b>：建新园·宝善街总店（过桥米线 ¥20–32，五华区宝善街 195 号）｜福照楼·胜利堂店（汽锅鸡 人均约 ¥79，云瑞西路 36 号）｜桥香园·人民中路店（过桥米线 ¥19–32）｜篆新农贸市场（豆花米线、粉蒸肉 ¥12–20）</div>
+    <div class="kv" style="margin-top:10px"><b>避坑</b>：¥99 / ¥128 的一日游购物团；机场与车站黑车；景区及车站的鲜花饼、玉石、普洱茶溢价很高（超市更划算）；海埂大坝的「免费拍照」和街头送花最后都会收费。</div>
+  </div>
+
+  <h3>大理</h3>
+  <div class="card">
+    <div class="kv"><b>路线</b>：这次只走<b>洱海西线</b>（才村、龙龛、磻溪 S 湾、海舌公园、喜洲）。东线双廊离古城约 50km，1.5 天时间不够，直接放弃。</div>
+    <div class="kv" style="margin-top:10px"><b>交通</b>：电动车 ¥50–80/天｜生态廊道观光车单站 ¥10、磻溪–海舌往返 ¥60｜环海巴士 1 日卡 ¥98｜包车含司机 ¥300–500/天。西线廊道机动车进不去，以骑行和观光车为主。</div>
+    <div class="kv" style="margin-top:10px"><b>美食</b>：喜洲粑粑（乡绅杨记，喜洲四方街，人均约 ¥9）｜烤乳扇（古城人民路小摊，¥5–10/份，刷玫瑰酱）｜酸辣鱼（玉和园，喜洲市坪街 149 号，约 ¥15/条；苍洱春，古城人民路，¥40–50/份）｜生皮（右所生皮，古城北门街 9 号，人均约 ¥54）</div>
+    <div class="kv" style="margin-top:10px"><b>避坑</b>：包车旺季会涨到 ¥600/天，走平台预约；古城酒吧留意最低消费；客栈「海景房」以近期实拍和评论为准；三塔只看外景可以不买票。</div>
+  </div>
+
+  <h3>丽江与跟团沿线</h3>
+  <div class="card">
+    <div class="kv"><b>核心体验</b>：泸沽湖（里格观景台、女神湾日落、草海走婚桥、猪槽船登里务比岛）｜沙溪古镇（茶马古道唯一幸存古集市，免费，1–2h）｜普达措国家公园（属都湖木栈道 3.3km、2–3h）｜独克宗古城（龟山公园世界最大转经筒，免费）｜白水台（钙华梯田 2–3h）｜虎跳峡（上虎跳栈道看虎跳石）｜玉龙雪山（云杉坪索道 + 蓝月谷）｜《印象丽江》（约 65 分钟实景演出）</div>
+    <div class="bx warn" style="margin-top:12px"><b>跟团常见套路</b><br>
+      · <b>摩梭家访</b>：典型购物局，推销银饰、茶叶、青刺果油 —— 只体验，不消费。<br>
+      · <b>藏民家访 / 土司晚宴</b>：参考价 ¥120–160/人，可以体验；但「藏药馆」「天珠店」多套路（天珠动辄数千元），别买。<br>
+      · <b>氧气瓶</b>：景区约 ¥60/瓶，丽江古城药店只要 ¥15–20 —— <b>提前在古城买好</b>。<br>
+      · <b>防寒服</b>：租 ¥50/件但卫生差，自带薄羽绒更划算。<br>
+      · <b>《印象丽江》</b>：跟团通常已含（单买 ¥178–280），未含又不想看可以退。
     </div>
+    <div class="kv" style="margin-top:10px"><b>拍照点</b>：里格观景台、女神湾、走婚桥、虎跳峡 HALFWAY「爽死你阳台」与 28 道拐顶、属都湖木栈道、云杉坪草甸、蓝月谷玉液湖、独克宗龟山公园俯瞰古城、白水台山顶观景台与神女池。</div>
+  </div>
+
+  <h3>玉溪 · 抚仙湖</h3>
+  <div class="card">
+    <div class="kv"><b>交通</b>：昆明到澄江没有直达高铁（最近的阳宗站离湖还要打车约 1 小时，一日游不划算）。走大巴（昆明南部客运站 → 澄江 ¥20–25、约 1 小时、滚动发车）或景区直通车（「抚仙湖悠生活」小程序，机场 ¥70/50 分钟、南站 ¥50/40 分钟）最省心。</div>
+    <div class="kv" style="margin-top:10px"><b>景点</b>：禄充风景区（¥15，登笔架山看全景）｜月亮湾湿地公园（¥30，可抵消费）｜抚海湾、红山咀粉沙滩（免费）｜太阳山栈道看日落｜广龙小镇（免费，节假日星光夜市）｜澄江化石地博物馆（免费，周一闭馆，需预约）。孤山岛要坐船且在南岸较远，一日游建议舍去。</div>
+    <div class="kv" style="margin-top:10px"><b>美食</b>：湖之味鱼庄·小湾村店（¥72/人）｜金常莱鱼庄·石锅鱼铜锅鱼（¥68）｜贵林鱼庄（广龙小镇一期 38 栋 109 号，¥66）｜老字号仙湖铜锅鱼（澄江县城环城西路 76 号，¥38）</div>
+    <div class="kv" style="margin-top:10px"><b>结论</b>：玉溪市区（聂耳公园、玉溪窑、红塔山）这次<b>不值得单独排</b> —— 抚仙湖一天已经饱满，市区在另一个方向不顺路。</div>
   </div>
 </section>
 
-<!-- ============ 上海 ============ -->
-<section id="sh">
-  <div class="wrap">
-    <div class="citygrid">
-      
-      <div class="citydetail">
-        <h3>上海 <span class="stay">9/29 午后 – 10/5 下午 · 6 晚</span></h3>
-        <div class="block scenic">
-          <div class="bt">必玩景点</div>
-          <ul>
-            <li><b>外滩</b>（免费、18:00 亮灯）— 北外滩/外白渡桥人少景同。</li>
-            <li><b>豫园 + 城隍庙</b>（40 元，提前 1 天预约）— 九曲桥、湖心亭。</li>
-            <li><b>法租界 Citywalk</b> — 武康路、武康大楼、安福路咖啡、思南公馆。</li>
-            <li><b>陆家嘴</b> — 上海中心「上海之巅」118 层（约 180 元）+ 滨江大道。</li>
-            <li><b>上海博物馆</b>（免费预约，周一闭馆）— 青铜器/陶瓷馆藏强。</li>
-          </ul>
-        </div>
-        <div class="block food">
-          <div class="bt">美食 · 人均 ¥200 内</div>
-          <ul>
-            <li><b>老正兴菜馆</b>（福州路 556 号）米其林一星本帮 <span class="price">¥150–200</span> · 油爆河虾/草头圈子</li>
-            <li><b>人和馆</b>（肇嘉浜路）米其林+黑珍珠 <span class="price">¥178</span> · 蟹黄捞饭/金牌红烧肉</li>
-            <li><b>上海老饭店</b>（福佑路 242 号·豫园旁）<span class="price">¥165</span> · 八宝鸭</li>
-            <li><b>老吉士</b>（天平路 41 号）明星常客 <span class="price">¥120–180</span> · 红烧肉/吉士咸鸡</li>
-            <li><b>德兴馆</b>（广东路 471 号）<span class="price">¥80–120</span> · <b>光明邨</b>（淮海中路）<span class="price">¥80</span> · 生煎/鲜肉月饼</li>
-          </ul>
-        </div>
-        <div class="block stay">
-          <div class="bt">住宿 · 亚朵/全季/麗枫（近地铁）</div>
-          <ul>
-            <li><b>全季酒店（上海人民广场南京路店）</b>· 黄陂南路站步行 9 分钟 <span class="price">¥487</span></li>
-            <li><b>上海人民广场南京路步行街亚朵酒店</b>（宁波路 586 号）· 人民广场站 480 米</li>
-            <li><b>上海静安寺西康路/愚园路亚朵酒店</b>· 静安寺商圈</li>
-          </ul>
-          <p style="font-size:13px;color:var(--ink-soft);margin:8px 0 0">均近地铁 1/2 号线；国庆房价会上浮，建议尽早锁定；麗枫同档门店可筛选。</p>
-        </div>
-        <div class="block warn">
-          <div class="bt">避坑 · 节假日注意</div>
-          <ul>
-            <li>豫园、上博、上海之巅务必提前线上预约，否则跑空。</li>
-            <li>外滩北段滨江比陈毅广场人少一半；路边「免费拍照/低价一日游」均套路。</li>
-            <li>游船别买路边高价票，2 元东金线轮渡（金陵东路↔东昌路）平替。</li>
-            <li>国庆 10/1–10/5 全年峰值，博物馆/豫园提前 3–5 天抢约；返程虹桥近市区约 40min、浦东约 1h，提前 3 小时出发。</li>
-          </ul>
-        </div>
-        <div class="xhs-hot"><div class="xh">📕 小红书实况热帖 · 上海</div><div class="xs">真实账号实时抓取（美食/攻略/景点搜索结果，去重后按点赞 top 6）</div><div class="xh-list"><div class="xh-item"><div class="xt">📍远行记｜时隔二十年的地道上海菜</div><div class="xa">@聂远 · <b>赞 44933</b> · 藏 16802</div></div><div class="xh-item"><div class="xt">陆家嘴三件套打卡点位，就这么去简单</div><div class="xa">@哦是益达 · <b>赞 12216</b> · 藏 13347</div></div><div class="xh-item"><div class="xt">上海citywalk 1.5天</div><div class="xa">@CING · <b>赞 7535</b> · 藏 8917</div></div><div class="xh-item"><div class="xt">上海最近很火的</div><div class="xa">@辣铁男孩 · <b>赞 5023</b> · 藏 1781</div></div><div class="xh-item"><div class="xt">上海🚶特种兵一日游｜🗺️不走回头路懒人攻略</div><div class="xa">@走走逛逛耍耍 · <b>赞 3238</b> · 藏 2926</div></div><div class="xh-item"><div class="xt">朋友来上海，我带了8拨人都走这条路（附路线</div><div class="xa">@潇潇在路上 · <b>赞 1349</b> · 藏 2264</div></div></div></div>
-      </div>
+<section id="altitude">
+  <h2>高反</h2>
+  <p class="lead">海拔是连续递增的，不是单点冲刺，这是这趟最需要认真对待的一件事。</p>
+
+  <div class="card">
+    <div class="tscroll">
+    <table>
+      <tr><th>日期</th><th>地点</th><th>海拔</th><th>趋势</th></tr>
+      <tr><td class="num" data-label="日期">9/26</td><td data-label="地点">泸沽湖</td><td data-label="海拔">约 2690m</td><td data-label="趋势">开始进入高原</td></tr>
+      <tr><td class="num" data-label="日期">9/27 – 9/28</td><td data-label="地点">沙溪</td><td data-label="海拔">约 2100m</td><td data-label="趋势">短暂回落</td></tr>
+      <tr><td class="num" data-label="日期">9/28</td><td data-label="地点">普达措 / 香格里拉</td><td data-label="海拔">3595 – 3705m / 3300m</td><td data-label="趋势"><b>最高点，最危险</b></td></tr>
+      <tr><td class="num" data-label="日期">9/30</td><td data-label="地点">玉龙雪山云杉坪</td><td data-label="海拔">约 3240m</td><td data-label="趋势">再次爬高</td></tr>
+    </table>
     </div>
+  </div>
+
+  <div class="bx warn"><b>9/28（跟团 D4）是全程最容易出事的一天。</b>连续第三天爬升，直接冲到 3600m 以上，而且普达措要走路、耗氧大。这天把节奏放到最慢，别赶、别跑。</div>
+
+  <div class="card">
+    <h3 style="margin-top:0">具体怎么做</h3>
+    <ul>
+      <li><b>红景天</b>：出发前 1 周开始吃。效果因人而异，但无害，属于该花的钱。</li>
+      <li><b>氧气瓶</b>：<b>在丽江古城药店买，¥15–20/罐</b>；景区卖 ¥60/罐，贵三倍。至少备 2 罐（一人一罐，普达措和雪山各留一罐）。</li>
+      <li><b>必须下撤的症状</b>：吸氧后呼吸困难仍不缓解、意识模糊、咳粉红色泡沫痰（肺水肿征兆）—— 出现任何一条立刻下撤并就医，不要硬撑到行程结束。</li>
+      <li><b>当天不要做</b>：到高海拔当天洗头洗澡后吹风、喝酒、跑跳、大声唱歌。</li>
+      <li><b>日常</b>：多喝热水、少食多餐、保证睡眠。头晕头痛先吸氧，一般 20–30 分钟能缓解。</li>
+    </ul>
   </div>
 </section>
 
-<!-- ============ 数据说明 ============ -->
-<section id="source">
-  <div class="wrap">
-    <h2 class="sec"><span class="no">04</span>数据说明</h2>
-    <p class="sec-desc">本手册所有信息出处与口径说明。</p>
-    <div class="disc">
-      <p style="margin:0 0 8px"><b>信息构成：</b></p>
-      <ul style="margin:0;padding-left:18px">
-        <li><b>景点/美食/住宿</b>：来自公开网络检索（含小红书笔记、官方公众号、米其林榜单等），店名、人均、地址均以检索到的公开信息为准；未能确认处已标注「未检索到确切信息」。</li>
-        <li><b>小红书实况热帖</b>：来自本地扩展 + 用户扫码登录真实账号，实时抓取各城「美食/攻略/景点」搜索结果列表的标题与热度（点赞/收藏），仅作热度参考，未抓取笔记详情页。</li>
-        <li><b>假期安排</b>：依据国务院办公厅 2026 年节假日通知——中秋 9/25–27、国庆 10/1–7。</li>
-      </ul>
-      <p style="margin:12px 0 0;color:var(--ink-soft)"><b>⚠️ 出行前请复核</b>：门票价格、开售时间、航班时刻、酒店价格会随季节与节假日实时浮动，请以官方渠道当天公示为准。</p>
-    </div>
+<section id="data">
+  <h2>数据口径</h2>
+  <p class="lead">这份手册里的数字来源不同，可靠度也不一样，分开说明。</p>
+
+  <div class="card">
+    <div class="kv"><b>机票价格</b>：携程移动端航班比价页，2026-09-16 查询，为「含税起价」。实际可订舱位通常比这个价格高 10–20%。</div>
+    <div class="kv" style="margin-top:10px"><b>火车票</b>：公开时刻表与票价页（数据截至 2026-09），二等座价格区间。列车运行图可能调整，以 12306 实时为准。</div>
+    <div class="kv" style="margin-top:10px"><b>天气</b>：中国天气网（中央气象台）。9/24–9/30 为逐日预报；10/1–10/4 无预报，使用的是<b>历史均值</b>（气候常年值），只反映常年趋势，不是预报。</div>
+    <div class="kv" style="margin-top:10px"><b>假期安排</b>：国务院办公厅《关于 2026 年部分节假日安排的通知》。中秋 9/25–9/27，国庆 10/1–10/7；中秋高速不免费，国庆七座以下免费。</div>
+    <div class="kv" style="margin-top:10px"><b>门票、店名、人均</b>：来自公开检索结果，检索不到确切数据的已在正文中标注。价格和营业状态随时可能变化。</div>
+    <div class="kv" style="margin-top:10px"><b>跟团行程</b>：依据你们提供的团行程单整理，跟团段的具体时长与安排以旅行社最终通知为准。</div>
   </div>
+
+  <div class="bx tip">出发前请复核：机票与动车班次、景区预约状态、天气更新。这份手册解决的是「怎么排、带什么」，不替代出票和预约。</div>
 </section>
 
 <footer>
-  <div class="wrap">
-    武汉 · 杭州 · 乌镇 · 西塘 · 上海 双人江南行程手册 · 2026.9.23 – 10.5 · 祝旅途愉快 🌿
-  </div>
+  <p><b>云南 13 日行程手册</b> · 2026 年 9 月 22 日 – 10 月 4 日 · 2 人 · 生成于 2026-09-16</p>
+  <p>行程骨架与自由行安排为规划建议；跟团段来自用户提供的团行程单。所有价格、门票、天气数据均标注了来源与查询日期，出行前请以官方渠道实时信息为准。</p>
 </footer>
 
-
-<script>
-(function(){
-  function tryOpen(a){
-    var web = a.getAttribute('data-web');
-    var scheme = a.getAttribute('href');
-    if(!web || !scheme || scheme.indexOf('xhsdiscover:') !== 0) return;
-    var done = false;
-    function goWeb(){ if(!done){ done = true; window.location.href = web; } }
-    var timer = setTimeout(goWeb, 2000);
-    window.addEventListener('blur', function(){ done = true; clearTimeout(timer); }, { once: true });
-    document.addEventListener('visibilitychange', function(){
-      if(document.hidden){ done = true; clearTimeout(timer); }
-    }, { once: true });
-    window.location.href = scheme;
-  }
-  document.addEventListener('click', function(e){
-    var t = e.target;
-    var a = t && t.closest ? t.closest('a.xhs') : null;
-    if(!a) return;
-    e.preventDefault();
-    tryOpen(a);
-  });
-})();
-</script>
-
+</div>
 </body>
 </html>
