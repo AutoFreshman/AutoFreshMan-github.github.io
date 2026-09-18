@@ -99,6 +99,10 @@ ul.hotlist li{font-size:13.5px;line-height:1.65;padding:5px 0;border-bottom:1px 
 ul.hotlist li:last-child{border-bottom:none}
 ul.hotlist .tnum{font-variant-numeric:tabular-nums;color:var(--ink);font-weight:600}
 ul.hotlist .tag{margin-left:2px}
+div.wxbar{display:flex;align-items:center;gap:10px;margin:10px 0 12px;font-size:12.5px;color:var(--ink3)}
+#wxbtn{font:inherit;font-size:12.5px;padding:3px 12px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink2);cursor:pointer}
+#wxbtn:hover{border-color:var(--blue-line);color:var(--blue)}
+td.wx{font-variant-numeric:tabular-nums}
 footer{border-top:1px solid var(--line);padding-top:20px;color:var(--ink3);font-size:12.5px;line-height:1.8}
 footer b{color:var(--ink2);font-weight:600}
 .kv{font-size:14px;color:var(--ink2)}
@@ -166,7 +170,7 @@ footer b{color:var(--ink2);font-weight:600}
       <tr><td class="num" data-label="日期">9/23 07:55</td><td data-label="路段">武汉 → 昆明</td><td data-label="方式">飞机 · 东航 <span class="tag t">已出票</span></td><td data-label="耗时">约 2h15m</td><td data-label="参考价">—</td></tr>
       <tr><td class="num" data-label="日期">9/23 13:31</td><td data-label="路段">昆明 → 大理</td><td data-label="方式">动车 G2836 <span class="tag t">已出票</span></td><td data-label="耗时">约 2h08m（15:39 到）</td><td data-label="参考价">—</td></tr>
       <tr><td class="num" data-label="日期">9/25 18:18</td><td data-label="路段">大理 → 丽江</td><td data-label="方式">动车 C321 <span class="tag t">已出票</span></td><td data-label="耗时">约 2h（20:19 到）</td><td data-label="参考价">—</td></tr>
-      <tr><td class="num" data-label="日期">10/1 晚</td><td data-label="路段">丽江 → 昆明</td><td data-label="方式">过夜火车 · 一人软包 <span class="tag t">已出票</span></td><td data-label="耗时">约 8–9h（次日清晨到）</td><td data-label="参考价">—</td></tr>
+      <tr><td class="num" data-label="日期">10/1 20:41</td><td data-label="路段">丽江 → 昆明</td><td data-label="方式">Y754 · 一人软包 <span class="tag t">已出票</span></td><td data-label="耗时">约 8h30m（次日 05:12 到）</td><td data-label="参考价">—</td></tr>
       <tr><td class="num" data-label="日期">10/3</td><td data-label="路段">昆明 → 石林</td><td data-label="方式">高铁（昆明南 → 石林西）</td><td data-label="耗时">约 25 分钟</td><td data-label="参考价">约 ¥18</td></tr>
       <tr><td class="num" data-label="日期">10/4 23:20</td><td data-label="路段">昆明 → 武汉</td><td data-label="方式">飞机 · 东航 <span class="tag t">已出票</span></td><td data-label="耗时">约 2h15m（次日 01:35 到）</td><td data-label="参考价">—</td></tr>
     </table>
@@ -300,7 +304,7 @@ footer b{color:var(--ink2);font-weight:600}
     <div class="bd">
       <div class="row"><div class="k">上午</div><div class="v">散团，行李寄存</div></div>
       <div class="row"><div class="k">白天</div><div class="v">束河古镇 / 大研古城 / 忠义市场</div></div>
-      <div class="row"><div class="k">晚上</div><div class="v">一人软包过夜车 丽江 → 昆明（<b>车票已出</b>，发车时间见车票）</div></div>
+      <div class="row"><div class="k">20:41</div><div class="v"><b>Y754 一人软包过夜车 丽江 → 昆明</b>（次日约 05:12 到，以车票为准）</div></div>
       <div class="row"><div class="k">出发前</div><div class="v">提前 40 分钟到丽江站</div></div>
     </div>
   </div>
@@ -308,7 +312,7 @@ footer b{color:var(--ink2);font-weight:600}
   <div class="day free">
     <div class="hd"><span class="dt">10/2 周五</span><span class="ttl">到昆明 · 存箱子 · 市区 → 补觉 → 斗南<span class="tag t">自由行</span></span></div>
     <div class="bd">
-      <div class="row"><div class="k">清晨</div><div class="v">到昆明站，先存行李</div></div>
+      <div class="row"><div class="k">约 05:12</div><div class="v">Y754 到昆明站，先存行李</div></div>
       <div class="row"><div class="k">早上</div><div class="v">吃早餐</div></div>
       <div class="row"><div class="k">上午</div><div class="v">昆明老街 / 南屏街溜达</div></div>
       <div class="row"><div class="k">中午</div><div class="v">午饭</div></div>
@@ -357,7 +361,7 @@ footer b{color:var(--ink2);font-weight:600}
 
   <div class="card">
     <div class="kv" style="font-size:15px"><b>10/1 晚 · 火车上</b> <span class="tag t">已定</span></div>
-    <div class="kv" style="margin-top:8px">丽江 → 昆明的<b>一人软包过夜车</b>，不用订房。<b>车票已出</b>。</div>
+    <div class="kv" style="margin-top:8px"><b>Y754</b> 丽江 → 昆明的一人软包过夜车（20:41 发、次日 05:12 到），不用订房。<b>车票已出</b>。</div>
   </div>
 
   <div class="card">
@@ -491,25 +495,30 @@ footer b{color:var(--ink2);font-weight:600}
 
   <h3>按行程逐日 · 只列你要去的地方</h3>
   <p class="kv">你在哪天、在哪个地方，就只看那一格 —— 不去的地方不列。</p>
+
+  <div class="wxbar">
+    <span id="wxstate">正在获取最新预报…</span>
+    <button id="wxbtn" type="button">刷新</button>
+  </div>
+
   <div class="tscroll">
-  <table>
+  <table id="wxtable">
     <tr><th>日期</th><th>你在哪</th><th>天气（最高 / 最低）</th><th>提示</th></tr>
-    <tr><td class="num">9/23 周三</td><td data-label="你在哪">武汉 → 昆明 → 大理</td><td data-label="天气">大理 25/15 雨转多云</td><td data-label="提示">早班机 + 白天转车，随身带件薄外套</td></tr>
-    <tr><td class="num">9/24 周四</td><td data-label="你在哪">昆明 → 大理</td><td data-label="天气">大理 27/15 雨转多云</td><td data-label="提示">白天偏暖，午后可能下雨</td></tr>
-    <tr><td class="num">9/25 周五</td><td data-label="你在哪">大理 → 丽江</td><td data-label="天气">大理 25/19 雨 ｜ 丽江 25/14 雨转阴</td><td data-label="提示">傍晚转场，外套随身别托运</td></tr>
-    <tr><td class="num">9/26 周六</td><td data-label="你在哪">丽江 → 泸沽湖</td><td data-label="天气">丽江 26/13 雨转阴</td><td data-label="提示">泸沽湖 2690m，夜里再低 2–3℃</td></tr>
-    <tr><td class="num">9/27 周日</td><td data-label="你在哪">泸沽湖 → 沙溪</td><td data-label="天气">丽江 24/15 雨 ｜ 大理 25/15 雨</td><td data-label="提示">两段都在路上</td></tr>
-    <tr><td class="num">9/28 周一</td><td data-label="你在哪">沙溪 → 普达措 → 香格里拉</td><td data-label="天气">大理 22/15 雨 ｜ 香格里拉 20/8 雨转多云</td><td data-label="提示">3300m，全程最冷的一晚</td></tr>
-    <tr><td class="num">9/29 周二</td><td data-label="你在哪">白水台 → 虎跳峡 → 丽江</td><td data-label="天气">丽江 23/14 雨</td><td data-label="提示">海拔回落，体感舒服些</td></tr>
-    <tr><td class="num">9/30 周三</td><td data-label="你在哪">玉龙雪山 → 丽江</td><td data-label="天气">丽江 21/14 雨 ｜ 云杉坪 0℃ 上下</td><td data-label="提示">薄羽绒 + 防风外套</td></tr>
-    <tr><td class="num">10/1 周四</td><td data-label="你在哪">丽江 → 昆明</td><td data-label="天气"><b>常年值</b> 丽江 23/10 ｜ 昆明 22/14</td><td data-label="提示">降雨概率约 50%</td></tr>
-    <tr><td class="num">10/2 周五</td><td data-label="你在哪">昆明（火车清晨到）</td><td data-label="天气"><b>常年值</b> 昆明 21/14</td><td data-label="提示">清晨到站偏凉，带件外套；降雨概率约 47%</td></tr>
-    <tr><td class="num">10/3 周六</td><td data-label="你在哪">昆明 → 石林</td><td data-label="天气"><b>常年值</b> 昆明 19/14</td><td data-label="提示">石林日晒强、遮荫少，注意防晒</td></tr>
-    <tr><td class="num">10/4 周日</td><td data-label="你在哪">昆明 → 武汉</td><td data-label="天气"><b>常年值</b> 昆明 约 20/14</td><td data-label="提示">返程日</td></tr>
+<tr><td class="num">9/23 周三</td><td data-label="你在哪">武汉 → 昆明 → 大理</td><td data-label="天气" class="wx" data-key="2026-09-23">大理 25/15 雨转多云</td><td data-label="提示">早班机 + 白天转车，随身带薄外套</td></tr>
+<tr><td class="num">9/24 周四</td><td data-label="你在哪">大理 · 喜洲</td><td data-label="天气" class="wx" data-key="2026-09-24">大理 25/16 雨</td><td data-label="提示">白天偏暖，午后可能下雨</td></tr>
+<tr><td class="num">9/25 周五</td><td data-label="你在哪">大理 → 丽江</td><td data-label="天气" class="wx" data-key="2026-09-25">大理 24/15 雨 ｜ 丽江 22/13 雨</td><td data-label="提示">傍晚转场，外套随身别托运</td></tr>
+<tr><td class="num">9/26 周六</td><td data-label="你在哪">丽江 → 泸沽湖</td><td data-label="天气" class="wx" data-key="2026-09-26">丽江 20/13 雨 ｜ 泸沽湖 高约 290m 更凉</td><td data-label="提示">泸沽湖海拔 2690m，夜里更低</td></tr>
+<tr><td class="num">9/27 周日</td><td data-label="你在哪">泸沽湖 → 沙溪</td><td data-label="天气" class="wx" data-key="2026-09-27">泸沽湖 / 沙溪</td><td data-label="提示">两段都在路上</td></tr>
+<tr><td class="num">9/28 周一</td><td data-label="你在哪">沙溪 → 普达措 → 香格里拉</td><td data-label="天气" class="wx" data-key="2026-09-28">大理 24/14 ｜ 香格里拉 18/7</td><td data-label="提示">3300m，全程最冷的一晚</td></tr>
+<tr><td class="num">9/29 周二</td><td data-label="你在哪">白水台 → 虎跳峡 → 丽江</td><td data-label="天气" class="wx" data-key="2026-09-29">丽江 24/11 雨</td><td data-label="提示">海拔回落，体感舒服些</td></tr>
+<tr><td class="num">9/30 周三</td><td data-label="你在哪">玉龙雪山 → 丽江</td><td data-label="天气" class="wx" data-key="2026-09-30">丽江 22/11 雨 ｜ 云杉坪 0℃ 上下</td><td data-label="提示">薄羽绒 + 防风外套</td></tr>
+<tr><td class="num">10/1 周四</td><td data-label="你在哪">丽江 → 昆明（过夜车）</td><td data-label="天气" class="wx" data-key="2026-10-01"><b>常年值</b> 丽江 23/10 ｜ 昆明 22/14</td><td data-label="提示">降雨概率约 50%</td></tr>
+<tr><td class="num">10/2 周五</td><td data-label="你在哪">昆明（火车清晨到）</td><td data-label="天气" class="wx" data-key="2026-10-02"><b>常年值</b> 昆明 21/14</td><td data-label="提示">清晨到站偏凉，带件外套</td></tr>
+<tr><td class="num">10/3 周六</td><td data-label="你在哪">昆明 → 石林</td><td data-label="天气" class="wx" data-key="2026-10-03"><b>常年值</b> 昆明 19/14</td><td data-label="提示">石林日晒强、遮荫少，注意防晒</td></tr>
+<tr><td class="num">10/4 周日</td><td data-label="你在哪">昆明 → 武汉</td><td data-label="天气" class="wx" data-key="2026-10-04"><b>常年值</b> 昆明 约 20/14</td><td data-label="提示">返程日</td></tr>
   </table>
   </div>
-  <p class="kv">单位 ℃。<b>9/23–9/30 是中国天气网（中央气象台）逐日预报；10/1–10/4 超出可预报范围，用的是历史均值（气候常年值）</b>，表里已逐行标注，别当预报看。<br>
-    泸沽湖、沙溪没有独立站点，分别取最近的丽江、大理数据：<b>泸沽湖海拔 2690m，比丽江还高约 290m，夜间体感再低 2–3℃</b>；沙溪海拔约 2100m，与大理接近。</p>
+  <p class="kv">表格<b>联网打开时会自动拉最新预报</b>（数据源 Open-Meteo，含泸沽湖、沙溪的真实坐标），点右上角「刷新」可手动重取；<b>离线或超出预报期时，显示的是内置参考值</b>——那部分标着「常年值」，是气候平均，不是预报。单位 ℃。</p>
 
   <div class="bx info">
     <b>结论一句话：</b>按「洋葱式三层 + 防水外壳」准备。<br>
@@ -633,5 +642,83 @@ footer b{color:var(--ink2);font-weight:600}
 </footer>
 
 </div>
+
+<script>
+(function () {
+  var PLACES = {
+    "武汉": [30.59, 114.30], "昆明": [24.88, 102.83], "大理": [25.87, 100.13],
+    "丽江": [26.87, 100.23], "泸沽湖": [27.70, 100.78], "沙溪": [26.33, 99.85],
+    "香格里拉": [27.83, 99.70], "石林": [24.77, 103.27]
+  };
+  var DAY = {
+    "2026-09-23": ["大理"], "2026-09-24": ["大理"], "2026-09-25": ["大理", "丽江"],
+    "2026-09-26": ["丽江", "泸沽湖"], "2026-09-27": ["泸沽湖", "沙溪"],
+    "2026-09-28": ["沙溪", "香格里拉"], "2026-09-29": ["丽江"], "2026-09-30": ["丽江"],
+    "2026-10-01": ["丽江", "昆明"], "2026-10-02": ["昆明"], "2026-10-03": ["石林"],
+    "2026-10-04": ["昆明"]
+  };
+  var WC = {0:"晴",1:"晴间多云",2:"多云",3:"阴",45:"有雾",48:"雾凇",51:"毛毛雨",53:"毛毛雨",55:"毛毛雨",
+    56:"冻雨",57:"冻雨",61:"小雨",63:"中雨",65:"大雨",66:"冻雨",67:"冻雨",71:"小雪",73:"中雪",75:"大雪",
+    77:"雪粒",80:"阵雨",81:"阵雨",82:"强阵雨",85:"阵雪",86:"阵雪",95:"雷阵雨",96:"雷阵雨伴冰雹",99:"雷阵雨伴冰雹"};
+  var state = document.getElementById("wxstate");
+  var btn = document.getElementById("wxbtn");
+  var cells = document.querySelectorAll(".wx");
+
+  function textOf(t) { return (t || "").replace(/\s+/g, " ").trim(); }
+
+  function one(name) {
+    var c = PLACES[name];
+    if (!c) return Promise.resolve(null);
+    var url = "https://api.open-meteo.com/v1/forecast?latitude=" + c[0] + "&longitude=" + c[1] +
+      "&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max,weather_code" +
+      "&timezone=Asia%2FShanghai&forecast_days=16";
+    return fetch(url, { cache: "no-store" }).then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (j) {
+        if (!j || !j.daily || !j.daily.time) return null;
+        var d = j.daily, m = {};
+        for (var i = 0; i < d.time.length; i++) {
+          m[d.time[i]] = {
+            hi: Math.round(d.temperature_2m_max[i]), lo: Math.round(d.temperature_2m_min[i]),
+            pp: d.precipitation_probability_max ? d.precipitation_probability_max[i] : null,
+            wc: d.weather_code ? d.weather_code[i] : null
+          };
+        }
+        return m;
+      }).catch(function () { return null; });
+  }
+
+  function run() {
+    if (!window.fetch) return;
+    state.textContent = "正在获取最新预报…";
+    var names = Object.keys(PLACES), jobs = names.map(one);
+    Promise.all(jobs).then(function (res) {
+      var data = {}, ok = 0;
+      names.forEach(function (n, i) { data[n] = res[i]; if (res[i]) ok++; });
+      if (!ok) {
+        state.textContent = "未能获取实时预报（可能离线）— 下表为内置参考值";
+        return;
+      }
+      var hit = 0;
+      cells.forEach(function (el) {
+        var key = el.getAttribute("data-key"), list = DAY[key] || [];
+        var out = [];
+        for (var i = 0; i < list.length; i++) {
+          var n = list[i], v = data[n] && data[n][key];
+          if (v) out.push(n + " " + v.hi + "/" + v.lo + "℃ " + (WC[v.wc] || "") +
+            (v.pp != null ? "（降水 " + v.pp + "%）" : ""));
+        }
+        if (out.length) { el.innerHTML = out.join("<br>"); hit++; }
+      });
+      var now = new Date();
+      var hh = ("0" + now.getHours()).slice(-2), mm = ("0" + now.getMinutes()).slice(-2);
+      state.textContent = "已更新 " + hit + "/" + cells.length + " 天 · " + hh + ":" + mm +
+        " · 数据源 Open-Meteo" + (hit < cells.length ? "（其余日期超出预报期，显示常年值）" : "");
+    });
+  }
+
+  if (btn) btn.addEventListener("click", function (e) { e.preventDefault(); run(); });
+  run();
+})();
+</script>
 </body>
 </html>
