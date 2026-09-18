@@ -99,6 +99,12 @@ ul.hotlist li{font-size:13.5px;line-height:1.65;padding:5px 0;border-bottom:1px 
 ul.hotlist li:last-child{border-bottom:none}
 ul.hotlist .tnum{font-variant-numeric:tabular-nums;color:var(--ink);font-weight:600}
 ul.hotlist .tag{margin-left:2px}
+div.dinfo{margin-top:12px;padding:8px 13px;background:#F7F6F3;border:1px solid var(--line2);border-radius:10px}
+div.dinfo .drow{display:flex;gap:10px;padding:5px 0;font-size:13.5px;line-height:1.65;border-bottom:1px dashed var(--line2)}
+div.dinfo .drow:last-child{border-bottom:none}
+div.dinfo .dk{flex:0 0 34px;color:var(--ink3);font-size:12.5px;padding-top:2px;white-space:nowrap}
+div.dinfo .dv{flex:1;min-width:0;color:var(--ink2)}
+div.dinfo .dv.wx{color:var(--ink);font-variant-numeric:tabular-nums}
 div.wxbar{display:flex;align-items:center;gap:10px;margin:10px 0 12px;font-size:12.5px;color:var(--ink3)}
 #wxbtn{font:inherit;font-size:12.5px;padding:3px 12px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink2);cursor:pointer}
 #wxbtn:hover{border-color:var(--blue-line);color:var(--blue)}
@@ -130,9 +136,8 @@ footer b{color:var(--ink2);font-weight:600}
     <a href="#overview">总览</a>
     <a href="#tickets">提前预约</a>
     <a href="#days">逐日行程</a>
-    <a href="#stay">住宿</a>
-    <a href="#food">逐日美食</a>
-    <a href="#weather">天气与穿衣</a>
+    <a href="#food">美食备查</a>
+    <a href="#packing">行前打包</a>
     <a href="#cities">城市详解</a>
     <a href="#altitude">高反</a>
     <a href="#data">数据口径</a>
@@ -215,7 +220,8 @@ footer b{color:var(--ink2);font-weight:600}
 
 <section id="days">
   <h2>逐日行程</h2>
-  <p class="lead">这里只列<b>每个时间点你要做什么</b>。为什么、怎么选、避坑，都放在「住宿」「逐日美食」「城市详解」「提前预约」里。</p>
+  <p class="lead">每张卡就是那一天的全部：<b>要做什么 · 天气 · 穿什么 · 住哪 · 吃什么</b>。天气是联网实时拉的。</p>
+  <div class="wxbar"><span id="wxstate">正在获取最新预报…</span><button id="wxbtn" type="button">刷新</button></div>
 
   <div class="day free">
     <div class="hd"><span class="dt">9/23 周三</span><span class="ttl">武汉 ✈ 昆明 → 大理<span class="tag t">自由行</span></span></div>
@@ -229,6 +235,12 @@ footer b{color:var(--ink2);font-weight:600}
       <div class="row"><div class="k">15:39</div><div class="v">大理站 → SEA SEE 民宿</div></div>
       <div class="row"><div class="k">傍晚</div><div class="v">民宿看洱海日落</div></div>
       <div class="row"><div class="k">晚上</div><div class="v">就近吃饭，早点休息</div></div>
+      <div class="dinfo">
+        <div class="drow"><span class="dk">天气</span><span class="dv wx" data-key="2026-09-23">大理 25/15 雨转多云</span></div>
+        <div class="drow"><span class="dk">穿</span><span class="dv">长袖 + 薄外套（机舱和清晨偏凉）</span></div>
+        <div class="drow"><span class="dk">住</span><span class="dv">SEA SEE 海景民宿（喜洲 · 仁里邑村）</span></div>
+        <div class="drow"><span class="dk">吃</span><span class="dv">田珈琲（民宿一层）· 喜林苑 · 九隆饭庄（周城）</span></div>
+      </div>
     </div>
   </div>
 
@@ -240,6 +252,12 @@ footer b{color:var(--ink2);font-weight:600}
       <div class="row"><div class="k">下午</div><div class="v">海舌公园 → 磻溪 S 湾 → 才村（民宿借自行车）</div></div>
       <div class="row"><div class="k">傍晚</div><div class="v">回民宿看日落</div></div>
       <div class="row"><div class="k">晚上</div><div class="v">喜洲一带晚饭</div></div>
+      <div class="dinfo">
+        <div class="drow"><span class="dk">天气</span><span class="dv wx" data-key="2026-09-24">大理 25/16 雨</span></div>
+        <div class="drow"><span class="dk">穿</span><span class="dv">长袖 + 防晒，包里放薄雨衣</span></div>
+        <div class="drow"><span class="dk">住</span><span class="dv">SEA SEE 海景民宿（喜洲）</span></div>
+        <div class="drow"><span class="dk">吃</span><span class="dv">早 德生和喜洲粑粑 / 玉兰轩凉鸡米线 ｜ 午 缘来食店 / 四方街食店 ｜ 晚 喜林苑 / 佩索阿田园咖啡馆</span></div>
+      </div>
     </div>
   </div>
 
@@ -252,6 +270,12 @@ footer b{color:var(--ink2);font-weight:600}
       <div class="row"><div class="k">18:18</div><div class="v">C321 大理 → 丽江</div></div>
       <div class="row"><div class="k">20:19</div><div class="v">到丽江站，跟团接站</div></div>
       <div class="row"><div class="k">晚上</div><div class="v">入住，就近吃个宵夜</div></div>
+      <div class="dinfo">
+        <div class="drow"><span class="dk">天气</span><span class="dv wx" data-key="2026-09-25">大理 24/15 雨 ｜ 丽江 22/13 雨</span></div>
+        <div class="drow"><span class="dk">穿</span><span class="dv">长袖 + 外套（丽江夜里凉）</span></div>
+        <div class="drow"><span class="dk">住</span><span class="dv">丽江（跟团安排）</span></div>
+        <div class="drow"><span class="dk">吃</span><span class="dv">午 下关 · 老缅婆 ｜ 夜 丽江 渣渣米线（古城内 24h）</span></div>
+      </div>
     </div>
   </div>
 
@@ -260,6 +284,12 @@ footer b{color:var(--ink2);font-weight:600}
     <div class="bd">
       <div class="row"><div class="k">全天</div><div class="v">跟团：泸沽湖观景台 → 环湖（里格 / 情人滩 / 女神湾）→ 草海走婚桥</div></div>
       <div class="row"><div class="k">住</div><div class="v">泸沽湖</div></div>
+      <div class="dinfo">
+        <div class="drow"><span class="dk">天气</span><span class="dv wx" data-key="2026-09-26">丽江 20/13 ｜ 泸沽湖</span></div>
+        <div class="drow"><span class="dk">穿</span><span class="dv">长袖 + 抓绒（泸沽湖 2690m，夜里更低）</span></div>
+        <div class="drow"><span class="dk">住</span><span class="dv">泸沽湖（跟团安排）</span></div>
+        <div class="drow"><span class="dk">吃</span><span class="dv">大落水村 · 蒸汽石锅鱼 ｜ 丁布儿餐厅（里格村）</span></div>
+      </div>
     </div>
   </div>
 
@@ -269,6 +299,12 @@ footer b{color:var(--ink2);font-weight:600}
       <div class="row"><div class="k">上午</div><div class="v">跟团：猪槽船登里务比岛</div></div>
       <div class="row"><div class="k">下午</div><div class="v">跟团：沙溪古镇</div></div>
       <div class="row"><div class="k">住</div><div class="v">沙溪</div></div>
+      <div class="dinfo">
+        <div class="drow"><span class="dk">天气</span><span class="dv wx" data-key="2026-09-27">泸沽湖 ｜ 沙溪</span></div>
+        <div class="drow"><span class="dk">穿</span><span class="dv">长袖 + 薄外套（两段都在路上）</span></div>
+        <div class="drow"><span class="dk">住</span><span class="dv">沙溪（跟团安排）</span></div>
+        <div class="drow"><span class="dk">吃</span><span class="dv">初见沙溪（寺登街 58 号）｜ 龙凤瑞英清真饭店</span></div>
+      </div>
     </div>
   </div>
 
@@ -279,6 +315,12 @@ footer b{color:var(--ink2);font-weight:600}
       <div class="row"><div class="k">下午</div><div class="v">跟团：普达措国家公园 → 独克宗古城</div></div>
       <div class="row"><div class="k">住</div><div class="v">香格里拉</div></div>
       <div class="row"><div class="k">备</div><div class="v">抗高反药 + 氧气瓶（在丽江古城先买好）</div></div>
+      <div class="dinfo">
+        <div class="drow"><span class="dk">天气</span><span class="dv wx" data-key="2026-09-28">沙溪 ｜ 香格里拉 18/7</span></div>
+        <div class="drow"><span class="dk">穿</span><span class="dv">抓绒 + 薄羽绒（3300m，全程最冷的一晚）</span></div>
+        <div class="drow"><span class="dk">住</span><span class="dv">香格里拉（跟团安排）</span></div>
+        <div class="drow"><span class="dk">吃</span><span class="dv">顺顺小吃（牦牛酸奶 ¥10 / 青稞饼 ¥20）｜ 银同牛肉火锅</span></div>
+      </div>
     </div>
   </div>
 
@@ -287,6 +329,12 @@ footer b{color:var(--ink2);font-weight:600}
     <div class="bd">
       <div class="row"><div class="k">全天</div><div class="v">跟团：白水台 → 虎跳峡</div></div>
       <div class="row"><div class="k">住</div><div class="v">丽江</div></div>
+      <div class="dinfo">
+        <div class="drow"><span class="dk">天气</span><span class="dv wx" data-key="2026-09-29">丽江 24/11 雨</span></div>
+        <div class="drow"><span class="dk">穿</span><span class="dv">长袖 + 抓绒（海拔回落但仍凉）</span></div>
+        <div class="drow"><span class="dk">住</span><span class="dv">丽江（跟团安排）</span></div>
+        <div class="drow"><span class="dk">吃</span><span class="dv">腊排骨火锅 ｜ 鸡豆凉粉 ¥10 ｜ 宁蒗老地方烧烤</span></div>
+      </div>
     </div>
   </div>
 
@@ -296,6 +344,12 @@ footer b{color:var(--ink2);font-weight:600}
       <div class="row"><div class="k">全天</div><div class="v">跟团：玉龙雪山（云杉坪索道）→《印象丽江》→ 蓝月谷</div></div>
       <div class="row"><div class="k">住</div><div class="v">丽江</div></div>
       <div class="row"><div class="k">带</div><div class="v">薄羽绒服（别租，租的不干净）</div></div>
+      <div class="dinfo">
+        <div class="drow"><span class="dk">天气</span><span class="dv wx" data-key="2026-09-30">丽江 22/11 ｜ 云杉坪 0℃ 上下</span></div>
+        <div class="drow"><span class="dk">穿</span><span class="dv">薄羽绒 + 防风外套（山顶 0℃ 以下）</span></div>
+        <div class="drow"><span class="dk">住</span><span class="dv">丽江（跟团安排）</span></div>
+        <div class="drow"><span class="dk">吃</span><span class="dv">跟团含晚餐；自由加餐选古城小吃 · 牦牛酸奶 ¥30</span></div>
+      </div>
     </div>
   </div>
 
@@ -306,6 +360,12 @@ footer b{color:var(--ink2);font-weight:600}
       <div class="row"><div class="k">白天</div><div class="v">束河古镇 / 大研古城 / 忠义市场</div></div>
       <div class="row"><div class="k">20:41</div><div class="v"><b>Y754 一人软包过夜车 丽江 → 昆明</b>（次日约 05:12 到，以车票为准）</div></div>
       <div class="row"><div class="k">出发前</div><div class="v">提前 40 分钟到丽江站</div></div>
+      <div class="dinfo">
+        <div class="drow"><span class="dk">天气</span><span class="dv wx" data-key="2026-10-01">丽江 23/10 ｜ 昆明 22/14</span></div>
+        <div class="drow"><span class="dk">穿</span><span class="dv">长袖 + 外套（车上夜间凉）</span></div>
+        <div class="drow"><span class="dk">住</span><span class="dv">Y754 火车上（20:41 发）</span></div>
+        <div class="drow"><span class="dk">吃</span><span class="dv">午 丽江古城 ｜ 晚 忠义市场小吃（上火车前吃）</span></div>
+      </div>
     </div>
   </div>
 
@@ -318,6 +378,12 @@ footer b{color:var(--ink2);font-weight:600}
       <div class="row"><div class="k">中午</div><div class="v">午饭</div></div>
       <div class="row"><div class="k">下午</div><div class="v">翰城酒店办入住 + 补觉</div></div>
       <div class="row"><div class="k">晚上</div><div class="v">斗南花市</div></div>
+      <div class="dinfo">
+        <div class="drow"><span class="dk">天气</span><span class="dv wx" data-key="2026-10-02">昆明 21/14</span></div>
+        <div class="drow"><span class="dk">穿</span><span class="dv">长袖 + 薄外套（清晨到站偏凉）</span></div>
+        <div class="drow"><span class="dk">住</span><span class="dv">翰城酒店（新亚洲体育城）</span></div>
+        <div class="drow"><span class="dk">吃</span><span class="dv">早 建新园过桥米线 / 铁朋小锅米线 ｜ 午 昆明市区 ｜ 夜 斗南 · 本派臭豆腐烤鱼</span></div>
+      </div>
     </div>
   </div>
 
@@ -330,6 +396,12 @@ footer b{color:var(--ink2);font-weight:600}
       <div class="row"><div class="k">晚上</div><div class="v">回翰城酒店</div></div>
       <div class="row"><div class="k">预约</div><div class="v">提前 1–2 天线上买石林门票</div></div>
       <div class="row"><div class="k">带</div><div class="v">防滑运动鞋、水、防晒（石阶多且少遮荫）</div></div>
+      <div class="dinfo">
+        <div class="drow"><span class="dk">天气</span><span class="dv wx" data-key="2026-10-03">石林 24/16 毛毛雨</span></div>
+        <div class="drow"><span class="dk">穿</span><span class="dv">薄长袖 + 防晒 + 防滑运动鞋（日晒强、石阶多）</span></div>
+        <div class="drow"><span class="dk">住</span><span class="dv">翰城酒店（新亚洲体育城）</span></div>
+        <div class="drow"><span class="dk">吃</span><span class="dv">午 醉山翁饭店 / 堡子老二驴马肉馆（石林）｜ 晚 福照楼 · 文明街店（汽锅鸡）</span></div>
+      </div>
     </div>
   </div>
 
@@ -342,64 +414,20 @@ footer b{color:var(--ink2);font-weight:600}
       <div class="row"><div class="k">17:00 前</div><div class="v">到长水机场（提前 2.5 小时）</div></div>
       <div class="row"><div class="k">23:20</div><div class="v">东航 昆明长水 → 武汉天河</div></div>
       <div class="row"><div class="k">预约</div><div class="v">提前实名预约省博（数字云博 / 支付宝）</div></div>
+      <div class="dinfo">
+        <div class="drow"><span class="dk">天气</span><span class="dv wx" data-key="2026-10-04">昆明 约 20/14</span></div>
+        <div class="drow"><span class="dk">穿</span><span class="dv">长袖 + 薄外套</span></div>
+        <div class="drow"><span class="dk">住</span><span class="dv">返程（23:20 航班，次日凌晨到武汉）</span></div>
+        <div class="drow"><span class="dk">吃</span><span class="dv">午 官渡古镇（留焕美食 / 眼镜粑粑）｜ 晚 长水机场 B2 长兴集</span></div>
+      </div>
     </div>
   </div>
 
   </section>
 
-<section id="stay">
-  <h2>住宿</h2>
-  <p class="lead">自由行段三处落脚点都已定好。跟团那 7 天的住宿由团安排。</p>
-
-  <div class="card">
-    <div class="kv" style="font-size:15px"><b>大理 · 2 晚（9/23、9/24）</b> <span class="tag t">已订</span></div>
-    <div class="kv" style="margin-top:8px"><b>SEA SEE 海景民宿</b> ｜ 大理市喜洲镇仁里邑村 11 社（海西沿岸，环海西路）</div>
-    <div class="kv" style="margin-top:8px">6 个房间全部 180° 看洱海，三楼有观景露台；一层是 <b>SEA SEE x 田珈琲</b> 海景咖啡馆。2019 年开业，评分 4.7。</div>
-    <div class="kv" style="margin-top:8px"><b>为什么这个位置好</b>：① 就在<b>喜洲古镇</b>旁边 —— 9/24 上午出门就到，不用往古城来回折腾；② 海西沿岸是<b>日落的正面视角</b>，两个傍晚都不用赶路；③ 民宿<b>免费借自行车</b>，骑去海舌 / 磻溪 S 湾很方便；④ 位置在大理古城和双廊之间，打车自驾都顺。</div>
-    <div class="kv" style="margin-top:8px"><b>要留意</b>：① 到<b>大理站</b>约 30–40km、40–60 分钟，<b>9/25 赶 18:18 的车要 15:30 前出发</b>；② 民宿有收费接站服务，落地前先联系好；③ 周边比古城清净，餐饮也少一些，晚饭在村里或喜洲解决。</div>
-  </div>
-
-  <div class="card">
-    <div class="kv" style="font-size:15px"><b>10/1 晚 · 火车上</b> <span class="tag t">已定</span></div>
-    <div class="kv" style="margin-top:8px"><b>Y754</b> 丽江 → 昆明的一人软包过夜车（20:41 发、次日 05:12 到），不用订房。<b>车票已出</b>。</div>
-  </div>
-
-  <div class="card">
-    <div class="kv" style="font-size:15px"><b>昆明 · 2 晚（10/2、10/3）</b> <span class="tag t">已订</span></div>
-    <div class="kv" style="margin-top:8px"><b>翰城酒店（新亚洲体育城店）</b> ｜ 官渡区矣六街道新亚洲体育城民俗民间广场 D203 号</div>
-    <div class="kv" style="margin-top:8px">地铁 1 号线<b>新亚洲体育城站</b>步行可达，评分 4.8。</div>
-    <div class="kv" style="margin-top:8px"><b>为什么这个位置好</b>：它不在市中心，但正好压在你们后三天要跑的那几条线上 ——<br>
-      ① <b>斗南花市</b>（10/2 晚）：地铁 1 号线几站就到；<br>
-      ② <b>石林</b>（10/3）：<b>昆明南站就在旁边</b>（地铁 1 号线几站），高铁 25 分钟直达石林西站；<br>
-      ③ <b>云南省博物馆</b>（10/4）：同在官渡区，地铁几站 + 步行；<br>
-      ④ <b>长水机场</b>（10/4）：地铁 1→2→6 号线约 1h15，打车约 40–50 分钟。</div>
-    <div class="kv" style="margin-top:8px"><b>代价</b>：离市中心（南屏街 / 昆明老街）较远，地铁约 40 分钟 —— 但 10/2 上午那趟溜达只安排了半天，影响不大。</div>
-  </div>
-
-  <div class="bx ok"><b>两处住宿有个共同点：都压在「第二天要用的那条线上」。</b>大理那家在喜洲（9/24 整天都在那一带），昆明这家在官渡（后三天全在东南方向）。这是这趟行程里最省时间的住法。</div>
-</section>
-
 <section id="food">
-  <h2>逐日美食</h2>
-  <p class="lead">人均全部控制在 <b>¥200 以内</b>。下面两张：先是按行程排的逐日推荐（来自点评平台与小红书帖的交叉核对），再是<b>刚刚用你自己账号实时抓取的小红书热帖</b>。跟团那几天正餐多已含，所以只给自由时间的觅食点。</p>
-
-  <div class="tscroll">
-  <table>
-    <tr><th>日期</th><th>在哪吃</th><th>推荐（人均）</th></tr>
-    <tr><td class="num">9/23 周三</td><td data-label="在哪吃">大理（晚 · 民宿一带）</td><td data-label="推荐">田珈琲（SEA SEE 一层，海景咖啡，人均约 ¥40）｜ 喜洲古镇内：喜林苑（云南菜，约 ¥80）· 九隆饭庄（周城，约 ¥60）</td></tr>
-    <tr><td class="num">9/24 周四</td><td data-label="在哪吃">大理 · 喜洲（早 / 午 / 晚）</td><td data-label="推荐"><b>早</b> 德生和喜洲粑粑（喜洲四方街，¥10/个）· 玉兰轩凉鸡米线（¥10/碗）· 啊马英豌豆粉（市上街 40 号，¥10）<br><b>午</b> 缘来食店（喜洲古镇内，¥60–80）· 四方街食店（严家大院旁，¥40–60）<br><b>晚</b> 喜林苑（喜洲，云南菜约 ¥80，二层露台可喝下午茶）· 佩索阿田园咖啡馆（喜洲，烤奶茶）</td></tr>
-    <tr><td class="num">9/25 周五</td><td data-label="在哪吃">大理（午）→ 丽江（夜）</td><td data-label="推荐"><b>午 · 下关，离大理站可步行</b> 老缅婆（云南菜，人均约 ¥60）· 喃咪傣傣味餐厅（距站约 1km，¥53）<br><b>夜 · 丽江</b> 渣渣米线（古城内，24h，¥38–98）</td></tr>
-    <tr><td class="num">9/26 周六</td><td data-label="在哪吃">泸沽湖</td><td data-label="推荐">大落水村·蒸汽石锅鱼（草帽石锅鱼，¥60–80）· 丁布儿餐厅（里格村中段，猪膘肉 / 猪血肠，¥69）</td></tr>
-    <tr><td class="num">9/27 周日</td><td data-label="在哪吃">沙溪</td><td data-label="推荐">初见沙溪（寺登街 58 号，约 ¥50）· 龙凤瑞英清真饭店（牛肉火锅 / 饵丝，约 ¥50）</td></tr>
-    <tr><td class="num">9/28 周一</td><td data-label="在哪吃">香格里拉 · 独克宗</td><td data-label="推荐">顺顺小吃（古城内；牦牛酸奶 ¥10、青稞饼 ¥20、藏式披萨 ¥35）· 银同牛肉火锅（四方街依若木廊 25 号，约 ¥50）</td></tr>
-    <tr><td class="num">9/29 周二</td><td data-label="在哪吃">丽江</td><td data-label="推荐">腊排骨火锅（人均 ¥80–100）· 鸡豆凉粉 ¥10 · 宁蒗老地方烧烤（祥和路，¥60–80）</td></tr>
-    <tr><td class="num">9/30 周三</td><td data-label="在哪吃">丽江</td><td data-label="推荐">跟团一般含晚餐；自由加餐选古城小吃 —— 烤乳扇 ¥5–10、牦牛酸奶 ¥30</td></tr>
-    <tr><td class="num">10/1 周四</td><td data-label="在哪吃">昆明（晚 + 夜市）</td><td data-label="推荐">建新园 · 宝善街总店（过桥米线 ¥30–45）｜ 南强街巷夜市（舂鸡脚 / 包浆豆腐 / 小锅米线，¥40–50）</td></tr>
-    <tr><td class="num">10/2 周五</td><td data-label="在哪吃">昆明（早 / 午 / 夜）</td><td data-label="推荐"><b>早</b> 建新园 · 宝善街总店（过桥米线 ¥30–45）· 铁朋小锅米线（吴井路，¥17）<br><b>午</b> 昆明市区（南屏街 / 昆明老街一带）<br><b>夜 · 斗南</b> 本派臭豆腐烤鱼 · 斗南店（斗南花花世界 8 栋 130 号，¥46）</td></tr>
-    <tr><td class="num">10/3 周六</td><td data-label="在哪吃">石林（午）→ 昆明（晚）</td><td data-label="推荐"><b>午</b> 醉山翁饭店（石林街道小菁村 139 号，¥40）· 堡子老二驴马肉馆（小炒马肉；人均未检索到确切信息）<br><b>晚</b> 福照楼 · 文明街店（汽锅鸡，¥60）</td></tr>
-    <tr><td class="num">10/4 周日</td><td data-label="在哪吃">官渡（午）→ 机场（晚）</td><td data-label="推荐"><b>午</b> 留焕美食（官渡古镇，豆花米线 / 炒饵块；人均未检索到确切信息）· 眼镜粑粑（官渡粑粑 ¥3–6/个）<br><b>晚</b> 长兴集美食萃（长水机场 B2，同城同价，¥20 左右）</td></tr>
-  </table>
-  </div>
+  <h2>美食备查</h2>
+  <p class="lead">每天的吃已经写进日卡了。这里留三样备查：<b>小红书实况热帖</b>、<b>各城必吃单品参考价</b>、<b>避坑</b>。全部人均 ¥200 以内。</p>
 
   <h3>小红书实况热帖</h3>
   <p class="kv">下面是用你自己的账号、经本地扩展在<b>小红书实时抓取</b>的搜索结果，抓取时间 <b>2026-09-16</b>，已按点赞数排序。<b>标题本身就是线索</b> —— 想细看哪条，去小红书搜标题即可。<br>
@@ -489,41 +517,14 @@ footer b{color:var(--ink2);font-weight:600}
   </div>
 </section>
 
-<section id="weather">
-  <h2>天气与穿衣</h2>
-  <p class="lead">这一路的天气关键词是「雨多」和「昼夜温差大」。白天能到 27℃，但到了香格里拉夜里只有 5–7℃，玉龙雪山山顶在 0℃ 以下。</p>
-
-  <h3>按行程逐日 · 只列你要去的地方</h3>
-  <p class="kv">你在哪天、在哪个地方，就只看那一格 —— 不去的地方不列。</p>
-
-  <div class="wxbar">
-    <span id="wxstate">正在获取最新预报…</span>
-    <button id="wxbtn" type="button">刷新</button>
-  </div>
-
-  <div class="tscroll">
-  <table id="wxtable">
-    <tr><th>日期</th><th>你在哪</th><th>天气（最高 / 最低）</th><th>提示</th></tr>
-<tr><td class="num">9/23 周三</td><td data-label="你在哪">武汉 → 昆明 → 大理</td><td data-label="天气" class="wx" data-key="2026-09-23">大理 25/15 雨转多云</td><td data-label="提示">早班机 + 白天转车，随身带薄外套</td></tr>
-<tr><td class="num">9/24 周四</td><td data-label="你在哪">大理 · 喜洲</td><td data-label="天气" class="wx" data-key="2026-09-24">大理 25/16 雨</td><td data-label="提示">白天偏暖，午后可能下雨</td></tr>
-<tr><td class="num">9/25 周五</td><td data-label="你在哪">大理 → 丽江</td><td data-label="天气" class="wx" data-key="2026-09-25">大理 24/15 雨 ｜ 丽江 22/13 雨</td><td data-label="提示">傍晚转场，外套随身别托运</td></tr>
-<tr><td class="num">9/26 周六</td><td data-label="你在哪">丽江 → 泸沽湖</td><td data-label="天气" class="wx" data-key="2026-09-26">丽江 20/13 雨 ｜ 泸沽湖 高约 290m 更凉</td><td data-label="提示">泸沽湖海拔 2690m，夜里更低</td></tr>
-<tr><td class="num">9/27 周日</td><td data-label="你在哪">泸沽湖 → 沙溪</td><td data-label="天气" class="wx" data-key="2026-09-27">泸沽湖 / 沙溪</td><td data-label="提示">两段都在路上</td></tr>
-<tr><td class="num">9/28 周一</td><td data-label="你在哪">沙溪 → 普达措 → 香格里拉</td><td data-label="天气" class="wx" data-key="2026-09-28">大理 24/14 ｜ 香格里拉 18/7</td><td data-label="提示">3300m，全程最冷的一晚</td></tr>
-<tr><td class="num">9/29 周二</td><td data-label="你在哪">白水台 → 虎跳峡 → 丽江</td><td data-label="天气" class="wx" data-key="2026-09-29">丽江 24/11 雨</td><td data-label="提示">海拔回落，体感舒服些</td></tr>
-<tr><td class="num">9/30 周三</td><td data-label="你在哪">玉龙雪山 → 丽江</td><td data-label="天气" class="wx" data-key="2026-09-30">丽江 22/11 雨 ｜ 云杉坪 0℃ 上下</td><td data-label="提示">薄羽绒 + 防风外套</td></tr>
-<tr><td class="num">10/1 周四</td><td data-label="你在哪">丽江 → 昆明（过夜车）</td><td data-label="天气" class="wx" data-key="2026-10-01"><b>常年值</b> 丽江 23/10 ｜ 昆明 22/14</td><td data-label="提示">降雨概率约 50%</td></tr>
-<tr><td class="num">10/2 周五</td><td data-label="你在哪">昆明（火车清晨到）</td><td data-label="天气" class="wx" data-key="2026-10-02"><b>常年值</b> 昆明 21/14</td><td data-label="提示">清晨到站偏凉，带件外套</td></tr>
-<tr><td class="num">10/3 周六</td><td data-label="你在哪">昆明 → 石林</td><td data-label="天气" class="wx" data-key="2026-10-03"><b>常年值</b> 昆明 19/14</td><td data-label="提示">石林日晒强、遮荫少，注意防晒</td></tr>
-<tr><td class="num">10/4 周日</td><td data-label="你在哪">昆明 → 武汉</td><td data-label="天气" class="wx" data-key="2026-10-04"><b>常年值</b> 昆明 约 20/14</td><td data-label="提示">返程日</td></tr>
-  </table>
-  </div>
-  <p class="kv">表格<b>联网打开时会自动拉最新预报</b>（数据源 Open-Meteo，含泸沽湖、沙溪的真实坐标），点右上角「刷新」可手动重取；<b>离线或超出预报期时，显示的是内置参考值</b>——那部分标着「常年值」，是气候平均，不是预报。单位 ℃。</p>
+<section id="packing">
+  <h2>行前打包</h2>
+  <p class="lead">逐日天气和当天穿什么，已经放进每张日卡里了。这一节只管<b>装箱</b>：一次备齐，路上不用再想。</p>
 
   <div class="bx info">
     <b>结论一句话：</b>按「洋葱式三层 + 防水外壳」准备。<br>
     白天在昆明 / 大理穿一件长袖就够；到香格里拉和玉龙雪山，白天要加抓绒 + 薄羽绒；夜里普达措、香格里拉一带接近 5℃，<b>薄羽绒服是刚需，不是备选</b>。<br>
-    这 12 天里有 8 天预报有雨 —— <b>防水比保暖更重要</b>，鞋和外套这两件别省。
+    这一路雨天天数不少 —— <b>防水比保暖更重要</b>，鞋和外套这两件别省。
   </div>
 
   <h3>带衣清单（1 人份，2 人各备一套）</h3>
